@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Brower-sync多平台调试利器 | DaceYu_Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="子曰：“工欲善其事，必先利其器…….”辣么就向各位推荐Brower-sync，多平台调试利器，好用得很!!!
+
+Brower-sync是干嘛用的1.与LiveReloader相似，用于页面的自动刷新；2.但是Browser-sync做的更完美，比如说：
+
+你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Brower-sync多平台调试利器">
+<meta property="og:url" content="http://daceyu.com/2015/11/25/brower-sync/index.html">
+<meta property="og:site_name" content="DaceYu_Space">
+<meta property="og:description" content="子曰：“工欲善其事，必先利其器…….”辣么就向各位推荐Brower-sync，多平台调试利器，好用得很!!!
+
+Brower-sync是干嘛用的1.与LiveReloader相似，用于页面的自动刷新；2.但是Browser-sync做的更完美，比如说：
+
+你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷">
+<meta property="og:image" content="http://daceyu.com/content/images/2015/11/1-2.png">
+<meta property="og:image" content="http://daceyu.com/content/images/2015/11/2-2.png">
+<meta property="og:updated_time" content="2016-01-13T13:19:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Brower-sync多平台调试利器">
+<meta name="twitter:description" content="子曰：“工欲善其事，必先利其器…….”辣么就向各位推荐Brower-sync，多平台调试利器，好用得很!!!
+
+Brower-sync是干嘛用的1.与LiveReloader相似，用于页面的自动刷新；2.但是Browser-sync做的更完美，比如说：
+
+你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷">
+  
+    <link rel="alternative" href="/atom.xml" title="DaceYu_Space" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/me.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Daceyu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">敲代码的日子总是充实的，一旦闲下来....</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/“mailto:282458320@qq.com"" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/#" title="GitHub"></a></li>
+                            
+                                <li id="知乎"><a class="知乎" target="_blank" href="/zhihu" title="知乎"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=282458320&websitename=im.qq.com" title="QQ"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://huangbingbing.com">BingB</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://wangxinze.com">BigBG</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zhouyutao.com">TBorther</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.netcan666.com">Netcan</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MoxFive</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Daceyu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/me.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Daceyu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">敲代码的日子总是充实的，一旦闲下来....</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/“mailto:282458320@qq.com"" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/#" title="GitHub"></a></li>
+                            
+                                <li id="知乎"><a class="知乎" target="_blank" href="/zhihu" title="知乎"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=282458320&websitename=im.qq.com" title="QQ"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-brower-sync" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/25/brower-sync/" class="article-date">
+      <time datetime="2015-11-25T08:10:41.000Z" itemprop="datePublished">2015-11-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Brower-sync多平台调试利器
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D"><a href="#u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D" class="headerlink" title="子曰：“工欲善其事，必先利其器…….”"></a>子曰：“工欲善其事，必先利其器…….”</h3><p>辣么就向各位推荐Brower-sync，多平台调试利器，好用得很!!!</p>
+<hr>
+<h3 id="Brower-sync_u662F_u5E72_u561B_u7528_u7684"><a href="#Brower-sync_u662F_u5E72_u561B_u7528_u7684" class="headerlink" title="Brower-sync是干嘛用的"></a>Brower-sync是干嘛用的</h3><p>1.与LiveReloader相似，用于页面的自动刷新；<br>2.但是Browser-sync做的更完美，比如说：</p>
+<blockquote>
+<p>你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷新的时候是很有用的。假设你正在开发单页应用的第4页，刷新页面就会导致你回到开始页。使用LiveReload的话，你就需要在每次改变代码之后还需要点击四次，而当你修改CSS时，插入一些变化时，BrowserSync会直接将需要修改的地方添加进CSS，就不用再点击回退</p>
+</blockquote>
+<p>3.BrowserSync提供了一种在多个浏览器(<strong>不管是pc端还是移动端</strong>)里测试网页的很好方式</p>
+<blockquote>
+<p>BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在电脑和iPhone上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。</p>
+</blockquote>
+<p>4.此外BrowserSync还不同于LiveReloader，它不需要使用浏览器插件</p>
+<hr>
+<h3 id="u5B89_u88C5Brower-sync"><a href="#u5B89_u88C5Brower-sync" class="headerlink" title="安装Brower-sync"></a>安装Brower-sync</h3><ul>
+<li>安装node.js：<br><code>如果已安装node，忽略这一步</code></li>
+<li>安装Browser-sync<br><code>npm install -g browser-sync</code></li>
+</ul>
+<hr>
+<h3 id="u4F7F_u7528Brower-sync"><a href="#u4F7F_u7528Brower-sync" class="headerlink" title="使用Brower-sync"></a>使用Brower-sync</h3><h5 id="u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55"><a href="#u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55" class="headerlink" title="最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录"></a>最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">--app</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">--js</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--main.js</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--scroll.js</span><br><span class="line"></span>|<span class="string">   </span>|</span><br><span class="line">|<span class="string">   </span>|<span class="string">--css</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--normalize.css</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--main.css</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--scroll.css</span><br><span class="line"></span>|<span class="string">   </span>|</span><br><span class="line">|<span class="string">   </span>|<span class="string">--images</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--1.png</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--2.png</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--....</span><br><span class="line"></span>|</span><br><span class="line">|<span class="string">--index.html</span><br><span class="line"></span>|<span class="string">--hello.html</span></span><br></pre></td></tr></table></figure>
+<p>只需cd到<em>app</em>文件夹然后在终端中输入<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser-<span class="keyword">sync</span> start --server --<span class="keyword">files</span> <span class="string">"**"</span></span><br></pre></td></tr></table></figure></p>
+<p>然后你就会发现index.html会在浏览器中以<code>localhost:3000</code>端口自动打开;<br>需要注意的是如果你html文件如果不是<code>index.html</code>浏览器会反馈<code>Cannot GET /</code>,不用担心，你只需在地址栏输入相应的html文件名，如上文件目录<code>hello.html</code>，输入<code>localhost:3000/hello.html</code>回车，OK，nice!<br><br></p>
+<p>#####单个文件监听<br>比如你只想监听<code>app</code>目录下的<code>main.css</code>文件的变化，那么你只需进入app文件目录，然后<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser-<span class="keyword">sync</span> start --server --<span class="keyword">files</span> <span class="string">"css/main.css"</span></span><br></pre></td></tr></table></figure></p>
+<p>或者监听所有css文件变化<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser-<span class="keyword">sync</span> start --server --<span class="keyword">files</span> <span class="string">"css/*.css"</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="gulp_26amp_3BBrower-sync"><a href="#gulp_26amp_3BBrower-sync" class="headerlink" title="gulp&amp;Brower-sync"></a>gulp&amp;Brower-sync</h3><p>’高级‘用法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * This example:</span><br><span class="line"> *  监听app文件夹目录下的所有文档，并实时刷新</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> gulp        = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</span><br><span class="line">    browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> files = [   <span class="comment">//监听文件类</span></span><br><span class="line">    <span class="string">'app/*.html'</span>,</span><br><span class="line">    <span class="string">'app/css/*.css'</span>,</span><br><span class="line">    <span class="string">'app/js/*js'</span></span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  browserSync.init(files,&#123;</span><br><span class="line">    server: &#123;</span><br><span class="line">            baseDir: <span class="string">"./app"</span>, <span class="comment">//指定根目录</span></span><br><span class="line">            index: <span class="string">"index.html"</span> <span class="comment">//指定默认打开的html文件名，可以加入文件夹入径（比如./src/home.html）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Default task to be run with `gulp`</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">"browser-sync"</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>不明白gulp的童鞋自行google，就不多累赘了。</p>
+<hr>
+<p>以上均为较为普遍的做法，可以根据自己的项目需求自定义配置，更多用法详见</p>
+<p><a href="http://www.browsersync.io/docs/gulp/" target="_blank" rel="external">brower-sync官方文档</a></p>
+<p><a href="http://www.browsersync.io/" target="_blank" rel="external">Browser-sync官网</a></p>
+<hr>
+<h3 id="Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD"><a href="#Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD" class="headerlink" title="Brower-sync相关功能模块介绍"></a>Brower-sync相关功能模块介绍</h3><h4 id="u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A"><a href="#u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A" class="headerlink" title="当启动browser-sync服务后终端会有如下显示："></a>当启动browser-sync服务后终端会有如下显示：</h4><p><img src="/content/images/2015/11/1-2.png" alt="Alt text"></p>
+<blockquote>
+<p>如果PC在宽带连接上网的情况下开放的 External端口，即使不在同一局域网内也可以访问到你的页面，实测有效，</p>
+<p>必须是宽带有线连接才有效，但如果是路由器中接入的网线是无效的，只能同一局域网才能访问</p>
+<h4 id="u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A"><a href="#u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A" class="headerlink" title="在浏览器中输入打开UI界面如下："></a>在浏览器中输入打开UI界面如下：</h4><p><img src="/content/images/2015/11/2-2.png" alt=""><br>BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在PC和移动设备上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。</p>
+<p><strong>这些，在这个界面都可以自行修改</strong></p>
+</blockquote>
+<hr>
+<h5 id="u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002"><a href="#u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002" class="headerlink" title="如有不足之处，欢迎补充拍砖。。。。"></a>如有不足之处，欢迎补充拍砖。。。。</h5>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2015/11/25/brower-sync/">Brower-sync多平台调试利器</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Daceyu 的个人博客">Daceyu</a></p>
+        <p><span>发布时间:</span>2015年11月25日 - 16时10分</p>
+        <p><span>最后更新:</span>2016年01月13日 - 21时19分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2015/11/25/brower-sync/" title="Brower-sync多平台调试利器">http://daceyu.com/2015/11/25/brower-sync/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://daceyu.com/2015/11/25/brower-sync/　　作者: Daceyu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/11/22/CSS-HACK/">
+                    CSS HACK
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D"><span class="toc-number">1.</span> <span class="toc-text">子曰：“工欲善其事，必先利其器…….”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Brower-sync_u662F_u5E72_u561B_u7528_u7684"><span class="toc-number">2.</span> <span class="toc-text">Brower-sync是干嘛用的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5Brower-sync"><span class="toc-number">3.</span> <span class="toc-text">安装Brower-sync</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528Brower-sync"><span class="toc-number">4.</span> <span class="toc-text">使用Brower-sync</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55"><span class="toc-number">4.0.1.</span> <span class="toc-text">最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp_26amp_3BBrower-sync"><span class="toc-number">5.</span> <span class="toc-text">gulp&Brower-sync</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD"><span class="toc-number">6.</span> <span class="toc-text">Brower-sync相关功能模块介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A"><span class="toc-number">6.1.</span> <span class="toc-text">当启动browser-sync服务后终端会有如下显示：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A"><span class="toc-number">6.2.</span> <span class="toc-text">在浏览器中输入打开UI界面如下：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002"><span class="toc-number">6.2.1.</span> <span class="toc-text">如有不足之处，欢迎补充拍砖。。。。</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2015/11/25/brower-sync/" data-title="Brower-sync多平台调试利器" data-url="http://daceyu.com/2015/11/25/brower-sync/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <!-- <script type="text/javascript">
+    var duoshuoQuery = {short_name:"http://daceyu.duoshuo.com"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script> -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"daceyu"};
+    	(function() {
+    		var ds = document.createElement('script');
+    		ds.type = 'text/javascript';ds.async = true;
+    		// ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.src='http://daceyu.com/js/embed.js';
+        ds.charset = 'UTF-8';
+    		(document.getElementsByTagName('head')[0]
+    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+    	})();
+	</script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/11/22/CSS-HACK/" title="下一篇: CSS HACK">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/brower-sync/">Brower-sync多平台调试利器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/22/CSS-HACK/">CSS HACK</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/17/amination/">动画设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/22/ps/">PS切图插件cutterman</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/17/响应式布局/">响应式布局简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/08/同步请求异步请求/">关于同步请求跟异步请求 的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/29/chrome-ajax/">配置chrome支持本地（file协议）ajax请求</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Daceyu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

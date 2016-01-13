@@ -146,7 +146,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/自用笔记/" style="font-size: 10px;">自用笔记</a>
+                        <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
                     </div>
                 </section>
                 
@@ -232,6 +232,105 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-brower-sync" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/25/brower-sync/" class="article-date">
+      <time datetime="2015-11-25T08:10:41.000Z" itemprop="datePublished">2015-11-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/25/brower-sync/">Brower-sync多平台调试利器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D"><a href="#u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D" class="headerlink" title="子曰：“工欲善其事，必先利其器…….”"></a>子曰：“工欲善其事，必先利其器…….”</h3><p>辣么就向各位推荐Brower-sync，多平台调试利器，好用得很!!!</p>
+<hr>
+<h3 id="Brower-sync_u662F_u5E72_u561B_u7528_u7684"><a href="#Brower-sync_u662F_u5E72_u561B_u7528_u7684" class="headerlink" title="Brower-sync是干嘛用的"></a>Brower-sync是干嘛用的</h3><p>1.与LiveReloader相似，用于页面的自动刷新；<br>2.但是Browser-sync做的更完美，比如说：</p>
+<blockquote>
+<p>你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷新的时候是很有用的。假设你正在开发单页应用的第4页，刷新页面就会导致你回到开始页。使用LiveReload的话，你就需要在每次改变代码之后还需要点击四次，而当你修改CSS时，插入一些变化时，BrowserSync会直接将需要修改的地方添加进CSS，就不用再点击回退</p>
+</blockquote>
+<p>3.BrowserSync提供了一种在多个浏览器(<strong>不管是pc端还是移动端</strong>)里测试网页的很好方式</p>
+<blockquote>
+<p>BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在电脑和iPhone上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。</p>
+</blockquote>
+<p>4.此外BrowserSync还不同于LiveReloader，它不需要使用浏览器插件</p>
+<hr>
+<h3 id="u5B89_u88C5Brower-sync"><a href="#u5B89_u88C5Brower-sync" class="headerlink" title="安装Brower-sync"></a>安装Brower-sync</h3><ul>
+<li>安装node.js：<br><code>如果已安装node，忽略这一步</code></li>
+<li>安装Browser-sync<br><code>npm install -g browser-sync</code></li>
+</ul>
+<hr>
+<h3 id="u4F7F_u7528Brower-sync"><a href="#u4F7F_u7528Brower-sync" class="headerlink" title="使用Brower-sync"></a>使用Brower-sync</h3><h5 id="u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55"><a href="#u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55" class="headerlink" title="最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录"></a>最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">--app</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">--js</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--main.js</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--scroll.js</span><br><span class="line"></span>|<span class="string">   </span>|</span><br><span class="line">|<span class="string">   </span>|<span class="string">--css</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--normalize.css</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--main.css</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--scroll.css</span><br><span class="line"></span>|<span class="string">   </span>|</span><br><span class="line">|<span class="string">   </span>|<span class="string">--images</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--1.png</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--2.png</span><br><span class="line"></span>|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--....</span><br><span class="line"></span>|</span><br><span class="line">|<span class="string">--index.html</span><br><span class="line"></span>|<span class="string">--hello.html</span></span><br></pre></td></tr></table></figure>
+<p>只需cd到<em>app</em>文件夹然后在终端中输入<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser-<span class="keyword">sync</span> start --server --<span class="keyword">files</span> <span class="string">"**"</span></span><br></pre></td></tr></table></figure></p>
+<p>然后你就会发现index.html会在浏览器中以<code>localhost:3000</code>端口自动打开;<br>需要注意的是如果你html文件如果不是<code>index.html</code>浏览器会反馈<code>Cannot GET /</code>,不用担心，你只需在地址栏输入相应的html文件名，如上文件目录<code>hello.html</code>，输入<code>localhost:3000/hello.html</code>回车，OK，nice!<br><br></p>
+<p>#####单个文件监听<br>比如你只想监听<code>app</code>目录下的<code>main.css</code>文件的变化，那么你只需进入app文件目录，然后<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser-<span class="keyword">sync</span> start --server --<span class="keyword">files</span> <span class="string">"css/main.css"</span></span><br></pre></td></tr></table></figure></p>
+<p>或者监听所有css文件变化<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser-<span class="keyword">sync</span> start --server --<span class="keyword">files</span> <span class="string">"css/*.css"</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="gulp_26amp_3BBrower-sync"><a href="#gulp_26amp_3BBrower-sync" class="headerlink" title="gulp&amp;Brower-sync"></a>gulp&amp;Brower-sync</h3><p>’高级‘用法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * This example:</span><br><span class="line"> *  监听app文件夹目录下的所有文档，并实时刷新</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> gulp        = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</span><br><span class="line">    browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> files = [   <span class="comment">//监听文件类</span></span><br><span class="line">    <span class="string">'app/*.html'</span>,</span><br><span class="line">    <span class="string">'app/css/*.css'</span>,</span><br><span class="line">    <span class="string">'app/js/*js'</span></span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  browserSync.init(files,&#123;</span><br><span class="line">    server: &#123;</span><br><span class="line">            baseDir: <span class="string">"./app"</span>, <span class="comment">//指定根目录</span></span><br><span class="line">            index: <span class="string">"index.html"</span> <span class="comment">//指定默认打开的html文件名，可以加入文件夹入径（比如./src/home.html）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Default task to be run with `gulp`</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">"browser-sync"</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>不明白gulp的童鞋自行google，就不多累赘了。</p>
+<hr>
+<p>以上均为较为普遍的做法，可以根据自己的项目需求自定义配置，更多用法详见</p>
+<p><a href="http://www.browsersync.io/docs/gulp/" target="_blank" rel="external">brower-sync官方文档</a></p>
+<p><a href="http://www.browsersync.io/" target="_blank" rel="external">Browser-sync官网</a></p>
+<hr>
+<h3 id="Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD"><a href="#Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD" class="headerlink" title="Brower-sync相关功能模块介绍"></a>Brower-sync相关功能模块介绍</h3><h4 id="u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A"><a href="#u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A" class="headerlink" title="当启动browser-sync服务后终端会有如下显示："></a>当启动browser-sync服务后终端会有如下显示：</h4><p><img src="/content/images/2015/11/1-2.png" alt="Alt text"></p>
+<blockquote>
+<p>如果PC在宽带连接上网的情况下开放的 External端口，即使不在同一局域网内也可以访问到你的页面，实测有效，</p>
+<p>必须是宽带有线连接才有效，但如果是路由器中接入的网线是无效的，只能同一局域网才能访问</p>
+<h4 id="u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A"><a href="#u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A" class="headerlink" title="在浏览器中输入打开UI界面如下："></a>在浏览器中输入打开UI界面如下：</h4><p><img src="/content/images/2015/11/2-2.png" alt=""><br>BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在PC和移动设备上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。</p>
+<p><strong>这些，在这个界面都可以自行修改</strong></p>
+</blockquote>
+<hr>
+<h5 id="u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002"><a href="#u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002" class="headerlink" title="如有不足之处，欢迎补充拍砖。。。。"></a>如有不足之处，欢迎补充拍砖。。。。</h5>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-CSS-HACK" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -274,7 +373,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
     </div>
 
       
@@ -298,11 +397,11 @@
 
 
   
-    <article id="post-同步请求异步请求" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-amination" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/27/同步请求异步请求/" class="article-date">
-      <time datetime="2015-10-27T04:22:49.000Z" itemprop="datePublished">2015-10-27</time>
+      <a href="/2015/11/17/amination/" class="article-date">
+      <time datetime="2015-11-17T03:11:11.000Z" itemprop="datePublished">2015-11-17</time>
 </a>
     </div>
   
@@ -315,7 +414,302 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/27/同步请求异步请求/">关于同步请求跟异步请求 的区别</a>
+      <a class="article-title" href="/2015/11/17/amination/">动画设计</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027"><a href="#u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027" class="headerlink" title="动画的3个关键：过渡，重点，趣味性"></a>动画的3个关键：过渡，重点，趣味性</h2><p>过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。</p>
+<p>重点(Focus)：将用户的注意力吸引到界面，很重要的或最近更新的，特别是需要马上吸引用户注意的</p>
+<p>趣味性(Delight)：通过使用奇思妙想或令人意外的运动，使一个原本平常的互动更具吸引力和趣味性。</p>
+<hr>
+<h2 id="u52A8_u753B_u5C5E_u6027"><a href="#u52A8_u753B_u5C5E_u6027" class="headerlink" title="动画属性"></a>动画属性</h2><p><strong>1. 位置Position:</strong> 项目在屏幕上精确的X和Y坐标<br><img src="/content/images/2015/11/xy.gif" alt=""><br><strong>2. 不透明度Opacity</strong>: 项目的Alpha透明度，从0.0（不可见）到1.0。<br><img src="/content/images/2015/11/alpha.gif" alt=""><br><strong>3. 比例Scale</strong>: 相对于项目的初始尺寸大小。比例为1.0意味着设置高度和宽度为初始尺寸。比例为0.5意味着高度和宽度为初始尺寸的一半。比例为0.0表示该物体的宽度和高度为0，但仍处于存在在屏幕上。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/content/images/2015/11/scale.gif" alt=""></h2><p>当然动画也有其他的属性,这里有三个通常涉及更先进动画的属性<br>颜色Color：就像在CSS动画，你可以从一个颜色到另一个过渡色。这可能是一些文字，背景颜色的颜色，同时引入一个新的屏幕给用户。<br><img src="/content/images/2015/11/color.gif" alt=""><br>旋转Rotation:可旋转的对象，通常以弧度（0 - 2π）。0°到360°旋转并回到0°。<br><img src="/content/images/2015/11/rotate.gif" alt=""><br>3D：3D对象方法旋转量操纵它的第三个维度。这种旋转量也弧度表示，就像在2D平面旋转，3D动画关键在于透视。通过改变角度值，你如何描绘在视觉上描绘一个远离屏幕前方放置的元素。这将决定于3D转换时弧度如何展现</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/content/images/2015/11/3D.gif" alt=""></h2><h2 id="u89C4_u5212_u52A8_u753B"><a href="#u89C4_u5212_u52A8_u753B" class="headerlink" title="规划动画"></a>规划动画</h2><p>你熟悉动画制作的工具，那就是具体的属性，你通常会操作创建一个动画的东西。但是，这还不是全部，你需要知道要开始思考如何设计运动</p>
+<ol>
+<li>项目的初始属性:屏幕的底部？是完全透明的？</li>
+<li>项目的最终性能:在屏幕的中间？用户完全可见？它已被旋转到特定的角度θ？现在有一个不同的背景颜色？</li>
+<li>动画需要多长时间：知道动画的确切时间在这个早期阶段，多个物体同时动画效果，只有时间一个相同的交错量。</li>
+<li>一旦该项目完成动画会发生什么：当您设置动画在屏幕它应该被删除？<h2 id="u5C31_u50CF_u5728_u751F_u6D3B_u4E2D_uFF0C_u65F6_u95F4_u5C31_u662F_u4E00_u5207"><a href="#u5C31_u50CF_u5728_u751F_u6D3B_u4E2D_uFF0C_u65F6_u95F4_u5C31_u662F_u4E00_u5207" class="headerlink" title="就像在生活中，时间就是一切"></a>就像在生活中，时间就是一切</h2><img src="/content/images/2015/11/easing.png" alt=""><br>喜欢的核心动画和CSS3提供的那种宽松的曲线数学上定义为贝塞尔曲线。</li>
+</ol>
+<p><a href="http://ued.ctrip.com/blog/4362.html" target="_blank" rel="external">CSS动画中的贝塞尔</a></p>
+<h2 id="u4E0B_u9762_u6211_u8981_u6839_u636EiOS_u4E0B_u7684Animatable_UIView_properties"><a href="#u4E0B_u9762_u6211_u8981_u6839_u636EiOS_u4E0B_u7684Animatable_UIView_properties" class="headerlink" title="下面我要根据iOS下的Animatable UIView properties"></a>下面我要根据iOS下的Animatable UIView properties</h2><p>frame：更改视图的大小和位置相对于它的父的坐标系。<br>bounds：更改视图的大小。<br>center：更改视图的位置。<br>transform：这个属性修改缩放，旋转或转换相对于二维空间的中心点视图。<br>alpha：更改视图的透明度。<br>backgroundColor：更改视图的背景颜色。<br>contentStretch：更改视图的内容被拉伸以填充可用空间的方式。</p>
+<h3 id="Animation_block"><a href="#Animation_block" class="headerlink" title="Animation block"></a>Animation block</h3><p><a href="http://mathewsanders.com/prototyping-iOS-iPhone-iPad-animations-in-swift/" target="_blank" rel="external">swift动画Here’s a list of all four</a></p>
+<p><em>本文只讲Animation block with spring physics</em></p>
+<ol>
+<li>duration（持续时间）: 动画需要的秒数;</li>
+<li>delay（延迟）：多长时间动画开始前等待的时间;</li>
+<li>dampingRatio：多少次振荡（0=无限 1=无）;</li>
+<li>initialVelocity：如何快速地开始动画（1为“正常”）;</li>
+<li>options(选项)：不同的选项，我们可以用它来 ​​改变动画的行为;</li>
+<li>animations（动画）: 在该块中输入的任何动画变化。</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> duration = <span class="number">1.0</span></span><br><span class="line"><span class="keyword">let</span> delay = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">let</span> options = <span class="type">UIViewAnimationOptions</span>.<span class="type">CurveEaseInOut</span></span><br><span class="line"><span class="keyword">let</span> damping = <span class="number">0.5</span> <span class="comment">// set damping ration</span></span><br><span class="line"><span class="keyword">let</span> velocity = <span class="number">1.0</span> <span class="comment">// set initial velocity</span></span><br><span class="line"><span class="type">UIView</span>.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: options, animations: &#123;</span><br><span class="line">    <span class="comment">// 其中两个参数为usingspringwithdamping（阻尼）, initalspringvelocity（初始速度）</span></span><br><span class="line">    <span class="comment">// any changes entered in this block will be animated       </span></span><br><span class="line">&#125;, completion: &#123; finished <span class="keyword">in</span></span><br><span class="line">    <span class="comment">// any code entered here will be applied</span></span><br><span class="line">    <span class="comment">// once the animation has completed              </span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里我遇到一个问题给options同时写入两种选项时</p>
+<p><del>let options = UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat</del></p>
+<p>会报错：<code>Binary operator &#39;|&#39; cannot be applied to two UIViewAutoresizing operands</code></p>
+<p>应该写成：<code>options: [.Repeat , .Autoreverse]</code><br><img src="https://ooo.0o0.ooo/2015/11/18/564d52f59d89f.gif" alt=""></p>
+<p>==arc4random_uniform== 函数返回一个零和所传递的数字之间的整数的函数。</p>
+<p><a href="https://github.com/judges321/Animation" target="_blank" rel="external">我写的dome:doge分身术</a></p>
+<hr>
+<h2 id="u5F39_u6027_u8FD0_u52A8spring"><a href="#u5F39_u6027_u8FD0_u52A8spring" class="headerlink" title="弹性运动spring"></a>弹性运动<strong>spring</strong></h2><p>标准的动画时序曲线很好用，但不会令你的用户有惊人的交互感受，因为仍然感到有些机械并没有完全流畅，用户喜欢自然的运动。如果我们希望我们的动画真正感到自然，我们需要关注的自然世界，我们可以模仿他们的动作：让你的物体运动符合物理定律，让你的界面元素觉得自己有分量和气势，因为它们可以流畅地在屏幕或用户的指尖下运动。<br><img src="/content/images/2015/11/damped.png" alt=""><br>这些曲线代表连接到弹簧的物体的运动，以及如何各种性质（如张力，摩擦和质量）可能会影响其运动。表示已在欠阻尼的系统中，至稳定状态前来回振荡（反弹）。这动画感觉像上面的例子中弹簧末端有质量的运动时序曲线。这种欠阻尼弹簧的运动使动画有弹性。</p>
+<hr>
+<p><img src="/content/images/2015/11/threeballs.gif" alt=""><br>红色圆圈移动，就好像它是连接到一个非常有弹性的弹簧。绿色圆圈会用更少的，更流畅的反弹移动。蓝色无反弹，逐渐指数衰减的动画，其中与最终位置的距离和减小的速度成正比。</p>
+<p><img src="/content/images/2015/11/damped.gif" alt=""><br>  <strong>弹性运动的主要属性：</strong></p>
+<ol>
+<li>质量(mass)是安装在弹簧的端部的物体的重量或分量。</li>
+<li>伸展系数(stiffness)是弹性运动的困难度，这通常对应于它的厚度，以及如何紧密它盘绕。</li>
+<li>阻尼(damping)是阻力或摩擦，当你在水中拖你的手，当你试图快速通过水动感受到力反作用力。</li>
+</ol>
+<hr>
+<h3 id="u8FD9_u91CC_u4ECB_u7ECDJNWSpringanimation_u6846_u67B6"><a href="#u8FD9_u91CC_u4ECB_u7ECDJNWSpringanimation_u6846_u67B6" class="headerlink" title="这里介绍JNWSpringanimation框架"></a>这里介绍JNWSpringanimation框架</h3><ol>
+<li>导入框架<a href="https://github.com/jwilling/JNWSpringAnimation" target="_blank" rel="external">下载JNWSpringAnimation框架github仓库地址</a></li>
+</ol>
+<p>在swift导入该框架需要添加桥接头文件</p>
+<p><code>#import &quot;JNWSpringAnimation.h&quot;</code></p>
+<p>在NSValue+JNWAdditions.h文件中添加</p>
+<p><code>#import &lt;UIKit/UIKit.h&gt;</code></p>
+<ol>
+<li>创建小球弹性放大的比例动画<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let redball = <span class="function"><span class="title">UIView</span><span class="params">(frame: CGRectMake(<span class="number">50</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">100</span>)</span></span>)</span><br><span class="line">        redball<span class="class">.backgroundColor</span> = UIColor.<span class="function"><span class="title">redColor</span><span class="params">()</span></span></span><br><span class="line">        redball<span class="class">.layer</span><span class="class">.cornerRadius</span> = <span class="number">50</span></span><br><span class="line">        self<span class="class">.view</span><span class="class">.addSubview</span>(redball)</span><br><span class="line">        let scale = <span class="function"><span class="title">JNWSpringAnimation</span><span class="params">(keyPath: <span class="string">"transform.scale"</span>)</span></span></span><br><span class="line">        scale<span class="class">.damping</span> = <span class="number">6</span></span><br><span class="line">        scale<span class="class">.stiffness</span> = <span class="number">100</span></span><br><span class="line">        scale<span class="class">.mass</span> = <span class="number">2</span></span><br><span class="line">        scale<span class="class">.fromValue</span> = <span class="number">1</span></span><br><span class="line">        scale<span class="class">.toValue</span> = <span class="number">2</span></span><br><span class="line">        redball<span class="class">.layer</span><span class="class">.addAnimation</span>(scale, forKey: scale.keyPath)</span><br><span class="line">        redball<span class="class">.transform</span> = <span class="function"><span class="title">CGAffineTransformMakeScale</span><span class="params">(<span class="number">2</span>, <span class="number">2</span>)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>动画都是对layer层属性进行操作的</li>
+<li>JNWSpringAnimation默认会回到初始状态，所以要手动设置结束状态</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ps" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/22/ps/" class="article-date">
+      <time datetime="2015-10-22T03:11:11.000Z" itemprop="datePublished">2015-10-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/ps/">PS切图插件cutterman</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>######【起因】<br>发现了一个PHOTOSHOP扩展功能——Cutterman，需要安装Extension Manager。</p>
+<p>######【功能】<br> 自动将你需要的图层进行输出，<br>以替代传统的手工 “导出web所用格式” 以及使用切片工具进行挨个切图的繁琐流程。<br>它支持各种各样的图片尺寸、格式、形态输出，方便你在pc、ios、Android等端上使用。</p>
+<p>######【链接】<br><a href="http://www.cutterman.cn/v2/cutterman官网" target="_blank" rel="external">http://www.cutterman.cn/v2/cutterman官网</a></p>
+<p>######【安装】</p>
+<p>1.在官网上，下载安装包CutterMan.zxp</p>
+<p>2.双击，会打开Adobe Extension Manager，点安装，接受，完成</p>
+<p>3.打开/重启photoshop，在菜单栏-&gt;窗口-&gt;扩展功能-&gt;CutterMan</p>
+<p>######【注意】</p>
+<p>下载时候，注意对应版本。Photoshop CC版和CS6版。</p>
+<p>需要在网站上邮箱注册，因为后期使用需要登录。</p>
+<p>######【使用】</p>
+<p>选择对应图层导出单图层。</p>
+<p>导出所有图层，则是会导出整张图片。</p>
+<p>无法选择文件夹导出。</p>
+<p>######【我说】<br>总体而言，这款插件节省时间，不用为了安卓系统图片分辨率各种麻烦。对于程序猿来说更是可以独立完成切图工作。</p>
+<p>对于学习Photoshop，有一些手机app互动教程，比如说互动教程 for Photoshop，偶尔玩玩也不错。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Ps/">Ps</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-响应式布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/17/响应式布局/" class="article-date">
+      <time datetime="2015-10-17T01:11:39.000Z" itemprop="datePublished">2015-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/17/响应式布局/">响应式布局简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="u54CD_u5E94_u5F0F_u5E03_u5C40_u7B80_u4ECB"><a href="#u54CD_u5E94_u5F0F_u5E03_u5C40_u7B80_u4ECB" class="headerlink" title="响应式布局简介"></a>响应式布局简介</h1><p>[slide]</p>
+<h2 id="u5E03_u5C40_u65B9_u5F0F"><a href="#u5E03_u5C40_u65B9_u5F0F" class="headerlink" title="布局方式"></a>布局方式</h2><ol>
+<li>固定布局     </li>
+<li>可切换的固定布局</li>
+<li>弹性布局</li>
+<li>混合布局</li>
+</ol>
+<p>例1↓<br>[slide]<br><img src="http://images.cnitblog.com/news/24634/201503/031721250356502.png" alt="例"></p>
+<p>[slide]<br>例2↓<br><img src="http://images.cnitblog.com/news/24634/201503/031721250207974.png" alt="例"></p>
+<p>[slide]</p>
+<h2 id="u8BBE_u8BA1_u65B9_u5411"><a href="#u8BBE_u8BA1_u65B9_u5411" class="headerlink" title="设计方向"></a>设计方向</h2><ul>
+<li>桌面优先    (从桌面端向下设计)</li>
+<li>移动优先    (从移动端向上设计)<!--发生布局改变的临界点叫断点-->
+</li>
+</ul>
+<p>[slide]</p>
+<h2 id="u54CD_u5E94_u5F71_u54CD_u5E03_u5C40_u7684_u5177_u4F53_u884C_u4E3A"><a href="#u54CD_u5E94_u5F71_u54CD_u5E03_u5C40_u7684_u5177_u4F53_u884C_u4E3A" class="headerlink" title="响应影响布局的具体行为"></a>响应影响布局的具体行为</h2><p>布局不变</p>
+<ol>
+<li><p>内容拉伸<img src="http://images.cnitblog.com/news/24634/201503/031721259881046.png" alt="图片"><br>[slide]</p>
+</li>
+<li><p>内容平铺<img src="http://images.cnitblog.com/news/24634/201503/031721255046659.png" alt="图片"><br>[slide]</p>
+</li>
+<li><p>内容删减<br><img src="http://images.cnitblog.com/news/24634/201503/031721255046659.png" alt="图片"></p>
+</li>
+</ol>
+<p>[slide]<br>布局改变</p>
+<ol>
+<li><p>模块位置改变<br><img src="http://images.cnitblog.com/news/24634/201503/031721262856787.png" alt="图片"><br>[slide]</p>
+</li>
+<li><p>模块展示方式改变<img src="http://images.cnitblog.com/news/24634/201503/031721264882960.png" alt="图片"><br>[slide]</p>
+</li>
+<li><p>模块数量改变<img src="http://images.cnitblog.com/news/24634/201503/031721274104343.png" alt="图片"></p>
+</li>
+</ol>
+<p>[slide]</p>
+<p>很多时候,单一方式的响应式无法满足理想效果,需要多种组合方式,但原则上尽可能是保持简单轻巧, 而且同一断点内要保持统一逻辑,否则页面实现的太过复杂, 也会影响整体体验和页面性能</p>
+<p>[slide] </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/其他/">其他</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-同步请求异步请求" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/08/同步请求异步请求/" class="article-date">
+      <time datetime="2015-10-08T04:22:49.000Z" itemprop="datePublished">2015-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/08/同步请求异步请求/">关于同步请求跟异步请求 的区别</a>
     </h1>
   
 
@@ -353,7 +747,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/10/27/同步请求异步请求/#more">more >></a>
+          <a  href="/2015/10/08/同步请求异步请求/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -375,8 +769,8 @@
     <article id="post-chrome-ajax" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/22/chrome-ajax/" class="article-date">
-      <time datetime="2015-10-22T12:41:49.000Z" itemprop="datePublished">2015-10-22</time>
+      <a href="/2015/09/29/chrome-ajax/" class="article-date">
+      <time datetime="2015-09-29T12:41:49.000Z" itemprop="datePublished">2015-09-29</time>
 </a>
     </div>
   
@@ -389,7 +783,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/22/chrome-ajax/">配置chrome支持本地（file协议）ajax请求</a>
+      <a class="article-title" href="/2015/09/29/chrome-ajax/">配置chrome支持本地（file协议）ajax请求</a>
     </h1>
   
 
@@ -411,7 +805,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/其他/">其他</a>
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
     </div>
 
 
@@ -422,7 +816,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/10/22/chrome-ajax/#more">more >></a>
+          <a  href="/2015/09/29/chrome-ajax/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
