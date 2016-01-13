@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DaceYu_Space</title>
+  <title>Category: 其他 | DaceYu_Space</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DaceYu_Space">
-<meta property="og:url" content="http://daceyu.com/index.html">
+<meta property="og:url" content="http://daceyu.com/categories/其他/index.html">
 <meta property="og:site_name" content="DaceYu_Space">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -27,9 +27,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -37,11 +34,11 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
+          isHome: false,
           isPost: false,
           isArchive: false,
           isTag: false,
-          isCategory: false,
+          isCategory: true,
           open_in_new: false
       }
   </script>
@@ -232,146 +229,56 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-CSS-HACK" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/11/22/CSS-HACK/" class="article-date">
-      <time datetime="2015-11-22T03:41:49.000Z" itemprop="datePublished">2015-11-22</time>
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2015/10/22/chrome-ajax/" class="archive-article-date">
+      <time datetime="2015-10-22T12:41:49.000Z" itemprop="datePublished">10-22</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+        </div>
+         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/22/CSS-HACK/">CSS HACK</a>
+      <a class="archive-article-title" href="/2015/10/22/chrome-ajax/">配置chrome支持本地（file协议）ajax请求</a>
     </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-              <h2 id="CSS_HACK_u5C0F_u63A5_u89E6"><a href="#CSS_HACK_u5C0F_u63A5_u89E6" class="headerlink" title="CSS HACK小接触"></a>CSS HACK小接触</h2><p><strong>如何介绍我也无法讲清楚,只能复制了下网上的介绍</strong> :<br><del>CSS hack由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认<br>识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。 这个时候我们就需要针对不同的浏览器去写不同的CSS，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。</del><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/22/CSS-HACK/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-chrome-ajax" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/22/chrome-ajax/" class="article-date">
-      <time datetime="2015-10-22T12:41:49.000Z" itemprop="datePublished">2015-10-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/22/chrome-ajax/">配置chrome支持本地（file协议）ajax请求</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>```XMLHttpRequest cannot load file:///Users/anhao/Desktop/holiday/b.html?date=Tue%20Sep%2029%202015%2019:39:36%20GMT+0800%20(CST).Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource.```
-</code></pre><p>###今天写ajax的时候，发现两个问题:</p>
-<ul>
-<li>safari浏览器（只要是webkit核心的）：在a.htm内点击a后在div1里加载b.htm，但是加载过来后在里b.htm内的js代码都会失效.<ul>
-<li>这应该不属于跨域吧，不知大家遇到过这种问题没，有没有什么好的解决方案？</li>
-</ul>
-</li>
-<li>然后使用chrome打开，chrome报以上错误，发现Chrome不支持本地Ajax请求。<ul>
-<li>解决方法如下：<p><span style="font-size:14px;margin-left:40px;">windows用户:右击Chrome浏览器快捷方式，选择“属性”，在“目标”中加上<code>--allow-file-access-from-files</code>，注意前面有个空格，重启Chrome浏览器便可。</span></p><p><span style="font-size:14px;margin-left:40px;">mac用户:打开终端，输入下面命令：<code>open -a &quot;Google Chrome&quot; --args --disable-web-security</code>然后就可以屏蔽安全访问了[ –args：此参数可有可无]，然后就随意的调用不同域下的数据了。</span></p></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/其他/">其他</a>
     </div>
 
 
-      
+          
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
 </article>
-
-
-
-
-
-
-
-
-
   
   
+    </div></section>
+  
+
+    
+
 </div>
       <footer id="footer">
     <div class="outer">
@@ -433,6 +340,17 @@
         };
     })
 </script>
+
+    <button class="hide-labels">TAG 开关</button>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
