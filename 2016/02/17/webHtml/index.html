@@ -1,12 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <title>移动端知识总结(一) | DaceYu_Space</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name ="keywords" content="daceyu,叫我小余就好">
-  <meta name="description" content="meta基础知识H5页面窗口自动调整到设备宽度，并禁止用户缩放页面123&amp;lt;meta name=&quot;viewport&quot;      content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; /&amp;gt;
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="自用笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="meta基础知识H5页面窗口自动调整到设备宽度，并禁止用户缩放页面123&amp;lt;meta name=&quot;viewport&quot;      content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; /&amp;gt;
 忽略将页面中的数字识别为电话号码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端知识总结(一)">
@@ -19,263 +70,212 @@
 <meta name="twitter:title" content="移动端知识总结(一)">
 <meta name="twitter:description" content="meta基础知识H5页面窗口自动调整到设备宽度，并禁止用户缩放页面123&amp;lt;meta name=&quot;viewport&quot;      content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; /&amp;gt;
 忽略将页面中的数字识别为电话号码">
-  
-    <link rel="alternative" href="/atom.xml" title="DaceYu_Space" type="application/atom+xml">
-  
-  
-    <!-- <link rel="icon" href="/favicon.png"> -->
-    <link rel="icon" href="/me.ico">
-  
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 移动端知识总结(一) | DaceYu_Space </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/me.png" class="js-avatar">
-            
-        </a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="中文">
 
-        <hgroup>
-          <h1 class="header-author"><a href="/">Daceyu</a></h1>
-        </hgroup>
-
-        
-        <p class="header-subtitle">敲代码的日子总是充实的，一旦闲下来....</p>
-        
-                
+  
 
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="/“mailto:282458320@qq.com"" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="/#" title="GitHub"></a></li>
-                            
-                                <li id="知乎"><a class="知乎" target="_blank" href="http://www.zhihu.com/" title="知乎"></a></li>
-                            
-                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=282458320&websitename=im.qq.com" title="QQ"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://huangbingbing.com">BingB</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://wangxinze.com">BigBG</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zhouyutao.com">TBorther</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.netcan666.com">Netcan</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MoxFive</a>
-                    
-                    </div>
-                </section>
-                
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">单身狗，专注于前端</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DaceYu_Space</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">敲代码的日子总是充实的，一旦闲下来....</p>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Daceyu</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img lazy-src="/img/me.png" class="js-avatar">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">Daceyu</a></h1>
-            </hgroup>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-            <p class="header-subtitle">敲代码的日子总是充实的，一旦闲下来....</p>
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="/“mailto:282458320@qq.com"" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="/#" title="GitHub"></a></li>
-                            
-                                <li id="知乎"><a class="知乎" target="_blank" href="http://www.zhihu.com/" title="知乎"></a></li>
-                            
-                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=282458320&websitename=im.qq.com" title="QQ"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
 </nav>
-      <div class="body-wrap"><article id="post-webHtml" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/17/webHtml/" class="article-date">
-      <time datetime="2016-02-17T00:10:56.000Z" itemprop="datePublished">2016-02-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      移动端知识总结(一)
-    </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/移动端/">移动端</a><a class="article-category-link" href="/categories/移动端/前端开发/">前端开发</a>
-    </div>
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
-    </div>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动端知识总结(一)
+              
+            
+          </h1>
+        
 
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-02-17T08:10:56+08:00" content="2016-02-17">
+              2016-02-17
+            </time>
+          </span>
+
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/移动端/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         <h2 id="meta_u57FA_u7840_u77E5_u8BC6"><a href="#meta_u57FA_u7840_u77E5_u8BC6" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762"><a href="#H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="property">name</span>=<span class="string">"viewport"</span></span><br><span class="line">      content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span></span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801"><a href="#u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801" class="headerlink" title="忽略将页面中的数字识别为电话号码"></a>忽略将页面中的数字识别为电话号码</h3><a id="more"></a>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="property">name</span>=<span class="string">"format-detection"</span> content=<span class="string">"telephone=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
@@ -355,249 +355,408 @@
 <h2 id="u3010_u672A_u5B8C_u5F85_u7EED_u3011"><a href="#u3010_u672A_u5B8C_u5F85_u7EED_u3011" class="headerlink" title="【未完待续】"></a>【未完待续】</h2>
       
     </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自用笔记/" rel="tag">#自用笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/02/brower-sync/" rel="next" title="Brower-sync多平台调试利器">
+                <i class="fa fa-chevron-left"></i> Brower-sync多平台调试利器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
   </div>
+
+
+        </div>
+        
+          
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/02/17/webHtml/">移动端知识总结(一)</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 Daceyu 的个人博客">Daceyu</a></p>
-        <p><span>发布时间:</span>2016年02月17日 - 08时10分</p>
-        <p><span>最后更新:</span>2016年05月19日 - 09时40分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/02/17/webHtml/" title="移动端知识总结(一)">http://daceyu.com/2016/02/17/webHtml/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://daceyu.com/2016/02/17/webHtml/　　作者: Daceyu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
+  </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
+      
 
-    <nav id="article-nav">
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/02/brower-sync/">
-                    Brower-sync多平台调试利器
-                </a>
-            </div>
-        
-    </nav>
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-  
-</article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#meta_u57FA_u7840_u77E5_u8BC6"><span class="toc-number">1.</span> <span class="toc-text">meta基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762"><span class="toc-number">1.1.</span> <span class="toc-text">H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801"><span class="toc-number">1.2.</span> <span class="toc-text">忽略将页面中的数字识别为电话号码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5FFD_u7565Android_u5E73_u53F0_u4E2D_u5BF9_u90AE_u7BB1_u5730_u5740_u7684_u8BC6_u522B"><span class="toc-number">1.3.</span> <span class="toc-text">忽略Android平台中对邮箱地址的识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F53_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u53EF_u9690_u85CF_u5730_u5740_u680F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari"><span class="toc-number">1.4.</span> <span class="toc-text">当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari_u9876_u7AEF_u72B6_u6001_u6761_u7684_u6837_u5F0F"><span class="toc-number">1.5.</span> <span class="toc-text">将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#viewport_u6A21_u677F"><span class="toc-number">1.6.</span> <span class="toc-text">viewport模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#viewport_u6A21_u677F_u2014_u2014_u901A_u7528"><span class="toc-number">1.6.1.</span> <span class="toc-text">viewport模板——通用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#viewport_u6A21_u677F__u2013_target-densitydpi_3Ddevice-dpi_uFF0Candroid_2-3-5_u4EE5_u4E0B_u7248_u672C_u4E0D_u652F_u6301"><span class="toc-number">1.6.2.</span> <span class="toc-text">viewport模板 – target-densitydpi=device-dpi，android 2.3.5以下版本不支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u53C2_u8003_u6848_u4F8B_uFF1Ahttp_3A//action-weixin-qq-com/payact/readtemplate_3Ft_3DMobile/2015/wxzfsht/index_tmpl"><span class="toc-number">1.6.3.</span> <span class="toc-text">参考案例：http://action.weixin.qq.com/payact/readtemplate?t=Mobile/2015/wxzfsht/index_tmpl</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5E38_u89C1_u95EE_u9898"><span class="toc-number">2.</span> <span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u79FB_u52A8_u7AEF_u5982_u4F55_u5B9A_u4E49_u5B57_u4F53font-family"><span class="toc-number">2.1.</span> <span class="toc-text">移动端如何定义字体font-family</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u79FB_u52A8_u7AEF_u5B57_u4F53_u5355_u4F4Dfont-size_u9009_u62E9px_u8FD8_u662Frem"><span class="toc-number">2.2.</span> <span class="toc-text">移动端字体单位font-size选择px还是rem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rem_u914D_u7F6E_u53C2_u8003_uFF1A"><span class="toc-number">2.2.1.</span> <span class="toc-text">rem配置参考：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u79FB_u52A8_u7AEFtouch_u4E8B_u4EF6_28_u533A_u5206webkit__u548C_winphone_29"><span class="toc-number">2.3.</span> <span class="toc-text">移动端touch事件(区分webkit 和 winphone)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4EE5_u4E0B_u652F_u6301webkit"><span class="toc-number">2.3.1.</span> <span class="toc-text">以下支持webkit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TouchEvent"><span class="toc-number">2.3.2.</span> <span class="toc-text">TouchEvent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u53C2_u6570_u4FE1_u606F_28changedTouches_5B0_5D_29"><span class="toc-number">2.3.3.</span> <span class="toc-text">参数信息(changedTouches[0])</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u53C2_u8003_uFF1Ahttps_3A//developer-mozilla-org/en-US/docs/web/API/TouchEvent"><span class="toc-number">2.3.4.</span> <span class="toc-text">参考：https://developer.mozilla.org/en-US/docs/web/API/TouchEvent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u79FB_u52A8_u7AEFclick_u5C4F_u5E55_u4EA7_u751F200-300_ms_u7684_u5EF6_u8FDF_u54CD_u5E94"><span class="toc-number">2.3.5.</span> <span class="toc-text">移动端click屏幕产生200-300 ms的延迟响应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u79FB_u52A8_u8BBE_u5907_u4E0A_u7684web_u7F51_u9875_u662F_u6709300ms_u5EF6_u8FDF_u7684_uFF0C_u73A9_u73A9_u4F1A_u9020_u6210_u6309_u94AE_u70B9_u51FB_u5EF6_u8FDF_u751A_u81F3_u662F_u70B9_u51FB_u5931_u6548_u3002"><span class="toc-number">2.3.6.</span> <span class="toc-text">移动设备上的web网页是有300ms延迟的，玩玩会造成按钮点击延迟甚至是点击失效。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u89E6_u6478_u4E8B_u4EF6_u7684_u54CD_u5E94_u987A_u5E8F"><span class="toc-number">2.3.7.</span> <span class="toc-text">触摸事件的响应顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u89E3_u51B3300ms_u5EF6_u8FDF_u7684_u95EE_u9898_uFF0C_u4E5F_u53EF_u4EE5_u901A_u8FC7_u7ED1_u5B9Aontouchstart_u4E8B_u4EF6_uFF0C_u52A0_u5FEB_u5BF9_u4E8B_u4EF6_u7684_u54CD_u5E94"><span class="toc-number">2.3.8.</span> <span class="toc-text">解决300ms延迟的问题，也可以通过绑定ontouchstart事件，加快对事件的响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662FRetina__u663E_u793A_u5C4F_uFF0C_u5E26_u6765_u4E86_u4EC0_u4E48_u95EE_u9898"><span class="toc-number">2.4.</span> <span class="toc-text">什么是Retina 显示屏，带来了什么问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u5176_u5B83_u5143_u7D20_u7684_u53D6_u503C_u4E3A_u539F_u6765_u76841/2_uFF0C_u4F8B_u5982_u89C6_u89C9_u7A3F40px_u7684_u5B57_u4F53_uFF0C_u4F7F_u7528_u6837_u5F0F_u7684_u5199_u6CD5_u4E3A20px"><span class="toc-number">2.4.1.</span> <span class="toc-text">其它元素的取值为原来的1/2，例如视觉稿40px的字体，使用样式的写法为20px</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ios_u7CFB_u7EDF_u4E2D_u5143_u7D20_u88AB_u89E6_u6478_u65F6_u4EA7_u751F_u7684_u534A_u900F_u660E_u7070_u8272_u906E_u7F69_u600E_u4E48_u53BB_u6389"><span class="toc-number">2.5.</span> <span class="toc-text">ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u90E8_u5206android_u7CFB_u7EDF_u4E2D_u5143_u7D20_u88AB_u70B9_u51FB_u65F6_u4EA7_u751F_u7684_u8FB9_u6846_u600E_u4E48_u53BB_u6389"><span class="toc-number">2.6.</span> <span class="toc-text">部分android系统中元素被点击时产生的边框怎么去掉</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u3010_u672A_u5B8C_u5F85_u7EED_u3011"><span class="toc-number">3.</span> <span class="toc-text">【未完待续】</span></a></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-<div class="share">
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-    </div>
-    <script>
-        window._bd_share_config={
-            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    </script>
-</div>
-
-
-
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/02/17/webHtml/" data-title="移动端知识总结(一)" data-url="http://daceyu.com/2016/02/17/webHtml/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <!-- <script type="text/javascript">
-    var duoshuoQuery = {short_name:"http://daceyu.duoshuo.com"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script> -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"daceyu"};
-    	(function() {
-    		var ds = document.createElement('script');
-    		ds.type = 'text/javascript';ds.async = true;
-    		// ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.src='http://daceyu.com/js/embed.js';
-        ds.charset = 'UTF-8';
-    		(document.getElementsByTagName('head')[0]
-    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-    	})();
-	</script>
-    <!-- 多说公共JS代码 end -->
-</div>
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2015/12/02/brower-sync/" title="下一篇: Brower-sync多平台调试利器">
-                <i class="fa fa-angle-right"></i>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Daceyu" />
+          <p class="site-author-name" itemprop="name">Daceyu</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">文章</span>
             </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/02/17/webHtml/">移动端知识总结(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/02/brower-sync/">Brower-sync多平台调试利器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/CSS-HACK/">CSS HACK</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/17/amination/">动画设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/22/ps/">PS切图插件cutterman</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/17/响应式布局/">响应式布局简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/08/同步请求异步请求/">关于同步请求跟异步请求 的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/29/chrome-ajax/">配置chrome支持本地（file协议）ajax请求</a></li></ul>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
-
-
-
-
-    <script>
-        
-    </script>
-
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2016 Daceyu
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分類</span>
+              
             </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
             </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
         </div>
-        <div class="visit">
-            <span id="busuanzi_container_site_pv" style='display:none'>
-                <span id="site-visit" >本站到访数: 
-                    <span id="busuanzi_value_site_uv"></span>
-                </span>
-            </span>
-            <span id="busuanzi_container_page_pv" style='display:none'>
-                <span id="page-visit">, 本页阅读量: 
-                    <span id="busuanzi_value_page_pv"></span>
-                </span>
-            </span>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
         </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#meta_u57FA_u7840_u77E5_u8BC6"><span class="nav-number">1.</span> <span class="nav-text">meta基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762"><span class="nav-number">1.1.</span> <span class="nav-text">H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801"><span class="nav-number">1.2.</span> <span class="nav-text">忽略将页面中的数字识别为电话号码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5FFD_u7565Android_u5E73_u53F0_u4E2D_u5BF9_u90AE_u7BB1_u5730_u5740_u7684_u8BC6_u522B"><span class="nav-number">1.3.</span> <span class="nav-text">忽略Android平台中对邮箱地址的识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F53_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u53EF_u9690_u85CF_u5730_u5740_u680F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari"><span class="nav-number">1.4.</span> <span class="nav-text">当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5C06_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari_u9876_u7AEF_u72B6_u6001_u6761_u7684_u6837_u5F0F"><span class="nav-number">1.5.</span> <span class="nav-text">将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewport_u6A21_u677F"><span class="nav-number">1.6.</span> <span class="nav-text">viewport模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#viewport_u6A21_u677F_u2014_u2014_u901A_u7528"><span class="nav-number">1.6.1.</span> <span class="nav-text">viewport模板——通用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewport_u6A21_u677F__u2013_target-densitydpi_3Ddevice-dpi_uFF0Candroid_2-3-5_u4EE5_u4E0B_u7248_u672C_u4E0D_u652F_u6301"><span class="nav-number">1.6.2.</span> <span class="nav-text">viewport模板 – target-densitydpi=device-dpi，android 2.3.5以下版本不支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u53C2_u8003_u6848_u4F8B_uFF1Ahttp_3A//action-weixin-qq-com/payact/readtemplate_3Ft_3DMobile/2015/wxzfsht/index_tmpl"><span class="nav-number">1.6.3.</span> <span class="nav-text">参考案例：http://action.weixin.qq.com/payact/readtemplate?t=Mobile/2015/wxzfsht/index_tmpl</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5E38_u89C1_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u79FB_u52A8_u7AEF_u5982_u4F55_u5B9A_u4E49_u5B57_u4F53font-family"><span class="nav-number">2.1.</span> <span class="nav-text">移动端如何定义字体font-family</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u79FB_u52A8_u7AEF_u5B57_u4F53_u5355_u4F4Dfont-size_u9009_u62E9px_u8FD8_u662Frem"><span class="nav-number">2.2.</span> <span class="nav-text">移动端字体单位font-size选择px还是rem</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rem_u914D_u7F6E_u53C2_u8003_uFF1A"><span class="nav-number">2.2.1.</span> <span class="nav-text">rem配置参考：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u79FB_u52A8_u7AEFtouch_u4E8B_u4EF6_28_u533A_u5206webkit__u548C_winphone_29"><span class="nav-number">2.3.</span> <span class="nav-text">移动端touch事件(区分webkit 和 winphone)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4EE5_u4E0B_u652F_u6301webkit"><span class="nav-number">2.3.1.</span> <span class="nav-text">以下支持webkit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TouchEvent"><span class="nav-number">2.3.2.</span> <span class="nav-text">TouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u53C2_u6570_u4FE1_u606F_28changedTouches_5B0_5D_29"><span class="nav-number">2.3.3.</span> <span class="nav-text">参数信息(changedTouches[0])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u53C2_u8003_uFF1Ahttps_3A//developer-mozilla-org/en-US/docs/web/API/TouchEvent"><span class="nav-number">2.3.4.</span> <span class="nav-text">参考：https://developer.mozilla.org/en-US/docs/web/API/TouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u79FB_u52A8_u7AEFclick_u5C4F_u5E55_u4EA7_u751F200-300_ms_u7684_u5EF6_u8FDF_u54CD_u5E94"><span class="nav-number">2.3.5.</span> <span class="nav-text">移动端click屏幕产生200-300 ms的延迟响应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u79FB_u52A8_u8BBE_u5907_u4E0A_u7684web_u7F51_u9875_u662F_u6709300ms_u5EF6_u8FDF_u7684_uFF0C_u73A9_u73A9_u4F1A_u9020_u6210_u6309_u94AE_u70B9_u51FB_u5EF6_u8FDF_u751A_u81F3_u662F_u70B9_u51FB_u5931_u6548_u3002"><span class="nav-number">2.3.6.</span> <span class="nav-text">移动设备上的web网页是有300ms延迟的，玩玩会造成按钮点击延迟甚至是点击失效。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u89E6_u6478_u4E8B_u4EF6_u7684_u54CD_u5E94_u987A_u5E8F"><span class="nav-number">2.3.7.</span> <span class="nav-text">触摸事件的响应顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u89E3_u51B3300ms_u5EF6_u8FDF_u7684_u95EE_u9898_uFF0C_u4E5F_u53EF_u4EE5_u901A_u8FC7_u7ED1_u5B9Aontouchstart_u4E8B_u4EF6_uFF0C_u52A0_u5FEB_u5BF9_u4E8B_u4EF6_u7684_u54CD_u5E94"><span class="nav-number">2.3.8.</span> <span class="nav-text">解决300ms延迟的问题，也可以通过绑定ontouchstart事件，加快对事件的响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4EC0_u4E48_u662FRetina__u663E_u793A_u5C4F_uFF0C_u5E26_u6765_u4E86_u4EC0_u4E48_u95EE_u9898"><span class="nav-number">2.4.</span> <span class="nav-text">什么是Retina 显示屏，带来了什么问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5176_u5B83_u5143_u7D20_u7684_u53D6_u503C_u4E3A_u539F_u6765_u76841/2_uFF0C_u4F8B_u5982_u89C6_u89C9_u7A3F40px_u7684_u5B57_u4F53_uFF0C_u4F7F_u7528_u6837_u5F0F_u7684_u5199_u6CD5_u4E3A20px"><span class="nav-number">2.4.1.</span> <span class="nav-text">其它元素的取值为原来的1/2，例如视觉稿40px的字体，使用样式的写法为20px</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ios_u7CFB_u7EDF_u4E2D_u5143_u7D20_u88AB_u89E6_u6478_u65F6_u4EA7_u751F_u7684_u534A_u900F_u660E_u7070_u8272_u906E_u7F69_u600E_u4E48_u53BB_u6389"><span class="nav-number">2.5.</span> <span class="nav-text">ios系统中元素被触摸时产生的半透明灰色遮罩怎么去掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u90E8_u5206android_u7CFB_u7EDF_u4E2D_u5143_u7D20_u88AB_u70B9_u51FB_u65F6_u4EA7_u751F_u7684_u8FB9_u6846_u600E_u4E48_u53BB_u6389"><span class="nav-number">2.6.</span> <span class="nav-text">部分android系统中元素被点击时产生的边框怎么去掉</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u3010_u672A_u5B8C_u5F85_u7EED_u3011"><span class="nav-number">3.</span> <span class="nav-text">【未完待续】</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
     </div>
-</footer>
-    </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 1;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+  </aside>
 
 
+        
+      </div>
+    </main>
 
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daceyu</span>
 </div>
 
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
   </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
 </body>
 </html>
