@@ -235,6 +235,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webHtml" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/17/webHtml/" class="article-date">
+      <time datetime="2016-02-17T00:10:56.000Z" itemprop="datePublished">2016-02-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/17/webHtml/">移动端知识总结(一)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="meta_u57FA_u7840_u77E5_u8BC6"><a href="#meta_u57FA_u7840_u77E5_u8BC6" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762"><a href="#H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="property">name</span>=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801"><a href="#u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801" class="headerlink" title="忽略将页面中的数字识别为电话号码"></a>忽略将页面中的数字识别为电话号码</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="property">name</span>=<span class="string">"format-detection"</span> content=<span class="string">"telephone=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u5FFD_u7565Android_u5E73_u53F0_u4E2D_u5BF9_u90AE_u7BB1_u5730_u5740_u7684_u8BC6_u522B"><a href="#u5FFD_u7565Android_u5E73_u53F0_u4E2D_u5BF9_u90AE_u7BB1_u5730_u5740_u7684_u8BC6_u522B" class="headerlink" title="忽略Android平台中对邮箱地址的识别"></a>忽略Android平台中对邮箱地址的识别</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="property">name</span>=<span class="string">"format-detection"</span> content=<span class="string">"email=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u5F53_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u53EF_u9690_u85CF_u5730_u5740_u680F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari"><a href="#u5F53_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u53EF_u9690_u85CF_u5730_u5740_u680F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari" class="headerlink" title="当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari"></a>当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-capable"</span> <span class="attribute">content</span>=<span class="value">"yes"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ios7.0版本以后，safari上已看不到效果 --&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u5C06_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari_u9876_u7AEF_u72B6_u6001_u6761_u7684_u6837_u5F0F"><a href="#u5C06_u7F51_u7AD9_u6DFB_u52A0_u5230_u4E3B_u5C4F_u5E55_u5FEB_u901F_u542F_u52A8_u65B9_u5F0F_uFF0C_u4EC5_u9488_u5BF9ios_u7684safari_u9876_u7AEF_u72B6_u6001_u6761_u7684_u6837_u5F0F" class="headerlink" title="将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式"></a>将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-status-bar-style"</span> <span class="attribute">content</span>=<span class="value">"black"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 可选default、black、black-translucent --&gt;</span></span><br></pre></td></tr></table></figure>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/移动端/">移动端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/17/webHtml/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-brower-sync" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
