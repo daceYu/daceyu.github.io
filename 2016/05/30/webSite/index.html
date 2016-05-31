@@ -1,8 +1,11 @@
 <!DOCTYPE html><html lang="中文"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>制作Web站点时考虑的一些因素 | DaceYu_Space</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">制作Web站点时考虑的一些因素</h1><a id="logo" href="/.">DaceYu_Space</a><p class="description">Coding....</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首頁</i></a><a href="/archives/"><i class="fa fa-archive"> 所有文章</i></a><a href="/about/"><i class="fa fa-user"> 關於</i></a><a href="/atom.xml"><i class="fa fa-rss"> 訂閱</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">制作Web站点时考虑的一些因素</h1><div class="post-meta">May 30, 2016<span> | </span><span class="category"><a href="/categories/移动端/">移动端</a><a href="/categories/移动端/前端开发/">前端开发</a><a href="/categories/移动端/前端开发/用户体验/">用户体验</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/05/30/webSite/" href="/2016/05/30/webSite/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="u8003_u8651_Web__u5E94_u7528_u7684_UI"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_UI" class="headerlink" title="考虑 Web 应用的 UI"></a>考虑 Web 应用的 UI</h3><p>Web 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。</p>
 <ol>
-<li>界面美观大方，并且符合产品本身的风格</li>
-<li>考虑大多用户的使用习惯，增强应用的易用性<a id="more"></a></li>
+<li><p><strong>界面美观大方，并且符合产品本身的风格</strong></p>
+</li>
+<li><p><strong>考虑大多用户的使用习惯，增强应用的易用性</strong></p>
+</li>
 </ol>
+<a id="more"></a>
 <ul>
 <li>减少用户输入，而是采用提供选择的方式</li>
 <li>提供网站搜索功能</li>
@@ -12,7 +15,7 @@
 <li>必要时，提供页面导航功能</li>
 </ul>
 <ol>
-<li>增强页面的交互性</li>
+<li><strong>增强页面的交互性</strong></li>
 </ol>
 <ul>
 <li>比如鼠标移动到按钮上，按钮透明度或颜色发生变化</li>
@@ -20,16 +23,18 @@
 <li>改进内容或状态展现的方式</li>
 </ul>
 <ol>
-<li>错误提示对用户友好</li>
-<li>保证应用的响应速度</li>
+<li><p><strong>错误提示对用户友好</strong></p>
+</li>
+<li><p><strong>保证应用的响应速度</strong></p>
+</li>
 </ol>
 <h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u5B89_u5168_u6027"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u5B89_u5168_u6027" class="headerlink" title="考虑 Web 应用的安全性"></a>考虑 Web 应用的安全性</h3><p>Web 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。</p>
 <ol>
-<li>对输入进行有效验证。防止 XSS 攻击、 CSRF 攻击和 SQL 注入。</li>
-<li>对一些交互操作进行权限验证。</li>
-<li>异常错误时，不在页面上暴露服务器的信息。</li>
-<li>浏览器控制台把调试的 console.log 语句删除。可以写一个方法来调 console.log 的方法，然后发到正式环境时返回空。</li>
-<li>数据加密存储。</li>
+<li><strong>对输入进行有效验证。防止 XSS 攻击、 CSRF 攻击和 SQL 注入。</strong></li>
+<li><strong>对一些交互操作进行权限验证。</strong></li>
+<li><strong>异常错误时，不在页面上暴露服务器的信息。</strong></li>
+<li><strong>浏览器控制台把调试的 console.log 语句删除。可以写一个方法来调 console.log 的方法，然后发到正式环境时返回空。</strong></li>
+<li><strong>数据加密存储。</strong></li>
 </ol>
 <h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u6027_u80FD"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u6027_u80FD" class="headerlink" title="考虑 Web 应用的性能"></a>考虑 Web 应用的性能</h3><p><strong>(1)Content 方面</strong></p>
 <ul>
