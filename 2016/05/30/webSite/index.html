@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="中文"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>制作Web站点时考虑的一些因素 | DaceYu_Space</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">制作Web站点时考虑的一些因素</h1><a id="logo" href="/.">DaceYu_Space</a><p class="description">Coding....</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首頁</i></a><a href="/archives/"><i class="fa fa-archive"> 所有文章</i></a><a href="/about/"><i class="fa fa-user"> 關於</i></a><a href="/atom.xml"><i class="fa fa-rss"> 訂閱</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">制作Web站点时考虑的一些因素</h1><div class="post-meta">May 30, 2016<span> | </span><span class="category"><a href="/categories/移动端/">移动端</a><a href="/categories/移动端/前端开发/">前端开发</a><a href="/categories/移动端/前端开发/用户体验/">用户体验</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/05/30/webSite/" href="/2016/05/30/webSite/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="u8003_u8651_Web__u5E94_u7528_u7684_UI"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_UI" class="headerlink" title="考虑 Web 应用的 UI"></a>考虑 Web 应用的 UI</h3><p>Web 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。</p>
+<ol>
+<li>界面美观大方，并且符合产品本身的风格</li>
+<li>考虑大多用户的使用习惯，增强应用的易用性<a id="more"></a></li>
+</ol>
+<ul>
+<li>减少用户输入，而是采用提供选择的方式</li>
+<li>提供网站搜索功能</li>
+<li>给一些功能增加文字提示</li>
+<li>提供一些操作的快捷键</li>
+<li>增大功能热区区域，方便用户使用</li>
+<li>必要时，提供页面导航功能</li>
+</ul>
+<ol>
+<li>增强页面的交互性</li>
+</ol>
+<ul>
+<li>比如鼠标移动到按钮上，按钮透明度或颜色发生变化</li>
+<li><em>搜索查询时，提供 loading 动画</em></li>
+<li>改进内容或状态展现的方式</li>
+</ul>
+<ol>
+<li>错误提示对用户友好</li>
+<li>保证应用的响应速度</li>
+</ol>
+<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u5B89_u5168_u6027"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u5B89_u5168_u6027" class="headerlink" title="考虑 Web 应用的安全性"></a>考虑 Web 应用的安全性</h3><p>Web 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。</p>
+<ol>
+<li>对输入进行有效验证。防止 XSS 攻击、 CSRF 攻击和 SQL 注入。</li>
+<li>对一些交互操作进行权限验证。</li>
+<li>异常错误时，不在页面上暴露服务器的信息。</li>
+<li>浏览器控制台把调试的 console.log 语句删除。可以写一个方法来调 console.log 的方法，然后发到正式环境时返回空。</li>
+<li>数据加密存储。</li>
+</ol>
+<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u6027_u80FD"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u6027_u80FD" class="headerlink" title="考虑 Web 应用的性能"></a>考虑 Web 应用的性能</h3><p><strong>(1)Content 方面</strong></p>
+<ul>
+<li>合并文件，减少 HTTP 请求，压缩文件，减少资源大小。</li>
+<li>减少 DNS 查询次数，平衡 DNS 查询和并行下载的速度。</li>
+<li>非必须组件延迟加载。</li>
+<li>非首屏图片延迟加载。</li>
+<li>优化 DOM 结构，减少 DOM 元素数量。<br><strong>(2)Server 方面</strong></li>
+<li>使用 CDN 托管静态资源。</li>
+<li>使用缓存缓存资源。<br><code>添加 Expires 或者 Cache-Control 响应头设置缓存。</code><br><code>对资源配置 ETag。</code><br><strong>(3)Cookie 方面</strong></li>
+<li>减少 cookie 大小。</li>
+<li>引入资源的域名不要包含 cookie。<br><strong>(4)CSS 方面</strong></li>
+<li>将样式表放在 head 标签内。</li>
+<li>不使用 @import。</li>
+<li>图表使用 iconfont。</li>
+<li>可根据需要适当开启 transition3d 加速。</li>
+<li>压缩 CSS 文件。<br><strong>(5)JavaScript 方面</strong></li>
+<li>优化代码结构，提高代码解析速度。</li>
+<li>减少 DOM 访问。</li>
+<li>合理设置事件监听。</li>
+<li>删除没有作用的代码。</li>
+<li>压缩 JS 文件。<br><strong>(6)图片方面</strong></li>
+<li>优化图片，根据实际的颜色需要选择图片格式和压缩比率。</li>
+<li>不要拉伸图片。</li>
+<li>使用 favicon.ico 尽量小并且进行缓存。</li>
+<li>将比较小的图片转换成 base64 编码。<br><strong>(7)移动端保证组件大小尽量小。</strong></li>
+</ul>
+<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_SEO"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_SEO" class="headerlink" title="考虑 Web 应用的 SEO"></a>考虑 Web 应用的 SEO</h3><ol>
+<li>合理的设置 title、description、keywords，搜索引擎对三者的权重依次减小。</li>
+</ol>
+<ul>
+<li>title 值强调重点即可，不同页面 title 有所不同。</li>
+<li>description 把页面内容高度概括，长度合适，不同页面 description 有所不同。</li>
+<li>keywords 列出重要关键词即可。</li>
+</ul>
+<ol>
+<li>语义化的 HTML 代码，符合 W3C 规范。语义化嗲吗让搜索引擎容易理解网页。</li>
+<li>重要内容 HTML 代码放在最前。搜索引擎抓取 HTML 顺序从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取。</li>
+<li>重要内容不要使用 JS 输出。爬虫不会执行 JS 获取内容。</li>
+<li>少用 iframe。搜索引擎不会抓取 iframe 中的内容。</li>
+<li>非装饰性图片必须加 alt。</li>
+<li>提供网站速度。网站速度是搜索引擎排序的一个重要指标。</li>
+</ol>
+<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u53EF_u7EF4_u62A4_u6027"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u53EF_u7EF4_u62A4_u6027" class="headerlink" title="考虑 Web 应用的可维护性"></a>考虑 Web 应用的可维护性</h3><ul>
+<li>考虑 Web 应用的可维护性，大体从三个方面来考虑，它们分别是开发、构建、部署。<br><strong>开发</strong></li>
+<li>有统一的编码规范，比如统一缩进格式、变量命名、书写规范。</li>
+<li>依赖管理，使用 bower、npm 工具来管理包依赖。</li>
+<li>项目组件化。整个 Web 应用有各个组件组成。</li>
+<li>模块化开发。JS 模块化、CSS 模块化、HTML 模块化，所有资源都当成模块。模块之间可以相互引用，达到重用模块的功能。</li>
+<li>根据需要文件实时监听，自动刷新浏览器。<br><strong>构建</strong></li>
+<li>搭建脚手架进行初始化构建。</li>
+<li>可以编译中间语言。比如 Less、Sass、TypeScrript。</li>
+<li>可以对文件进行压缩和混淆。</li>
+<li>有工具自动处理 CSS Sprite，方便开发和维护 CSS Sprite。</li>
+<li>生成文件时，加上 hash 值，方便精确控制缓存。<br><strong>部署</strong></li>
+<li>根据打包配置文件，打包不同环境的资源文件。</li>
+<li>打包工具可配置直接把静态文件上传至 CDN。<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u6280_u672F_u56E0_u7D20"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u6280_u672F_u56E0_u7D20" class="headerlink" title="考虑 Web 应用的技术因素"></a>考虑 Web 应用的技术因素</h3></li>
+<li>主要是根据项目的实际需要来选择合适的技术框架。</li>
+</ul>
+<p>借鉴来源(知乎)</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://daceyu.com/2016/05/30/webSite/" data-id="ciouvlsh10000cwtrwspy9opg" class="article-share-link">分享至</a><div class="tags"><a href="/tags/自用笔记/">自用笔记</a></div><div class="post-nav"><a href="/2016/05/03/app/" class="next">点击页面判断是否安装app并打开，否则跳转app store的方法</a></div><div data-thread-key="2016/05/30/webSite/" data-title="制作Web站点时考虑的一些因素" data-url="http://daceyu.com/2016/05/30/webSite/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/05/30/webSite/" data-title="制作Web站点时考虑的一些因素" data-url="http://daceyu.com/2016/05/30/webSite/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://daceyu.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分類</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ps/">Ps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/移动端/">移动端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/移动端/前端开发/">前端开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/移动端/前端开发/用户体验/">用户体验</a></li></ul></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 標籤</i></div><div class="tagcloud"><a href="/tags/自用笔记/" style="font-size: 15px;">自用笔记</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/CSS-HACK/" style="font-size: 15px;">CSS HACK</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/30/webSite/">制作Web站点时考虑的一些因素</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/app/">点击页面判断是否安装app并打开，否则跳转app store的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/16/input用户体验/">增减input,用户体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/29/isMobile/">js简化判断是否为手机访问</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/22/returnTop/">简单返回顶部代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/webHtml2/">移动端知识总结(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/17/webHtml/">移动端知识总结(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/02/brower-sync/">Brower-sync多平台调试利器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/CSS-HACK/">CSS HACK</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/17/amination/">动画设计</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近評論</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友站連結</i></div><ul></ul><a href="http://huangbingbing.com" title="ahBing" target="_blank">ahBing</a><ul></ul><a href="http://liyi.it" title="liyi" target="_blank">liyi</a><ul></ul><a href="http://makaiqian.com" title="maZu" target="_blank">maZu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">DaceYu_Space.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'daceyu'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
