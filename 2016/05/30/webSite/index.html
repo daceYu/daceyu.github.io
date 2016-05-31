@@ -37,26 +37,42 @@
 <li>减少 DNS 查询次数，平衡 DNS 查询和并行下载的速度。</li>
 <li>非必须组件延迟加载。</li>
 <li>非首屏图片延迟加载。</li>
-<li>优化 DOM 结构，减少 DOM 元素数量。<br><strong>(2)Server 方面</strong></li>
+<li>优化 DOM 结构，减少 DOM 元素数量。</li>
+</ul>
+<p><strong>(2)Server 方面</strong></p>
+<ul>
 <li>使用 CDN 托管静态资源。</li>
-<li>使用缓存缓存资源。<br><code>添加 Expires 或者 Cache-Control 响应头设置缓存。</code><br><code>对资源配置 ETag。</code><br><strong>(3)Cookie 方面</strong></li>
+<li>使用缓存缓存资源。<br><code>添加 Expires 或者 Cache-Control 响应头设置缓存。</code><br><code>对资源配置 ETag。</code></li>
+</ul>
+<p><strong>(3)Cookie 方面</strong></p>
+<ul>
 <li>减少 cookie 大小。</li>
-<li>引入资源的域名不要包含 cookie。<br><strong>(4)CSS 方面</strong></li>
+<li>引入资源的域名不要包含 cookie。</li>
+</ul>
+<p><strong>(4)CSS 方面</strong></p>
+<ul>
 <li>将样式表放在 head 标签内。</li>
 <li>不使用 @import。</li>
 <li>图表使用 iconfont。</li>
 <li>可根据需要适当开启 transition3d 加速。</li>
-<li>压缩 CSS 文件。<br><strong>(5)JavaScript 方面</strong></li>
+<li>压缩 CSS 文件。</li>
+</ul>
+<p><strong>(5)JavaScript 方面</strong></p>
+<ul>
 <li>优化代码结构，提高代码解析速度。</li>
 <li>减少 DOM 访问。</li>
 <li>合理设置事件监听。</li>
 <li>删除没有作用的代码。</li>
-<li>压缩 JS 文件。<br><strong>(6)图片方面</strong></li>
+<li>压缩 JS 文件。</li>
+</ul>
+<p><strong>(6)图片方面</strong></p>
+<ul>
 <li>优化图片，根据实际的颜色需要选择图片格式和压缩比率。</li>
 <li>不要拉伸图片。</li>
 <li>使用 favicon.ico 尽量小并且进行缓存。</li>
-<li>将比较小的图片转换成 base64 编码。<br><strong>(7)移动端保证组件大小尽量小。</strong></li>
+<li>将比较小的图片转换成 base64 编码。</li>
 </ul>
+<p><strong>(7)移动端保证组件大小尽量小。</strong></p>
 <h3 id="u8003_u8651_Web__u5E94_u7528_u7684_SEO"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_SEO" class="headerlink" title="考虑 Web 应用的 SEO"></a>考虑 Web 应用的 SEO</h3><ol>
 <li>合理的设置 title、description、keywords，搜索引擎对三者的权重依次减小。</li>
 </ol>
