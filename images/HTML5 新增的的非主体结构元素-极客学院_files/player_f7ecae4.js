@@ -1,0 +1,1 @@
+define("course:widget/player/player.js",function(n,i,o){var e={init:function(){this.analytic()},analytic:function(){window.courseInfo&&window.courseInfo.id&&sa.track("study_ke_show",{cname:window.courseInfo.title,cid:window.courseInfo.id})}};o.exports=e});
