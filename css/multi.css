@@ -1,0 +1,75 @@
+html,body{
+	margin:0;
+	padding: 0;
+	background: #fff;
+}
+a:focus,input:focus,select:focus,div {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/*HEADER*/
+.header{
+	height: 2rem;
+	line-height: 2rem;
+	width: 100%;
+	text-align: center;
+	background: #fff;
+	font-size: 0.7rem;
+	box-shadow: 0px 0.02rem 12px 0px #888888;
+}
+/*测试的文本域*/
+textarea{
+	width: 100%;
+	min-height: 6rem;
+	border: none;
+	resize:none;
+	margin-top: 0.5rem;
+	font-size: 0.6rem;
+	line-height: 1rem;
+}
+
+
+#yg_multi{
+	width:14.4rem;
+	overflow:auto;
+	padding-left:0.3rem;
+	padding-right:0.3rem;
+	margin-top:0.5rem;
+	background:#fff;
+}
+#yg_multi div,#yg_multi input,.choosedImg{
+	width:3.2rem;
+	margin:0.05rem 0.2rem;
+	height:3.2rem;
+	overflow:hidden;
+	float:left;
+}
+#yg_multi img,.choosedImg img{
+	width:100% !important;
+	height:100%;
+	object-fit:cover;
+}
+#commitImg,#commitImg img,.choosedImg,.choosedImg img{
+	position:relative;
+}
+#commitImg input{
+	width:100%;
+	height:100%;
+	opacity:0;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.choosedImg div{
+	width:1rem !important;
+	height:1rem !important;
+	margin:0 !important;
+	line-height:1rem;
+	color:#fff;
+	font-size:0.6rem;
+	text-align:center;
+	background-color:#000;/* IE6閸滃矂鍎撮崚鍜篍7閸愬懏鐗抽惃鍕セ鐟欏牆娅�(婵′縺Q濞村繗顫嶉崳锟�)娑撳顤侀懝鑼额潶鐟曞棛娲� */
+	background-color:rgba(0,0,0,0.7);
+	position:absolute  !important;
+	top:0;
+	right:0;
+}
