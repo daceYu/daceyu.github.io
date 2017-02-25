@@ -45,4 +45,17 @@ function imagePreview(input){
 function dele(ob){
 	var obj=$(".choosedImg img");
 	var yl=obj.length;
-	for(var i=0;i
+	for(var i=0;i<yl;i++){
+		var isrc=obj.eq(i).attr("src");
+		if(ob==isrc){
+			$(".choosedImg img").eq(i).parent().remove();
+		}
+	}
+}
+window.onload=function(){
+	IsPC();	
+	//删除图片
+	$("#yg_multi").on("click",".choosedImg div",function(){
+		$(this).parent().remove();
+	})
+}
