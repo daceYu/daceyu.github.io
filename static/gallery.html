@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="../src/css/index.css">
+</head>
+
+<body>
+    <div id="screen">
+        <div id="scene">
+            <!-- 画框 -->
+            <img src="../src/images/wall-1.png" data-transform="translateZ(-500px)">
+            <img src="../src/images/wall-3.png" data-transform="rotateY(-90deg) translateZ(-500px)">
+            <img src="../src/images/wall.png" data-transform="rotateY(90deg) translateZ(-500px)">
+            <img src="../src/images/wall-2.png" data-transform="rotateY(180deg) translateZ(-500px)">
+            <!-- 画框 end -->
+            <!-- 地板 -->
+            <img class="f" src="../src/images/floor.jpg" data-transform="rotateX(90deg) translateZ(-300px)">
+            <!-- 地板 end -->
+            <!-- 天花板 -->
+            <img class="f" src="../src/images/ceiling.jpg" data-transform="rotateX(-90deg) translateZ(-300px)">
+            <!-- 天花板 end -->
+            <div class="duoshuo" data-transform="rotateY(90deg) translateZ(-490px)">
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="gallery" data-title="油画" ></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                var duoshuoQuery = {
+                    short_name: "daceyu"
+                };
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';
+                    ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+            </div>
+                
+        </div>
+    </div>
+    <script src="../src/js/ge1doot.js"></script>
+    <script src="../src/js/index.js"></script>
+</body>
+
+</html>
