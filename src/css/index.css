@@ -37,8 +37,8 @@ body {
 #scene img {
     position: absolute;
     margin: -300px -500px;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    /*backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;*/
 }
 
 #scene .f {
