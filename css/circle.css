@@ -1,0 +1,28 @@
+html,body{margin:0;padding: 0;}
+/*#dofly{
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background: #FE5722;
+	cursor: pointer;
+	position: relative;
+	left: 50%;
+	margin-left: -80px;
+}*/
+.bn{
+	width: 100%;
+	overflow: auto;
+	position: relative;
+}
+#c{
+	position: relative;
+}
+
+#dofly{
+	width: 24%;
+	position: absolute;
+	top: 32%;
+	left:38%;
+}
