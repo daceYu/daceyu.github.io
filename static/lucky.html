@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大转盘活动</title>
+<link href="../css/yg_circle2.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/awardRotate.js"></script>
+<script src="../js/yg_rem.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="header">活动详情<span></span></div>
+	<div class="banner">
+		<img id="bannerBg" src="../images/bg.jpg" alt="" />
+		<div class="turnplate" style="background-image:url(../images/turnplate-bg2.png);background-size:100% 100%;">
+			<canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas>
+			<img class="pointer" src="../images/turnplate-pointer.png"/>
+		</div>
+	</div>
+	<div class="circleTab">
+		<div class="circleTabTitle"><img src="../images/huodongguize.png" alt="" /><div>活动规则</div></div>
+		<div class="circleTabInfo">1、即日起前十名用户进店用户均可获得一次抽奖机会。</div>
+		<div class="circleTabInfo">2、消费满50元可获得一次抽奖机会。</div>
+		<div class="circleTabInfo">3、所中奖品当场发放。</div>
+		<div class="circleTabInfo">4、最终解释权归本店所有。</div>
+	</div>
+	<div class="myscroll">
+		<ul>
+			<li>1、恭喜幸运用户 135******** 获得什么。</li>
+			<li>2、恭喜幸运用户 139******** 获得什么。</li>
+			<li>3、恭喜幸运用户 158******** 获得什么。</li>
+			<li>4、恭喜幸运用户 187******** 获得什么。</li>
+			<li>5、恭喜幸运用户 158******** 获得什么。</li>
+			<li>6、恭喜幸运用户 186******** 获得什么。</li>
+			<li>7、恭喜幸运用户 158******** 获得什么。</li>
+			<li>8、恭喜幸运用户 135******** 获得什么。</li>
+			<li>9、恭喜幸运用户 178******** 获得什么。</li>
+			<li>10、恭喜幸运用户 135******** 获得什么。</li>
+		</ul>
+	</div>
+</body>
+	<script src="../js/yg_circle2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/yg_scroll.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var rowH=$(".myscroll li").height();
+		console.log(rowH);
+		// 文字滚动
+	  	$('.myscroll').myScroll({
+	        speed: 30, //数值越大，速度越慢
+	        rowHeight: rowH //li的高度
+	    });
+	</script>
+</html>

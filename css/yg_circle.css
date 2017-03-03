@@ -9,18 +9,23 @@ a:focus,input:focus,select:focus,div {-webkit-tap-highlight-color: rgba(0,0,0,0)
 .clear{clear:both;}
 
 
+#bannerBg{
+	width: 100%;
+}
+
 /* 大转盘样式 */
 .banner{
 	display:block;
-	width:95%;
+	width:100%;
 	/*max-width: 750px;*/
 	overflow: auto;
-	margin:20px 2.5% 20px 2.5%;
 }
 .banner .turnplate{
 	display:block;
-	width:100%;
-	position:relative;
+	width:62%;
+	margin:0 19%;
+	position:absolute;
+	top:21%;
 }
 .banner .turnplate canvas.item{
 	width:100%;
