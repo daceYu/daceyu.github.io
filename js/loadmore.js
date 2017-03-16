@@ -36,10 +36,12 @@
 				/*当滚动到最底部以上2像素时， 加载新内容*/
 				if ($(document).height() - $(this).scrollTop() - $(this).height()<2){
 					//延迟 显示加载内容
-					$(".js-load-more").html("loading...");
+					$(".clickmore").html("loading...");
+					config.isEnd = true; 
 					setTimeout(function(){
 						callback && callback(config);
-					},1000)
+						config.isEnd = false;
+					},1000);
 				}else{
 					$(".js-load-more").html("加载更多");
 				}
