@@ -14,7 +14,7 @@
 			var config = config ? config : {}; /*防止未传参数报错*/
 
 			/*默认通过点击加载更多*/
-			$(document).on('click', '.js-load-more', function(){
+			$(document).on('touchstart', '.js-load-more', function(){
 				$(".js-load-more").html("loading...");
 				setTimeout(function(){
 					callback && callback(config);
