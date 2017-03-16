@@ -3,7 +3,7 @@ $(function(){
 		config.isAjax = true;
 		$.ajax({
 			type: 'GET',
-			url:"json/blog.json", //这里offset,size无作用，仅方便调试
+			url:"../json/blog.json", //这里offset,size无作用，仅方便调试
 			dataType: 'json',
 			success: function(reponse){
 				config.isAjax = false;
