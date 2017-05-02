@@ -1,33 +1,651 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>DaceYu_Space | Coding....</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">DaceYu_Space</h1><a id="logo" href="/.">DaceYu_Space</a><p class="description">Coding....</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/static/gallery.html"><i class="fa fa-trello"> β-House</i></a><a href="https://github.com/daceYu"><i class="fa fa-rss"> GitHub</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2016/03/29/isMobile/">js简化UA判断</a></h2><div class="post-meta">2016-03-29</div><a data-thread-key="2016/03/29/isMobile/" href="/2016/03/29/isMobile/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="js_u7B80_u5316_u5224_u65AD_u662F_u5426_u4E3A_u624B_u673A_u8BBF_u95EE"><a href="#js_u7B80_u5316_u5224_u65AD_u662F_u5426_u4E3A_u624B_u673A_u8BBF_u95EE" class="headerlink" title="js简化判断是否为手机访问"></a>js简化判断是否为手机访问</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent;</span><br><span class="line"><span class="keyword">var</span> ipad = ua.<span class="literal">match</span>(/(iPad).*OS\<span class="literal">s</span>([\d_]+)/),</span><br><span class="line">    isIphone = !ipad &amp;&amp; ua.<span class="literal">match</span>(/(iPhone\sOS)\<span class="literal">s</span>([\d_]+)/),</span><br><span class="line">    isAndroid = ua.<span class="literal">match</span>(/(Android)\s+([\<span class="keyword">d</span>.]+)/),</span><br><span class="line">    isMobile = isIphone || isAndroid;</span><br><span class="line">    <span class="keyword">if</span>(isMobile) &#123;</span><br><span class="line">        location.href = 'http:<span class="comment">//m.domain.com';</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        location.href = 'http:<span class="comment">//www.domain.com';</span></span><br><span class="line">    ｝</span><br><span class="line">    <span class="comment">//或者单独判断iphone或android</span></span><br><span class="line">    <span class="keyword">if</span>(isIphone)&#123;</span><br><span class="line">        <span class="comment">//code</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(isAndroid)&#123;</span><br><span class="line">        <span class="comment">//code</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//code</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2016/03/29/isMobile/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/03/22/returnTop/">简单返回顶部代码</a></h2><div class="post-meta">2016-03-22</div><a data-thread-key="2016/03/22/returnTop/" href="/2016/03/22/returnTop/#comments" class="ds-thread-count"></a><div class="post-content"><p>最近做了一个排行榜页面，分类较多，并且以图文形式展示……最后页面明显过长了，用户体验自然不够好。最后想着在页面上部增加了页面内跳转导航，直接导航到本页的分类命名锚块。当然这就需要结合“返回顶部”功能来取得更好的体验了。当然一般情况下首先还是要避免页面过长，内容薄弱关联性不够的跳出率会很高。<br>下面就说下简单的返回顶部效果的代码实现.<br></div><p class="readmore"><a href="/2016/03/22/returnTop/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/03/01/webHtml2/">移动端知识总结(二)</a></h2><div class="post-meta">2016-03-01</div><a data-thread-key="2016/03/01/webHtml2/" href="/2016/03/01/webHtml2/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="IE10_uFF08winphone8_uFF09_u8868_u5355_u5143_u7D20_u9ED8_u8BA4_u5916_u89C2_u5982_u4F55_u91CD_u7F6E"><a href="#IE10_uFF08winphone8_uFF09_u8868_u5355_u5143_u7D20_u9ED8_u8BA4_u5916_u89C2_u5982_u4F55_u91CD_u7F6E" class="headerlink" title="IE10（winphone8）表单元素默认外观如何重置"></a>IE10（winphone8）表单元素默认外观如何重置</h2><h3 id="u7981_u7528_select__u9ED8_u8BA4_u4E0B_u62C9_u7BAD_u5934"><a href="#u7981_u7528_select__u9ED8_u8BA4_u4E0B_u62C9_u7BAD_u5934" class="headerlink" title="禁用 select 默认下拉箭头"></a>禁用 select 默认下拉箭头</h3><p>  ::-ms-expand 适用于表单选择控件下拉箭头的修改，有多个属性值，设置它隐藏 (display:none) 并使用背景图片来修饰可得到我们想要的效果。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">select</span><span class="pseudo">::-ms-expand</span> <span class="rules">&#123;</span><br><span class="line"><span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p></div><p class="readmore"><a href="/2016/03/01/webHtml2/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/02/17/webHtml/">移动端知识总结(一)</a></h2><div class="post-meta">2016-02-17</div><a data-thread-key="2016/02/17/webHtml/" href="/2016/02/17/webHtml/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="meta_u57FA_u7840_u77E5_u8BC6"><a href="#meta_u57FA_u7840_u77E5_u8BC6" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762"><a href="#H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="property">name</span>=<span class="string">"viewport"</span></span><br><span class="line">      content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span></span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801"><a href="#u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801" class="headerlink" title="忽略将页面中的数字识别为电话号码"></a>忽略将页面中的数字识别为电话号码</h3></div><p class="readmore"><a href="/2016/02/17/webHtml/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/02/brower-sync/">Brower-sync多平台调试利器</a></h2><div class="post-meta">2015-12-02</div><a data-thread-key="2015/12/02/brower-sync/" href="/2015/12/02/brower-sync/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D"><a href="#u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D" class="headerlink" title="子曰：“工欲善其事，必先利其器…….”"></a>子曰：“工欲善其事，必先利其器…….”</h3><p>大表哥向我推荐Brower-sync，多平台调试利器，好用得很!!!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-input用户体验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/16/input用户体验/" class="article-date">
+  <time datetime="2016-04-16T00:10:12.000Z" itemprop="datePublished">2016-04-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>►<a class="article-category-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/16/input用户体验/">增减input,用户体验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584"><a href="#u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584" class="headerlink" title="增减input–用户体验的完善"></a>增减input–用户体验的完善</h3><p>  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。<br>  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/04/16/input用户体验/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/16/input用户体验/" data-id="cj27lu3ta006jomkwi98s79hl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-isMobile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/29/isMobile/" class="article-date">
+  <time datetime="2016-03-29T03:30:24.000Z" itemprop="datePublished">2016-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/29/isMobile/">js简化UA判断</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="js_u7B80_u5316_u5224_u65AD_u662F_u5426_u4E3A_u624B_u673A_u8BBF_u95EE"><a href="#js_u7B80_u5316_u5224_u65AD_u662F_u5426_u4E3A_u624B_u673A_u8BBF_u95EE" class="headerlink" title="js简化判断是否为手机访问"></a>js简化判断是否为手机访问</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ua = navigator.userAgent;</div><div class="line"><span class="keyword">var</span> ipad = ua.<span class="keyword">match</span>(/(iPad).*<span class="type">OS</span>\s([\d_]+)/),</div><div class="line">    isIphone = !ipad &amp;&amp; ua.<span class="keyword">match</span>(/(iPhone\sOS)\s([\d_]+)/),</div><div class="line">    isAndroid = ua.<span class="keyword">match</span>(/(<span class="type">Android</span>)\s+([\d.]+)/),</div><div class="line">    isMobile = isIphone || isAndroid;</div><div class="line">    <span class="keyword">if</span>(isMobile) &#123;</div><div class="line">        location.href = <span class="symbol">'http</span>:<span class="comment">//m.domain.com';</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        location.href = <span class="symbol">'http</span>:<span class="comment">//www.domain.com';</span></div><div class="line">    ｝</div><div class="line">    <span class="comment">//或者单独判断iphone或android</span></div><div class="line">    <span class="keyword">if</span>(isIphone)&#123;</div><div class="line">        <span class="comment">//code</span></div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(isAndroid)&#123;</div><div class="line">        <span class="comment">//code</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="comment">//code</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="u5224_u65AD_u5FAE_u4FE1/Android/IOS_u8BBF_u95EE"><a href="#u5224_u65AD_u5FAE_u4FE1/Android/IOS_u8BBF_u95EE" class="headerlink" title="判断微信/Android/IOS访问"></a>判断微信/Android/IOS访问</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="regexp">/MicroMessenger/i</span>.test(navigator.userAgent)) &#123;</div><div class="line"></div><div class="line">    <span class="regexp">//</span>...to <span class="keyword">do</span> something</div><div class="line">    </div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/android/i</span>.test(navigator.userAgent)) &#123;</div><div class="line">   </div><div class="line">    <span class="regexp">//</span>...to <span class="keyword">do</span> something</div><div class="line">    </div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123;</div><div class="line"></div><div class="line">    <span class="regexp">//</span>...to <span class="keyword">do</span> something</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/29/isMobile/" data-id="cj27lu3t9006gomkwdbwwy3ki" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-returnTop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/22/returnTop/" class="article-date">
+  <time datetime="2016-03-22T13:16:54.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/returnTop/">简单返回顶部代码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做了一个排行榜页面，分类较多，并且以图文形式展示……最后页面明显过长了，用户体验自然不够好。最后想着在页面上部增加了页面内跳转导航，直接导航到本页的分类命名锚块。当然这就需要结合“返回顶部”功能来取得更好的体验了。当然一般情况下首先还是要避免页面过长，内容薄弱关联性不够的跳出率会很高。<br>下面就说下简单的返回顶部效果的代码实现.<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/03/22/returnTop/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/22/returnTop/" data-id="cj27lu3sp0053omkwceurogwg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webHtml2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/01/webHtml2/" class="article-date">
+  <time datetime="2016-03-01T06:30:15.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/01/webHtml2/">移动端知识总结(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="IE10_uFF08winphone8_uFF09_u8868_u5355_u5143_u7D20_u9ED8_u8BA4_u5916_u89C2_u5982_u4F55_u91CD_u7F6E"><a href="#IE10_uFF08winphone8_uFF09_u8868_u5355_u5143_u7D20_u9ED8_u8BA4_u5916_u89C2_u5982_u4F55_u91CD_u7F6E" class="headerlink" title="IE10（winphone8）表单元素默认外观如何重置"></a>IE10（winphone8）表单元素默认外观如何重置</h2><h3 id="u7981_u7528_select__u9ED8_u8BA4_u4E0B_u62C9_u7BAD_u5934"><a href="#u7981_u7528_select__u9ED8_u8BA4_u4E0B_u62C9_u7BAD_u5934" class="headerlink" title="禁用 select 默认下拉箭头"></a>禁用 select 默认下拉箭头</h3><p>  ::-ms-expand 适用于表单选择控件下拉箭头的修改，有多个属性值，设置它隐藏 (display:none) 并使用背景图片来修饰可得到我们想要的效果。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">select</span><span class="selector-pseudo">::-ms-expand</span> &#123;</div><div class="line"><span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2016/03/01/webHtml2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/01/webHtml2/" data-id="cj27lu3sm004vomkws32zbduz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webHtml" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/17/webHtml/" class="article-date">
+  <time datetime="2016-02-17T00:10:56.000Z" itemprop="datePublished">2016-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/17/webHtml/">移动端知识总结(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="meta_u57FA_u7840_u77E5_u8BC6"><a href="#meta_u57FA_u7840_u77E5_u8BC6" class="headerlink" title="meta基础知识"></a>meta基础知识</h2><h3 id="H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762"><a href="#H5_u9875_u9762_u7A97_u53E3_u81EA_u52A8_u8C03_u6574_u5230_u8BBE_u5907_u5BBD_u5EA6_uFF0C_u5E76_u7981_u6B62_u7528_u6237_u7F29_u653E_u9875_u9762" class="headerlink" title="H5页面窗口自动调整到设备宽度，并禁止用户缩放页面"></a>H5页面窗口自动调整到设备宽度，并禁止用户缩放页面</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta <span class="built_in">name</span>=<span class="string">"viewport"</span></div><div class="line">      content=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span></div><div class="line"> /&gt;</div></pre></td></tr></table></figure>
+<h3 id="u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801"><a href="#u5FFD_u7565_u5C06_u9875_u9762_u4E2D_u7684_u6570_u5B57_u8BC6_u522B_u4E3A_u7535_u8BDD_u53F7_u7801" class="headerlink" title="忽略将页面中的数字识别为电话号码"></a>忽略将页面中的数字识别为电话号码</h3>
+        
+          <p class="article-more-link">
+            <a href="/2016/02/17/webHtml/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/17/webHtml/" data-id="cj27lu3sn004zomkw1e3fd976" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-brower-sync" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/02/brower-sync/" class="article-date">
+  <time datetime="2015-12-02T08:10:41.000Z" itemprop="datePublished">2015-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/工具/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/02/brower-sync/">Brower-sync多平台调试利器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D"><a href="#u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D" class="headerlink" title="子曰：“工欲善其事，必先利其器…….”"></a>子曰：“工欲善其事，必先利其器…….”</h3><p>大表哥向我推荐Brower-sync，多平台调试利器，好用得很!!!</p>
 <hr>
-<h3 id="Brower-sync_u662F_u5E72_u561B_u7528_u7684"><a href="#Brower-sync_u662F_u5E72_u561B_u7528_u7684" class="headerlink" title="Brower-sync是干嘛用的"></a>Brower-sync是干嘛用的</h3><p>1.与LiveReloader相似，用于页面的自动刷新；<br>2.但是Browser-sync做的更完美，比如说：<br></div><p class="readmore"><a href="/2015/12/02/brower-sync/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/11/25/CSS-HACK/">CSS HACK</a></h2><div class="post-meta">2015-11-25</div><a data-thread-key="2015/11/25/CSS-HACK/" href="/2015/11/25/CSS-HACK/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="CSS_HACK_u5C0F_u63A5_u89E6"><a href="#CSS_HACK_u5C0F_u63A5_u89E6" class="headerlink" title="CSS HACK小接触"></a>CSS HACK小接触</h2><p><strong>如何介绍我也无法讲清楚,只能复制了下网上的介绍</strong> :<br><del>CSS hack由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认<br>识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。 这个时候我们就需要针对不同的浏览器去写不同的CSS，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。</del><br></div><p class="readmore"><a href="/2015/11/25/CSS-HACK/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/11/17/amination/">动画设计</a></h2><div class="post-meta">2015-11-17</div><a data-thread-key="2015/11/17/amination/" href="/2015/11/17/amination/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027"><a href="#u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027" class="headerlink" title="动画的3个关键：过渡，重点，趣味性"></a>动画的3个关键：过渡，重点，趣味性</h2><p>过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。</p>
+<h3 id="Brower-sync_u662F_u5E72_u561B_u7528_u7684"><a href="#Brower-sync_u662F_u5E72_u561B_u7528_u7684" class="headerlink" title="Brower-sync是干嘛用的"></a>Brower-sync是干嘛用的</h3><p>1.与LiveReloader相似，用于页面的自动刷新；<br>2.但是Browser-sync做的更完美，比如说：<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/02/brower-sync/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/12/02/brower-sync/" data-id="cj27lu3tj0070omkwy8eq2o03" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS-HACK" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/25/CSS-HACK/" class="article-date">
+  <time datetime="2015-11-25T03:41:49.000Z" itemprop="datePublished">2015-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/25/CSS-HACK/">CSS HACK</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS_HACK_u5C0F_u63A5_u89E6"><a href="#CSS_HACK_u5C0F_u63A5_u89E6" class="headerlink" title="CSS HACK小接触"></a>CSS HACK小接触</h2><p><strong>如何介绍我也无法讲清楚,只能复制了下网上的介绍</strong> :<br><del>CSS hack由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认<br>识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。 这个时候我们就需要针对不同的浏览器去写不同的CSS，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。</del><br>
+        
+          <p class="article-more-link">
+            <a href="/2015/11/25/CSS-HACK/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/25/CSS-HACK/" data-id="cj27lu3tq007bomkwr5ntgy52" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-amination" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/17/amination/" class="article-date">
+  <time datetime="2015-11-17T03:11:11.000Z" itemprop="datePublished">2015-11-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/17/amination/">动画设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027"><a href="#u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027" class="headerlink" title="动画的3个关键：过渡，重点，趣味性"></a>动画的3个关键：过渡，重点，趣味性</h2><p>过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。</p>
 <p>重点(Focus)：将用户的注意力吸引到界面，很重要的或最近更新的，特别是需要马上吸引用户注意的</p>
 <p>趣味性(Delight)：通过使用奇思妙想或令人意外的运动，使一个原本平常的互动更具吸引力和趣味性。</p>
 <hr>
-<h2 id="u52A8_u753B_u5C5E_u6027"><a href="#u52A8_u753B_u5C5E_u6027" class="headerlink" title="动画属性"></a>动画属性</h2></div><p class="readmore"><a href="/2015/11/17/amination/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/10/22/ps/">PS切图插件cutterman</a></h2><div class="post-meta">2015-10-22</div><a data-thread-key="2015/10/22/ps/" href="/2015/10/22/ps/#comments" class="ds-thread-count"></a><div class="post-content"><h6 id="u3010_u8D77_u56E0_u3011"><a href="#u3010_u8D77_u56E0_u3011" class="headerlink" title="【起因】"></a>【起因】</h6><p>发现了一个PHOTOSHOP扩展功能——Cutterman，需要安装Extension Manager。</p>
+<h2 id="u52A8_u753B_u5C5E_u6027"><a href="#u52A8_u753B_u5C5E_u6027" class="headerlink" title="动画属性"></a>动画属性</h2>
+        
+          <p class="article-more-link">
+            <a href="/2015/11/17/amination/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/17/amination/" data-id="cj27lu3to0078omkwcuum5qky" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/22/ps/" class="article-date">
+  <time datetime="2015-10-22T03:11:11.000Z" itemprop="datePublished">2015-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术无界/">技术无界</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/ps/">PS切图插件cutterman</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="u3010_u8D77_u56E0_u3011"><a href="#u3010_u8D77_u56E0_u3011" class="headerlink" title="【起因】"></a>【起因】</h6><p>发现了一个PHOTOSHOP扩展功能——Cutterman，需要安装Extension Manager。</p>
 <h6 id="u3010_u529F_u80FD_u3011"><a href="#u3010_u529F_u80FD_u3011" class="headerlink" title="【功能】"></a>【功能】</h6><p> 自动将你需要的图层进行输出，<br>以替代传统的手工 “导出web所用格式” 以及使用切片工具进行挨个切图的繁琐流程。<br>它支持各种各样的图片尺寸、格式、形态输出，方便你在pc、ios、Android等端上使用。</p>
-<h6 id="u3010_u94FE_u63A5_u3011"><a href="#u3010_u94FE_u63A5_u3011" class="headerlink" title="【链接】"></a>【链接】</h6><p><a href="http://www.cutterman.cn/v2/cutterman官网">http://www.cutterman.cn/v2/cutterman官网</a></p>
-<h6 id="u3010_u5B89_u88C5_u3011"><a href="#u3010_u5B89_u88C5_u3011" class="headerlink" title="【安装】"></a>【安装】</h6></div><p class="readmore"><a href="/2015/10/22/ps/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/10/17/响应式布局/">响应式布局简介</a></h2><div class="post-meta">2015-10-17</div><a data-thread-key="2015/10/17/响应式布局/" href="/2015/10/17/响应式布局/#comments" class="ds-thread-count"></a><div class="post-content"><h1 id="u54CD_u5E94_u5F0F_u5E03_u5C40_u7B80_u4ECB"><a href="#u54CD_u5E94_u5F0F_u5E03_u5C40_u7B80_u4ECB" class="headerlink" title="响应式布局简介"></a>响应式布局简介</h1><p>[slide]</p>
+<h6 id="u3010_u94FE_u63A5_u3011"><a href="#u3010_u94FE_u63A5_u3011" class="headerlink" title="【链接】"></a>【链接】</h6><p><a href="http://www.cutterman.cn/v2/cutterman官网" target="_blank" rel="external">http://www.cutterman.cn/v2/cutterman官网</a></p>
+<h6 id="u3010_u5B89_u88C5_u3011"><a href="#u3010_u5B89_u88C5_u3011" class="headerlink" title="【安装】"></a>【安装】</h6>
+        
+          <p class="article-more-link">
+            <a href="/2015/10/22/ps/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/10/22/ps/" data-id="cj27lu3ss005comkw8vwbndqc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PS/">PS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-响应式布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/17/响应式布局/" class="article-date">
+  <time datetime="2015-10-17T01:11:39.000Z" itemprop="datePublished">2015-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/17/响应式布局/">响应式布局简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u54CD_u5E94_u5F0F_u5E03_u5C40_u7B80_u4ECB"><a href="#u54CD_u5E94_u5F0F_u5E03_u5C40_u7B80_u4ECB" class="headerlink" title="响应式布局简介"></a>响应式布局简介</h1><p>[slide]</p>
 <h2 id="u5E03_u5C40_u65B9_u5F0F"><a href="#u5E03_u5C40_u65B9_u5F0F" class="headerlink" title="布局方式"></a>布局方式</h2><ol>
 <li>固定布局     </li>
 <li>可切换的固定布局</li>
 <li>弹性布局</li>
-<li>混合布局</div><p class="readmore"><a href="/2015/10/17/响应式布局/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/10/08/同步请求异步请求/">关于同步请求跟异步请求 的区别</a></h2><div class="post-meta">2015-10-08</div><a data-thread-key="2015/10/08/同步请求异步请求/" href="/2015/10/08/同步请求异步请求/#comments" class="ds-thread-count"></a><div class="post-content"><ul>
-<li>同步:提交请求-&gt;等待服务器处理-&gt;处理完毕返回 这个期间客户端浏览器不能干任何事</li>
-<li>异步:请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕</li>
-</ul>
-<p><span style="color:red">举个例子</span>:</p>
-<ul>
-<li>同步就是你叫我去吃饭，我听到了就和你去吃饭；如果没有听到，你就不停的叫，直到我告诉你听到了，才一起去吃饭。</li>
-<li>异步就是你叫我，然后自己去吃饭，我得到消息后可能立即走，也可能等到下班才去吃饭。</li>
-<li>所以，要我请你吃饭就用同步的方法，要请我吃饭就用异步的方法，这样你可以省钱。</span></div><p class="readmore"><a href="/2015/10/08/同步请求异步请求/">阅读更多</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a></nav></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://daceyu.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/自用笔记/" style="font-size: 15px;">自用笔记</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/正则表达/" style="font-size: 15px;">正则表达</a> <a href="/tags/PS/" style="font-size: 15px;">PS</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/bootstrap/" style="font-size: 15px;">bootstrap</a> <a href="/tags/MongoDB/" style="font-size: 15px;">MongoDB</a> <a href="/tags/grunt/" style="font-size: 15px;">grunt</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/CSS-HACK/" style="font-size: 15px;">CSS HACK</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/加载更多/">(组件)加载更多</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/10/wx/">微信开发－微信JS-SDK扫一扫功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/08/图片预览上传/">(组件)图片预览上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/iscroll.js回弹bug/">解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/node_chat/">Node.js + Web Socket 开源聊天室学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/grunt/">Grunt集成自启动工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/node+express/">node+express学习</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://huangbingbing.com" title="ahBing" target="_blank">ahBing</a><ul></ul><a href="http://liyi.it" title="liyi" target="_blank">liyi</a><ul></ul><a href="http://makaiqian.com" title="maZu" target="_blank">maZu</a><ul></ul><a href="https://molunerfinn.com/archives/" title="dada" target="_blank">dada</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">DaceYu_Space.</a> created by<a rel="nofollow" target="_blank" href="https://daceyu.com"> Daceyu.</a> copy @ 2015 - 2016</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'daceyu'};
-(function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<li>混合布局
+        
+          <p class="article-more-link">
+            <a href="/2015/10/17/响应式布局/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/10/17/响应式布局/" data-id="cj27lu3s7003qomkwjz6q86z5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a><span class="category-list-count">4</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PS/">PS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达/">正则表达</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用笔记/">自用笔记</a><span class="tag-list-count">30</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/02/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/加载更多/">(组件)加载更多</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

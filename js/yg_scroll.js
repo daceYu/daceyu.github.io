@@ -25,27 +25,4 @@
 		this.each(function(i){
 			var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
 			intId[i] = setInterval(function(){
-				if(_this.find("ul").height()<=_this.height()){
-					clearInterval(intId[i]);
-				}else{
-					marquee(_this, sh);
-				}
-			}, speed);
-
-			_this.hover(function(){
-				clearInterval(intId[i]);
-			},function(){
-				intId[i] = setInterval(function(){
-					if(_this.find("ul").height()<=_this.height()){
-						clearInterval(intId[i]);
-					}else{
-						marquee(_this, sh);
-					}
-				}, speed);
-			});
-		
-		});
-
-	}
-
-})(jQuery);
+				if(_this.find("ul").height()
