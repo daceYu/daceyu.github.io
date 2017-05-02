@@ -14,9 +14,11 @@ selecter.addData = function (start,end,nullLi) {
 	if(!nullLi){var nullLi = 2;}
 	
 	var li = "";
-	for(var i = 1;i <= nullli;i++){="" li="li" +="" "<li="">";
+	for(var i = 1;i <= nullLi;i++){
+		li = li + "<li></li>";
 	}
-	for(var i = start ; i <= end;="" i++){="" li="li" +="" "<li="">" + i + "";
+	for(var i = start ; i <= end; i++){
+		li =li + "<li>" + i + "</li>";
 	}
 	$(li).appendTo($("#dialog ul"));
 }
@@ -131,4 +133,3 @@ selecter.init = function () {
 	this.initDate();
 	this.forbid();
 }
-</=></=>

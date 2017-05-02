@@ -1,0 +1,16 @@
+<article class="me u-w100 f-tc fs30">
+	<section ng-if="name">
+		<img class="f-db g-center" ng-src="{{imgPath}}">
+		<span class="f-db u-w100" ng-bind="name"></span>
+		<a class="f-dib" ui-sref="post">投递</a>
+		<a class="f-dib" ui-sref="favorite">收藏</a>
+		<a class="f-db logout" ng-click="logout()">退出登录</a>
+	</section>
+	<section ng-hide="name" ui-sref="login">
+		<img class="f-db g-center" ng-src="./images/my.jpg">
+		<span class="f-db u-w100">点击去登录</span>
+		<a class="f-dib">投递</a>
+		<a class="f-dib">收藏</a>
+	</section>
+</article>
+<footer app-foot></footer>

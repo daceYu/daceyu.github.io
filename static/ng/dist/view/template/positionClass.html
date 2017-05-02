@@ -1,0 +1,14 @@
+<article class="position-class fs30 u-w100">
+	<header class="f-bold">职位分类</header>
+	<section>
+		<a ng-click="showPosition($index)" class="f-dib {{$index === isActive ? 'active' : ''}}" ng-repeat="cls in comp.positionClass">{{cls.name}}</a>
+		<!--<a class="f-dib">运营</a>-->
+		<ul>
+			<li class="u-w100 g-pr" ng-repeat="pos in positionList">
+				<p class="f-bold" ng-bind="pos.name"></p>
+				<p ng-bind="pos.createdDate"></p>
+				<span class="g-pa" ng-bind="pos.salary"></span>
+			</li>
+		</ul>
+	</section>
+</article>

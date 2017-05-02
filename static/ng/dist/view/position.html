@@ -1,0 +1,16 @@
+<header app-head-bar title="职位详情"></header>
+<section class="headBg"></section>
+
+<article app-position-info pos="position" is-login="isLogin"></article>
+<article>
+	<header app-company comp="company"></header>
+	<section class="position-des fs30">
+		<header class="f-bold">职位描述</header>
+		<pre ng-bind="position.description">
+		</pre>
+	</section>
+</article>
+
+<footer class="bottom-btn g-pf u-w100">
+	<p class="u-w100 f-tc fs30" ng-click="go()" ng-bind="message"></p>
+</footer>

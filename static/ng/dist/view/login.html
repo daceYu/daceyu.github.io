@@ -1,0 +1,15 @@
+<article class="login g-pf f-tc">
+	<form class="f-db fs30" name="form">
+		<section class="g-center g-pr">
+			<span class="f-dib f-fl acount"></span>
+			<input ng-model="user.phone" validator="phone" class="f-dib f-fl" type="text" name="phone" placeholder="输入手机号">
+		</section>
+		<section class="g-center g-pr">
+			<span class="f-dib f-fl lock"></span>
+			<input ng-model="user.password" validator="password" class="f-dib f-fl" type="password" name="password" placeholder="输入密码">
+		</section>
+
+		<a class="f-db f-bold g-center login-btn" validation-submit="form" ng-click="submit()">登录</a>
+		<a ui-sref="register" class="f-db f-bold g-center register-btn">注册</a>
+	</form>
+</article>

@@ -1,0 +1,11 @@
+<article>
+	<ul class="position-list u-w100">
+		<li ui-sref="position({id:x.id})" class="item g-pr" ng-repeat="x in data|filterByObj:filterObj">			
+			<img class="logo f-fl" ng-src="{{x.imageUrl}}"/>
+			<h3 class="title fs36" ng-bind="x.job"></h3>
+			<p class="text fs26 salary" ng-bind="x.salaryName"></p>
+			<p class="text fs26" ng-bind="x.companyName+ '[' + x.cityName + ']' + ' ' + x.industryName"></p>
+			<span ng-if="isFavorite" ng-click="$event.stopPropagation();select(x)" class="icon g-pa {{x.select?'star-active':'star'}}"></span>
+		</li>
+	</ul>
+</article>

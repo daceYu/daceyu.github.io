@@ -1,0 +1,8 @@
+<article class="position-info">
+	<section class="g-pr">
+		<p class="fs33 f-bold"><span ng-bind="pos.name"></span><span ng-bind="pos.salaryName"></span></p>
+		<p class="fs30"><span ng-bind="pos.cityName"></span><span ng-bind="pos.experience"></span><span ng-bind="pos.education"></span></p>
+		<p class="fs26" ng-bind="pos.benefit"></p>
+		<img ng-click="favorite(pos)" ng-show="isLogin" class="g-pa" ng-src="{{imgPath}}"/>
+	</section>
+</article>

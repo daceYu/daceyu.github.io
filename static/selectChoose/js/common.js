@@ -86,4 +86,14 @@ function dialog(id,num,nullLi){
         	if(index < endIndex && THIS.deltaY >= 0){//滑动到 第一条数据||限制数据
         		index = endIndex;
         		resultTop = initTop;
-    		}else if(index > liLen - 1 && THIS.deltaY 
+    		}else if(index > liLen - 1 && THIS.deltaY <= 0){//滑动到 最后一条数据
+    			index = liLen - 1;
+        		resultTop = -(liLen - nullLi - 1) * liH;
+    		}else{//最终位置
+        		resultTop = - (index - nullLi) * liH;
+    		}
+
+        	$(THIS.dom).children("ul").css("top",resultTop);
+        }
+    });
+}

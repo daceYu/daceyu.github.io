@@ -1,0 +1,20 @@
+<article class="register g-pf f-tc">
+	<form class="f-db fs30" name="form">
+		<section class="g-center g-pr">
+			<span class="f-dib f-fl acount"></span>
+			<input ng-model="user.phone" validator="phone" class="f-dib f-fl" type="text" placeholder="输入手机号">
+		</section>
+		<section class="g-center g-pr">
+			<span class="f-dib f-fl lock"></span>
+			<input ng-model="user.password" validator="password" class="f-dib f-fl" type="password" placeholder="设置6位以上的密码">
+		</section>
+		
+		<aside class="g-center fs26 g-pr">
+			<input ng-model="user.code" validator="required" class="f-fl f-tc" type="text" placeholder="短信验证码">
+			<span class="code f-fr {{time?'disabled':''}}" ng-click="time?1===1:send()" ng-bind="time?time:'发送短信'"></span>
+		</aside>
+
+		<a class="f-db f-bold g-center login-btn" validation-submit="form" ng-click="submit()">注册</a>
+		<a ui-sref="login" class="f-db f-bold g-center register-btn">去登录</a>
+	</form>
+</article>

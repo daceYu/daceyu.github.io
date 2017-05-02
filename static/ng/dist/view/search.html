@@ -1,0 +1,14 @@
+<header class="search-bar fs30 u-w100 g-pf">
+	<a ng-click="name='';search()" class="f-dib g-pa">取消</a>
+	<input ng-model="name" class="g-pa" type="text" placeholder="搜索公司/职位/城市"/>
+	<a ng-click="search()" class="f-dib g-pa">搜索</a>
+</header>
+<article app-tab list="itemList" xcli="itemClick(id,name)"></article>
+
+<section class="searchBg u-w100"></section>
+<article filter-obj="filterObj" app-position-list data="positionList"></article>
+
+<section class="footerBg u-w100"></section>
+<footer app-foot></footer>
+
+<aside app-sheet slc="sClick(id,name)" list="dic" visible="visib"></aside>
