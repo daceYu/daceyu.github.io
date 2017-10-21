@@ -1,51 +1,719 @@
-extends base
+<!doctype html>
 
-block title
-  title= page.title + ' | ' + config.title
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="自用笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="简介当页面图片太多时，加载速度就会很慢。尤其是用2G/3G/4G访问页面，不仅页面慢，而且还会用掉很多流量。图片懒加载的原理就是将页面内所有需要加载的图片全部换成一张默认的图片（一般尺寸很小），只有图片在可视区域才去请求加载。">
+<meta name="keywords" content="自用笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(组件)图片懒加载">
+<meta property="og:url" content="http://yoursite.com/2017/03/01/图片懒加载/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简介当页面图片太多时，加载速度就会很慢。尤其是用2G/3G/4G访问页面，不仅页面慢，而且还会用掉很多流量。图片懒加载的原理就是将页面内所有需要加载的图片全部换成一张默认的图片（一般尺寸很小），只有图片在可视区域才去请求加载。">
+<meta property="og:updated_time" content="2017-03-15T08:51:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(组件)图片懒加载">
+<meta name="twitter:description" content="简介当页面图片太多时，加载速度就会很慢。尤其是用2G/3G/4G访问页面，不仅页面慢，而且还会用掉很多流量。图片懒加载的原理就是将页面内所有需要加载的图片全部换成一张默认的图片（一般尺寸很小），只有图片在可视区域才去请求加载。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> (组件)图片懒加载 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                (组件)图片懒加载
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-03-01T08:31:28+08:00" content="2017-03-01">
+              2017-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/移动端/组件/" itemprop="url" rel="index">
+                    <span itemprop="name">组件</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h4><p>当页面图片太多时，加载速度就会很慢。尤其是用2G/3G/4G访问页面，不仅页面慢，而且还会用掉很多流量。图片懒加载的原理就是将页面内所有需要加载的图片全部换成一张默认的图片（一般尺寸很小），只有图片在可视区域才去请求加载。<br><a id="more"></a>   </p>
+<h4 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img <span class="keyword">class</span>=<span class="string">"lazy"</span> src=<span class="string">"loading.png"</span> data-src=<span class="string">"img/example.jpg"</span>&gt;</div></pre></td></tr></table></figure>
+<p>页面打开时首先会加载<code>src</code>里的图片，即很小的加载图；通过监听<code>scroll</code>事件，当图片在可视区域时，使用<code>data-src</code>替换<code>src</code>，加载真正的图片。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> aLi = $(<span class="string">'body img'</span>); </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">jc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = aLi.length; i &lt; l; i++) &#123;  </div><div class="line">        <span class="keyword">var</span> oLi = aLi[i];  </div><div class="line">        <span class="comment">//检查oLi是否在可视区域  </span></div><div class="line">        <span class="keyword">var</span> t = <span class="built_in">document</span>.documentElement.clientHeight + (<span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop);  </div><div class="line">        <span class="keyword">var</span> h = getH(oLi);  </div><div class="line">        <span class="keyword">if</span> (h &lt; t) &#123;  </div><div class="line">            setTimeout(<span class="string">"setImg("</span> + i + <span class="string">")"</span>, <span class="number">500</span>);  </div><div class="line">        &#125;  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获得对象距离页面顶端的距离  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getH</span><span class="params">(obj)</span> </span>&#123;  </div><div class="line">    <span class="keyword">var</span> h = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">while</span> (obj) &#123;  </div><div class="line">        h += obj.offsetTop;  </div><div class="line">        obj = obj.offsetParent;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> h;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function setImg(<span class="keyword">index</span>) &#123;  </div><div class="line">    <span class="keyword">if</span> (aLi[<span class="keyword">index</span>].<span class="keyword">dataset</span>) &#123;  </div><div class="line">        var src = aLi[<span class="keyword">index</span>].<span class="keyword">dataset</span>.src;  </div><div class="line">    &#125; else &#123;  </div><div class="line">        var src = aLi[<span class="keyword">index</span>].getAttribute(<span class="string">'data-src'</span>);  </div><div class="line">    &#125;  </div><div class="line">    aLi[<span class="keyword">index</span>].src=src;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </div><div class="line">	jc();    </div><div class="line">&#125;;  </div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </div><div class="line">    jc();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="u63D2_u4EF6"><a href="#u63D2_u4EF6" class="headerlink" title="插件"></a>插件</h4><p>上面的代码是我自己写的一些，实际使用时一般使用已经存在的插件，如<code>lazyload</code>插件。<code>lazyload</code>插件网上能搜出很多，常见的是：<br>1.<code>jquery.lazyload.js</code>: 依赖<code>jQuery</code><br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/*!</div><div class="line"> * Lazy Load - jQuery plugin <span class="keyword">for</span> lazy loading images</div><div class="line"> *</div><div class="line"> * Copyright (c) <span class="number">2007</span>-<span class="number">2015</span> Mika Tuupola</div><div class="line"> *</div><div class="line"> * Licensed under the MIT <span class="symbol">license:</span></div><div class="line"> *   <span class="symbol">http:</span>/<span class="regexp">/www.opensource.org/licenses</span><span class="regexp">/mit-license.php</span></div><div class="line"> *</div><div class="line"> * Project home:</div><div class="line"> *   http:/<span class="regexp">/www.appelsiini.net/projects</span><span class="regexp">/lazyload</span></div><div class="line"> *</div><div class="line"> * Version:  1.9.7</div><div class="line"> *</div><div class="line"> */</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.appelsiini.net/projects/lazyload" target="_blank" rel="external">下载</a><br>2.<code>lazyload.js</code>: 依赖<code>jQuery</code>或者<code>Zepto</code><br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/*!</div><div class="line"> * An jQuery | zepto plugin <span class="keyword">for</span> lazy loading images.</div><div class="line"> * author -&gt; jieyou</div><div class="line"> * see <span class="symbol">https:</span>/<span class="regexp">/github.com/jieyou</span><span class="regexp">/lazyload</span></div><div class="line"> * use some tuupola's code https:/<span class="regexp">/github.com/tuupola</span><span class="regexp">/jquery_lazyload (BSD)</span></div><div class="line"> * use component's throttle https:/<span class="regexp">/github.com/component</span><span class="regexp">/throttle (MIT)</span></div><div class="line"> */</div></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/52fhy/lazyload" target="_blank" rel="external">下载</a></p>
+<p>以上二者用法是一样的，第二个基于第一个修改，以支持zepto。现在以第二个示例：</p>
+<h5 id="lazyload-js"><a href="#lazyload-js" class="headerlink" title="lazyload.js"></a>lazyload.js</h5><p>1.引入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jQuery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lazyload.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>2.使用<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--lazyload.js默认懒加载原图片属性是data-original--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"lazy"</span> <span class="attr">src</span>=<span class="string">"loading.png"</span> <span class="attr">data-original</span>=<span class="string">"img/example.jpg"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">".lazy"</span>).lazyload();</span></div></pre></td></tr></table></figure>
+<p>3.配置<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">defaultOptions = &#123;</div><div class="line">    <span class="string">threshold                   :</span> <span class="number">0</span>, <span class="comment">//图像提前多少加载，单位px</span></div><div class="line">    <span class="string">failure_limit               :</span> <span class="number">0</span>,</div><div class="line">    <span class="string">event                       :</span> <span class="string">'scroll'</span>, <span class="comment">//触发事件</span></div><div class="line">    <span class="string">effect                      :</span> <span class="string">'show'</span>, <span class="comment">//效果</span></div><div class="line">    <span class="string">effect_params               :</span> <span class="literal">null</span>, <span class="comment">//effect的参数数组</span></div><div class="line">    <span class="string">container                   :</span> w, <span class="comment">//使用容器，默认是window</span></div><div class="line">    <span class="string">data_attribute              :</span> <span class="string">'original'</span>, <span class="comment">//可以改成src，即对应data-src属性</span></div><div class="line">    <span class="string">data_srcset_attribute       :</span> <span class="string">'original-srcset'</span>,</div><div class="line">    <span class="string">skip_invisible              :</span> <span class="literal">true</span>,</div><div class="line">    <span class="string">appear                      :</span> emptyFn,</div><div class="line">    <span class="string">load                        :</span> emptyFn,</div><div class="line">    <span class="string">vertical_only               :</span> <span class="literal">false</span>, <span class="comment">//竖直方向滚动的页面中使用</span></div><div class="line">    <span class="string">check_appear_throttle_time  :</span> <span class="number">300</span>,</div><div class="line">    <span class="string">url_rewriter_fn             :</span> emptyFn,</div><div class="line">    <span class="string">no_fake_img_loader          :</span> <span class="literal">false</span>,</div><div class="line">    <span class="string">placeholder_data_img        :</span> <span class="string">'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC'</span>,</div><div class="line">    <span class="comment">// for IE6\7 that does not support data image</span></div><div class="line">    <span class="string">placeholder_real_img        :</span> <span class="string">'http://ditu.baidu.cn/yyfm/lazyload/0.0.1/img/placeholder.png'</span></div><div class="line">    <span class="comment">// todo : 将某些属性用global来配置，而不是每次在$(selector).lazyload(&#123;&#125;)内配置</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.示例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  $(<span class="string">".lazy"</span>).lazyload(&#123;         </div><div class="line">        <span class="attr">effect</span> : <span class="string">"fadeIn"</span>,<span class="comment">//效果</span></div><div class="line">        data_attribute : <span class="string">'src'</span>,<span class="comment">//可以改成src，即对应data-src属性</span></div><div class="line">        event: <span class="string">'scroll'</span>,<span class="comment">//默认值</span></div><div class="line">        container: $(<span class="string">".content"</span>), <span class="comment">//一般无需指定，即window。sui框架里必须指定</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<hr>
+<p>懒加载分为三种，一是<code>纯粹的延迟加载</code>，使用setTimeOut或setInterval进行加载延迟.二是<code>条件加载</code>，符合某些条件，或触发了某些事件才开始异步下载。三是<code>可视区加载</code>，即仅加载用户可以看到的区域，这个主要由监控滚动条来实现，一般会在距用户看到某图片前一定距离遍开始加载，这样能保证用户拉下时正好能看到图片。</p>
+<p>这里简单的提一下另外一种技术<code>__预加载__</code>：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</p>
+<p>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自用笔记/" rel="tag">#自用笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/20/转盘抽奖canvas/" rel="next" title="(组件)转盘抽奖canvas">
+                <i class="fa fa-chevron-left"></i> (组件)转盘抽奖canvas
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/15/加载更多/" rel="prev" title="(组件)加载更多">
+                (组件)加载更多 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#u7B80_u4ECB"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5B9E_u73B0_u539F_u7406"><span class="nav-number">2.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u63D2_u4EF6"><span class="nav-number">3.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lazyload-js"><span class="nav-number">3.1.</span> <span class="nav-text">lazyload.js</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

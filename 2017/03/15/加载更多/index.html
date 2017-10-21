@@ -1,51 +1,710 @@
-extends base
+<!doctype html>
 
-block title
-  title= page.title + ' | ' + config.title
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="自用笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="简介最近群里有很多朋友问有没有做过加载更多的，关于如何实现『加载更多』功能，网上有插件可用，例如比较著名的使用iscroll.js实现的上拉加载更多、下拉刷新功能。但实际用起来却是很麻烦。由于是第三方插件，要按照对方定义的方法使用，用起来总感觉很不顺心。再加上iscroll.js本身并没有集成加载更多的功能，需要进行自行扩展。想继续使用iscroll.js实现加载更多功能的，上面给的链接可以看看。">
+<meta name="keywords" content="自用笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(组件)加载更多">
+<meta property="og:url" content="http://yoursite.com/2017/03/15/加载更多/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简介最近群里有很多朋友问有没有做过加载更多的，关于如何实现『加载更多』功能，网上有插件可用，例如比较著名的使用iscroll.js实现的上拉加载更多、下拉刷新功能。但实际用起来却是很麻烦。由于是第三方插件，要按照对方定义的方法使用，用起来总感觉很不顺心。再加上iscroll.js本身并没有集成加载更多的功能，需要进行自行扩展。想继续使用iscroll.js实现加载更多功能的，上面给的链接可以看看。">
+<meta property="og:updated_time" content="2017-03-16T02:42:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(组件)加载更多">
+<meta name="twitter:description" content="简介最近群里有很多朋友问有没有做过加载更多的，关于如何实现『加载更多』功能，网上有插件可用，例如比较著名的使用iscroll.js实现的上拉加载更多、下拉刷新功能。但实际用起来却是很麻烦。由于是第三方插件，要按照对方定义的方法使用，用起来总感觉很不顺心。再加上iscroll.js本身并没有集成加载更多的功能，需要进行自行扩展。想继续使用iscroll.js实现加载更多功能的，上面给的链接可以看看。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> (组件)加载更多 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                (组件)加载更多
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-03-15T22:50:18+08:00" content="2017-03-15">
+              2017-03-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/移动端/组件/" itemprop="url" rel="index">
+                    <span itemprop="name">组件</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h4><p>最近群里有很多朋友问有没有做过加载更多的，关于如何实现『加载更多』功能，网上有插件可用，例如比较著名的使用iscroll.js实现的上拉加载更多、下拉刷新功能。<br>但实际用起来却是很麻烦。由于是第三方插件，要按照对方定义的方法使用，用起来总感觉很不顺心。再加上iscroll.js本身并没有集成加载更多的功能，需要进行自行扩展。想继续使用iscroll.js实现加载更多功能的，上面给的链接可以看看。<br><a id="more"></a><br>h5项目里需要实现简单的分页功能，由于是移动端，考虑用『加载更多』会更好，而不是PC端的翻页。</p>
+<h4 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h4><p>最简单的就是给一个加载更多的按钮，如果还有数据，点击下加载更多，继续拉几条数据；直到没有更多数据了，隐藏加载更多按钮。<br>但是我们平常见到过多的是滚动加载。那么我们也可以用另一种方法实现加载更多：基于于滚动(<code>scroll</code>)事件。</p>
+<hr>
+<p>这里提前准备好数据。<br>演示数据格式：blog.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"list"</span>: [</div><div class="line">		&#123;</div><div class="line">            <span class="attr">"title"</span>: <span class="string">"js实现『加载更多』功能实例"</span>,</div><div class="line">            <span class="attr">"url"</span>: <span class="string">"http://daceyu.com"</span>,</div><div class="line">            <span class="attr">"desc"</span>: <span class="string">"摘要: DEMO : \"滚动加载示例关于如何实现『加载更多』功能，网上有插件可用，例如比较著名的使用 \"iscroll.js\" 实现的 \"上拉加载更多、下拉刷新\" 功能。 但实际用起来却是很麻烦。由于是第三方插件，要按照对方定义的方法使用，用起来总感觉很不顺心。再加上iscroll.js本身并没有集成加"</span></div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>页面代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_panel weui_panel_access"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_panel_hd"</span>&gt;</span>文章列表<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 默认点击加载 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_panel_bd js-blog-list"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui_media_box weui_media_text"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://daceyu.com"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"weui_media_title"</span>&gt;</span></div><div class="line">						js实现『加载更多』功能实例</div><div class="line">					<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"weui_media_desc"</span>&gt;</span></div><div class="line">					摘要: DEMO : \"滚动加载示例关于如何实现『加载更多』功能，网上有插件可用，例如比较著名的使用 \"iscroll.js\" 实现的 \"上拉加载更多、下拉刷新\" 功能。 但实际用起来却是很麻烦。由于是第三方插件，要按照对方定义的方法使用，用起来总感觉很不顺心。再加上iscroll.js本身并没有集成加</div><div class="line">				<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--加载更多按钮--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"js-load-more"</span>&gt;</span>加载更多<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>加载更多按钮样式：loadmore.css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.js-load-more</span>&#123;</div><div class="line">    <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">15px</span>;</div><div class="line">    <span class="attribute">width</span>:<span class="number">120px</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">    <span class="attribute">background-color</span>:<span class="number">#D31733</span>;</div><div class="line">    <span class="attribute">color</span>:<span class="number">#fff</span>;</div><div class="line">    <span class="attribute">line-height</span>:<span class="number">30px</span>;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">    <span class="attribute">border-radius</span>:<span class="number">5px</span>;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">20px</span> auto;</div><div class="line">    <span class="attribute">border</span>:<span class="number">0</span> none;</div><div class="line">    <span class="attribute">font-size</span>:<span class="number">16px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>loadmore.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * Author: daceyu</div><div class="line"> * link: http://daceyu.com</div><div class="line"> * @FUNCTION: 加载更多</div><div class="line"> * 可以传的参数默认有：size,scroll 可以自定义</div><div class="line"> * */</div><div class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">w,$</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> loadmore = &#123; </div><div class="line">		<span class="comment">/* 单页加载更多 通用方法</span></div><div class="line">		 * @param callback 回调方法</div><div class="line">		 * @param config 自定义参数</div><div class="line">		 * */</div><div class="line">		get : <span class="function"><span class="keyword">function</span>(<span class="params">callback, config</span>)</span>&#123;</div><div class="line">			<span class="keyword">var</span> config = config ? config : &#123;&#125;; <span class="comment">/*防止未传参数报错*/</span></div><div class="line">			<span class="comment">/*默认通过点击加载更多*/</span></div><div class="line">			$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'.js-load-more'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				$(<span class="string">".js-load-more"</span>).html(<span class="string">"loading..."</span>);</div><div class="line">				setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					callback &amp;&amp; callback(config);</div><div class="line">				&#125;,<span class="number">1000</span>)</div><div class="line">			&#125;);</div><div class="line">			<span class="comment">/*通过自动监听滚动事件加载更多,可选支持*/</span></div><div class="line">			config.isEnd = <span class="literal">false</span>; <span class="comment">/*结束标志*/</span></div><div class="line">			config.isAjax = <span class="literal">false</span>; <span class="comment">/*防止滚动过快，服务端没来得及响应造成多次请求*/</span></div><div class="line">			$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="comment">/*是否开启滚动加载*/</span></div><div class="line">				<span class="keyword">if</span>(!config.scroll)&#123;</div><div class="line">					<span class="keyword">return</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">/*滚动加载时如果已经没有更多的数据了、正在发生请求时，不能继续进行*/</span></div><div class="line">				<span class="keyword">if</span>(config.isEnd == <span class="literal">true</span> || config.isAjax == <span class="literal">true</span>)&#123;</div><div class="line">					<span class="keyword">return</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">/*当滚动到最底部以上2像素时， 加载新内容*/</span></div><div class="line">				<span class="keyword">if</span> ($(<span class="built_in">document</span>).height() - $(<span class="keyword">this</span>).scrollTop() - $(<span class="keyword">this</span>).height()&lt;<span class="number">2</span>)&#123;</div><div class="line">					<span class="comment">//延迟 显示加载内容</span></div><div class="line">					$(<span class="string">".js-load-more"</span>).html(<span class="string">"loading..."</span>);</div><div class="line">					setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">						callback &amp;&amp; callback(config);</div><div class="line">					&#125;,<span class="number">1000</span>)</div><div class="line">				&#125;<span class="keyword">else</span>&#123;</div><div class="line">					$(<span class="string">".js-load-more"</span>).html(<span class="string">"加载更多"</span>);</div><div class="line">				&#125;</div><div class="line">			&#125;);</div><div class="line">		&#125;,</div><div class="line">	&#125;</div><div class="line">	$.loadmore = loadmore;</div><div class="line">&#125;)(<span class="built_in">window</span>, <span class="built_in">window</span>.jQuery || <span class="built_in">window</span>.Zepto);</div></pre></td></tr></table></figure></p>
+<p>loadIndex.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">/* 获取数据 */</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">config</span>)</span>&#123;</div><div class="line">		config.isAjax = <span class="literal">true</span>;</div><div class="line">		$.ajax(&#123;</div><div class="line">			<span class="attr">type</span>: <span class="string">'GET'</span>,</div><div class="line">			<span class="attr">url</span>:<span class="string">"json/blog.json"</span>, <span class="comment">//这里offset,size无作用，仅方便调试</span></div><div class="line">			dataType: <span class="string">'json'</span>,</div><div class="line">			<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">reponse</span>)</span>&#123;</div><div class="line">				config.isAjax = <span class="literal">false</span>;</div><div class="line">				<span class="keyword">var</span> data = reponse.list;</div><div class="line">				<span class="keyword">var</span> sum = reponse.list.length;</div><div class="line">				<span class="keyword">var</span> result = <span class="string">''</span>;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt; sum; i++)&#123;</div><div class="line">					result +=<span class="string">'&lt;div class="weui_media_box weui_media_text"&gt;'</span>+</div><div class="line">							<span class="string">'&lt;a href="'</span>+ data[i].url +<span class="string">'" target="_blank"&gt;&lt;h4 class="weui_media_title"&gt;'</span>+ data[i].title +<span class="string">'&lt;/h4&gt;&lt;/a&gt;'</span>+</div><div class="line">							<span class="string">'&lt;p class="weui_media_desc"&gt;'</span>+ data[i].desc +<span class="string">'&lt;/p&gt;'</span>+</div><div class="line">						<span class="string">'&lt;/div&gt;'</span>;</div><div class="line">				&#125;</div><div class="line">				$(<span class="string">'.js-blog-list'</span>).append(result);</div><div class="line">				$(<span class="string">".js-load-more"</span>).html(<span class="string">"加载更多"</span>);</div><div class="line">			&#125;,</div><div class="line">			<span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params">xhr, type</span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">'Ajax error!'</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">	$.loadmore.get(getData, &#123;<span class="attr">scroll</span>: <span class="literal">true</span>&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><a href="http://daceyu.com/static/loadIndex.html" target="_blank" rel="external">DEMO用手机打开</a><br><a href="https://github.com/daceYu/loadmore" target="_blank" rel="external">GITHUB</a></p>
+<hr>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自用笔记/" rel="tag">#自用笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/01/图片懒加载/" rel="next" title="(组件)图片懒加载">
+                <i class="fa fa-chevron-left"></i> (组件)图片懒加载
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#u7B80_u4ECB"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5B9E_u73B0_u539F_u7406"><span class="nav-number">2.</span> <span class="nav-text">实现原理</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

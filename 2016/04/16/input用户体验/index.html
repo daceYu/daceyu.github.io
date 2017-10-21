@@ -1,51 +1,732 @@
-extends base
+<!doctype html>
 
-block title
-  title= page.title + ' | ' + config.title
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="自用笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="增减input–用户体验的完善  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题">
+<meta name="keywords" content="自用笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="增减input,用户体验">
+<meta property="og:url" content="http://yoursite.com/2016/04/16/input用户体验/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="增减input–用户体验的完善  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题">
+<meta property="og:image" content="http://yoursite.com/news/IMG_0450.PNG">
+<meta property="og:image" content="http://yoursite.com/news/IMG_0450.PNG">
+<meta property="og:image" content="http://yoursite.com/news/1.PNG">
+<meta property="og:image" content="http://yoursite.com/news/2.PNG">
+<meta property="og:updated_time" content="2016-06-16T03:47:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="增减input,用户体验">
+<meta name="twitter:description" content="增减input–用户体验的完善  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题">
+<meta name="twitter:image" content="http://yoursite.com/news/IMG_0450.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 增减input,用户体验 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                增减input,用户体验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-16T08:10:12+08:00" content="2016-04-16">
+              2016-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/移动端/用户体验/" itemprop="url" rel="index">
+                    <span itemprop="name">用户体验</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584"><a href="#u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584" class="headerlink" title="增减input–用户体验的完善"></a>增减input–用户体验的完善</h3><p>  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。<br>  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题<br><a id="more"></a></p>
+<ul>
+<li>手动输入弹出键盘</li>
+<li><p>点击input光标位置</p>
+<h3 id="u624B_u52A8_u8F93_u5165_u5F39_u51FA_u952E_u76D8"><a href="#u624B_u52A8_u8F93_u5165_u5F39_u51FA_u952E_u76D8" class="headerlink" title="手动输入弹出键盘"></a>手动输入弹出键盘</h3><p>既然用了输入框，点击弹出键盘默认是汉字输入键盘，在购物车/订单详情页面 最为数量值的修改，这里我们只需要数字，那么我们用<code>input type=&quot;number&quot;</code>就可以解决了<br><img src="/news/IMG_0450.PNG" alt=""><br>但是在ios手机上，你会发现尽管弹出的是数字输入键盘，但是用户体验并不好，是否去掉符号这些无关紧要的呢？<br>我们只需要把<code>input type=&quot;number&quot;</code>改成<code>input type=&quot;tel&quot;</code>就可以解决了</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">input <span class="class"><span class="keyword">type</span></span>=<span class="string">"tel"</span></div></pre></td></tr></table></figure>
+<p><img src="/news/IMG_0450.PNG" alt=""><br>显然大部分用户会倾向于第二种，更何况boss说的白痴用户。</p>
+<h3 id="u70B9_u51FBinput_u5149_u6807_u4F4D_u7F6E"><a href="#u70B9_u51FBinput_u5149_u6807_u4F4D_u7F6E" class="headerlink" title="点击input光标位置"></a>点击input光标位置</h3><p>这个之前我还没有考虑到，有一天无意看到<a href="http://makaiqian.com/input-better/" target="_blank" rel="external">麻组博客</a>上有一篇input这个的文章，然后里面提到input光标这个问题，我就把博客更新一下，完善了一下。偷学＝ ＝</p>
+<p><strong>因为在移动端，手指触碰屏幕没有办法做到很精确，所以常会出现这样的问题：</strong></p>
+</li>
+<li>本来希望能点到最后，像这样：<br><img src="/news/1.PNG" alt=""></li>
+<li><p>却成了这样：<br><img src="/news/2.PNG" alt=""></p>
+<p>我想到了有几种体验更好的方案：</p>
+</li>
+</ul>
+<ol>
+<li>点击后，光标自动跑到最后。</li>
+<li>点击后，全选内容。这次我认为最佳的体验。</li>
+<li>可以左移、右移。因为这个功能位置太小，和我的删除交互冲突了(我这里没有删除,数量最低为1,所以我也排除了)。我把这种方案排除。</li>
+<li><p>监听inputfocus以后内容置空，监听blur如果改变就复原。这种方案可以做，但不是最好的。</p>
+<p>由于有了 <em>麻组</em> 的经验之谈，所以我就少了很多歪路，选择方案2。</p>
+</li>
+</ol>
+<h3 id="u5B9E_u73B0input_u5149_u6807_u5230_u6307_u5B9A_u4F4D_u7F6E"><a href="#u5B9E_u73B0input_u5149_u6807_u5230_u6307_u5B9A_u4F4D_u7F6E" class="headerlink" title="实现input光标到指定位置"></a>实现input光标到指定位置</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  设置光标位置函数</div><div class="line"> *  ctrl：input</div><div class="line"> *  pos：光标的位置</div><div class="line"> **/</div><div class="line"><span class="keyword">function</span> <span class="title">setInputPosition</span>(ctrl, pos) &#123;</div><div class="line">    if (ctrl.setSelectionRange) &#123;</div><div class="line">        ctrl.focus();</div><div class="line">        ctrl.setSelectionRange(pos, pos);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ctrl.createTextRange) &#123;</div><div class="line">        var <span class="keyword">range</span> = ctrl.createTextRange();</div><div class="line">        <span class="keyword">range</span>.collapse(<span class="literal">true</span>);</div><div class="line">        <span class="keyword">range</span>.moveEnd(<span class="symbol">'character</span>', pos);</div><div class="line">        <span class="keyword">range</span>.moveStart(<span class="symbol">'character</span>', pos);</div><div class="line">        <span class="keyword">range</span>.<span class="keyword">select</span>();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用一下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">setInputPosition</span>(<span class="selector-tag">input</span>, <span class="selector-tag">input</span><span class="selector-class">.value</span><span class="selector-class">.length</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="u5168_u9009input_u91CC_u7684_u5185_u5BB9"><a href="#u5168_u9009input_u91CC_u7684_u5185_u5BB9" class="headerlink" title="全选input里的内容"></a>全选input里的内容</h3><p>这种方法很简单，就是突然失忆了。<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.<span class="built_in">querySelector</span>(<span class="string">'.cycle-input'</span>).select();</div></pre></td></tr></table></figure></p>
+<p>如果ios下失效，可以使用:<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">input</span> = document.querySelector(<span class="string">'.cycle-input'</span>);</div><div class="line"><span class="built_in">input</span>.<span class="built_in">select</span>();</div><div class="line"><span class="built_in">input</span>.setSelectionRange(<span class="number">0</span>,<span class="number">9999</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="u662F_u7684_uFF0C_u4F5C_u4E3A_u4E00_u540D_u524D_u7AEF_uFF0C_u4E0D_u8981_u5FFD_u89C6_u7528_u6237_u4F53_u9A8C_uFF0C_u5F88_u591A_u4E1C_u897F_u90FD_u53EF_u4EE5_u53BB_u4F18_u5316_uFF0C_u7AD9_u5728_u7528_u6237_u7684_u89D2_u5EA6_u53BB_u6D4B_u8BD5_u4F60_u7684_u4EA7_u54C1_uFF0C_u5F80_u5927_u4E86_u8BB2_uFF0C_u4E00_u4E2A_u516C_u53F8_u53EF_u80FD_u5C31_u6BC1_u5728_u4F60_u624B_u4E0A_u3002"><a href="#u662F_u7684_uFF0C_u4F5C_u4E3A_u4E00_u540D_u524D_u7AEF_uFF0C_u4E0D_u8981_u5FFD_u89C6_u7528_u6237_u4F53_u9A8C_uFF0C_u5F88_u591A_u4E1C_u897F_u90FD_u53EF_u4EE5_u53BB_u4F18_u5316_uFF0C_u7AD9_u5728_u7528_u6237_u7684_u89D2_u5EA6_u53BB_u6D4B_u8BD5_u4F60_u7684_u4EA7_u54C1_uFF0C_u5F80_u5927_u4E86_u8BB2_uFF0C_u4E00_u4E2A_u516C_u53F8_u53EF_u80FD_u5C31_u6BC1_u5728_u4F60_u624B_u4E0A_u3002" class="headerlink" title="是的，作为一名前端，不要忽视用户体验，很多东西都可以去优化，站在用户的角度去测试你的产品，往大了讲，一个公司可能就毁在你手上。"></a>是的，作为一名前端，不要忽视用户体验，很多东西都可以去优化，站在用户的角度去测试你的产品，往大了讲，一个公司可能就毁在你手上。</h3>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自用笔记/" rel="tag">#自用笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/29/isMobile/" rel="next" title="js简化UA判断">
+                <i class="fa fa-chevron-left"></i> js简化UA判断
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/app/" rel="prev" title="点击页面判断是否安装app并打开，否则跳转app store的方法">
+                点击页面判断是否安装app并打开，否则跳转app store的方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584"><span class="nav-number">1.</span> <span class="nav-text">增减input–用户体验的完善</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u624B_u52A8_u8F93_u5165_u5F39_u51FA_u952E_u76D8"><span class="nav-number">2.</span> <span class="nav-text">手动输入弹出键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u70B9_u51FBinput_u5149_u6807_u4F4D_u7F6E"><span class="nav-number">3.</span> <span class="nav-text">点击input光标位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B9E_u73B0input_u5149_u6807_u5230_u6307_u5B9A_u4F4D_u7F6E"><span class="nav-number">4.</span> <span class="nav-text">实现input光标到指定位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5168_u9009input_u91CC_u7684_u5185_u5BB9"><span class="nav-number">5.</span> <span class="nav-text">全选input里的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u662F_u7684_uFF0C_u4F5C_u4E3A_u4E00_u540D_u524D_u7AEF_uFF0C_u4E0D_u8981_u5FFD_u89C6_u7528_u6237_u4F53_u9A8C_uFF0C_u5F88_u591A_u4E1C_u897F_u90FD_u53EF_u4EE5_u53BB_u4F18_u5316_uFF0C_u7AD9_u5728_u7528_u6237_u7684_u89D2_u5EA6_u53BB_u6D4B_u8BD5_u4F60_u7684_u4EA7_u54C1_uFF0C_u5F80_u5927_u4E86_u8BB2_uFF0C_u4E00_u4E2A_u516C_u53F8_u53EF_u80FD_u5C31_u6BC1_u5728_u4F60_u624B_u4E0A_u3002"><span class="nav-number">6.</span> <span class="nav-text">是的，作为一名前端，不要忽视用户体验，很多东西都可以去优化，站在用户的角度去测试你的产品，往大了讲，一个公司可能就毁在你手上。</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
