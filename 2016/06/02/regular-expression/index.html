@@ -1,251 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>有关一些正则表达式 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。 手机号码正则表达式验证。">
-<meta name="keywords" content="自用笔记,正则表达">
-<meta property="og:type" content="article">
-<meta property="og:title" content="有关一些正则表达式">
-<meta property="og:url" content="http://yoursite.com/2016/06/02/regular-expression/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。 手机号码正则表达式验证。">
-<meta property="og:updated_time" content="2016-07-20T02:19:38.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有关一些正则表达式">
-<meta name="twitter:description" content="正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。 手机号码正则表达式验证。">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  
+extends base
 
-</head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-regular-expression" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/02/regular-expression/" class="article-date">
-  <time datetime="2016-06-02T09:11:35.000Z" itemprop="datePublished">2016-06-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>
-  </div>
+block title
+  title= page.title + ' | ' + config.title
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      有关一些正则表达式
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。</p>
-<h3 id="u624B_u673A_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_u9A8C_u8BC1_u3002"><a href="#u624B_u673A_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_u9A8C_u8BC1_u3002" class="headerlink" title="手机号码正则表达式验证。"></a>手机号码正则表达式验证。</h3><a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPhone</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> phone = <span class="built_in">document</span>.getElementById(<span class="string">'phone'</span>).value;</div><div class="line">    <span class="keyword">if</span>(!(<span class="regexp">/^1[3|4|5|7|8]\d&#123;9&#125;$/</span>.test(phone)))&#123;</div><div class="line">        alert(<span class="string">"手机号码有误，请重填"</span>);  </div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>下面简单的解释一下：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^<span class="number">1</span>[<span class="number">3</span>|<span class="number">4</span>|<span class="number">5</span>|<span class="number">7</span>|<span class="number">8</span>]\d&#123;<span class="number">9</span>&#125;$</div></pre></td></tr></table></figure></p>
-<p>表示以1开头，第二位可能是3/4/5/7/8等的任意一个，在加上后面的\d表示数字[0-9]的9位，总共加起来11位结束。<br>具体请参考这篇文章解说：<a href="http://caibaojian.com/phone-regexp.html" target="_blank" rel="external">JS最新手机号码检验正则表达式</a>（绝对能让你明白）<br>我猜你可能会喜欢关于JavaScript正则的文章</p>
-<ul>
-<li><a href="http://caibaojian.com/javascript-zhengze.html" target="_blank" rel="external">JavaScript中的正则表达式总结</a></li>
-<li><a href="http://caibaojian.com/demo/javascript/regexp.html" target="_blank" rel="external">JavaScript正则表达式</a></li>
-</ul>
-<h3 id="u56FA_u5B9A_u7535_u8BDD_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1A"><a href="#u56FA_u5B9A_u7535_u8BDD_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1A" class="headerlink" title="固定电话号码正则表达式："></a>固定电话号码正则表达式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkTel</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> tel = <span class="built_in">document</span>.getElementById(<span class="string">'tel'</span>).value;</div><div class="line"><span class="keyword">if</span>(!<span class="regexp">/^(\(\d&#123;3,4&#125;\)|\d&#123;3,4&#125;-|\s)?\d&#123;7,14&#125;$/</span>.test(tel))&#123;</div><div class="line">alert(<span class="string">'固定电话有误，请重填'</span>);</div><div class="line"><span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="u8EAB_u4EFD_u8BC1_u6B63_u5219_uFF1A"><a href="#u8EAB_u4EFD_u8BC1_u6B63_u5219_uFF1A" class="headerlink" title="身份证正则："></a>身份证正则：</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//身份证正则表达式(15位)</span></div><div class="line">isIDCard1=/^[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">7</span>&#125;((<span class="number">0</span>\d)|(<span class="number">1</span>[<span class="number">0</span><span class="number">-2</span>]))(([<span class="number">0</span>|<span class="number">1</span>|<span class="number">2</span>]\d)|<span class="number">3</span>[<span class="number">0</span><span class="number">-1</span>])\d&#123;<span class="number">3</span>&#125;$/;</div><div class="line"><span class="comment">//身份证正则表达式(18位)</span></div><div class="line">isIDCard2=/^[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">5</span>&#125;[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">3</span>&#125;((<span class="number">0</span>\d)|(<span class="number">1</span>[<span class="number">0</span><span class="number">-2</span>]))(([<span class="number">0</span>|<span class="number">1</span>|<span class="number">2</span>]\d)|<span class="number">3</span>[<span class="number">0</span><span class="number">-1</span>])\d&#123;<span class="number">4</span>&#125;$/;</div><div class="line">身份证正则合并：(^\d&#123;<span class="number">15</span>&#125;$)|(^\d&#123;<span class="number">17</span>&#125;([<span class="number">0</span><span class="number">-9</span>]|X)$)</div></pre></td></tr></table></figure>
-<p><del>最新手机号码正则表达式：2016年1月13更新，以下不再使用</del></p>
-<blockquote>
-<p><del>var tel = $(“#telNo”).val(); //获取手机号<br>var telReg = !!tel.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);<br>//如果手机号码不能通过验证<br>if(telReg == false){<br>}</del></p>
-</blockquote>
-<p><del>2015-11-20（新增兼容电话和手机正则）<br>((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)<br>匹配格式：<br>11位手机号码<br>3-4位区号，7-8位直播号码，1－4位分机号<br>如：12345678901、1234-12345678-1234<br>使用方式同上：</del></p>
-<blockquote>
-<p><del>var telReg = !!tel.match(/^((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)$/);<br>//如果通过认证<br>if(telReg){<br>}</del></p>
-</blockquote>
-<h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">提取信息中的网络链接:(h|H)(r|R)(e|E)(f|F) *= *('|")?(<span class="symbol">\w</span>|<span class="symbol">\\</span>|<span class="symbol">\/</span>|<span class="symbol">\.</span>)+('|"| *|&gt;)?</div><div class="line">提取信息中的邮件地址:<span class="symbol">\w</span>+([-+.]<span class="symbol">\w</span>+)*@<span class="symbol">\w</span>+([-.]<span class="symbol">\w</span>+)*<span class="symbol">\.</span><span class="symbol">\w</span>+([-.]<span class="symbol">\w</span>+)*</div><div class="line">提取信息中的图片链接:(s|S)(r|R)(c|C) *= *('|")?(<span class="symbol">\w</span>|<span class="symbol">\\</span>|<span class="symbol">\/</span>|<span class="symbol">\.</span>)+('|"| *|&gt;)?</div><div class="line">提取信息中的IP地址:(<span class="symbol">\d</span>+)<span class="symbol">\.</span>(<span class="symbol">\d</span>+)<span class="symbol">\.</span>(<span class="symbol">\d</span>+)<span class="symbol">\.</span>(<span class="symbol">\d</span>+)</div></pre></td></tr></table></figure>
-<p><del>提取信息中的中国手机号码:(86)<em>0</em>13\d{9}<br>提取信息中的中国固定电话号码:((\d{3,4})|\d{3,4}-|\s)?\d{8}</del><br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">提取信息中的中国电话号码（包括移动和固定电话）:(<span class="tag">\<span class="name">(</span></span><span class="tag">\<span class="name">d</span><span class="string">&#123;3,4&#125;</span></span><span class="tag">\<span class="name">)</span></span>|<span class="tag">\<span class="name">d</span><span class="string">&#123;3,4&#125;</span></span>-|<span class="tag">\<span class="name">s</span></span>)?<span class="tag">\<span class="name">d</span><span class="string">&#123;7,14&#125;</span></span></div><div class="line">提取信息中的中国邮政编码:[1-9]&#123;1&#125;(<span class="tag">\<span class="name">d</span></span>+)&#123;5&#125;</div><div class="line">提取信息中的中国身份证号码:<span class="tag">\<span class="name">d</span><span class="string">&#123;18&#125;</span></span>|<span class="tag">\<span class="name">d</span><span class="string">&#123;15&#125;</span></span></div><div class="line">提取信息中的整数：<span class="tag">\<span class="name">d</span></span>+</div><div class="line">提取信息中的浮点数（即小数）：(-?<span class="tag">\<span class="name">d*</span></span>)<span class="tag">\<span class="name">.</span></span>?<span class="tag">\<span class="name">d</span></span>+</div><div class="line">提取信息中的任何数字 ：(-?<span class="tag">\<span class="name">d*</span></span>)(<span class="tag">\<span class="name">.</span></span><span class="tag">\<span class="name">d</span></span>+)?</div><div class="line">提取信息中的中文字符串：[<span class="tag">\<span class="name">u</span></span>4e00-<span class="tag">\<span class="name">u</span></span>9fa5]*</div><div class="line">提取信息中的双字节字符串 (汉字)：[^<span class="tag">\<span class="name">x</span></span>00-<span class="tag">\<span class="name">xff</span></span>]*</div></pre></td></tr></table></figure></p>
-<h3 id="u4F7F_u7528_uFF1A"><a href="#u4F7F_u7528_uFF1A" class="headerlink" title="使用："></a>使用：</h3><p>test()方法在字符串中查找是否存在指定的正则表达式，并返回布尔值，如果存在则返回true，否则返回false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'Box'</span>,<span class="string">'i'</span>);</div><div class="line"><span class="keyword">var</span> str = <span class="string">'box'</span>;</div><div class="line">alert(pattern.test(str)); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/Box/i</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'box'</span>;</div><div class="line">alert(pattern.test(str)); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/Box/i</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a box'</span>;</div><div class="line">alert(pattern.test(str)); <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/02/regular-expression/" data-id="cj27mx5ts000ztokwpjunrqds" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达/">正则表达</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/06/10/mongoDB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          MongoDB学习笔记之Mongoose的使用
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/05/26/webSite/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">制作Web站点时考虑的一些因素</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a><span class="category-list-count">4</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PS/">PS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达/">正则表达</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用笔记/">自用笔记</a><span class="tag-list-count">30</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/05/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/加载更多/">(组件)加载更多</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

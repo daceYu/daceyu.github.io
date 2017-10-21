@@ -1,329 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>制作Web站点时考虑的一些因素 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="考虑 Web 应用的 UIWeb 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。">
-<meta name="keywords" content="自用笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="制作Web站点时考虑的一些因素">
-<meta property="og:url" content="http://yoursite.com/2016/05/26/webSite/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="考虑 Web 应用的 UIWeb 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。">
-<meta property="og:updated_time" content="2016-06-16T03:46:49.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="制作Web站点时考虑的一些因素">
-<meta name="twitter:description" content="考虑 Web 应用的 UIWeb 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  
+extends base
 
-</head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-webSite" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/26/webSite/" class="article-date">
-  <time datetime="2016-05-26T00:19:56.000Z" itemprop="datePublished">2016-05-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>►<a class="article-category-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a>
-  </div>
+block title
+  title= page.title + ' | ' + config.title
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      制作Web站点时考虑的一些因素
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="u8003_u8651_Web__u5E94_u7528_u7684_UI"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_UI" class="headerlink" title="考虑 Web 应用的 UI"></a>考虑 Web 应用的 UI</h3><p>Web 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。<br><a id="more"></a><br><strong>1.界面美观大方，并且符合产品本身的风格</strong><br><strong>2.考虑大多用户的使用习惯，增强应用的易用性</strong></p>
-<ul>
-<li>减少用户输入，而是采用提供选择的方式</li>
-<li>提供网站搜索功能</li>
-<li>给一些功能增加文字提示</li>
-<li>提供一些操作的快捷键</li>
-<li>增大功能热区区域，方便用户使用</li>
-<li>必要时，提供页面导航功能</li>
-</ul>
-<p><strong>3.增强页面的交互性</strong></p>
-<ul>
-<li>比如鼠标移动到按钮上，按钮透明度或颜色发生变化</li>
-<li>搜索查询时，提供 loading 动画</li>
-<li>改进内容或状态展现的方式</li>
-</ul>
-<p><strong>4.错误提示对用户友好</strong><br><strong>5。保证应用的响应速度</strong></p>
-<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u5B89_u5168_u6027"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u5B89_u5168_u6027" class="headerlink" title="考虑 Web 应用的安全性"></a>考虑 Web 应用的安全性</h3><p>Web 应用的 UI 是用户使用应用的窗口，它的展现直接影响用户对于应用的感觉和认可度。为了不让用户失望而放弃使用，我们应该如何考虑 Web 应用的 UI 。这有点像产品经理应该考虑的事情，不过作为前端工程师也应该考虑这些事情。</p>
-<ol>
-<li><strong>对输入进行有效验证。防止 XSS 攻击、 CSRF 攻击和 SQL 注入。</strong></li>
-<li><strong>对一些交互操作进行权限验证。</strong></li>
-<li><strong>异常错误时，不在页面上暴露服务器的信息。</strong></li>
-<li><strong>浏览器控制台把调试的 console.log 语句删除。可以写一个方法来调 console.log 的方法，然后发到正式环境时返回空。</strong></li>
-<li><strong>数据加密存储。</strong></li>
-</ol>
-<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u6027_u80FD"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u6027_u80FD" class="headerlink" title="考虑 Web 应用的性能"></a>考虑 Web 应用的性能</h3><p><strong>(1)Content 方面</strong></p>
-<ul>
-<li>合并文件，减少 HTTP 请求，压缩文件，减少资源大小。</li>
-<li>减少 DNS 查询次数，平衡 DNS 查询和并行下载的速度。</li>
-<li>非必须组件延迟加载。</li>
-<li>非首屏图片延迟加载。</li>
-<li>优化 DOM 结构，减少 DOM 元素数量。</li>
-</ul>
-<p><strong>(2)Server 方面</strong></p>
-<ul>
-<li>使用 CDN 托管静态资源。</li>
-<li>使用缓存缓存资源。<br><code>添加 Expires 或者 Cache-Control 响应头设置缓存。</code><br><code>对资源配置 ETag。</code></li>
-</ul>
-<p><strong>(3)Cookie 方面</strong></p>
-<ul>
-<li>减少 cookie 大小。</li>
-<li>引入资源的域名不要包含 cookie。</li>
-</ul>
-<p><strong>(4)CSS 方面</strong></p>
-<ul>
-<li>将样式表放在 head 标签内。</li>
-<li>不使用 @import。</li>
-<li>图表使用 iconfont。</li>
-<li>可根据需要适当开启 transition3d 加速。</li>
-<li>压缩 CSS 文件。</li>
-</ul>
-<p><strong>(5)JavaScript 方面</strong></p>
-<ul>
-<li>优化代码结构，提高代码解析速度。</li>
-<li>减少 DOM 访问。</li>
-<li>合理设置事件监听。</li>
-<li>删除没有作用的代码。</li>
-<li>压缩 JS 文件。</li>
-</ul>
-<p><strong>(6)图片方面</strong></p>
-<ul>
-<li>优化图片，根据实际的颜色需要选择图片格式和压缩比率。</li>
-<li>不要拉伸图片。</li>
-<li>使用 favicon.ico 尽量小并且进行缓存。</li>
-<li>将比较小的图片转换成 base64 编码。</li>
-</ul>
-<p><strong>(7)移动端保证组件大小尽量小。</strong></p>
-<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_SEO"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_SEO" class="headerlink" title="考虑 Web 应用的 SEO"></a>考虑 Web 应用的 SEO</h3><p><strong>1.合理的设置 title、description、keywords，搜索引擎对三者的权重依次减小。</strong></p>
-<ul>
-<li>title 值强调重点即可，不同页面 title 有所不同。</li>
-<li>description 把页面内容高度概括，长度合适，不同页面 description 有所不同。</li>
-<li>keywords 列出重要关键词即可。</li>
-</ul>
-<p><strong>2.语义化的 HTML 代码，符合 W3C 规范。语义化嗲吗让搜索引擎容易理解网页。</strong><br><strong>3.重要内容 HTML 代码放在最前。搜索引擎抓取 HTML 顺序从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取。</strong><br><strong>4.重要内容不要使用 JS 输出。爬虫不会执行 JS 获取内容。</strong><br><strong>5.少用 iframe。搜索引擎不会抓取 iframe 中的内容。</strong><br><strong>6.非装饰性图片必须加 alt。</strong><br><strong>7.提供网站速度。网站速度是搜索引擎排序的一个重要指标。</strong></p>
-<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u53EF_u7EF4_u62A4_u6027"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u53EF_u7EF4_u62A4_u6027" class="headerlink" title="考虑 Web 应用的可维护性"></a>考虑 Web 应用的可维护性</h3><ul>
-<li>考虑 Web 应用的可维护性，大体从三个方面来考虑，它们分别是开发、构建、部署。</li>
-</ul>
-<p><strong>开发</strong></p>
-<ul>
-<li>有统一的编码规范，比如统一缩进格式、变量命名、书写规范。</li>
-<li>依赖管理，使用 bower、npm 工具来管理包依赖。</li>
-<li>项目组件化。整个 Web 应用有各个组件组成。</li>
-<li>模块化开发。JS 模块化、CSS 模块化、HTML 模块化，所有资源都当成模块。模块之间可以相互引用，达到重用模块的功能。</li>
-<li>根据需要文件实时监听，自动刷新浏览器。</li>
-</ul>
-<p><strong>构建</strong></p>
-<ul>
-<li>搭建脚手架进行初始化构建。</li>
-<li>可以编译中间语言。比如 Less、Sass、TypeScrript。</li>
-<li>可以对文件进行压缩和混淆。</li>
-<li>有工具自动处理 CSS Sprite，方便开发和维护 CSS Sprite。</li>
-<li>生成文件时，加上 hash 值，方便精确控制缓存。</li>
-</ul>
-<p><strong>部署</strong></p>
-<ul>
-<li>根据打包配置文件，打包不同环境的资源文件。</li>
-<li>打包工具可配置直接把静态文件上传至 CDN。</li>
-</ul>
-<h3 id="u8003_u8651_Web__u5E94_u7528_u7684_u6280_u672F_u56E0_u7D20"><a href="#u8003_u8651_Web__u5E94_u7528_u7684_u6280_u672F_u56E0_u7D20" class="headerlink" title="考虑 Web 应用的技术因素"></a>考虑 Web 应用的技术因素</h3><ul>
-<li>主要是根据项目的实际需要来选择合适的技术框架。</li>
-</ul>
-<h5 id="u501F_u9274_u6765_u6E90_28_u77E5_u4E4E_29"><a href="#u501F_u9274_u6765_u6E90_28_u77E5_u4E4E_29" class="headerlink" title="借鉴来源(知乎)"></a>借鉴来源(知乎)</h5>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/26/webSite/" data-id="cj27mx5tt0012tokwitw35bqj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/06/02/regular-expression/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          有关一些正则表达式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/05/03/app/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">点击页面判断是否安装app并打开，否则跳转app store的方法</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a><span class="category-list-count">4</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PS/">PS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达/">正则表达</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用笔记/">自用笔记</a><span class="tag-list-count">30</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/05/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/加载更多/">(组件)加载更多</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

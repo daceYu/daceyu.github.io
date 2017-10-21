@@ -1,300 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>动画设计 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动画的3个关键：过渡，重点，趣味性过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。 重点(Focus)：将用户的注意力吸引到界面，很重要的或最近更新的，特别是需要马上吸引用户注意的 趣味性(Delight)：通过使用奇思妙想或令人意外的运动，使一个原本平常的互动更具吸引力和趣味性。  动画">
-<meta name="keywords" content="自用笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="动画设计">
-<meta property="og:url" content="http://yoursite.com/2015/11/17/amination/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="动画的3个关键：过渡，重点，趣味性过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。 重点(Focus)：将用户的注意力吸引到界面，很重要的或最近更新的，特别是需要马上吸引用户注意的 趣味性(Delight)：通过使用奇思妙想或令人意外的运动，使一个原本平常的互动更具吸引力和趣味性。  动画">
-<meta property="og:image" content="http://yoursite.com/news/xy.gif">
-<meta property="og:image" content="http://yoursite.com/news/alpha.gif">
-<meta property="og:image" content="http://yoursite.com/news/scale.gif">
-<meta property="og:image" content="http://yoursite.com/news/color.gif">
-<meta property="og:image" content="http://yoursite.com/news/rotate.gif">
-<meta property="og:image" content="http://yoursite.com/news/3D.gif">
-<meta property="og:image" content="http://yoursite.com/news/easing.png">
-<meta property="og:image" content="http://yoursite.com/news/564d52f59d89f.gif">
-<meta property="og:image" content="http://yoursite.com/news/damped.png">
-<meta property="og:image" content="http://yoursite.com/news/threeballs.gif">
-<meta property="og:image" content="http://yoursite.com/news/damped.gif">
-<meta property="og:updated_time" content="2016-01-13T13:49:44.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动画设计">
-<meta name="twitter:description" content="动画的3个关键：过渡，重点，趣味性过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。 重点(Focus)：将用户的注意力吸引到界面，很重要的或最近更新的，特别是需要马上吸引用户注意的 趣味性(Delight)：通过使用奇思妙想或令人意外的运动，使一个原本平常的互动更具吸引力和趣味性。  动画">
-<meta name="twitter:image" content="http://yoursite.com/news/xy.gif">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  
+extends base
 
-</head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-amination" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/17/amination/" class="article-date">
-  <time datetime="2015-11-17T03:11:11.000Z" itemprop="datePublished">2015-11-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/其他/">其他</a>
-  </div>
+block title
+  title= page.title + ' | ' + config.title
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      动画设计
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027"><a href="#u52A8_u753B_u76843_u4E2A_u5173_u952E_uFF1A_u8FC7_u6E21_uFF0C_u91CD_u70B9_uFF0C_u8DA3_u5473_u6027" class="headerlink" title="动画的3个关键：过渡，重点，趣味性"></a>动画的3个关键：过渡，重点，趣味性</h2><p>过渡(Transition)：要突出两个可视状态之间的平稳运动，使得用户可以成为适应新的屏幕，而不只是显示它。平稳过渡，简化了一个陌生的界面对用户的精神负担。</p>
-<p>重点(Focus)：将用户的注意力吸引到界面，很重要的或最近更新的，特别是需要马上吸引用户注意的</p>
-<p>趣味性(Delight)：通过使用奇思妙想或令人意外的运动，使一个原本平常的互动更具吸引力和趣味性。</p>
-<hr>
-<h2 id="u52A8_u753B_u5C5E_u6027"><a href="#u52A8_u753B_u5C5E_u6027" class="headerlink" title="动画属性"></a>动画属性</h2><a id="more"></a>
-<p><strong>1. 位置Position:</strong> 项目在屏幕上精确的X和Y坐标<br><img src="/news/xy.gif" alt=""><br><strong>2. 不透明度Opacity</strong>: 项目的Alpha透明度，从0.0（不可见）到1.0。<br><img src="/news/alpha.gif" alt=""><br><strong>3. 比例Scale</strong>: 相对于项目的初始尺寸大小。比例为1.0意味着设置高度和宽度为初始尺寸。比例为0.5意味着高度和宽度为初始尺寸的一半。比例为0.0表示该物体的宽度和高度为0，但仍处于存在在屏幕上。<br><img src="/news/scale.gif" alt=""><br>当然动画也有其他的属性,这里有三个通常涉及更先进动画的属性<br>颜色Color：就像在CSS动画，你可以从一个颜色到另一个过渡色。这可能是一些文字，背景颜色的颜色，同时引入一个新的屏幕给用户。<br><img src="/news/color.gif" alt=""><br>旋转Rotation:可旋转的对象，通常以弧度（0 - 2π）。0°到360°旋转并回到0°。<br><img src="/news/rotate.gif" alt=""><br>3D：3D对象方法旋转量操纵它的第三个维度。这种旋转量也弧度表示，就像在2D平面旋转，3D动画关键在于透视。通过改变角度值，你如何描绘在视觉上描绘一个远离屏幕前方放置的元素。这将决定于3D转换时弧度如何展现<br><img src="/news/3D.gif" alt=""></p>
-<h2 id="u89C4_u5212_u52A8_u753B"><a href="#u89C4_u5212_u52A8_u753B" class="headerlink" title="规划动画"></a>规划动画</h2><p>你熟悉动画制作的工具，那就是具体的属性，你通常会操作创建一个动画的东西。但是，这还不是全部，你需要知道要开始思考如何设计运动</p>
-<ol>
-<li>项目的初始属性:屏幕的底部？是完全透明的？</li>
-<li>项目的最终性能:在屏幕的中间？用户完全可见？它已被旋转到特定的角度θ？现在有一个不同的背景颜色？</li>
-<li>动画需要多长时间：知道动画的确切时间在这个早期阶段，多个物体同时动画效果，只有时间一个相同的交错量。</li>
-<li>一旦该项目完成动画会发生什么：当您设置动画在屏幕它应该被删除？<h2 id="u5C31_u50CF_u5728_u751F_u6D3B_u4E2D_uFF0C_u65F6_u95F4_u5C31_u662F_u4E00_u5207"><a href="#u5C31_u50CF_u5728_u751F_u6D3B_u4E2D_uFF0C_u65F6_u95F4_u5C31_u662F_u4E00_u5207" class="headerlink" title="就像在生活中，时间就是一切"></a>就像在生活中，时间就是一切</h2><img src="/news/easing.png" alt=""><br>喜欢的核心动画和CSS3提供的那种宽松的曲线数学上定义为贝塞尔曲线。</li>
-</ol>
-<p><a href="http://ued.ctrip.com/blog/4362.html" target="_blank" rel="external">CSS动画中的贝塞尔</a></p>
-<h2 id="u4E0B_u9762_u6211_u8981_u6839_u636EiOS_u4E0B_u7684Animatable_UIView_properties"><a href="#u4E0B_u9762_u6211_u8981_u6839_u636EiOS_u4E0B_u7684Animatable_UIView_properties" class="headerlink" title="下面我要根据iOS下的Animatable UIView properties"></a>下面我要根据iOS下的Animatable UIView properties</h2><p>frame：更改视图的大小和位置相对于它的父的坐标系。<br>bounds：更改视图的大小。<br>center：更改视图的位置。<br>transform：这个属性修改缩放，旋转或转换相对于二维空间的中心点视图。<br>alpha：更改视图的透明度。<br>backgroundColor：更改视图的背景颜色。<br>contentStretch：更改视图的内容被拉伸以填充可用空间的方式。</p>
-<h3 id="Animation_block"><a href="#Animation_block" class="headerlink" title="Animation block"></a>Animation block</h3><p><a href="http://mathewsanders.com/prototyping-iOS-iPhone-iPad-animations-in-swift/" target="_blank" rel="external">swift动画Here’s a list of all four</a></p>
-<p><em>本文只讲Animation block with spring physics</em></p>
-<ol>
-<li>duration（持续时间）: 动画需要的秒数;</li>
-<li>delay（延迟）：多长时间动画开始前等待的时间;</li>
-<li>dampingRatio：多少次振荡（0=无限 1=无）;</li>
-<li>initialVelocity：如何快速地开始动画（1为“正常”）;</li>
-<li>options(选项)：不同的选项，我们可以用它来 ​​改变动画的行为;</li>
-<li>animations（动画）: 在该块中输入的任何动画变化。</li>
-</ol>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> duration = <span class="number">1.0</span></div><div class="line"><span class="keyword">let</span> delay = <span class="number">0.0</span></div><div class="line"><span class="keyword">let</span> options = <span class="type">UIViewAnimationOptions</span>.<span class="type">CurveEaseInOut</span></div><div class="line"><span class="keyword">let</span> damping = <span class="number">0.5</span> <span class="comment">// set damping ration</span></div><div class="line"><span class="keyword">let</span> velocity = <span class="number">1.0</span> <span class="comment">// set initial velocity</span></div><div class="line"><span class="type">UIView</span>.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: options, animations: &#123;</div><div class="line">    <span class="comment">// 其中两个参数为usingspringwithdamping（阻尼）, initalspringvelocity（初始速度）</span></div><div class="line">    <span class="comment">// any changes entered in this block will be animated       </span></div><div class="line">&#125;, completion: &#123; finished <span class="keyword">in</span></div><div class="line">    <span class="comment">// any code entered here will be applied</span></div><div class="line">    <span class="comment">// once the animation has completed              </span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>这里我遇到一个问题给options同时写入两种选项时</p>
-<p><del>let options = UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat</del></p>
-<p>会报错：<code>Binary operator &#39;|&#39; cannot be applied to two UIViewAutoresizing operands</code></p>
-<p>应该写成：<code>options: [.Repeat , .Autoreverse]</code><br><img src="/news/564d52f59d89f.gif" alt=""></p>
-<p>==arc4random_uniform== 函数返回一个零和所传递的数字之间的整数的函数。</p>
-<p><a href="https://github.com/judges321/Animation" target="_blank" rel="external">大表哥写的dome:doge分身术</a></p>
-<hr>
-<h2 id="u5F39_u6027_u8FD0_u52A8spring"><a href="#u5F39_u6027_u8FD0_u52A8spring" class="headerlink" title="弹性运动spring"></a>弹性运动<strong>spring</strong></h2><p>标准的动画时序曲线很好用，但不会令你的用户有惊人的交互感受，因为仍然感到有些机械并没有完全流畅，用户喜欢自然的运动。如果我们希望我们的动画真正感到自然，我们需要关注的自然世界，我们可以模仿他们的动作：让你的物体运动符合物理定律，让你的界面元素觉得自己有分量和气势，因为它们可以流畅地在屏幕或用户的指尖下运动。<br><img src="/news/damped.png" alt=""><br>这些曲线代表连接到弹簧的物体的运动，以及如何各种性质（如张力，摩擦和质量）可能会影响其运动。表示已在欠阻尼的系统中，至稳定状态前来回振荡（反弹）。这动画感觉像上面的例子中弹簧末端有质量的运动时序曲线。这种欠阻尼弹簧的运动使动画有弹性。</p>
-<hr>
-<p><img src="/news/threeballs.gif" alt=""><br>红色圆圈移动，就好像它是连接到一个非常有弹性的弹簧。绿色圆圈会用更少的，更流畅的反弹移动。蓝色无反弹，逐渐指数衰减的动画，其中与最终位置的距离和减小的速度成正比。</p>
-<p><img src="/news/damped.gif" alt=""><br>  <strong>弹性运动的主要属性：</strong></p>
-<ol>
-<li>质量(mass)是安装在弹簧的端部的物体的重量或分量。</li>
-<li>伸展系数(stiffness)是弹性运动的困难度，这通常对应于它的厚度，以及如何紧密它盘绕。</li>
-<li>阻尼(damping)是阻力或摩擦，当你在水中拖你的手，当你试图快速通过水动感受到力反作用力。</li>
-</ol>
-<hr>
-<h3 id="u8FD9_u91CC_u4ECB_u7ECDJNWSpringanimation_u6846_u67B6"><a href="#u8FD9_u91CC_u4ECB_u7ECDJNWSpringanimation_u6846_u67B6" class="headerlink" title="这里介绍JNWSpringanimation框架"></a>这里介绍JNWSpringanimation框架</h3><ol>
-<li>导入框架<a href="https://github.com/jwilling/JNWSpringAnimation" target="_blank" rel="external">下载JNWSpringAnimation框架github仓库地址</a></li>
-</ol>
-<p>在swift导入该框架需要添加桥接头文件</p>
-<p><code>#import &quot;JNWSpringAnimation.h&quot;</code></p>
-<p>在NSValue+JNWAdditions.h文件中添加</p>
-<p><code>#import &lt;UIKit/UIKit.h&gt;</code></p>
-<ol>
-<li>创建小球弹性放大的比例动画<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">let redball = UIView(frame: CGRectMake(<span class="number">50</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">100</span>))</div><div class="line">        redball<span class="selector-class">.backgroundColor</span> = UIColor.redColor()</div><div class="line">        redball<span class="selector-class">.layer</span><span class="selector-class">.cornerRadius</span> = <span class="number">50</span></div><div class="line">        self<span class="selector-class">.view</span><span class="selector-class">.addSubview</span>(redball)</div><div class="line">        let scale = JNWSpringAnimation(keyPath: <span class="string">"transform.scale"</span>)</div><div class="line">        scale<span class="selector-class">.damping</span> = <span class="number">6</span></div><div class="line">        scale<span class="selector-class">.stiffness</span> = <span class="number">100</span></div><div class="line">        scale<span class="selector-class">.mass</span> = <span class="number">2</span></div><div class="line">        scale<span class="selector-class">.fromValue</span> = <span class="number">1</span></div><div class="line">        scale<span class="selector-class">.toValue</span> = <span class="number">2</span></div><div class="line">        redball<span class="selector-class">.layer</span><span class="selector-class">.addAnimation</span>(scale, forKey: scale.keyPath)</div><div class="line">        redball<span class="selector-class">.transform</span> = CGAffineTransformMakeScale(<span class="number">2</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意：</p>
-<ol>
-<li>动画都是对layer层属性进行操作的</li>
-<li>JNWSpringAnimation默认会回到初始状态，所以要手动设置结束状态</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/17/amination/" data-id="cj27mx5sz0003tokwlx7vwjxd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/11/25/CSS-HACK/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          CSS HACK
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/10/22/ps/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">PS切图插件cutterman</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a><span class="category-list-count">4</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PS/">PS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达/">正则表达</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用笔记/">自用笔记</a><span class="tag-list-count">30</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/05/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/加载更多/">(组件)加载更多</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

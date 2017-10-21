@@ -1,283 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>jQuery Mobile还是Zepto? | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery Mobile和Zepto是移动端的js库。jQuery Mobile相当于PC端的jQuery UI，它提供了很多页面的UI库，能够很快的开发出漂亮的界面，适合公司没有UI设计师的前端开发人员来进行移动端的开发。Zepto相当于PC端的jQuery，它提供了很多方法和功能，能够很快的实现各种需求和功能，适合公司有UI设计师的前端开发人员来进行移动端的开发。">
-<meta name="keywords" content="自用笔记,jqueryMobile,zepto">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jQuery Mobile还是Zepto?">
-<meta property="og:url" content="http://yoursite.com/2016/06/23/zepto&&jQuery/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jQuery Mobile和Zepto是移动端的js库。jQuery Mobile相当于PC端的jQuery UI，它提供了很多页面的UI库，能够很快的开发出漂亮的界面，适合公司没有UI设计师的前端开发人员来进行移动端的开发。Zepto相当于PC端的jQuery，它提供了很多方法和功能，能够很快的实现各种需求和功能，适合公司有UI设计师的前端开发人员来进行移动端的开发。">
-<meta property="og:updated_time" content="2016-07-12T02:23:10.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery Mobile还是Zepto?">
-<meta name="twitter:description" content="jQuery Mobile和Zepto是移动端的js库。jQuery Mobile相当于PC端的jQuery UI，它提供了很多页面的UI库，能够很快的开发出漂亮的界面，适合公司没有UI设计师的前端开发人员来进行移动端的开发。Zepto相当于PC端的jQuery，它提供了很多方法和功能，能够很快的实现各种需求和功能，适合公司有UI设计师的前端开发人员来进行移动端的开发。">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  
+extends base
 
-</head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-zepto&amp;&amp;jQuery" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/23/zepto&&jQuery/" class="article-date">
-  <time datetime="2016-06-23T00:48:21.000Z" itemprop="datePublished">2016-06-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>►<a class="article-category-link" href="/categories/前端开发/移动端/框架/">框架</a>
-  </div>
+block title
+  title= page.title + ' | ' + config.title
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      jQuery Mobile还是Zepto?
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>jQuery Mobile和Zepto是移动端的js库。jQuery Mobile相当于PC端的jQuery UI，它提供了很多页面的UI库，能够很快的开发出漂亮的界面，适合公司没有UI设计师的前端开发人员来进行移动端的开发。Zepto相当于PC端的jQuery，它提供了很多方法和功能，能够很快的实现各种需求和功能，适合公司有UI设计师的前端开发人员来进行移动端的开发。<br><a id="more"></a><br><strong>相对于jQuery mobile来说,zepto有以下优点</strong></p>
-<ol>
-<li>无缝接入和改造现有的项目</li>
-<li>更好的代码执行效率</li>
-<li>更低廉的学习成本</li>
-<li>比较轻量化，没有提供复杂的模式</li>
-</ol>
-<h3 id="jQuery_Mobile_u6027_u80FD_u4E0A_u6CA1_u6709zepto_u597D_u3002"><a href="#jQuery_Mobile_u6027_u80FD_u4E0A_u6CA1_u6709zepto_u597D_u3002" class="headerlink" title="jQuery Mobile性能上没有zepto好。"></a>jQuery Mobile性能上没有zepto好。</h3><ul>
-<li>zepto.js是一个专为mobile WebKit浏览器(如：Safari和Chrome)而开发的一个JavaScript框架。它标榜自己在其简约的开发理念，能够帮助开发人员简单、快速地完成开发交付任务。更重要的是这个JS框架，是超轻量级的，只有5KB。zepto.js的语法借鉴并且兼容jQuery。</li>
-<li>jQuery Mobile这个框架能够帮助你快速开发出支持多种移动设备的Mobile应用用户界面。</li>
-<li>jQuery Mobile不仅会给主流移动平台带来jQuery核心库，而且会发布一个完整统一的jQuery移动UI框架。虽然jQuery Mobile相对较新，但开发人员可以用jQuery Mobile为许多移动设备（包括智能手机和平板电脑）开发网站应用程序，RSS阅读器等应用。</li>
-<li>jQuery Mobile有很多的UI控件供我们使用，并且提供对多页面的支持（通过Ajax方式读取内容，并提供页面切换的过渡动画）。我认为jQuery Mobile的最强大之处就在于其UI方面的支持，但这一部分恰恰不是我所需要的，它对UI的限制比较多。Sencha Touch是ExtJs的移动版，对于不熟悉ExtJs的人来说有一定的学习成本。</li>
-</ul>
-<h3 id="jQuery_Mobile_u7684_u7F3A_u70B9_uFF0C_u4E3B_u8981_u6709_u4E24_u70B9_uFF1A_u4E00_u662F_u91CD_uFF0C_u4E8C_u662FUI_u9650_u5236_u592A_u5927_u3002"><a href="#jQuery_Mobile_u7684_u7F3A_u70B9_uFF0C_u4E3B_u8981_u6709_u4E24_u70B9_uFF1A_u4E00_u662F_u91CD_uFF0C_u4E8C_u662FUI_u9650_u5236_u592A_u5927_u3002" class="headerlink" title="jQuery Mobile的缺点，主要有两点：一是重，二是UI限制太大。"></a>jQuery Mobile的缺点，主要有两点：一是重，二是UI限制太大。</h3><p>我们选择了zepto.js作为底层库，使用sea.js进行模块的管理和发布，当然也可以使用requirejs来进行模块的管理和发布，requirejs比seajs的对应的工具多一些，因为requirejs是外国的，而其他相应的工具也是外国的，因此使用seajs，相对应的工具会少一些。但是开发起来容易一些，都是中文资料。此外，我们使用backbone.js为基础的MVC架构，用来剥离应用的数据部分；使用underscore.js做为前端模板引擎（backbone重度依赖）；使用iScroll.js为我们提供模拟滚动的功能（此库在低端移动设备上，反应慢）。这些都是一些专业的“小库”，很适合移动端的开发。当然，具体情况需要具体分析，没有万能的框架，只有万能的开发者。如果时间允许，也可以自己来定制一套满足自身需求的基础库。毕竟在移动端，一切以 “精简”为主。</p>
-<p><strong>对于单页应用来说，iScroll确实是一个非常优秀的解决方案，但是iScroll却有一个最大的缺陷——慢，滚动的性能与浏览器原生实现相比，在低端的移动设备上有明显卡顿。</strong></p>
-<p>不过要兼容低端的移动设备，原生的滚动还是有优势的。尝试放弃使用iScroll组件，使用原生的Scroll。因为较新的浏览器已支持 <code>{overflow: scroll; -webkit-overflow-scrolling: touch;}</code></p>
-<p>Scroll的诞生，主要是因为早期的webkit内核浏览器没有一种原生支持固定高度的容器。到目前为止，iScroll最大的问题就是慢，在千元以下Android设备上表现尤为突出。使用局部滚动来替代iScroll滚动是最好的一种方式，但很可惜，现在只有iOS5、6支持局部滚动，并且支持程度并不好，而Android压根就不打算支持。这样，我们就不得不使用iScroll。</p>
-<h3 id="u95EE_u9898_u6765_u4E86_uFF0C_u73B0_u5728_u5230_u5E95_u4F7F_u7528iScroll_u5462_uFF1F_u8FD8_u662F_u4E0D_u4F7F_u7528_uFF1F_u4F7F_u7528_u7684_u8BDD_uFF0C_u5927_u90E8_u5206Android_u8BBE_u5907_u5728_u6EDA_u52A8_u65F6_u4F1A_u5F88_u5361_uFF0C_u5982_u4E0D_u4F7F_u7528_uFF0C_u90E8_u5206_u529F_u80FD_u53C8_u5B9E_u73B0_u4E0D_u4E86_u3002_u5176_u5B9E_uFF0C_u8FD9_u4E2A_u95EE_u9898_u4E5F_u4E0D_u5FC5_u592A_u7EA0_u7ED3_u3002"><a href="#u95EE_u9898_u6765_u4E86_uFF0C_u73B0_u5728_u5230_u5E95_u4F7F_u7528iScroll_u5462_uFF1F_u8FD8_u662F_u4E0D_u4F7F_u7528_uFF1F_u4F7F_u7528_u7684_u8BDD_uFF0C_u5927_u90E8_u5206Android_u8BBE_u5907_u5728_u6EDA_u52A8_u65F6_u4F1A_u5F88_u5361_uFF0C_u5982_u4E0D_u4F7F_u7528_uFF0C_u90E8_u5206_u529F_u80FD_u53C8_u5B9E_u73B0_u4E0D_u4E86_u3002_u5176_u5B9E_uFF0C_u8FD9_u4E2A_u95EE_u9898_u4E5F_u4E0D_u5FC5_u592A_u7EA0_u7ED3_u3002" class="headerlink" title="问题来了，现在到底使用iScroll呢？还是不使用？使用的话，大部分Android设备在滚动时会很卡，如不使用，部分功能又实现不了。其实，这个问题也不必太纠结。"></a>问题来了，现在到底使用iScroll呢？还是不使用？使用的话，大部分Android设备在滚动时会很卡，如不使用，部分功能又实现不了。其实，这个问题也不必太纠结。</h3><ul>
-<li>首先,对于header、footer需要固定位置的页面，可以直接使用position:fixed实现。部分不支持fixed定位的浏览器问题也不大，这部分设备一般都是Android2.x的系统，配置也较低，相对交互而言，速度显然更加重要；</li>
-<li>对于需要依赖固定高度实现切换动画效果的交互，应尽量保证滚动条在页面顶部时处理。必要时做出一些牺牲，舍弃部分影响用户使用流畅的交互；</li>
-<li>尽量使用浏览器原生支持代替iScroll；</li>
-<li>如果必须使用iScroll才能实现的功能，一定要控制在最小范围，不要在常用场景应用iScroll；</li>
-</ul>
-<p>虽然iScroll在iOS下表现得非常出色，但是都应当尽量使用浏览器原生支持特性来实现功能，这样才能最大化保证交互操作的</p>
-<p>很长一段时间都有一个争论，有页面跳转是不是WebApp？我认为单独讨论single page webapp还是页面跳转是没有意义的，所有产品都是建立在用户需求之上。对于现有的single page webapp产品，浏览器没有准备好，硬件配置也没有准备好，函数运算效率、页面渲染都跟不上，尤其是Android设备。基于用户需求出发，一些意识形态的东西该抛弃就抛弃，放开的使用页面跳转，只要能让程序运行流畅的东西，就应该毫不犹豫的使用。</p>
-<p>凡事也没有绝对，在一定的功能范围之内，也可以使用炫一些的切换动画，在一个页面实现多个子功能。</p>
-<p>基于以上对移动端浏览器混乱程度的理解，移动web产品要做到全平台适配，工作量无遗是巨大的，并且，由于HTML5的支持程度，也会导致大部分低端用户无法使用到一些高级特性，或表现效果不佳。而且，没必要为了适应低端Android用户让高端iOS用户也忍受着简陋无比的交互及界面。那么，将iOS、Android、Windows Phone分为不同的版本，做相应的功能适配还是很有必要的。</p>
-<ul>
-<li>在iOS下，自由度比较高，能随意发挥，很多有创意的交互及设计，都能在Safari下表现得比较好；</li>
-<li>Android下由于设备硬件配置及浏览器版本差异比较大，就会选择相应保守的方式，舍弃部分影响用户使用流畅的交互，以及影响页面渲染的界面设计；</li>
-<li>对于Windows Phone我们是从WP8起步，这样会更好做浏览器兼容。做分版本适配的目的，是为了在保证功能交互的前提下让每个用户都能得到最流畅的操作体验。</li>
-</ul>
-<p>用原生控件做外壳和交互，保证流畅的用户体验和完整的推广渠道；使用HTML5来展示内容，保证内容的迅速迭代更新，即时响应用户需求。于是就诞生了Hybrid  App，这也是目前最流行最合适的一种App形式。</p>
-<h3 id="u4E0B_u9762_u63D0_u51FA_u6211_u4E2A_u4EBA_u7684_u5EFA_u8BAE_uFF1A"><a href="#u4E0B_u9762_u63D0_u51FA_u6211_u4E2A_u4EBA_u7684_u5EFA_u8BAE_uFF1A" class="headerlink" title="下面提出我个人的建议："></a>下面提出我个人的建议：</h3><ol>
-<li><p>如果你的团队刚刚组建或者框架知识了解不深入，那么开发移动端，使用单一的库就行了。<br>比如：jQuery mobile或Zepto。</p>
-<blockquote>
-<p>使用jQuery mobile可以省略很多UI设计或者说重构的一些工作，在公司团队中，如果没有这方面的成员时，可以使用此库。但是此库性能不好，兼容性一般，UI限制大，请慎重使用。 使用Zepto开发，性能上最好的，而兼容性比较好，跟jQuery有同样的API，只是需要自己设计UI，以及重构。touch功能上有一定的兼容性问题。推荐使用此库，这样你可以任意发挥你的想法。</p>
-</blockquote>
-</li>
-<li><p>如果你的团队具有一定的框架基础，像模块化开发的代表requirejs和seajs，那么，完全可以把这个项目进行模块化开发，把这两个库的任意一个加入到项目中，将对你项目的协同开发，以后的代码维护都将有很好的贡献。这两个库的学习成本不大，很容易上手</p>
-</li>
-<li>如果你的团队，个个都是高手了，那么就可以进行mvc模式的开发了。在你的项目中，加入backbone+underscore，这是目前为止，最简单的mvc模式的开发组合。但是大家都知道，使用backbone，你就必须按照backbone的模式来进行项目的开发，具有一定的限制。也就是说，开发和维护，都需要了解backbone这个框架。</li>
-<li>如果你的团队，个个是大牛的话，那么就可以使用angularjs或react了。这种模式的开发，现阶段是前端开发的最新研究成果了。此种框架，学习成本大，但是代表着公司的实力和创新。</li>
-</ol>
-<p>当然，除了以上这些基础库和基础框架，我们可能还需要添加一些第三方库，比如iscroll，此库兼容性好，唯一缺点就是在低端设备上，会卡，所以项目不能全局使用iscroll实现滚动效果。我们需要添加原生的scroll来实现项目中的滚动效果，如果使用原生scroll不能实现的，那么才使用iscroll来实现。</p>
-<ul>
-<li>比如：faskClick，它解决点击事件延迟的bug，当然zepto的touch模块也可以解决。</li>
-<li>比如：模板引擎，像underscore，handlerbars等。</li>
-<li>比如：HTML5的application cache本地缓存机制。</li>
-</ul>
-<h3 id="u79FB_u52A8_u5F00_u53D1_u603B_u7ED3_uFF1A"><a href="#u79FB_u52A8_u5F00_u53D1_u603B_u7ED3_uFF1A" class="headerlink" title="移动开发总结："></a>移动开发总结：</h3><blockquote>
-<p>（1）jQuery mobile或者Zepto+自己设计UI<br>（2）seajs或requirejs+Zepto<br>（3）seajs或requirejs+Zepto+Backbone+underscore<br>（4）angularjs或react</p>
-</blockquote>
-<p>我个人希望能够使用第四种。后续我也会更新学习react的博文。<br>当然，如果对技术不需要深入，只要实现功能，那么使用第二种我觉得还是不错的。 至于第一种，我个人觉得模块化开发还是非常必要的，之前在公司里面看之前的前端负责人开发的一套系统，代码写的太混乱了，简直看不得，维护起来非常不方便，所以模块化开发，我个人觉得，必须使用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/zepto&&jQuery/" data-id="cj27mx5tv0015tokwywjh56pq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zepto/">zepto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/06/30/linear-gradient/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          CSS3 线性渐变（linear-gradient）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/06/20/zepto/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">关于zepto</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a><span class="category-list-count">4</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PS/">PS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达/">正则表达</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用笔记/">自用笔记</a><span class="tag-list-count">30</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/05/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/加载更多/">(组件)加载更多</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

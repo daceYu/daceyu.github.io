@@ -1,261 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>增减input,用户体验 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="增减input–用户体验的完善  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题">
-<meta name="keywords" content="自用笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="增减input,用户体验">
-<meta property="og:url" content="http://yoursite.com/2016/04/16/input用户体验/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="增减input–用户体验的完善  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题">
-<meta property="og:image" content="http://yoursite.com/news/IMG_0450.PNG">
-<meta property="og:image" content="http://yoursite.com/news/IMG_0450.PNG">
-<meta property="og:image" content="http://yoursite.com/news/1.PNG">
-<meta property="og:image" content="http://yoursite.com/news/2.PNG">
-<meta property="og:updated_time" content="2016-06-16T03:47:21.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="增减input,用户体验">
-<meta name="twitter:description" content="增减input–用户体验的完善  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题">
-<meta name="twitter:image" content="http://yoursite.com/news/IMG_0450.PNG">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  
+extends base
 
-</head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-input用户体验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/16/input用户体验/" class="article-date">
-  <time datetime="2016-04-16T00:10:12.000Z" itemprop="datePublished">2016-04-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>►<a class="article-category-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a>
-  </div>
+block title
+  title= page.title + ' | ' + config.title
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      增减input,用户体验
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584"><a href="#u589E_u51CFinput_u2013_u7528_u6237_u4F53_u9A8C_u7684_u5B8C_u5584" class="headerlink" title="增减input–用户体验的完善"></a>增减input–用户体验的完善</h3><p>  最近在忙公司的一个新项目，移动端的app，很多东西没来的及去总结，回头项目结束总结后再补，这里就写一个今天碰到的小问题。<br>  什么小问题呢，公司app上面有一个购物的订单详情页面/购物车页面，有一个input框，可以增减商品的数量，然后还可以手动输入，期间遇到这么几个问题<br><a id="more"></a></p>
-<ul>
-<li>手动输入弹出键盘</li>
-<li><p>点击input光标位置</p>
-<h3 id="u624B_u52A8_u8F93_u5165_u5F39_u51FA_u952E_u76D8"><a href="#u624B_u52A8_u8F93_u5165_u5F39_u51FA_u952E_u76D8" class="headerlink" title="手动输入弹出键盘"></a>手动输入弹出键盘</h3><p>既然用了输入框，点击弹出键盘默认是汉字输入键盘，在购物车/订单详情页面 最为数量值的修改，这里我们只需要数字，那么我们用<code>input type=&quot;number&quot;</code>就可以解决了<br><img src="/news/IMG_0450.PNG" alt=""><br>但是在ios手机上，你会发现尽管弹出的是数字输入键盘，但是用户体验并不好，是否去掉符号这些无关紧要的呢？<br>我们只需要把<code>input type=&quot;number&quot;</code>改成<code>input type=&quot;tel&quot;</code>就可以解决了</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">input <span class="class"><span class="keyword">type</span></span>=<span class="string">"tel"</span></div></pre></td></tr></table></figure>
-<p><img src="/news/IMG_0450.PNG" alt=""><br>显然大部分用户会倾向于第二种，更何况boss说的白痴用户。</p>
-<h3 id="u70B9_u51FBinput_u5149_u6807_u4F4D_u7F6E"><a href="#u70B9_u51FBinput_u5149_u6807_u4F4D_u7F6E" class="headerlink" title="点击input光标位置"></a>点击input光标位置</h3><p>这个之前我还没有考虑到，有一天无意看到<a href="http://makaiqian.com/input-better/" target="_blank" rel="external">麻组博客</a>上有一篇input这个的文章，然后里面提到input光标这个问题，我就把博客更新一下，完善了一下。偷学＝ ＝</p>
-<p><strong>因为在移动端，手指触碰屏幕没有办法做到很精确，所以常会出现这样的问题：</strong></p>
-</li>
-<li>本来希望能点到最后，像这样：<br><img src="/news/1.PNG" alt=""></li>
-<li><p>却成了这样：<br><img src="/news/2.PNG" alt=""></p>
-<p>我想到了有几种体验更好的方案：</p>
-</li>
-</ul>
-<ol>
-<li>点击后，光标自动跑到最后。</li>
-<li>点击后，全选内容。这次我认为最佳的体验。</li>
-<li>可以左移、右移。因为这个功能位置太小，和我的删除交互冲突了(我这里没有删除,数量最低为1,所以我也排除了)。我把这种方案排除。</li>
-<li><p>监听inputfocus以后内容置空，监听blur如果改变就复原。这种方案可以做，但不是最好的。</p>
-<p>由于有了 <em>麻组</em> 的经验之谈，所以我就少了很多歪路，选择方案2。</p>
-</li>
-</ol>
-<h3 id="u5B9E_u73B0input_u5149_u6807_u5230_u6307_u5B9A_u4F4D_u7F6E"><a href="#u5B9E_u73B0input_u5149_u6807_u5230_u6307_u5B9A_u4F4D_u7F6E" class="headerlink" title="实现input光标到指定位置"></a>实现input光标到指定位置</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  设置光标位置函数</div><div class="line"> *  ctrl：input</div><div class="line"> *  pos：光标的位置</div><div class="line"> **/</div><div class="line"><span class="keyword">function</span> <span class="title">setInputPosition</span>(ctrl, pos) &#123;</div><div class="line">    if (ctrl.setSelectionRange) &#123;</div><div class="line">        ctrl.focus();</div><div class="line">        ctrl.setSelectionRange(pos, pos);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ctrl.createTextRange) &#123;</div><div class="line">        var <span class="keyword">range</span> = ctrl.createTextRange();</div><div class="line">        <span class="keyword">range</span>.collapse(<span class="literal">true</span>);</div><div class="line">        <span class="keyword">range</span>.moveEnd(<span class="symbol">'character</span>', pos);</div><div class="line">        <span class="keyword">range</span>.moveStart(<span class="symbol">'character</span>', pos);</div><div class="line">        <span class="keyword">range</span>.<span class="keyword">select</span>();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>调用一下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">setInputPosition</span>(<span class="selector-tag">input</span>, <span class="selector-tag">input</span><span class="selector-class">.value</span><span class="selector-class">.length</span>);</div></pre></td></tr></table></figure></p>
-<h3 id="u5168_u9009input_u91CC_u7684_u5185_u5BB9"><a href="#u5168_u9009input_u91CC_u7684_u5185_u5BB9" class="headerlink" title="全选input里的内容"></a>全选input里的内容</h3><p>这种方法很简单，就是突然失忆了。<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.<span class="built_in">querySelector</span>(<span class="string">'.cycle-input'</span>).select();</div></pre></td></tr></table></figure></p>
-<p>如果ios下失效，可以使用:<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">input</span> = document.querySelector(<span class="string">'.cycle-input'</span>);</div><div class="line"><span class="built_in">input</span>.<span class="built_in">select</span>();</div><div class="line"><span class="built_in">input</span>.setSelectionRange(<span class="number">0</span>,<span class="number">9999</span>);</div></pre></td></tr></table></figure></p>
-<h3 id="u662F_u7684_uFF0C_u4F5C_u4E3A_u4E00_u540D_u524D_u7AEF_uFF0C_u4E0D_u8981_u5FFD_u89C6_u7528_u6237_u4F53_u9A8C_uFF0C_u5F88_u591A_u4E1C_u897F_u90FD_u53EF_u4EE5_u53BB_u4F18_u5316_uFF0C_u7AD9_u5728_u7528_u6237_u7684_u89D2_u5EA6_u53BB_u6D4B_u8BD5_u4F60_u7684_u4EA7_u54C1_uFF0C_u5F80_u5927_u4E86_u8BB2_uFF0C_u4E00_u4E2A_u516C_u53F8_u53EF_u80FD_u5C31_u6BC1_u5728_u4F60_u624B_u4E0A_u3002"><a href="#u662F_u7684_uFF0C_u4F5C_u4E3A_u4E00_u540D_u524D_u7AEF_uFF0C_u4E0D_u8981_u5FFD_u89C6_u7528_u6237_u4F53_u9A8C_uFF0C_u5F88_u591A_u4E1C_u897F_u90FD_u53EF_u4EE5_u53BB_u4F18_u5316_uFF0C_u7AD9_u5728_u7528_u6237_u7684_u89D2_u5EA6_u53BB_u6D4B_u8BD5_u4F60_u7684_u4EA7_u54C1_uFF0C_u5F80_u5927_u4E86_u8BB2_uFF0C_u4E00_u4E2A_u516C_u53F8_u53EF_u80FD_u5C31_u6BC1_u5728_u4F60_u624B_u4E0A_u3002" class="headerlink" title="是的，作为一名前端，不要忽视用户体验，很多东西都可以去优化，站在用户的角度去测试你的产品，往大了讲，一个公司可能就毁在你手上。"></a>是的，作为一名前端，不要忽视用户体验，很多东西都可以去优化，站在用户的角度去测试你的产品，往大了讲，一个公司可能就毁在你手上。</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/16/input用户体验/" data-id="cj27mx5td000ftokwv423pn6c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/05/03/app/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          点击页面判断是否安装app并打开，否则跳转app store的方法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/03/29/isMobile/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">js简化UA判断</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS3/">CSS3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/工具/">工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/">移动端</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/框架/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/用户体验/">用户体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/移动端/组件/">组件</a><span class="category-list-count">4</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/微信/">微信</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术无界/">技术无界</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-HACK/">CSS HACK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PS/">PS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jqueryMobile/">jqueryMobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepto/">zepto</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达/">正则表达</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用笔记/">自用笔记</a><span class="tag-list-count">30</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS-HACK/" style="font-size: 10px;">CSS HACK</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/jqueryMobile/" style="font-size: 15px;">jqueryMobile</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/zepto/" style="font-size: 15px;">zepto</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/05/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/加载更多/">(组件)加载更多</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/图片懒加载/">(组件)图片懒加载</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/20/转盘抽奖canvas/">(组件)转盘抽奖canvas</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/22/wxD/">微信开发－有关微信分享我踩过的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments
