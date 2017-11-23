@@ -1,63 +1,12 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="自用笔记,node.js," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
-
-<meta name="description" content="声明:本文是基于学习开源项目的笔记预留将使用Node.js加web socket协议打造一个网页即时聊天程序~其中将会使用到express和socket.io两个包模块，下面会有介绍。">
+  <meta charset="utf-8">
+  
+  <title>Node.js + Web Socket 开源聊天室学习 | Non-who can not°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name ="keywords" content="daceyu,叫我小余就好">
+  <meta name="description" content="声明:本文是基于学习开源项目的笔记预留将使用Node.js加web socket协议打造一个网页即时聊天程序~其中将会使用到express和socket.io两个包模块，下面会有介绍。">
 <meta name="keywords" content="自用笔记,node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js + Web Socket 开源聊天室学习">
@@ -83,212 +32,259 @@
 <meta name="twitter:title" content="Node.js + Web Socket 开源聊天室学习">
 <meta name="twitter:description" content="声明:本文是基于学习开源项目的笔记预留将使用Node.js加web socket协议打造一个网页即时聊天程序~其中将会使用到express和socket.io两个包模块，下面会有介绍。">
 <meta name="twitter:image" content="http://images.cnitblog.com/i/431064/201403/312228045164946.jpg">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: 'Author'
-    }
-  };
-</script>
-
-  <title> Node.js + Web Socket 开源聊天室学习 | Non-who can not° </title>
+  
+    <link rel="alternative" href="/atom.xml" title="Non-who can not°" type="application/atom+xml">
+  
+  
+    <!-- <link rel="icon" href="/favicon.png"> -->
+    <link rel="icon" href="/me.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
-
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Non-who can not°</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            <img lazy-src="/img/me.png" class="js-avatar">
             
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
+        </a>
 
-      
-      
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
+        <hgroup>
+          <h1 class="header-author"><a href="/">daceyu</a></h1>
+        </hgroup>
 
         
+                
+
+
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Node.js + Web Socket 开源聊天室学习
-              
-            
-          </h1>
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
         
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-19T19:06:24+08:00" content="2016-07-19">
-              2016-07-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
-                  </a>
-                </span>
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/“mailto:282458320@qq.com"" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="知乎"><a class="知乎" target="_blank" href="http://www.zhihu.com/" title="知乎"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=282458320&websitename=im.qq.com" title="QQ"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/正则表达/" style="font-size: 10px;">正则表达</a> <a href="/tags/自用笔记/" style="font-size: 20px;">自用笔记</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://huangbingbing.com">BingB</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://wangxinze.com">BigBG</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zhouyutao.com">TBorther</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.netcan666.com">Netcan</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MoxFive</a>
+                    
+                    </div>
+                </section>
+                
 
                 
                 
-                  , 
+                <section class="switch-part switch-part4">
                 
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端</span>
-                  </a>
-                </span>
-
+                    <div id="js-aboutme">单身狗，专注于前端</div>
+                </section>
                 
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
+            </div>
         </div>
-      </header>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daceyu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/me.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daceyu</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/“mailto:282458320@qq.com"" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="知乎"><a class="知乎" target="_blank" href="http://www.zhihu.com/" title="知乎"></a></li>
+                            
+                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=282458320&websitename=im.qq.com" title="QQ"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-node_chat" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/19/node_chat/" class="article-date">
+      <time datetime="2016-07-19T11:06:24.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js + Web Socket 开源聊天室学习
+    </h1>
+  
 
-
-    <div class="post-body" itemprop="articleBody">
-
+      </header>
       
-      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a><a class="article-category-link" href="/categories/前端开发/移动端/">移动端</a>
+    </div>
 
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用笔记/">自用笔记</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
         <h3 id="u58F0_u660E_3A_u672C_u6587_u662F_u57FA_u4E8E_u5B66_u4E60_u5F00_u6E90_u9879_u76EE_u7684_u7B14_u8BB0_u9884_u7559"><a href="#u58F0_u660E_3A_u672C_u6587_u662F_u57FA_u4E8E_u5B66_u4E60_u5F00_u6E90_u9879_u76EE_u7684_u7B14_u8BB0_u9884_u7559" class="headerlink" title="声明:本文是基于学习开源项目的笔记预留"></a>声明:本文是基于学习开源项目的笔记预留</h3><p>将使用Node.js加web socket协议打造一个网页即时聊天程序~<br>其中将会使用到express和socket.io两个包模块，下面会有介绍。<br><a id="more"></a></p>
 <h2 id="u6E90_u7801_26amp_3B_u6F14_u793A"><a href="#u6E90_u7801_26amp_3B_u6F14_u793A" class="headerlink" title="源码&amp;演示"></a>源码&amp;演示</h2><p><a href="http://hichat.herokuapp.com/" target="_blank" rel="external">在线演示</a>(heroku服务器网速略慢且免费套餐是小水管，建议下载代码本地运行)<br>源码可访问项目的<a href="https://github.com/daceYu/chat" target="_blank" rel="external">GITHUB</a>页面下载<br>本地运行方法：</p>
 <ul>
@@ -434,414 +430,225 @@
 
       
     </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/自用笔记/" rel="tag">#自用笔记</a>
-          
-            <a href="/tags/node-js/" rel="tag">#node.js</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/07/12/grunt/" rel="next" title="Grunt集成自启动工具">
-                <i class="fa fa-chevron-left"></i> Grunt集成自启动工具
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/01/iscroll.js回弹bug/" rel="prev" title="解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题">
-                解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
     
   </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/07/19/node_chat/">Node.js + Web Socket 开源聊天室学习</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 daceyu 的个人博客">daceyu</a></p>
+        <p><span>发布时间:</span>2016年07月19日 - 19时06分</p>
+        <p><span>最后更新:</span>2016年07月20日 - 11时31分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/07/19/node_chat/" title="Node.js + Web Socket 开源聊天室学习">http://daceyu.com/2016/07/19/node_chat/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://daceyu.com/2016/07/19/node_chat/　　作者: daceyu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/default_avatar.jpg"
-               alt="daceyu" />
-          <p class="site-author-name" itemprop="name">daceyu</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">10</span>
-              <span class="site-state-item-name">posts</span>
-            </a>
-          </div>
-          
-          
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">categories</span>
-              
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/09/01/iscroll.js回弹bug/">
+                    解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题
+                </a>
             </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/07/12/grunt/">
+                    Grunt集成自启动工具
+                </a>
             </div>
-          
-
-        </nav>
-
         
+    </nav>
 
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u58F0_u660E_3A_u672C_u6587_u662F_u57FA_u4E8E_u5B66_u4E60_u5F00_u6E90_u9879_u76EE_u7684_u7B14_u8BB0_u9884_u7559"><span class="nav-number">1.</span> <span class="nav-text">声明:本文是基于学习开源项目的笔记预留</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6E90_u7801_26amp_3B_u6F14_u793A"><span class="nav-number"></span> <span class="nav-text">源码&演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u51C6_u5907_u5DE5_u4F5C"><span class="nav-number"></span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node_u76F8_u5173"><span class="nav-number">1.</span> <span class="nav-text">Node相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Express"><span class="nav-number">2.</span> <span class="nav-text">Express</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-io"><span class="nav-number">3.</span> <span class="nav-text">socket.io</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u9875_u9762"><span class="nav-number"></span> <span class="nav-text">基本页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8BBE_u7F6E_u6635_u79F0"><span class="nav-number"></span> <span class="nav-text">设置昵称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5728_u7EBF_u7EDF_u8BA1"><span class="nav-number"></span> <span class="nav-text">在线统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53D1_u9001_u6D88_u606F"><span class="nav-number"></span> <span class="nav-text">发送消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53D1_u9001_u56FE_u7247"><span class="nav-number"></span> <span class="nav-text">发送图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53D1_u9001_u8868_u60C5"><span class="nav-number"></span> <span class="nav-text">发送表情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6587_u5B57_u989C_u8272"><span class="nav-number"></span> <span class="nav-text">文字颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6309_u952E_u64CD_u4F5C"><span class="nav-number">1.</span> <span class="nav-text">按键操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u90E8_u7F72_u4E0A_u7EBF"><span class="nav-number">2.</span> <span class="nav-text">部署上线</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">daceyu</span>
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u58F0_u660E_3A_u672C_u6587_u662F_u57FA_u4E8E_u5B66_u4E60_u5F00_u6E90_u9879_u76EE_u7684_u7B14_u8BB0_u9884_u7559"><span class="toc-number">1.</span> <span class="toc-text">声明:本文是基于学习开源项目的笔记预留</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6E90_u7801_26amp_3B_u6F14_u793A"><span class="toc-number"></span> <span class="toc-text">源码&演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u51C6_u5907_u5DE5_u4F5C"><span class="toc-number"></span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Node_u76F8_u5173"><span class="toc-number">1.</span> <span class="toc-text">Node相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Express"><span class="toc-number">2.</span> <span class="toc-text">Express</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#socket-io"><span class="toc-number">3.</span> <span class="toc-text">socket.io</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u57FA_u672C_u9875_u9762"><span class="toc-number"></span> <span class="toc-text">基本页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8BBE_u7F6E_u6635_u79F0"><span class="toc-number"></span> <span class="toc-text">设置昵称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5728_u7EBF_u7EDF_u8BA1"><span class="toc-number"></span> <span class="toc-text">在线统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53D1_u9001_u6D88_u606F"><span class="toc-number"></span> <span class="toc-text">发送消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53D1_u9001_u56FE_u7247"><span class="toc-number"></span> <span class="toc-text">发送图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53D1_u9001_u8868_u60C5"><span class="toc-number"></span> <span class="toc-text">发送表情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6587_u5B57_u989C_u8272"><span class="toc-number"></span> <span class="toc-text">文字颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6309_u952E_u64CD_u4F5C"><span class="toc-number">1.</span> <span class="toc-text">按键操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u90E8_u7F72_u4E0A_u7EBF"><span class="toc-number">2.</span> <span class="toc-text">部署上线</span></a></li></ol>
 </div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
-</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top"></div>
-  </div>
-
-  
-
-
-  
-
-
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
     }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
         }
-      }
-    };
-  });
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
 </script>
 
 
 
-  
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+    
 
 
 
-  
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/09/01/iscroll.js回弹bug/" title="上一篇: 解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/07/12/grunt/" title="下一篇: Grunt集成自启动工具">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/iscroll.js回弹bug/">解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/node_chat/">Node.js + Web Socket 开源聊天室学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/grunt/">Grunt集成自启动工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/node+express/">node+express学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/mongoDB/">MongoDB学习笔记之Mongoose的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/02/regular-expression/">有关一些正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/16/input用户体验/">增减input,用户体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/02/brower-sync/">Brower-sync多平台调试利器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/22/ps/">PS切图插件cutterman</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/08/同步请求异步请求/">关于同步请求跟异步请求 的区别</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
 
-  
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 daceyu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
 
-  
-  
 
-  
-  
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
 
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>
