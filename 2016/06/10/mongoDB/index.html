@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>MongoDB学习笔记之Mongoose的使用 | Non-who can not°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MongoDB的介绍在说MongoDB数据插入操作之前，我们先来简单了解下它的数据逻辑结构。MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database)这三部分组成的。  文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，">
+<meta name="keywords" content="自用笔记,MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB学习笔记之Mongoose的使用">
+<meta property="og:url" content="http://daceyu.com/2016/06/10/mongoDB/index.html">
+<meta property="og:site_name" content="Non-who can not°">
+<meta property="og:description" content="MongoDB的介绍在说MongoDB数据插入操作之前，我们先来简单了解下它的数据逻辑结构。MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database)这三部分组成的。  文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系">
+<meta property="og:updated_time" content="2016-07-12T02:23:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB学习笔记之Mongoose的使用">
+<meta name="twitter:description" content="MongoDB的介绍在说MongoDB数据插入操作之前，我们先来简单了解下它的数据逻辑结构。MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database)这三部分组成的。  文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系">
+  
+    <link rel="alternate" href="/atom.xml" title="Non-who can not°" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">daceyu</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>MongoDB学习笔记之Mongoose的使用</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> daceyu</span>
+                <span class="post-date sub-title">at: 2016-06-10</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/自用笔记/">自用笔记</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/MongoDB/">MongoDB</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h3 id="MongoDB_u7684_u4ECB_u7ECD"><a href="#MongoDB_u7684_u4ECB_u7ECD" class="headerlink" title="MongoDB的介绍"></a>MongoDB的介绍</h3><p>在说MongoDB数据插入操作之前，我们先来简单了解下它的数据逻辑结构。<br>MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database)这三部分组成的。</p>
+<ul>
+<li>文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系数据库中的一行记录。</li>
+<li>集合（Collection）：多个文档组成一个集合（collection），相当于关系数据库的表。<a id="more"></a></li>
+<li>数据库（database）：多个集合（collection），逻辑上组织在一起，就是数据库（database）。<br>一个MongoDB实例支持多个数据库（database）。</li>
+</ul>
+<h3 id="u5B89_u88C5_u53CA_u5F15_u7528"><a href="#u5B89_u88C5_u53CA_u5F15_u7528" class="headerlink" title="安装及引用"></a>安装及引用</h3><h4 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> mongoose</div></pre></td></tr></table></figure>
+<h4 id="u5F15_u7528mongoose"><a href="#u5F15_u7528mongoose" class="headerlink" title="引用mongoose"></a>引用mongoose</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var mongoose</span> = require(“mongoose”);</div></pre></td></tr></table></figure>
+<h4 id="u4F7F_u7528mongoose_u94FE_u63A5_u6570_u636E_u5E93"><a href="#u4F7F_u7528mongoose_u94FE_u63A5_u6570_u636E_u5E93" class="headerlink" title="使用mongoose链接数据库"></a>使用mongoose链接数据库</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var db = mongoose(“mongodb<span class="symbol">://user</span><span class="symbol">:pass</span>@localhost<span class="symbol">:port/database</span>”)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h4 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = require(“mongoose”);</div><div class="line"><span class="keyword">var</span> <span class="keyword">db</span> = mongoose.connect(“mongodb:<span class="comment">//127.0.0.1:27017/test”);</span></div><div class="line"><span class="keyword">db</span>.connection.<span class="keyword">on</span>(“<span class="keyword">error</span>”, function (<span class="keyword">error</span>) &#123;</div><div class="line">console.<span class="built_in">log</span>(“数据库连接失败：” + <span class="keyword">error</span>);</div><div class="line">&#125;);</div><div class="line"><span class="keyword">db</span>.connection.<span class="keyword">on</span>(“<span class="keyword">open</span>”, function () &#123;</div><div class="line">console.<span class="built_in">log</span>(“——数据库连接成功！——”);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="MongoDB_u57FA_u7840"><a href="#MongoDB_u57FA_u7840" class="headerlink" title="MongoDB基础"></a>MongoDB基础</h3><ul>
+<li>Schema ： 一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力</li>
+<li>Model ： 由Schema发布生成的模型，具有抽象属性和行为的数据库操作对</li>
+<li>Entity ： 由Model创建的实体，他的操作也会影响数据库<h4 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h4>Schema —— 一种以文件形式存储的数据库模型骨架，无法直接通往数据库端，也就是说它不具备对数据库的操作能力，仅仅只是数据库模型在程序片段中的一种表现，可以说是数据属性模型(传统意义的表结构)，又或着是“集合”的模型骨架。<br>定义<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>)</div><div class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line">    name : &#123;<span class="keyword">type</span>:<span class="built_in">String</span>&#125;,</div><div class="line">    age : &#123;<span class="keyword">type</span>:<span class="built_in">Number</span>,<span class="keyword">default</span>:<span class="number">0</span>&#125;,</div><div class="line">    time : &#123;<span class="keyword">type</span>:<span class="built_in">Date</span>,<span class="keyword">default</span>:<span class="built_in">Date</span>.now&#125;,</div><div class="line">    emial : &#123;<span class="keyword">type</span>:<span class="built_in">String</span>,<span class="keyword">default</span>:<span class="string">''</span>&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>基本属性类型有：字符串、日期型、数值型、布尔型(Boolean)、null、数组、内嵌文档等</p>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p>Model —— 由Schema构造生成的模型，除了Schema定义的数据库骨架以外，还具有数据库操作的行为，类似于管理数据库属性、行为的类。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">db</span> = mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>);</div><div class="line"><span class="comment">// 通过Schema创建Model</span></div><div class="line"><span class="keyword">var</span> TestModel = <span class="keyword">db</span>.model(<span class="string">"test1"</span>, TestSchema);</div></pre></td></tr></table></figure></p>
+<p>数据库中的集合名称,当我们对其添加数据时如果test1已经存在，则会保存到其目录下，如果未存在，则会创建test1集合，然后在保存数据。</p>
+<h4 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h4><p>Entity —— 由Model创建的实体，使用save方法保存数据，Model和Entity都有能影响数据库的操作，但Model比Entity更具操作性。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var TestEntity = <span class="keyword">new</span> TestModel(&#123;</div><div class="line">    <span class="string">name :</span> <span class="string">"Lenka"</span>,</div><div class="line">    <span class="string">age :</span> <span class="number">36</span>,</div><div class="line">    <span class="string">email :</span> <span class="string">"lenka@qq.com"</span></div><div class="line">&#125;);</div><div class="line">console.log(TestEntity.name); <span class="comment">// Lenka</span></div><div class="line">console.log(TestEntity.age); <span class="comment">// 36</span></div></pre></td></tr></table></figure></p>
+<h3 id="u793A_u4F8B-1"><a href="#u793A_u4F8B-1" class="headerlink" title="示例"></a>示例</h3><p>通过entity、model来完成数据库的增删查改。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// mongoose 链接</span></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"><span class="keyword">var</span> db       = mongoose.createConnection(<span class="string">'mongodb://127.0.0.1:27017/test'</span>);</div></pre></td></tr></table></figure></p>
+<p><strong>Schema 结构</strong><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongooseSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line">    username : &#123;<span class="keyword">type</span> : <span class="built_in">String</span>, <span class="keyword">default</span> : <span class="string">'匿名用户'</span>&#125;,</div><div class="line">    title    : &#123;<span class="keyword">type</span> : <span class="built_in">String</span>&#125;,</div><div class="line">    content  : &#123;<span class="keyword">type</span> : <span class="built_in">String</span>&#125;,</div><div class="line">    time     : &#123;<span class="keyword">type</span> : <span class="built_in">Date</span>, <span class="keyword">default</span>: <span class="built_in">Date</span>.now&#125;,</div><div class="line">    age      : &#123;<span class="keyword">type</span> : <span class="built_in">Number</span>&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 添加 mongoose 实例方法</span></div><div class="line">mongooseSchema.methods.findbyusername = <span class="function"><span class="keyword">function</span><span class="params">(username, callback)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.model(<span class="string">'mongoose'</span>).find(&#123;username: username&#125;, callback);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 添加 mongoose 静态方法，静态方法在Model层就能使用</span></div><div class="line">mongooseSchema.statics.findbytitle = <span class="function"><span class="keyword">function</span><span class="params">(title, callback)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.model(<span class="string">'mongoose'</span>).find(&#123;title: title&#125;, callback);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>相当于Schemal是一个构造函数，在这里可以添加方法findbyuseraname()和findbytitle</p>
+<p><strong>model结构</strong><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var mongooseModel</span> = db.model(<span class="string">'mongoose'</span>, mongooseSchema);</div></pre></td></tr></table></figure></p>
+<p><strong>Entity结构</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//增加操作</span></div><div class="line"><span class="keyword">var</span> doc = &#123;<span class="attr">username</span> : <span class="string">'emtity_demo_username'</span>, <span class="attr">title</span> : <span class="string">'emtity_demo_title'</span>, <span class="attr">content</span> : <span class="string">'emtity_demo_content'</span>&#125;;</div><div class="line"><span class="keyword">var</span> mongooseEntity = <span class="keyword">new</span> mongooseModel(doc);</div><div class="line">mongooseEntity.save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(error) &#123;</div><div class="line">        <span class="built_in">console</span>.log(error);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'saved OK!'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 关闭数据库链接</span></div><div class="line">    db.close();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//查询操作</span></div><div class="line"><span class="keyword">var</span> mongooseEntity = <span class="keyword">new</span> mongooseModel(&#123;&#125;);</div><div class="line">mongooseEntity.findbyusername(<span class="string">'model_demo_username'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(error) &#123;</div><div class="line">        <span class="built_in">console</span>.log(error);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//关闭数据库链接</span></div><div class="line">    db.close();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 增加记录 基于model操作</div><div class="line">var doc = &#123;username : <span class="string">'model_demo_username'</span>, title : <span class="string">'model_demo_title'</span>, content : <span class="string">'model_demo_content'</span>&#125;;</div><div class="line">mongooseModel.<span class="built_in">create</span>(doc, <span class="function"><span class="keyword">function</span><span class="params">(error)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">error</span>) &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="built_in">error</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="string">'save ok'</span>);</div><div class="line">    &#125;</div><div class="line">    // 关闭数据库链接</div><div class="line">    db.<span class="built_in">close</span>();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//修改记录</span></div><div class="line"><span class="comment">//mongooseModel.update(conditions, update, options, callback);</span></div><div class="line"><span class="keyword">var</span> conditions = &#123;username : 'model_demo_username'&#125;;</div><div class="line"><span class="keyword">var</span> <span class="keyword">update</span>     = &#123;<span class="variable">$set</span> : &#123;age : 27, title : 'model_demo_title_update'&#125;&#125;;</div><div class="line"><span class="keyword">var</span> options    = &#123;upsert : true&#125;;</div><div class="line">mongooseModel.<span class="keyword">update</span>(conditions, <span class="keyword">update</span>, options, function(<span class="keyword">error</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">error</span>) &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="keyword">error</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.<span class="built_in">log</span>('<span class="keyword">update</span> ok!');</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//关闭数据库链接</span></div><div class="line">    <span class="keyword">db</span>.<span class="keyword">close</span>();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// mongoose find</span></div><div class="line"><span class="keyword">var</span> criteria = &#123;title : 'emtity_demo_title'&#125;; <span class="comment">// 查询条件</span></div><div class="line"><span class="keyword">var</span> fields   = &#123;title : 1, content : 1, time : 1&#125;; <span class="comment">// 待返回的字段</span></div><div class="line"><span class="keyword">var</span> options  = &#123;&#125;;</div><div class="line">mongooseModel.find(criteria, fields, options, function(<span class="keyword">error</span>, result)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">error</span>) &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="keyword">error</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.<span class="built_in">log</span>(result);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//关闭数据库链接</span></div><div class="line">    <span class="keyword">db</span>.<span class="keyword">close</span>();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 删除记录</div><div class="line">var conditions = &#123;username: <span class="string">'emtity_demo_username'</span>&#125;;</div><div class="line">mongooseModel.<span class="built_in">remove</span>(conditions, <span class="function"><span class="keyword">function</span><span class="params">(error)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">error</span>) &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="built_in">error</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="string">'delete ok!'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //关闭数据库链接</div><div class="line">    db.<span class="built_in">close</span>();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>基于实例方法的查询</strong><br>前面说到findbyusername()在schemal层定义，相当于实例化，然后继承findbyusername()方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongooseEntity = <span class="keyword">new</span> mongooseModel(&#123;&#125;);</div><div class="line">mongooseEntity.findbyusername(<span class="string">'model_demo_username'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(error) &#123;</div><div class="line">        <span class="built_in">console</span>.log(error);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//关闭数据库链接</span></div><div class="line">    db.close();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>基于静态方法的查询</strong><br>静态方法可以直接在模型层调用<br><figure class="highlight scilab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 基于静态方法的查询</span></div><div class="line">mongooseModel.findbytitle(<span class="string">'emtity_demo_title'</span>, <span class="function"><span class="keyword">function</span><span class="params">(error, result)</span>&#123;</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">error</span>) &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="built_in">error</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        console.<span class="built_in">log</span>(result);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//关闭数据库链接</span></div><div class="line">    db.close();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>mongoose里面其实就三个概念，schemal、model、entity，把这三个弄清楚了也就好了。</p>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © daceyu 2017
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

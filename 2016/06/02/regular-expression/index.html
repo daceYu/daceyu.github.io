@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>有关一些正则表达式 | Non-who can not°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。 手机号码正则表达式验证。">
+<meta name="keywords" content="自用笔记,正则表达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有关一些正则表达式">
+<meta property="og:url" content="http://daceyu.com/2016/06/02/regular-expression/index.html">
+<meta property="og:site_name" content="Non-who can not°">
+<meta property="og:description" content="正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。 手机号码正则表达式验证。">
+<meta property="og:updated_time" content="2016-07-20T02:19:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有关一些正则表达式">
+<meta name="twitter:description" content="正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。 手机号码正则表达式验证。">
+  
+    <link rel="alternate" href="/atom.xml" title="Non-who can not°" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">daceyu</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>有关一些正则表达式</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> daceyu</span>
+                <span class="post-date sub-title">at: 2016-06-02</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/自用笔记/">自用笔记</a>
+                    
+                         <a class="tag is-post-tag" href="/tags/正则表达/">正则表达</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>正则表达式（regular expression）是一个描述字符模式的对象。使用javascript正则表达式可以进行强大的模式匹配和文本检索与替换功能。</p>
+<h3 id="u624B_u673A_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_u9A8C_u8BC1_u3002"><a href="#u624B_u673A_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_u9A8C_u8BC1_u3002" class="headerlink" title="手机号码正则表达式验证。"></a>手机号码正则表达式验证。</h3><a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPhone</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> phone = <span class="built_in">document</span>.getElementById(<span class="string">'phone'</span>).value;</div><div class="line">    <span class="keyword">if</span>(!(<span class="regexp">/^1[3|4|5|7|8]\d&#123;9&#125;$/</span>.test(phone)))&#123;</div><div class="line">        alert(<span class="string">"手机号码有误，请重填"</span>);  </div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面简单的解释一下：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^<span class="number">1</span>[<span class="number">3</span>|<span class="number">4</span>|<span class="number">5</span>|<span class="number">7</span>|<span class="number">8</span>]\d&#123;<span class="number">9</span>&#125;$</div></pre></td></tr></table></figure></p>
+<p>表示以1开头，第二位可能是3/4/5/7/8等的任意一个，在加上后面的\d表示数字[0-9]的9位，总共加起来11位结束。<br>具体请参考这篇文章解说：<a href="http://caibaojian.com/phone-regexp.html" target="_blank" rel="noopener">JS最新手机号码检验正则表达式</a>（绝对能让你明白）<br>我猜你可能会喜欢关于JavaScript正则的文章</p>
+<ul>
+<li><a href="http://caibaojian.com/javascript-zhengze.html" target="_blank" rel="noopener">JavaScript中的正则表达式总结</a></li>
+<li><a href="http://caibaojian.com/demo/javascript/regexp.html" target="_blank" rel="noopener">JavaScript正则表达式</a></li>
+</ul>
+<h3 id="u56FA_u5B9A_u7535_u8BDD_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1A"><a href="#u56FA_u5B9A_u7535_u8BDD_u53F7_u7801_u6B63_u5219_u8868_u8FBE_u5F0F_uFF1A" class="headerlink" title="固定电话号码正则表达式："></a>固定电话号码正则表达式：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkTel</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> tel = <span class="built_in">document</span>.getElementById(<span class="string">'tel'</span>).value;</div><div class="line"><span class="keyword">if</span>(!<span class="regexp">/^(\(\d&#123;3,4&#125;\)|\d&#123;3,4&#125;-|\s)?\d&#123;7,14&#125;$/</span>.test(tel))&#123;</div><div class="line">alert(<span class="string">'固定电话有误，请重填'</span>);</div><div class="line"><span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="u8EAB_u4EFD_u8BC1_u6B63_u5219_uFF1A"><a href="#u8EAB_u4EFD_u8BC1_u6B63_u5219_uFF1A" class="headerlink" title="身份证正则："></a>身份证正则：</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//身份证正则表达式(15位)</span></div><div class="line">isIDCard1=/^[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">7</span>&#125;((<span class="number">0</span>\d)|(<span class="number">1</span>[<span class="number">0</span><span class="number">-2</span>]))(([<span class="number">0</span>|<span class="number">1</span>|<span class="number">2</span>]\d)|<span class="number">3</span>[<span class="number">0</span><span class="number">-1</span>])\d&#123;<span class="number">3</span>&#125;$/;</div><div class="line"><span class="comment">//身份证正则表达式(18位)</span></div><div class="line">isIDCard2=/^[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">5</span>&#125;[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">3</span>&#125;((<span class="number">0</span>\d)|(<span class="number">1</span>[<span class="number">0</span><span class="number">-2</span>]))(([<span class="number">0</span>|<span class="number">1</span>|<span class="number">2</span>]\d)|<span class="number">3</span>[<span class="number">0</span><span class="number">-1</span>])\d&#123;<span class="number">4</span>&#125;$/;</div><div class="line">身份证正则合并：(^\d&#123;<span class="number">15</span>&#125;$)|(^\d&#123;<span class="number">17</span>&#125;([<span class="number">0</span><span class="number">-9</span>]|X)$)</div></pre></td></tr></table></figure>
+<p><del>最新手机号码正则表达式：2016年1月13更新，以下不再使用</del></p>
+<blockquote>
+<p><del>var tel = $(“#telNo”).val(); //获取手机号<br>var telReg = !!tel.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);<br>//如果手机号码不能通过验证<br>if(telReg == false){<br>}</del></p>
+</blockquote>
+<p><del>2015-11-20（新增兼容电话和手机正则）<br>((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)<br>匹配格式：<br>11位手机号码<br>3-4位区号，7-8位直播号码，1－4位分机号<br>如：12345678901、1234-12345678-1234<br>使用方式同上：</del></p>
+<blockquote>
+<p><del>var telReg = !!tel.match(/^((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)$/);<br>//如果通过认证<br>if(telReg){<br>}</del></p>
+</blockquote>
+<h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">提取信息中的网络链接:(h|H)(r|R)(e|E)(f|F) *= *('|")?(<span class="symbol">\w</span>|<span class="symbol">\\</span>|<span class="symbol">\/</span>|<span class="symbol">\.</span>)+('|"| *|&gt;)?</div><div class="line">提取信息中的邮件地址:<span class="symbol">\w</span>+([-+.]<span class="symbol">\w</span>+)*@<span class="symbol">\w</span>+([-.]<span class="symbol">\w</span>+)*<span class="symbol">\.</span><span class="symbol">\w</span>+([-.]<span class="symbol">\w</span>+)*</div><div class="line">提取信息中的图片链接:(s|S)(r|R)(c|C) *= *('|")?(<span class="symbol">\w</span>|<span class="symbol">\\</span>|<span class="symbol">\/</span>|<span class="symbol">\.</span>)+('|"| *|&gt;)?</div><div class="line">提取信息中的IP地址:(<span class="symbol">\d</span>+)<span class="symbol">\.</span>(<span class="symbol">\d</span>+)<span class="symbol">\.</span>(<span class="symbol">\d</span>+)<span class="symbol">\.</span>(<span class="symbol">\d</span>+)</div></pre></td></tr></table></figure>
+<p><del>提取信息中的中国手机号码:(86)<em>0</em>13\d{9}<br>提取信息中的中国固定电话号码:((\d{3,4})|\d{3,4}-|\s)?\d{8}</del><br><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">提取信息中的中国电话号码（包括移动和固定电话）:(<span class="tag">\<span class="name">(</span></span><span class="tag">\<span class="name">d</span><span class="string">&#123;3,4&#125;</span></span><span class="tag">\<span class="name">)</span></span>|<span class="tag">\<span class="name">d</span><span class="string">&#123;3,4&#125;</span></span>-|<span class="tag">\<span class="name">s</span></span>)?<span class="tag">\<span class="name">d</span><span class="string">&#123;7,14&#125;</span></span></div><div class="line">提取信息中的中国邮政编码:[1-9]&#123;1&#125;(<span class="tag">\<span class="name">d</span></span>+)&#123;5&#125;</div><div class="line">提取信息中的中国身份证号码:<span class="tag">\<span class="name">d</span><span class="string">&#123;18&#125;</span></span>|<span class="tag">\<span class="name">d</span><span class="string">&#123;15&#125;</span></span></div><div class="line">提取信息中的整数：<span class="tag">\<span class="name">d</span></span>+</div><div class="line">提取信息中的浮点数（即小数）：(-?<span class="tag">\<span class="name">d*</span></span>)<span class="tag">\<span class="name">.</span></span>?<span class="tag">\<span class="name">d</span></span>+</div><div class="line">提取信息中的任何数字 ：(-?<span class="tag">\<span class="name">d*</span></span>)(<span class="tag">\<span class="name">.</span></span><span class="tag">\<span class="name">d</span></span>+)?</div><div class="line">提取信息中的中文字符串：[<span class="tag">\<span class="name">u</span></span>4e00-<span class="tag">\<span class="name">u</span></span>9fa5]*</div><div class="line">提取信息中的双字节字符串 (汉字)：[^<span class="tag">\<span class="name">x</span></span>00-<span class="tag">\<span class="name">xff</span></span>]*</div></pre></td></tr></table></figure></p>
+<h3 id="u4F7F_u7528_uFF1A"><a href="#u4F7F_u7528_uFF1A" class="headerlink" title="使用："></a>使用：</h3><p>test()方法在字符串中查找是否存在指定的正则表达式，并返回布尔值，如果存在则返回true，否则返回false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'Box'</span>,<span class="string">'i'</span>);</div><div class="line"><span class="keyword">var</span> str = <span class="string">'box'</span>;</div><div class="line">alert(pattern.test(str)); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/Box/i</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'box'</span>;</div><div class="line">alert(pattern.test(str)); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/Box/i</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a box'</span>;</div><div class="line">alert(pattern.test(str)); <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © daceyu 2017
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

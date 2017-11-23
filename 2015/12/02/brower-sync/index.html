@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Brower-sync多平台调试利器 | Non-who can not°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="子曰：“工欲善其事，必先利其器…….”大表哥向我推荐Brower-sync，多平台调试利器，好用得很!!!  Brower-sync是干嘛用的1.与LiveReloader相似，用于页面的自动刷新；2.但是Browser-sync做的更完美，比如说：">
+<meta name="keywords" content="自用笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Brower-sync多平台调试利器">
+<meta property="og:url" content="http://daceyu.com/2015/12/02/brower-sync/index.html">
+<meta property="og:site_name" content="Non-who can not°">
+<meta property="og:description" content="子曰：“工欲善其事，必先利其器…….”大表哥向我推荐Brower-sync，多平台调试利器，好用得很!!!  Brower-sync是干嘛用的1.与LiveReloader相似，用于页面的自动刷新；2.但是Browser-sync做的更完美，比如说：">
+<meta property="og:image" content="http://daceyu.com/news/1-2.png">
+<meta property="og:image" content="http://daceyu.com/news/2-2.png">
+<meta property="og:updated_time" content="2016-07-12T06:11:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Brower-sync多平台调试利器">
+<meta name="twitter:description" content="子曰：“工欲善其事，必先利其器…….”大表哥向我推荐Brower-sync，多平台调试利器，好用得很!!!  Brower-sync是干嘛用的1.与LiveReloader相似，用于页面的自动刷新；2.但是Browser-sync做的更完美，比如说：">
+<meta name="twitter:image" content="http://daceyu.com/news/1-2.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Non-who can not°" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">daceyu</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Brower-sync多平台调试利器</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> daceyu</span>
+                <span class="post-date sub-title">at: 2015-12-02</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/自用笔记/">自用笔记</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h3 id="u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D"><a href="#u5B50_u66F0_uFF1A_u201C_u5DE5_u6B32_u5584_u5176_u4E8B_uFF0C_u5FC5_u5148_u5229_u5176_u5668_u2026_u2026-_u201D" class="headerlink" title="子曰：“工欲善其事，必先利其器…….”"></a>子曰：“工欲善其事，必先利其器…….”</h3><p>大表哥向我推荐Brower-sync，多平台调试利器，好用得很!!!</p>
+<hr>
+<h3 id="Brower-sync_u662F_u5E72_u561B_u7528_u7684"><a href="#Brower-sync_u662F_u5E72_u561B_u7528_u7684" class="headerlink" title="Brower-sync是干嘛用的"></a>Brower-sync是干嘛用的</h3><p>1.与LiveReloader相似，用于页面的自动刷新；<br>2.但是Browser-sync做的更完美，比如说：<br><a id="more"></a></p>
+<blockquote>
+<p>你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷新的时候是很有用的。假设你正在开发单页应用的第4页，刷新页面就会导致你回到开始页。使用LiveReload的话，你就需要在每次改变代码之后还需要点击四次，而当你修改CSS时，插入一些变化时，BrowserSync会直接将需要修改的地方添加进CSS，就不用再点击回退</p>
+</blockquote>
+<p>3.BrowserSync提供了一种在多个浏览器(<strong>不管是pc端还是移动端</strong>)里测试网页的很好方式</p>
+<blockquote>
+<p>BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在电脑和iPhone上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。</p>
+</blockquote>
+<p>4.此外BrowserSync还不同于LiveReloader，它不需要使用浏览器插件</p>
+<hr>
+<h3 id="u5B89_u88C5Brower-sync"><a href="#u5B89_u88C5Brower-sync" class="headerlink" title="安装Brower-sync"></a>安装Brower-sync</h3><ul>
+<li>安装node.js：<br><code>如果已安装node，忽略这一步</code></li>
+<li>安装Browser-sync<br><code>npm install -g browser-sync</code></li>
+</ul>
+<hr>
+<h3 id="u4F7F_u7528Brower-sync"><a href="#u4F7F_u7528Brower-sync" class="headerlink" title="使用Brower-sync"></a>使用Brower-sync</h3><h5 id="u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55"><a href="#u6700_u7B80_u5355_u7684_u4E5F_u662F_u6700_u5077_u61D2_u7684_u4F7F_u7528_u65B9_u6CD5_uFF0C_u6BD4_u5982_u8BF4_u7C7B_u4F3C_u4E0B_u9762_u8FD9_u4E2A_u6587_u4EF6_u76EE_u5F55" class="headerlink" title="最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录"></a>最简单的也是最偷懒的使用方法，比如说类似下面这个文件目录</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">|<span class="string">--app</span></div><div class="line">|<span class="string">   </span>|<span class="string">--js</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--main.js</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--scroll.js</span></div><div class="line">|<span class="string">   </span>|</div><div class="line">|<span class="string">   </span>|<span class="string">--css</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--normalize.css</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--main.css</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--scroll.css</span></div><div class="line">|<span class="string">   </span>|</div><div class="line">|<span class="string">   </span>|<span class="string">--images</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--1.png</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--2.png</span></div><div class="line">|<span class="string">   </span>|<span class="string">   </span>|<span class="string">--....</span></div><div class="line">|</div><div class="line">|<span class="string">--index.html</span></div><div class="line">|<span class="string">--hello.html</span></div></pre></td></tr></table></figure>
+<p>只需cd到<em>app</em>文件夹然后在终端中输入<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">browser-sync </span><span class="string">start </span><span class="built_in">--server</span> <span class="built_in">--files</span> <span class="string">"**"</span></div></pre></td></tr></table></figure></p>
+<p>然后你就会发现index.html会在浏览器中以<code>localhost:3000</code>端口自动打开;<br>需要注意的是如果你html文件如果不是<code>index.html</code>浏览器会反馈<code>Cannot GET /</code>,不用担心，你只需在地址栏输入相应的html文件名，如上文件目录<code>hello.html</code>，输入<code>localhost:3000/hello.html</code>回车，OK，nice!<br><br></p>
+<p>#####单个文件监听<br>比如你只想监听<code>app</code>目录下的<code>main.css</code>文件的变化，那么你只需进入app文件目录，然后<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">browser-sync </span><span class="string">start </span><span class="built_in">--server</span> <span class="built_in">--files</span> <span class="string">"css/main.css"</span></div></pre></td></tr></table></figure></p>
+<p>或者监听所有css文件变化<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">browser-sync </span><span class="string">start </span><span class="built_in">--server</span> <span class="built_in">--files</span> <span class="string">"css/*.css"</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="gulp_26amp_3BBrower-sync"><a href="#gulp_26amp_3BBrower-sync" class="headerlink" title="gulp&amp;Brower-sync"></a>gulp&amp;Brower-sync</h3><p>’高级‘用法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * This example:</div><div class="line"> *  监听app文件夹目录下的所有文档，并实时刷新</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> gulp        = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line">    browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> files = [   <span class="comment">//监听文件类</span></div><div class="line">    <span class="string">'app/*.html'</span>,</div><div class="line">    <span class="string">'app/css/*.css'</span>,</div><div class="line">    <span class="string">'app/js/*js'</span></div><div class="line">  ];</div><div class="line"></div><div class="line">  browserSync.init(files,&#123;</div><div class="line">    <span class="attr">server</span>: &#123;</div><div class="line">            <span class="attr">baseDir</span>: <span class="string">"./app"</span>, <span class="comment">//指定根目录</span></div><div class="line">            index: <span class="string">"index.html"</span> <span class="comment">//指定默认打开的html文件名，可以加入文件夹入径（比如./src/home.html）</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Default task to be run with `gulp`</span></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">"browser-sync"</span>]);</div></pre></td></tr></table></figure></p>
+<p>不明白gulp的童鞋自行google，就不多累赘了。</p>
+<hr>
+<p>以上均为较为普遍的做法，可以根据自己的项目需求自定义配置，更多用法详见</p>
+<p><a href="http://www.browsersync.io/docs/gulp/" target="_blank" rel="noopener">brower-sync官方文档</a></p>
+<p><a href="http://www.browsersync.io/" target="_blank" rel="noopener">Browser-sync官网</a></p>
+<hr>
+<h3 id="Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD"><a href="#Brower-sync_u76F8_u5173_u529F_u80FD_u6A21_u5757_u4ECB_u7ECD" class="headerlink" title="Brower-sync相关功能模块介绍"></a>Brower-sync相关功能模块介绍</h3><h4 id="u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A"><a href="#u5F53_u542F_u52A8browser-sync_u670D_u52A1_u540E_u7EC8_u7AEF_u4F1A_u6709_u5982_u4E0B_u663E_u793A_uFF1A" class="headerlink" title="当启动browser-sync服务后终端会有如下显示："></a>当启动browser-sync服务后终端会有如下显示：</h4><p><img src="/news/1-2.png" alt="Alt text"></p>
+<blockquote>
+<p>如果PC在宽带连接上网的情况下开放的 External端口，即使不在同一局域网内也可以访问到你的页面，实测有效，</p>
+<p>必须是宽带有线连接才有效，但如果是路由器中接入的网线是无效的，只能同一局域网才能访问</p>
+<h4 id="u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A"><a href="#u5728_u6D4F_u89C8_u5668_u4E2D_u8F93_u5165_u6253_u5F00UI_u754C_u9762_u5982_u4E0B_uFF1A" class="headerlink" title="在浏览器中输入打开UI界面如下："></a>在浏览器中输入打开UI界面如下：</h4><p><img src="/news/2-2.png" alt=""><br>BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在PC和移动设备上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。</p>
+<p><strong>这些，在这个界面都可以自行修改</strong></p>
+</blockquote>
+<hr>
+<h5 id="u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002"><a href="#u5982_u6709_u4E0D_u8DB3_u4E4B_u5904_uFF0C_u6B22_u8FCE_u8865_u5145_u62CD_u7816_u3002_u3002_u3002_u3002" class="headerlink" title="如有不足之处，欢迎补充拍砖。。。。"></a>如有不足之处，欢迎补充拍砖。。。。</h5>
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © daceyu 2017
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
