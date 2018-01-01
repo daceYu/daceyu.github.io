@@ -1,0 +1,291 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
+    <title></title>
+<style id="system" type="text/css">*{margin:0;padding:0;}body {	font:13.34px helvetica,arial,freesans,clean,sans-serif;	color:black;	line-height:1.4em;	background-color: #F8F8F8;	padding: 0.7em;}p {	margin:1em 0;	line-height:1.5em;}table {	font-size:inherit;	font:100%;	margin:1em;}table th{border-bottom:1px solid #bbb;padding:.2em 1em;}table td{border-bottom:1px solid #ddd;padding:.2em 1em;}input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}select,option{padding:0 .25em;}optgroup{margin-top:.5em;}pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}pre {	margin:1em 0;	font-size:12px;	background-color:#eee;	border:1px solid #ddd;	padding:5px;	line-height:1.5em;	color:#444;	overflow:auto;	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;	-webkit-border-radius:3px;	-moz-border-radius:3px;border-radius:3px;white-space: pre-wrap;word-wrap:break-word;}pre code {	padding:0;	font-size:12px;	background-color:#eee;	border:none;}code {	font-size:12px;	background-color:#f8f8ff;	color:#444;	padding:0 .2em;	border:1px solid #dedede;}img{border:0;max-width:100%;}abbr{border-bottom:none;}a{color:#4183c4;text-decoration:none;}a:hover{text-decoration:underline;}a code,a:link code,a:visited code{color:#4183c4;}h2,h3{margin:1em 0;}h1,h2,h3,h4,h5,h6{border:0;}h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}h3{margin-top:1em;}hr{border:1px solid #ddd;}ul{margin:1em 0 1em 2em;}ol{margin:1em 0 1em 2em;}ul li,ol li{margin-top:.5em;margin-bottom:.5em;}ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}dt{font-weight:bold;margin-left:1em;}dd{margin-left:2em;margin-bottom:1em;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><h1>原生JS: Array对象</h1>
+<p>Array()是一个用来创建数组对象的构造器，当然，我们也可以用数组标识法。
+</p>
+<pre><code>var a = new Array(1,2,3);
+var b = [1,2,3];</code></pre>
+<p>需要注意的是，我们给Array()传递一个数字，该数字就会被设定为数组的长度，该数字需为<code>0~2^32-1</code>之间的整数。<br>构造器将会根据给定的数组长度创建数组，并将每个元素位置以<code>undefined</code>填充。以此方法构建的数组只有长度，却不含元素。这种数组与一般的有元素的数组有一些微妙的差别:
+</p>
+<pre><code>var a = [1];
+var b = new Array(1,2);
+var c = new Array(2);
+
+0 in a;      // output =&gt; true
+0 in b;      // output =&gt; true
+0 in c;      // output =&gt; false</code></pre>
+<p>这一差别可能导致Array()构造器的使用方式（在只有一个参数时）与你的预想不符，例如：
+</p>
+<pre><code>var a = [3.14];
+a;                          // output =&gt; [3.14]
+var c = new Array(3.14);    // output =&gt; Range Error: invalid array length</code></pre>
+<h4>Array.prototype的成员</h4>
+<h5>Length</h5>
+<p>该属性返回的是数组中元素的个数
+
+</p>
+<h5>concat(arr1,arr2...)</h5>
+<p>该方法主要用于合并数组
+</p>
+<pre><code>[1].concat([2,3,4],[5,6,7,3]);  // output =&gt; [1,2,3,4,5,6,7,3]</code></pre>
+<p>其等价实现可以如下：
+</p>
+<pre><code>var a = [1,2,3,4];
+var b = [3,4,5,6];
+a.push.apply(a,b);</code></pre>
+<h5>join(separator)</h5>
+<p>该方法用于将数组中的元素连成一个字符串。我们可以通过参数来指定元素之间的分割字符串，其默认值是逗号
+</p>
+<pre><code>var a = [1,2,3];
+a.join();           // output =&gt; 1,2,3
+a.join('|');        // output =&gt; 1|2|3
+a.join(' test ');   // output =&gt; 1 test 2 test 3</code></pre>
+<h5>push(arr1,arr2...)  &amp;&amp; unshift(arr1,arr2...)</h5>
+<p>push()方法用于将新元素添加到数组的末尾，并返回修改后的数组长度。<br>unshift()方法用于将元素添加到数组的开始处，并返回修改后的数组长度。
+
+</p>
+<h5>reverse()</h5>
+<p>该方法用于反转数组中的元素顺序，并返回修改后的数组。
+</p>
+<pre><code>var a = [1,2,3];
+a.reverse();    // output =&gt; [3,2,1]
+a;              // output =&gt; [3,2,1]</code></pre>
+<h5>shift() &amp;&amp; pop()</h5>
+<p>shift()移除数组的首元素，并将其返回<br>pop()移除数组的最后一个元素，并将其返回
+
+</p>
+<h5>slice(start-index, end-index)</h5>
+<p>该方法用于截取数组的某一部分，但不会对原数组进行任何修改
+</p>
+<pre><code>var a = [1,2,3,4,5];
+a.slice(2,4);     // output =&gt; [3,4]
+a;                // output =&gt; [1,2,3,4,5]</code></pre>
+<p>注意，ES6之前，用此方法将类数组，转成数组
+</p>
+<blockquote>
+<p><code>Array.prototype.slice.call(arguments);</code> // 将参数转换成真正的数组.
+
+</p>
+</blockquote>
+<p>因为<code>arguments</code>不是真正的<code>Array</code>,虽然<code>arguments</code>有<code>length</code>属性，但是没有<code>slice</code>方法，所以呢，<code>Array.prototype.slice()</code>执行的时候，<code>Array.prototype</code>已经被<code>call</code>改成<code>arguments</code>了，因为满足<code>slice</code>执行的条件(有<code>length</code>属性)。
+
+</p>
+<h5>sort(callback)</h5>
+<p>该方法主要用于数组的排序，它有一个可选参数，是一个回调函数，我们可以用它来自定义排序规则。
+</p>
+<pre><code>function customSort(a,b) {
+    if (a &gt; b) return 1;
+    if (a &lt; b) return -1;
+    return 0;
+}
+
+var a = [101, 99, 1, 5];
+a.sort();             // output =&gt; [1,101,5,99]
+a.sort(customSort);   // output =&gt; [1,5,99,101]
+
+// 上面的函数可以改写为
+function customSort(a,b) {
+    return a - b;     // 如果差值小于0，就将a排在前面，如果大于0，就将b排在前面，如果是0，就随便（冒泡排序法）
+}</code></pre>
+<h5>splice(start, delete_count, i1, i2, i3,...)</h5>
+<p>该方法可在删除元素的同时添加新的元素。第一个参数表示的是要删除元素的起始位置，第二个参数表示的是要删除元素的个数，其余参数都是一些将要插入在此处的新元素。
+</p>
+<pre><code>var  a = [1,2,3,4,5];
+a.splice(2,2,'a','b','c');      // output =&gt; [3,4]
+a;                              // output =&gt; [1,2,'a','b','c',5]</code></pre>
+<h4>ES5中增加的Array属性</h4>
+<h5>Array.isArray(obj)</h5>
+<p>用于分辨某个对象是否是数组
+</p>
+<pre><code>var obj = [1,2];
+Array.isArray(obj);                                       // output =&gt; true
+obj instanceof Array;                                     // output =&gt; true
+Object.prototype.toString.call(obj) === "[object Array]"  // output =&gt; true</code></pre>
+<h5>Array.prototype.indexOf(needle, idx)  &amp;&amp; Array.prototype.lastIndexOf(needle,idx)</h5>
+<p>搜索数组，返回第一个匹配的下标，如果没有匹配项，该函数返回<code>-1</code>，第二个参数为可选项，为搜索的起始下标。<br><code>indexOf()</code>是从前往后查，<code>lastIndexOf()</code>是从后往前查
+</p>
+<pre><code>var arr = ["one", "two", "three", "one"]
+arr.indexOf("one");     // output =&gt; 0
+arr.lastIndexOf("one"); // output =&gt; 3
+arr.indexOf("two");     // output =&gt; 1
+arr.lastIndexOf("two"); // output =&gt; 1
+arr.indexOf("one", 2);  // output =&gt; 3
+arr.indexOf("five");    // output =&gt; -1</code></pre>
+<h5>Array.prototype.forEach(callback, obj) &amp;&amp; Array.prototype.map(callback, obj)</h5>
+<p><code>forEach()</code>是<code>for</code>循环语法的替代。自定义的<code>callback</code>函数会为每个数组元素执行一次，<code>callback</code>会收到三个参数：本次循环的元素，该元素的下标，整个数组。
+</p>
+<pre><code>var arr = ["one", "two"];
+arr.forEach(function (el, idx, ar) {
+    console.log(el, idx, ar);
+})
+// output =&gt; 
+// one 0 ["one", "two"]
+// two 1 ["one", "two"]</code></pre>
+<p><code>map()</code>跟<code>forEach()</code>类似，但是其返回值是数组，数组元素为每次<code>callback</code>函数的返回值
+</p>
+<pre><code>var result = arr.map(function (el, idx, ar) {
+    return el + "21";   
+})
+result;      // output =&gt; ["one21","two21"]</code></pre>
+<h5>Array.prototype.every(callback, obj) &amp;&amp; Array.prototype.some(callback, obj) &amp;&amp; Array.prototype.filter(callback, obj)</h5>
+<p>自定义的<code>callback</code>会为每个元素执行一次。每次执行都根据元素返回<code>true</code>或者<code>false</code>，代表该元素是否通过测试，<code>callback</code>的参数跟<code>forEach()</code>相同
+
+</p>
+<p>其中，<code>every()</code>表示所有元素是否都符合条件，只要有一个结果为<code>false</code>，循环中止并且立即返回<br><code>some()</code>表示至少一个元素是否符合条件，只要有一个结果为<code>true</code>，循环中止并且立即返回<br><code>filter()</code>返回所有符合符合条件的元素
+
+</p>
+<pre><code>function hasEye (el, idx, arr) {
+    console.log(el);
+    return el.indexOf('i') !== -1;
+}
+var ar = ["itsy", "test", "bitsy"];
+ar.every(hasEye);    // output =&gt; "itsy","test"          false
+ar.some(hasEye);     // output =&gt; "itsy"                 true
+ar.filter(hasEye);   // output =&gt; "itsy","test","bitsy"  ["itsy","bitsy"]</code></pre>
+<h5>Array.prototype.reduce(callback,start) &amp;&amp; Array.prototype.reduceRight(callback, start)</h5>
+<p>为每个元素执行一次<code>callback</code>函数，每次<code>callback</code>的返回值都会作为下一次循环的参数，最终对整个数组的操作返回一个单一的值。<code>start</code>参数为可选参数，如果设置，将作为第一次<code>callback</code>执行时的传入参数。
+
+</p>
+<p><code>reduce()</code>是从前往后的遍历数组元素，<code>reduceRight()</code>是从后往前的遍历数组元素
+</p>
+<pre><code>function addStr (result, el, idx, arr) {
+    return result + el;
+}
+var arr = ["one", "two"];
+arr.reduce(addStr);         // output =&gt; "onetwo"
+arr.reduceRight(addStr);    // output =&gt; "twoone"</code></pre>
+<h4>ES6新增的方法</h4>
+<h5>Array.find(callback) &amp;&amp; Array.findIndex(callback)</h5>
+<p><code>find(callback)</code>和<code>findIndex(callback)</code>都是用来查找数组中符合某个特定情况的值，<code>callback</code>中都有三个参数值，分别为元素，索引，数组本身。<br><code>find()</code>默认返回的是符合条件的值，如果没有就返回<code>undefined</code>。<br><code>findIndex()</code>默认返回符合条件成员的索引位置，如果没有则返回<code>-1</code>
+</p>
+<pre><code>var arr = [1,2,3,4,-1];
+arr.find(function (el) {
+    if (el &lt; 2) return el;
+})
+// output =&gt; 1
+
+arr.findIndex(function (el) {
+    if (el &lt; 2) return el;
+})
+// output =&gt; 0</code></pre>
+<h5>Array.copyWithin()</h5>
+<p>在当前数组的内部，将指定位置的成员覆盖到其他位置上；
+</p>
+<pre><code>Array.copyWithin(target)
+Array.copyWithin(target, start)
+Array.copyWithin(target, start, end)</code></pre>
+<p>其中<code>target</code>表示从哪个位置开始替换数组，<code>start</code>表示从哪个位置开始读取数组，<code>end</code>表示在哪个位置前停止读取数据，默认等于数组的长度，如果为负值表示倒数
+</p>
+<pre><code>let arr = [1, 2, 3, 4, 5];
+let arr1 = arr.copyWithin(1);
+console.log(arr);          // [ 1, 1, 2, 3, 4 ]
+console.log(arr1);         // [ 1, 1, 2, 3, 4 ]
+console.log(arr === arr1); // true
+
+let arr2 = [1, 2, 3, 4, 5];
+arr2.copyWithin(1, 2);     // [ 1, 3, 4, 5, 5 ]
+
+let arr3 = [1, 2, 3, 4, 5];
+// 不包括位置4上的元素
+arr3.copyWithin(1, 2, 4);
+console.log(arr3);         // [ 1, 3, 4, 4, 5 ]
+
+// 使用负值
+let arr4 = [1, 2, 3, 4, 5];
+arr4.copyWithin(-3);       // [ 1, 2, 1, 2, 3 ]
+
+let arr5 = [1, 2, 3, 4, 5];
+arr5.copyWithin(-3, -1);   // [ 1, 2, 5, 4, 5 ]
+
+let arr6 = [1, 2, 3, 4, 5];
+arr6.copyWithin(-3, -5, -3); // [ 1, 2, 1, 2, 5 ]</code></pre>
+<h5>Array.fill()</h5>
+<p>这个方法用来使用特定的元素填充数组
+</p>
+<pre><code>Array.fill(value)
+Array.fill(value, start)
+Array.fill(value, start, end)</code></pre>
+<p>其中，<code>value</code>表示我们使用的填充元素，<code>start</code>表示填充的开始位置，<code>end</code>表示填充的结束位置。与<code>copyWithin</code>方法中的<code>start</code>和<code>end</code>一样，如果<code>start</code>和<code>end</code>为负值的话，表示从数组的尾部开始。
+</p>
+<pre><code>let arr = [1, 3, 5, 7, 9];
+arr.fill(6);         // [ 6, 6, 6, 6, 6 ]
+arr.fill(3, 2);      // [ 6, 6, 3, 3, 3 ]
+arr.fill(0, 1, 3);   // [ 6, 0, 0, 3, 3 ]
+arr.fill(-1);        // [ -1, -1, -1, -1, -1 ]
+arr.fill(0, -5, -3); // [ 0, 0, -1, -1, -1 ]</code></pre>
+<h5>Array.includes()</h5>
+<p>这个方法用来查找数组中是否存在某一个值，如果存在返回<code>true</code>，如果不存在返回<code>false</code>。
+</p>
+<pre><code>Array.includes(searchElement)
+Array.includes(searchElement, fromIndex)</code></pre>
+<p>其中，<code>fromIndex</code>表示查找的起始位置，如果省略则表示从数组的起始位置开始查找。
+</p>
+<pre><code>let arr = [1, 2, NaN, 3];
+let r = arr.includes(1);  // true
+r = arr.includes(NaN);    // true
+r = arr.includes(1, 1);   // false
+r = arr.includes(1, -4);  // true
+
+let r1 = arr.indexOf(NaN); // -1 没有找到</code></pre>
+<p>这个方法也弥补了使用数组的<code>indexOf</code>方法的不足，我们可以通过使用<code>includes</code>来判断一个数组中是否存在<code>NaN</code>。
+
+</p>
+<h5>Array.keys() &amp;&amp; Array.values() &amp;&amp; Array.entries()</h5>
+<p>这三个方法，可以让我们用来对数组进行遍历，其中：<br><code>keys</code>是对数组的键名的遍历<br><code>values</code>是对数组的键值的遍历<br><code>entries</code>是对数组的键值对进行遍历
+
+</p>
+<h5>Array.of()</h5>
+<p>用来将一组值转换成数组，弥补了使用数组的构造方法因为参数个数不同而导致其行为不同的情况
+</p>
+<pre><code>// 使用数组的构造函数有时会有一些问题
+var arr1 = new Array(3);
+arr1;                    // [ , ,  ] 有三个元素
+var arr2 = new Array(3, 2, 1);
+arr2;                    // [ 3, 2, 1 ] 传进来的参数都是数组的一个元素
+var arr3 = new Array('3');
+arr3;                    // [ '3' ] 传进来的参数是数组的一个元素
+
+// 使用Array.of方法来避免上面的一些问题
+let arrOf1 = Array.of(3);
+arrOf1;                  // [ 3 ] 还是一个元素
+let arrOf2 = Array.of(3, 2, 1);
+arrOf2;                  // [ 3, 2, 1 ] 有三个元素
+let arrOf3 = Array.of('3');
+arrOf3;                  // [ '3' ] 一个元素</code></pre>
+<p>通过上面的实践我们可以看到，使用<code>Array.of</code>方法不会因为传递参数个数的多少而导致行为的不一致，所以一般情况下使用<code>Array.of</code>方法会更好。
+
+</p>
+<p>这个方法我们也可以通过已有的函数来模拟实现，下面就是一个模拟实现的例子：
+</p>
+<pre><code>function HACK_OF () {
+    return Array.prototype.slice.call(arguments);
+}
+let arr1 = HACK_OF(3,2,1);
+let arr2 = HACK_OF(3);
+arr1;                   // [3, 2, 1]
+arr2;                   // [3]</code></pre>
+<h5>Array.from()</h5>
+<p>将一个类似数组（拥有一个<code>length</code>属性和若干索引属性的任意对象）或可迭代对象（可以获取对象中的元素,如<code>Map</code>和<code>Set</code>等）中创建一个新的数组实例，所谓类数组的对象指的是含有<code>length</code>属性的对象，像函数的<code>arguments</code>，<code>DOM</code>的节点<code>NodeList</code>集合或者字符串等
+</p>
+<pre><code>Array.from(arrLike);
+Array.from(arrLike, function (item, index) {
+    // ...
+})</code></pre>
+<p>举例：
+</p>
+<pre><code>Array.from('foo');          // ["f", "o", "o"]
+
+let s = new Set(['foo', window]); 
+Array.from(s);              // ['foo', window]
+
+let m = new Map([[1, 2], [2, 4], [4, 8]]);
+Array.from(m);              // [[1, 2], [2, 4], [4, 8]]
+
+function f () { return Array.from(arguments); }
+f(1, 2, 3);                 // [1, 2, 3]</code></pre>
+<p>Edit By <a href="http://mahua.jser.me">MaHua</a></p>
+</body></html>

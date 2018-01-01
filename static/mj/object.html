@@ -1,0 +1,298 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
+    <title></title>
+<style id="system" type="text/css">*{margin:0;padding:0;}body {	font:13.34px helvetica,arial,freesans,clean,sans-serif;	color:black;	line-height:1.4em;	background-color: #F8F8F8;	padding: 0.7em;}p {	margin:1em 0;	line-height:1.5em;}table {	font-size:inherit;	font:100%;	margin:1em;}table th{border-bottom:1px solid #bbb;padding:.2em 1em;}table td{border-bottom:1px solid #ddd;padding:.2em 1em;}input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}select,option{padding:0 .25em;}optgroup{margin-top:.5em;}pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}pre {	margin:1em 0;	font-size:12px;	background-color:#eee;	border:1px solid #ddd;	padding:5px;	line-height:1.5em;	color:#444;	overflow:auto;	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;	-webkit-border-radius:3px;	-moz-border-radius:3px;border-radius:3px;white-space: pre-wrap;word-wrap:break-word;}pre code {	padding:0;	font-size:12px;	background-color:#eee;	border:none;}code {	font-size:12px;	background-color:#f8f8ff;	color:#444;	padding:0 .2em;	border:1px solid #dedede;}img{border:0;max-width:100%;}abbr{border-bottom:none;}a{color:#4183c4;text-decoration:none;}a:hover{text-decoration:underline;}a code,a:link code,a:visited code{color:#4183c4;}h2,h3{margin:1em 0;}h1,h2,h3,h4,h5,h6{border:0;}h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}h3{margin-top:1em;}hr{border:1px solid #ddd;}ul{margin:1em 0 1em 2em;}ol{margin:1em 0 1em 2em;}ul li,ol li{margin-top:.5em;margin-bottom:.5em;}ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}dt{font-weight:bold;margin-left:1em;}dd{margin-left:2em;margin-bottom:1em;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><!-- MarkdownTOC -->
+
+<ul>
+<li><a href="#原生js：object对象">原生JS：Object对象</a><ul>
+<li><a href="#构造函数">构造函数</a></li>
+<li><a href="#属性">属性</a></li>
+<li><a href="#object构造器的成员">Object构造器的成员</a></li>
+<li><a href="#objectprototype的成员">Object.prototype的成员</a></li>
+<li><a href="#es3-|-es5">ES3 | ES5</a></li>
+<li><a href="#es5附加的object属性">ES5附加的Object属性</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+
+
+<p><a name="原生js：object对象"></a>
+</p>
+<h1>原生JS：Object对象</h1>
+<p>javaScript原生提供一个<code>Objcet</code>对象，所有其他对象都继承自这个对象
+<a name="构造函数"></a>
+</p>
+<h4>构造函数</h4>
+<p><code>Object</code>构造函数为给定的值创建一个对象包装<br>如果给定的值为<code>null</code>或<code>undefined</code>，将会创建返回一个空对象。否则，将返回一个与给定值对应类型的对象  
+
+</p>
+<p>当以非构造函数形式调用时，<code>Object()</code>等同于<code>new Object()</code><br><code>Object</code>本身当作工具方法使用时，可以将任意值转为对象。<br>如果参数是原始类型的值，<code>Object</code>方法返回<strong>对应的包装对象的实例</strong>
+</p>
+<pre><code>Object()                        // 空对象
+Objcet(null)                    // 空对象
+Object(undefined)               // 空对象
+Object("foo") instanceof String // true
+Object(obj) === obj             // 这个方法常用来判断某个值是否为对象。如果参数为一个对象，它总是返回原对象</code></pre>
+<p><a name="属性"></a>
+</p>
+<h4>属性</h4>
+<p><code>Object.length</code> 值为1<br><code>Object</code>自带一个<code>prototype</code>的属性。
+
+</p>
+<p><a name="object构造器的成员"></a>
+</p>
+<h4>Object构造器的成员</h4>
+<h5>Object.prototype</h5>
+<p>该属性使所有对象的原型（包括Object对象本身），语言中其它对象正是通过在该属性上添加东西来实现它们之间的继承关系的。
+
+</p>
+<p><a name="objectprototype的成员"></a>
+</p>
+<h4>Object.prototype的成员</h4>
+<h5>constructor</h5>
+<p>该属性指向构造该对象的构造器
+</p>
+<pre><code>var o = new Object();
+o.constructor === Objcet;       // output =&gt; true</code></pre>
+<h5>toString()</h5>
+<p>该方法返回的是一个用于描述目标对象的字符串。特别地，当目标是一个<code>Number</code>类型时，我们还可以传递一个用于进制数的参数<code>radix</code>，该参数默认为10  
+
+</p>
+<p><code>parseInt()</code>方法也可以传递一个参数<code>radix</code>，不过<code>toString(x,16)</code>是<code>x</code>转16进制，<code>parseInt(x,16)</code>是16进制的<code>x</code>转10进制
+</p>
+<pre><code>var o = { prop:1 }
+o.toString();  // output =&gt; [Object Object]
+
+var n = 255;
+n.toString();  // output =&gt; 255
+n.toString()</code></pre>
+<h5>toLocaleString()</h5>
+<p>该方法的作用与<code>toString()</code>基本相同，只不过他会做一些本地化处理。
+</p>
+<pre><code>var n = 1234;
+n.toString();          // output =&gt; 1234
+n.toLocaleString();    // output =&gt; 1,234
+
+var d = new Date();
+d.toString();          // output =&gt; Tue Dec 12 2017 22:06:21 GMT+0800 (CST)
+d.toLocaleString();    // output =&gt; 2017/12/12 下午10:06:21</code></pre>
+<h5>valueOf()</h5>
+<p>该方法返回的是用基本数据类型所表示的<code>this</code>值，如果它可以使用基本数据类型表示的话。如果无法用基本数据类型表示，会返回this本身。<br>例如：对象返回的是对象本身，<code>Number</code>对象返回的是它的基本数值，而<code>Date</code>对象返回的是一个时间戳
+</p>
+<pre><code>var o = {};
+typeof o.valueOf();     // output =&gt; object
+o.valueOf() === o;      // output =&gt; true
+
+var n = new Number(10);
+typeof n.valueOf();     // output =&gt; number
+n.valueOf() === n;      // output =&gt; false
+var m = 10;
+m.valueOf() === m;      // output =&gt; true
+
+var d = new Date();
+typeof d.valueOf();     // output =&gt; number
+d.valueOf();            // output =&gt; 1513088573625</code></pre>
+<h5>hasOwnProperty(prop)</h5>
+<p>该方法仅在目标属性为对象自身属性时返回<code>true</code><br>而当该属性是从原型链中继承而来或根本不存在时返回<code>false</code>
+</p>
+<pre><code>var o = { prop:1 }
+o.hasOwnProperty("prop");  // output =&gt; true
+o.hasOwnproperty("from");  // output =&gt; false
+
+function Site () {
+    this.name = "test";
+    this.sayHello = function () {
+        console.log("hello, I am " + this.name);
+    }
+}
+var obj = {
+    age: 21,
+    sayHi: function () {
+        console.log(this.name + " " + this.age);
+    }
+}
+Site.prototype = obj;
+var site = new Site();
+site.hasOwnProperty("name"); // output =&gt; true
+site.hasOwnProperty("age");  // output =&gt; false
+"age" in site;               // output =&gt; true</code></pre>
+<h5>isPrototypeOf(obj)</h5>
+<p>如果目标对象时当前对象的原型，返回<code>true</code><br>当前对象所在原型链上的所有对象都能通过测试，不局限于它的直系关系
+</p>
+<pre><code>// 基于上个例子的构造函数
+obj.isPrototypeOf(site);    // output =&gt; true</code></pre>
+<h5>propertyIsEnumerable(prop)</h5>
+<p>如果目标属性能在<code>for in</code>循环中被显示出来，该方法就返回<code>true</code><br><code>for in</code>循环返回的是自身和继承的可枚举属性
+
+</p>
+<p><a name="es3-|-es5"></a>
+</p>
+<h4>ES3 | ES5</h4>
+<p>在ES3中，除了一些内置属性（例如<code>Math.PI</code>），对象所有的属性在任何时候都可以修改、插入、删除，在ES5中，我们可以设置属性是否可以被改变或删除，在这之前，它是内置属性的特权。<br>ES5中引入了<strong>属性描述符</strong>的概念，我们可以通过它对所定义的属性有更大的控制权。
+</p>
+<pre><code>// ES3风格
+var person = {};
+person.age = 21;
+
+// 下面是等价的ES5通过数据描述符定义属性的方式
+var person = {};
+Object.defineProperty(person, "age", {
+    value: 21,
+    writable: true,
+    configurable: true,
+    enumerable: true
+})
+// 上面除了`value`默认为`undefined`以外，其他都默认为`false`</code></pre>
+<p><a name="es5附加的object属性"></a>
+</p>
+<h4>ES5附加的Object属性</h4>
+<h5>Object.keys()</h5>
+<p>该方法是一种特殊的<code>for-in</code>循环，它只返回属于当前对象（不含继承的）的可枚举属性，返回值是一个字符串数组。
+</p>
+<h5>Object.getPrototypeOf(obj)</h5>
+<p>在ES3中，需要通过<code>isPrototypeOf</code>取猜测某个对象的原型是什么<br>在ES5中，直接获取对象的原型。
+</p>
+<pre><code>let arr = [];
+Object.getPrototypeOf(arr) === Array.prototype; // output =&gt; true
+
+// 上面`isPrototypeOf`例子中，判断obj是否为site的原型
+// 此处可以直接获取site的原型
+Object.getPrototypeOf(site); // output =&gt; {age: 21, sayHi: ƒ}</code></pre>
+<h5>Object.create(obj, descr)</h5>
+<p>该方法主要用于创建一个新对象，并为其设置原型，用属性描述符定义对象的原型属性。
+</p>
+<pre><code>// 创建空对象
+let emptyObj = Object.create(null);
+emptyObj.toString();  // output =&gt; undefined
+
+let parent = { hi: 'Hello' };
+var obj = Object.create(parent, {
+    val1: {
+        value: 1
+    },
+    val2: {
+        value: 2,
+        writable: true
+    }
+})
+obj.hi  // output =&gt; 'Hello'</code></pre>
+<h5>Object.getOwnPropertyDescriptor &amp;&amp; Object.getOwnPropertyDescriptors</h5>
+<p><code>Object.getOwnPropertyDescriptor(obj, property)</code>跟<code>Object.getOwnPropertyDescriptors(obj)</code>可以让我们查看属性的详细定义，前者查看一个属性的定义，后者是查看所有属性的定义。
+</p>
+<pre><code>// 以上面例子中定义的obj对象为例
+Object.getOwnPropertyDescriptor(obj, "val1");  
+// output =&gt; {value: 1, writable: false, enumerable: false, configurable: false}
+Object.getOwnPropertyDescriptors(obj);
+// output =&gt; {val1: {…}, val2: {…}}</code></pre>
+<h5>Object.getOwnPropertyNames(obj)</h5>
+<p>该方法返回一个数组，其中包含了当前对象所有属性的名称，不论它们是否可枚举。当然你可以使用<code>Object.keys()</code>来单独返回可枚举的属性。
+</p>
+<pre><code>Object.getOwnPropertyNames(obj);  // output =&gt; ["val1", "val2"]</code></pre>
+<h5>Object.defineProperty &amp;&amp; Object.defineProperties</h5>
+<p>该方法可通过属性描述符来定义对象的属性。<br><code>Object.defineProperty(obj, descriptor)</code>只能定义单个属性<br><code>Object.defineProperties(obj, descriptors)</code>可一次定义多个属性。
+</p>
+<pre><code>let glass = Object.defineProperties({}, {
+    "color": {
+        value: "red",
+        writable: true
+    },
+    "fullness": {
+        value: "half",
+        writable: true
+    }
+})</code></pre>
+<h5>Object.preventExtensions(obj) &amp;&amp; Object.isExtensible(obj)</h5>
+<p><code>Object.preventExtensions(obj)</code>方法用于禁止向某一对象添加更多属性<br><code>Object.isExtensible(obj)</code>用于检查某对象是否还可以被添加属性
+</p>
+<pre><code>let deadline = {};
+Object.isExtensible(deadline);  // output =&gt; true
+deadline.date = "forever";
+Object.preventExtensions(deadline);
+Object.isExtensible(deadline);  // output =&gt; false
+deadline.date = "don't know"; 
+deadline.who = "noWho";
+deadline.date                    // output =&gt; "don't konw"
+deadline.who                     // output =&gt; undefined</code></pre>
+<h5>Object.seal(obj) &amp;&amp; Object.isSealed(obj)</h5>
+<p><code>Object.seal(obj)</code>让一个对象密封，并返回被密封后的对象。密封对象是指那些不能添加新的属性，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性，但<strong>可以修改已有属性的值</strong>的对象。<br><code>Object.isSealed(obj)</code>判断对象是否是密封的。  
+</p>
+<pre><code>// 新建的对象默认是不密封的
+let obj = {};
+Object.isSealed(obj);               // output =&gt; false
+
+// 如果把一个空对象变成不可配置，它同时也是个密封对象
+Object.preventExtensions(obj);
+Object.isSealed(obj);               // output =&gt; true
+// 如果这个对象不是空对象,则它不会变成密封对象,因为密封对象的所有自身属性必须是不可配置的
+var hasProp = { fee: "fie foe fum" };
+Object.preventExtensions(hasProp);
+Object.isSealed(hasProp);           // output =&gt; false
+// 如果把这个属性变的不可配置,则这个对象也就成了密封对象.
+Object.defineProperty(hasProp, "fee", { configurable: false });
+Object.isSealed(hasProp);           // output =&gt; true
+
+// 最简单的方法来生成一个密封对象,当然是使用Object.seal.
+var sealed = {};
+Object.seal(sealed);
+// 一个密封对象同时也是不可扩展的.
+Object.isExtensible(sealed);        // output =&gt; false</code></pre>
+<p><strong>ES5中，如果这个方法的参数不是一个对象（一个原始类型），那么它会导致<code>TypeError</code>。在ES2015中，非对象参数将被视为是一个密封的普通对象，只返回<code>true</code></strong>
+</p>
+<pre><code>Object.isSealed(1);                 // TypeError: 1 is not an object (ES5 code)
+
+Object.isSealed(1);                 // true (ES2015 code)</code></pre>
+<h5>Object.freeze(obj) &amp;&amp; Object.isFrozen(obj)</h5>
+<p><code>Object.freeze</code>这个方法比<code>Object.seal</code>更绝，冻结对象是指那些不能添加新的属性，不能修改已有属性的值，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性的对象。也就是说，<strong>这个对象永远是不可变的</strong><br><code>Object.isFrozen</code>判断一个对象是否被冻结
+
+</p>
+<h4>preventExtensions、seal、freeze的区别跟联系</h4>
+<p>| 方法                      | 对象已设置为不可扩展的 | 为每个属性将 configurable 设置为 false | 为每个属性将 writable 设置为 false |
+| :----------------------- | :---- | :---- | :---- |
+| Object.preventExtensions | 是     | 否    | 否    |
+| Object.seal              | 是     | 是    | 否    |
+| Object.freeze            | 是     | 是    | 是    |
+
+</p>
+<h4>ES6中新增的方法</h4>
+<h5>Object.values()</h5>
+<p><code>Object.values</code>方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值。对比<code>Object.keys()</code>
+</p>
+<h5>Object.entries()</h5>
+<p><code>Object.entries</code>方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值对数组
+</p>
+<h5>Object.is()</h5>
+<p>在这之前我们比较值使用两等号<code>==</code>或三等号<code>===</code>，三等号更加严格，只要比较两方类型不同立即返回<code>false</code>。<br>另外，有且只有一个值不和自己相等，它是<code>NaN</code>
+
+</p>
+<p>除了以下情况以外，大多数情况下<code>Object.is</code>等价于<code>===</code>
+</p>
+<pre><code>NaN === NaN         // false
+Object.is(NaN, NaN) // true
+
+0 === -0            // true
+Object.is(0, -0)    // false
+
+-0 === +0           // true
+Object.is(-0, +0)   // false</code></pre>
+<h5>Object.assign()</h5>
+<p><code>Object.assign(target,source1,source2,....)</code>方法用于把一个或多个源对象的可枚举属性值复制到目标对象中，返回值为目标对象。  
+
+</p>
+<p><code>Object.assign()</code>是浅拷贝。可用<code>for in</code>遍历到对象为基本类型为止实现深拷贝。
+</p>
+<h5>Object.setPrototypeOf(obj,prototype)</h5>
+<p>如果某个对象具有<code>__proto__</code>属性，那么该属性的值即为该对象的原型。<br><code>Object.setPrototypeOf()</code>与<code>__proto__</code>作用相同，用来设置对象的<code>prototype</code>。
+</p>
+<pre><code>// 用法
+let o = Object.setPrototypeOf({}, null);
+// 相当于以下方法
+function (obj, proto) {
+    obj.__proto__ = proto;
+    return obj;
+}</code></pre>
+<p>Edit By <a href="http://mahua.jser.me">MaHua</a></p>
+</body></html>

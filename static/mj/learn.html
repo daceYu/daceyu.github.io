@@ -1,0 +1,3178 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
+    <title></title>
+<style id="system" type="text/css">*{margin:0;padding:0;}body {	font:13.34px helvetica,arial,freesans,clean,sans-serif;	color:black;	line-height:1.4em;	background-color: #F8F8F8;	padding: 0.7em;}p {	margin:1em 0;	line-height:1.5em;}table {	font-size:inherit;	font:100%;	margin:1em;}table th{border-bottom:1px solid #bbb;padding:.2em 1em;}table td{border-bottom:1px solid #ddd;padding:.2em 1em;}input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}select,option{padding:0 .25em;}optgroup{margin-top:.5em;}pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}pre {	margin:1em 0;	font-size:12px;	background-color:#eee;	border:1px solid #ddd;	padding:5px;	line-height:1.5em;	color:#444;	overflow:auto;	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;	-webkit-border-radius:3px;	-moz-border-radius:3px;border-radius:3px;white-space: pre-wrap;word-wrap:break-word;}pre code {	padding:0;	font-size:12px;	background-color:#eee;	border:none;}code {	font-size:12px;	background-color:#f8f8ff;	color:#444;	padding:0 .2em;	border:1px solid #dedede;}img{border:0;max-width:100%;}abbr{border-bottom:none;}a{color:#4183c4;text-decoration:none;}a:hover{text-decoration:underline;}a code,a:link code,a:visited code{color:#4183c4;}h2,h3{margin:1em 0;}h1,h2,h3,h4,h5,h6{border:0;}h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}h3{margin-top:1em;}hr{border:1px solid #ddd;}ul{margin:1em 0 1em 2em;}ol{margin:1em 0 1em 2em;}ul li,ol li{margin-top:.5em;margin-bottom:.5em;}ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}dt{font-weight:bold;margin-left:1em;}dd{margin-left:2em;margin-bottom:1em;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><!-- MarkdownTOC -->
+
+<div id="test" style="position:fixed; background:rgba(0,0,0,0.7);color:#fff;bottom:10%;right:0%;z-index:999;height:30px;width:50px;border-radius:5px;line-height:30px;text-align:center">menu</div>
+<ul id="testBlock" style="position:fixed;top:0;right:0; height:100%; width:0;overflow:scroll;background:#fff">
+<li><a href="#html">HTML</a><ul>
+<li><a href="#什么是doctype？">什么是DOCTYPE？</a></li>
+<li><a href="#xhtml和html的区别">xhtml和html的区别</a></li>
+<li><a href="#html5新特性，语义化">HTML5新特性，语义化</a></li>
+<li><a href="#html废弃的标签">HTML废弃的标签</a></li>
+<li><a href="#meta标签">meta标签</a></li>
+<li><a href="#meta-viewport原理">meta viewport原理</a></li>
+<li><a href="#css-js放置位置和原因">css js放置位置和原因</a></li>
+<li><a href="#使用data-的好处">使用data-的好处</a></li>
+<li><a href="#canvas跟svg的区别">Canvas跟SVG的区别</a></li>
+<li><a href="#html模板语言">html模板语言</a></li>
+<li><a href="#dom">DOM</a></li>
+<li><a href="#什么是渐进式渲染">什么是渐进式渲染</a></li>
+</ul>
+</li>
+<li><a href="#浏览器">浏览器</a><ul>
+<li><a href="#浏览器的标准模式和怪异模式">浏览器的标准模式和怪异模式</a></li>
+<li><a href="#ie6-bug，和一些定位写法">IE6 bug，和一些定位写法</a></li>
+<li><a href="#ie的某些兼容性问题">IE的某些兼容性问题</a></li>
+<li><a href="#跨域，为什么js会对跨域做出限制，如何解决跨域问题">跨域，为什么JS会对跨域做出限制，如何解决跨域问题?</a></li>
+<li><a href="#bom--dom">BOM &amp;&amp; DOM</a></li>
+<li><a href="#浏览器window的对象有哪些">浏览器(window)的对象有哪些</a></li>
+<li><a href="#浏览器同一时间能够从一个域名下载多少资源">浏览器同一时间能够从一个域名下载多少资源</a></li>
+<li><a href="#dns">DNS</a></li>
+<li><a href="#浏览器渲染过程">浏览器渲染过程</a></li>
+<li><a href="#script脚本阻塞有什么解决方法？defer和async的区别？">script脚本阻塞有什么解决方法？defer和async的区别？</a></li>
+<li><a href="#拆解url的各部分">拆解url的各部分</a></li>
+<li><a href="#浏览器的内容及兼容">浏览器的内容及兼容</a></li>
+<li><a href="#http强缓存和协商缓存">HTTP强缓存和协商缓存</a></li>
+<li><a href="#http200和304的理解和区别">HTTP200和304的理解和区别</a></li>
+<li><a href="#什么是预加载、懒加载">什么是预加载、懒加载</a></li>
+<li><a href="#一个-xmlhttprequest-实例有多少种状态？">一个 XMLHttpRequest 实例有多少种状态？</a></li>
+<li><a href="#cookies、localstorage、sessionstorage">cookies、localStorage、sessionStorage</a></li>
+<li><a href="#session">session</a></li>
+<li><a href="#xss、csrf">XSS、CSRF</a></li>
+</ul>
+</li>
+<li><a href="#css">CSS</a><ul>
+<li><a href="#请解释box-sizingborder-box的作用，并说明使用它的好处">请解释*{box-sizing:border-box;}的作用，并说明使用它的好处</a></li>
+<li><a href="#link和import引入css的区别">link和@import引入css的区别</a></li>
+<li><a href="#块级元素、内联元素">块级元素、内联元素</a></li>
+<li><a href="#清除浮动的原理和方法">清除浮动的原理和方法</a></li>
+<li><a href="#浮动元素引起的问题和解决办法？">浮动元素引起的问题和解决办法？</a></li>
+<li><a href="#设置绝对定位、相对定位元素浮动后的display值">设置绝对定位、相对定位元素浮动后的display值</a></li>
+<li><a href="#css3新特性">CSS3新特性</a></li>
+<li><a href="#css3伪类、伪元素">CSS3伪类、伪元素</a></li>
+<li><a href="#before和after中的双冒号和单冒号的区别">"::before"和":after"中的双冒号和单冒号的区别</a></li>
+<li><a href="#flexbox，以及适用场景">Flexbox，以及适用场景</a></li>
+<li><a href="#盒模型，box-sizing">盒模型，box-sizing</a></li>
+<li><a href="#inline和inline-block的区别">inline和inline-block的区别</a></li>
+<li><a href="#如何实现水平居中和垂直居中">如何实现水平居中和垂直居中</a></li>
+<li><a href="#attribute和property的区别">attribute和property的区别</a></li>
+<li><a href="#css实现隐藏页面的方式">CSS实现隐藏页面的方式</a></li>
+<li><a href="#外边距合并">外边距合并</a></li>
+<li><a href="#grid布局">grid布局</a></li>
+<li><a href="#table布局">table布局</a></li>
+<li><a href="#实现两栏布局有哪些方法？">实现两栏布局有哪些方法？</a></li>
+<li><a href="#实现三栏布局">实现三栏布局</a></li>
+<li><a href="#流式布局如何实现，响应式布局如何实现">流式布局如何实现，响应式布局如何实现</a></li>
+<li><a href="#移动端布局方案">移动端布局方案</a></li>
+<li><a href="#css-dpi">CSS DPI</a></li>
+<li><a href="#css中的长度单位（pxptrememexvwvhvhvminvmax）">CSS中的长度单位（px,pt,rem,em,ex,vw,vh,vh,vmin,vmax）</a></li>
+<li><a href="#overflowhidden的缺点">overflow:hidden的缺点</a></li>
+<li><a href="#padding百分比是相对于父级宽度还是自身的宽度">padding百分比是相对于父级宽度还是自身的宽度</a></li>
+<li><a href="#css选择器的优先级">CSS选择器的优先级</a></li>
+<li><a href="#transition和animation的区别，加速度、重力的模拟实现">transition和animation的区别，加速度、重力的模拟实现</a></li>
+<li><a href="#css-的加载是异步的吗？表现在什么地方？">CSS 的加载是异步的吗？表现在什么地方？</a></li>
+<li><a href="#媒体查询的原理是什么？">媒体查询的原理是什么？</a></li>
+<li><a href="#雪碧图">雪碧图</a></li>
+<li><a href="#三角形的实现">三角形的实现</a></li>
+<li><a href="#bfc">BFC</a></li>
+</ul>
+</li>
+<li><a href="#javascript">JavaScript</a><ul>
+<li><a href="#js的基本类型有哪些？引用类型有哪些？null和undefined的区别">js的基本类型有哪些？引用类型有哪些？null和undefined的区别</a></li>
+<li><a href="#引用类型和基本类型有什么区别？">引用类型和基本类型有什么区别？</a></li>
+<li><a href="#object详解、array详解、string详解见单独文件">Object详解、Array详解、String详解见单独文件</a></li>
+<li><a href="#判断对象为空的实现">判断对象为空的实现</a></li>
+<li><a href="#call、apply、bind-的区别跟联系">call()、apply()、bind() 的区别跟联系</a></li>
+<li><a href="#如何判断一个变量是array类型？如何判断一个变量是number类型？">如何判断一个变量是Array类型？如何判断一个变量是Number类型？</a></li>
+<li><a href="#js常见的dom操作api">JS常见的dom操作api</a></li>
+<li><a href="#事件冒泡和事件捕获，如何阻止冒泡？如何阻止默认事件？">事件冒泡和事件捕获，如何阻止冒泡？如何阻止默认事件？</a></li>
+<li><a href="#事件委托">事件委托</a></li>
+<li><a href="#this有哪些使用场景？如何改变this的值？">this有哪些使用场景？如何改变this的值？</a></li>
+<li><a href="#闭包">闭包</a></li>
+<li><a href="#typeof能够得到哪些值">typeof能够得到哪些值</a></li>
+<li><a href="#typeof-和-instanceof-区别，instanceof原理">typeof 和 instanceof 区别，instanceof原理</a></li>
+<li><a href="#use-strict的好处和坏处">"use strict"的好处和坏处</a></li>
+<li><a href="#函数的作用域是什么？js-的作用域有几种？">函数的作用域是什么？js 的作用域有几种？</a></li>
+<li><a href="#web端cookie的设置和获取">web端cookie的设置和获取</a></li>
+<li><a href="#获取相对于视口、文档的坐标">获取相对于视口、文档的坐标</a></li>
+<li><a href="#getclientrects--getboundingclientrect">getClientRects &amp;&amp; getBoundingClientRect</a></li>
+<li><a href="#手写实现ajax、jsonp">手写实现Ajax、JSONP</a></li>
+<li><a href="#举例说明一个匿名函数的典型用例">举例说明一个匿名函数的典型用例</a></li>
+<li><a href="#javascript-的事件流模型都有什么">JavaScript 的事件流模型都有什么</a></li>
+<li><a href="#原生事件绑定（跨浏览器），dom0和dom2的区别？">原生事件绑定（跨浏览器），dom0和dom2的区别？</a></li>
+<li><a href="#dom事件的绑定的几种方式">DOM事件的绑定的几种方式</a></li>
+<li><a href="#普通事件与绑定事件的区别">普通事件与绑定事件的区别</a></li>
+<li><a href="#编写一个通用的事件监听函数">编写一个通用的事件监听函数</a></li>
+<li><a href="#dom事件中target和currenttarget的区别">DOM事件中target和currentTarget的区别</a></li>
+<li><a href="#document-load和document-domcontentloaded两个事件的区别">document load和document DOMContentLoaded两个事件的区别</a></li>
+<li><a href="#条件注释判断浏览器">条件注释判断浏览器</a></li>
+<li><a href="#创建对象的多种方式">创建对象的多种方式</a></li>
+<li><a href="#new-一个对象具体做了什么">new 一个对象具体做了什么</a></li>
+<li><a href="#显示原型和隐式原型">显示原型和隐式原型</a></li>
+<li><a href="#原型链--作用域链">原型链 &amp;&amp; 作用域链</a></li>
+<li><a href="#宿主对象--原生对象">宿主对象 &amp;&amp; 原生对象</a></li>
+<li><a href="#callee和caller">callee和caller</a></li>
+<li><a href="#深拷贝、浅拷贝、赋值">深拷贝、浅拷贝、赋值</a></li>
+<li><a href="#js如何实现重载和多态">JS如何实现重载和多态</a></li>
+<li><a href="#实现继承的多种方式和优缺点">实现继承的多种方式和优缺点</a></li>
+<li><a href="#settimeout和promise的执行顺序">setTimeout和promise的执行顺序</a></li>
+<li><a href="#手写promise">手写Promise</a></li>
+<li><a href="#事件发布／订阅">事件发布／订阅</a></li>
+<li><a href="#内存泄漏的原因和场景">内存泄漏的原因和场景</a></li>
+<li><a href="#js的垃圾回收机制">js的垃圾回收机制</a></li>
+<li><a href="#js处理异常">js处理异常</a></li>
+<li><a href="#websocket的工作原理和机制">websocket的工作原理和机制</a></li>
+<li><a href="#函数柯里化">函数柯里化</a></li>
+<li><a href="#es6规范、commonjs、amd、cmd">ES6规范、CommonJS、AMD、CMD</a></li>
+<li><a href="#拖拽实现">拖拽实现</a></li>
+<li><a href="#repaint、reflow">repaint、reflow</a></li>
+</ul>
+</li>
+<li><a href="#性能优化">性能优化</a><ul>
+<li><a href="#从用户输入网址到客户端展现，一步一优化">从用户输入网址到客户端展现，一步一优化</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+
+<p><a name="html"></a>
+</p>
+<h1>HTML</h1>
+<p><a name="什么是doctype？"></a>
+</p>
+<h4>什么是DOCTYPE？</h4>
+<p>用来指定页面所用的HTML或者XHTML的版本。<br>过渡的（Transitional）、严格的（Strict）和框架的（Frameset）
+
+</p>
+<p><a name="xhtml和html的区别"></a>
+</p>
+<h4>xhtml和html的区别</h4>
+<p>XHTML是当前HTML版的继承者，HTML语法要求比较松散，这样对网页编写者来说，比较方便，但对于机器来说，语言的语法越松散，处理起来就越困难，对于传统的计算机来说，还有能力兼容松散语法，但对于许多其他设备，比如手机，难度就比较大。<br>XHTML 属性是以 XML 格式编写的 HTML 属性。<br>XHTML 属性必须使用小写<br>XHTML 属性值必须用引号包围<br>XHTML 禁止属性简写  
+
+</p>
+<p><a name="html5新特性，语义化"></a>
+</p>
+<h4>HTML5新特性，语义化</h4>
+<h6>新特性:</h6>
+<p>语义化、视频音频、canvas、svg、storage、App Cache、拖放（Drag、Drop）、设备特性（定位，媒体、设备方向）、连接特性（web socket）、服务器发送事件（server-sent）  
+</p>
+<h6>语义化标签:</h6>
+<p><code>&lt;canvas&gt;</code>、<code>&lt;header&gt;</code>、<code>&lt;hgroup&gt;</code>、<code>&lt;nav&gt;</code>、<code>&lt;aside&gt;</code>、<code>&lt;section&gt;</code>、<code>&lt;article&gt;</code>、<code>&lt;footer&gt;</code><br><code>&lt;title&gt;</code>、<code>&lt;main&gt;</code>、<code>&lt;small&gt;</code>、<code>&lt;strong&gt;</code>、<code>&lt;em&gt;</code>、<code>&lt;mark&gt;</code>、<code>&lt;progress&gt;</code>、<code>&lt;figure&gt;</code>、<code>&lt;cite&gt;</code>、<code>&lt;time&gt;</code>、<code>&lt;del&gt;</code>
+
+</p>
+<p><a name="html废弃的标签"></a>
+</p>
+<h4>HTML废弃的标签</h4>
+<p>css替代：<code>&lt;basefont&gt;</code>、<code>&lt;big&gt;</code>、<code>&lt;center&gt;</code>、<code>&lt;font&gt;</code>、<code>&lt;s&gt;</code>、<code>&lt;strike&gt;</code>、<code>&lt;tt&gt;</code>、<code>&lt;u&gt;</code><br>iframe：<code>&lt;frameset&gt;</code>、<code>&lt;frame&gt;</code>、<code>&lt;noframes&gt;</code><br>其它：<code>&lt;dir&gt;_&lt;ul&gt;、&lt;applet&gt;_&lt;object&gt;、&lt;acronym&gt;_&lt;abbr&gt;</code><br>移除的属性：<code>align</code>、body标签上的<code>link</code>、<code>vlink</code>、<code>alink</code>、<code>text</code>属性...之类
+
+</p>
+<p><a name="meta标签"></a>
+</p>
+<h4>meta标签</h4>
+<p>META标签用来描述一个HTML网页文档的属性。提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词
+
+</p>
+<p><a name="meta-viewport原理"></a>
+</p>
+<h4>meta viewport原理</h4>
+<p>桌面上视口宽度等于浏览器宽度，但在手机上不同。<br>手机上布局视口远大于屏幕宽度。<br>理想视口：改变布局视口适应手机屏。<br>viewport就是设置理想视口。通过meta的viewport的属性来进行一些缩放设置。
+
+</p>
+<p><a name="css-js放置位置和原因"></a>
+</p>
+<h4>css js放置位置和原因</h4>
+<p>js是阻塞加载，会影响页面加载的速度，所以一般放在<code>&lt;/body&gt;</code>标签前面<br>css放在页面顶部，页面渲染时首先是根据DOM结构生成一个DOM树然后加上CSS样式生成一个渲染树。如果CSS放在后面可能出现白屏之类的情况，并且css放在底部，当渲染树构建完成，浏览器不得不重新渲染整个页面，造成资源浪费。
+
+</p>
+<p><a name="使用data-的好处"></a>
+</p>
+<h4>使用data-的好处</h4>
+<p><code>data-*</code>为前端开发者提供自定义的属性，这些属性集可以通过对象的<code>dataset</code>属性获取，不支持改属性的浏览器可以通过<code>getAttribute</code>方法获取。<br>并不是所有的浏览器都支持<code>.dataset</code>属性，测试的浏览器中只有Chrome和Opera支持
+
+</p>
+<p><a name="canvas跟svg的区别"></a>
+</p>
+<h4>Canvas跟SVG的区别</h4>
+<p><strong>SVG</strong>：SVG是一种使用XML描述2D图形的语言。SVG DOM中的每个元素都是可用的，所以可以为每个元素附加JavaScript事件处理器。每个被绘制的图像均被视为对象。如果SVG对象的属性发生变化，那么浏览器能够自动重现图像<br><strong>Canvas</strong>：通过js来绘制2D图形，逐像素进行渲染。一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。<br><strong>区别</strong><br>  1. Canvas支持分辨率，SVG不支持<br>  2. Canvas不支持事件处理器，SVG支持<br>  3. Canvas只有弱的文本渲染能力，而SVG最适合带有大型渲染区域的应用程序(比如谷歌地图)<br>  4. Canvas能够以.png或.jpg格式保存结果图像<br>  5. SVG的复杂度过高的话会减慢渲染速度(任何过度使用DOM的应用都不快)<br>  6. Canvas最适合图像密集型的游戏，其中的许多对象会被频繁重绘。而SVG不适合游戏应用<br>  7. Canvas是基于位图的图像，它不能够改变大小，只能缩放显示；SVG是基于矢量的，所以它能够很好地处理图形大小的改变<br>  8. Canvas提供的功能更原始，适合像素处理，动态渲染和大数据量绘制；SVG功能更完善，适合静态图片显示，高保真文档查看和打印的应用场景<br>  9. 绘制Canvas对象后，不能使用脚本和CSS对它进行修改；而SVG对象是文档对象模型的一部分，所以可以随时使用脚本和CSS修改它们  
+
+</p>
+<p><a name="html模板语言"></a>
+</p>
+<h4>html模板语言</h4>
+<p>例如vue的template、jade、jsx
+
+</p>
+<p><a name="dom"></a>
+</p>
+<h4>DOM</h4>
+<p>DOM是文档对象模型，用来获取或设置文档中标签的属性。可以理解为网页的API<br>针对XHTML和HTML的DOM。这个DOM定义了一个HTMLDocument和HTMLElement做为这种实现的基础
+
+</p>
+<p><a name="什么是渐进式渲染"></a>
+</p>
+<h4>什么是渐进式渲染</h4>
+<p>对渲染进行分割。渲染过程就是: 服务端渲染局部，客户端渲染局部，而且随着服务端性能提高，可以分配更多工作到服务器上，这样的"渐进"。  
+</p>
+<blockquote>
+<p>从具体的使用的场景，不同的Level实际上对应不同的页面内容，论坛是一个比较清晰的例子，想象一个论坛：<br>  1、网页的静态部分，HTML 固定的内容，比如导航栏和底部<br>  2、页面首屏的内容，比如一个论坛的话题<br>  3、页面首屏看不到的内容，比如话题下面多少回复<br>  4、切换路由才会显示的页面，比如导航的另一个页面<br>对于这样的情况，显然有若干种可行的渲染分割的方案：<br>  1). 全在客户端渲染<br>  2). 1、2、3 在服务端渲染，4 等到用户点击从浏览器抓<br>  3). 1、2 在服务器渲染，评论由客户端加载<br>  4). 只有 1 在服务端渲染，动态的数据全部由客户端抓取<br>而这些方案对于服务端来说，性能的开销各不相同，形成一个梯度，而最后一种情况，服务端预编译页面就好了，几乎没有渲染负担  
+
+
+
+
+
+
+</p>
+</blockquote>
+<p><a name="浏览器"></a>
+</p>
+<h1>浏览器</h1>
+<p><a name="浏览器的标准模式和怪异模式"></a>
+</p>
+<h4>浏览器的标准模式和怪异模式</h4>
+<p>在HTML与CSS标准确定之后，浏览器一方面要按照标准去实现对HTML与CSS的支持，另一方面又要保证对非标准的旧网页设计的后向兼容性。因此，现代的浏览器一般都有两种渲染模式：标准模式和怪异模式。  
+</p>
+<blockquote>
+<pre><code>在标准模式下，浏览器按照HTML与CSS标准对文档进行解析和渲染  
+在怪异模式下，浏览器则按照旧有的非标准的实现方式对文档进行解析和渲染</code></pre>
+</blockquote>
+<h6>如何确定使用标准模式和怪异模式</h6>
+<p>使用标准模式：浏览器遇到正确的文档声明<code>DOCTYPE</code>时，浏览器就会启动标准模式<br>使用怪异模式：没有文档类型声明或者文档类型声明不正确的文档
+
+</p>
+<h6>标准模式跟怪异模式的两个常见区别</h6>
+<ul>
+<li><strong>盒模型的处理差异</strong>:标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而IE6之前的浏览器实现的盒模型的宽高计算方式是包含内边距和边框的。因此，对于IE，怪异模式和标准模式下的盒模型宽高计算方式是不一样的；  </li>
+<li><strong>行内元素的垂直对齐</strong>:在标准模式下，图片并不是与父元素的下边框对齐的（基于基线<code>baseline</code>对齐），如果仔细观察，你会发现图片与父元素下边框之间存在一点小空隙，<a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/">解决方案</a><code>1、vertical-line修改为其他值或让其失效。2、line-height修改到足够小。或line-height使用相对单位，然后font-size间接设置，例如font-size:0</code>。那是因为标准模式下，图片是基线对齐的。而怪异模式下，则不存在这个问题。</li>
+</ul>
+<p><a name="ie6-bug，和一些定位写法"></a>
+</p>
+<h4>IE6 bug，和一些定位写法</h4>
+<ul>
+<li><p>IE6下的<code>left</code>定位错误</p>
+<pre><code>  &lt;!-- 测试代码 --&gt;
+  &lt;div style="position:relative;border:1px solid orange;text-align:right;"&gt;  
+      &lt;a href="http://hi./baidu.com/cjky/" title="小老头的blog"&gt;小老头&lt;/a&gt;  
+      &lt;div style="position:absolute;top:0;left:0;background:#CCC;"&gt;cjky&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+<p>解决办法有两种：<br>  1、给父层设置<code>zoom:1</code>触发layout。<br>  2、给父层设置宽度width。</p>
+</li>
+<li><p>IE6下的<code>bottom</code>定位错误  </p>
+<pre><code>  &lt;!-- 测试代码 --&gt;
+  &lt;div style="position:relative;border:1px solid orange;text-align:right;"&gt;  
+      &lt;a href="http://hi./baidu.com/cjky/" title="小老头的blog"&gt;小老头&lt;/a&gt;  
+      &lt;div style="position:absolute;bottom:0;left:0;background:#CCC;"&gt;cjky&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+<p>解决办法有两种：<br>  1、给父层设置<code>zoom:1</code>触发layout。<br>  2、给父层设置高度height。</p>
+</li>
+</ul>
+<p>IE6中很多Bug都可以通过<strong>触发layout</strong>得到解决，以上的解决方法无论是设置<code>zoom:1</code>还是设置<code>width</code>和<code>height</code>其实都是为了触发layout。下列的CSS属性或取值会让一个元素获得layout：  
+</p>
+<blockquote>
+<p><code>position:absolute</code> 绝对定位元素的包含区块(containing block)就会经常在这一方面出问题<br><code>float:left|right</code> 由于layout元素的特性，浮动模型会有很多怪异的表现<br><code>display:inline-block</code> 当一个内联级别的元素需要layout的时候就往往符用到它，这也可能也是这个CSS属性的唯一效果----让某个元素有layout<br><code>width</code>: 除auto外的任何值<br><code>height</code>: 除auto外的任何值<br><code>zoom</code>: 除auto外的任何值
+
+</p>
+</blockquote>
+<p><a name="ie的某些兼容性问题"></a>
+</p>
+<h4>IE的某些兼容性问题</h4>
+<p>IE6认识的hacker 是下划线<code>_</code>和星号<code>*</code><br>IE7 遨游认识的hacker是星号<code>*</code>  
+
+</p>
+<ul>
+<li><p>IE6父级元素不定宽高，子元素绝对定位BUG<br>解决方案在上个问题已经给出</p>
+</li>
+<li><p>双外边距bug<br>浮动元素设置外边距margin，IE6会呈现双倍的距离<br>解决方案：<br>  ①该元素加上<code>_display:line;</code><br>  ②<code>_margin:</code>一半的距离;</p>
+</li>
+<li><p>不支持<code>max-width/height</code>、<code>min-width/height</code><br>不支持<code>max-width/height</code>的解决方法：<br>  ①<code>_width: expression(this.offsetWidth &gt; 500 ? "500px" : this.offsetWidth + "px")</code><br>   <code>_height: expression(this.offsetHeight &gt; 500 ? "500px" : this.offsetHeight + "px")</code><br>   该法css中使用了表达式，会导致很高的cpu占用率<br>  ②JS解决<br>   <code>function limitSize ($obj) {</code><br>     <code>var limit = $obj.width &gt; 500 ? "500px" : $obj.width + "px";</code><br>     <code>$obj.css("width", limit);</code><br>   <code>}</code><br>不支持<code>mix-width/height</code>的解决方法：<br>  ①利用IE6的特性，直接<code>_width:500px</code>或<code>_height:500px</code>即可。<br>   IE6中外层元素会<strong>自动被内容撑开</strong>而不管其设置的<code>width/height</code>。<br>  ②同上<code>max-width/height</code>的解决方法。</p>
+</li>
+<li><p>PNG图片alpha透明<br>IE6只支持png-8或gif格式的布尔透明，alpha透明图片显示会呈现灰底<br>解决方案：<br>  ①使用DD_belatedPNG<br>  ②让"块"透明<br>  ③尽量避免使用png24/png32图，图片颜色数较少时，可以使用gif或者png-8格式代替。需要在生成图片时设置杂边（FW中叫色板）为背景颜色，否则会产生毛边。<br>  ④<code>filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="images/angel.png");</code></p>
+</li>
+<li><p>IE6/7下li前的圆点等样式不显示<br>要给<code>li</code>加上圆点，很简单，<code>li{ list-style: disc }</code>搞定！但是真的搞定了么，测试一下，IE6/7下并没有搞定..<br>解决方案：<br>  样式补充完整<code>li{ list-style: disc inside }</code>  </p>
+</li>
+<li><p>IE6不支持<code>position: fixed</code><br>解决方案：<br>①CSS解决，具体如下</p>
+<ol>
+<li>头部固定 <code>position: absolute; bottom: auto; top: expression( eval(document.documentElement.scrollTop) );</code></li>
+<li>底部固定 <code>position: absolute; bottom: auto; top: expression( eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight - (parseInt(this.currentStyle.marginTop,10) || 0) - (parseInt(this.currentStyle.marginBottom,10) || 0)) );</code>  </li>
+<li>左侧固定 <code>position: absolute; right: auto; left: expression( eval(document.documentElement.scrollLeft) );</code></li>
+<li>右侧固定 <code>position: absolute; right: auto; left: expression( eval(document.documentElement.scrollLeft + document.documentElement.clientWidth - this.offsetWidth) - (parseInt(this.currentStyle.marginLeft,10) || 0) - (parseInt(this.currentStyle.marginRight,10) || 0) );</code></li>
+</ol>
+</li>
+</ul>
+<p>   但是被固定定位的元素在滚动滚动条的时候会闪动，添加以下代码即可解决<br>   <code>*html,*html body{ background-image: url(about: blank); background-attachment: fixed; } /* 修正IE6振动bug */</code>
+
+</p>
+<p>  ②js解决，ie6下使用相对定位，然后滚动时动态计算改变top值即可
+
+</p>
+<ul>
+<li><p>IE6/7下右浮动bug  </p>
+<pre><code>  &lt;!-- 测试代码 --&gt;
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;title&gt;右浮动bug&lt;/title&gt;
+      &lt;style&gt;
+          p{ width:200px; height:24px; line-height:24px; border:1px solid #ccc; }
+          .fr{ float:right; }
+      &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;p&gt;
+          左边文字
+          &lt;span class="fr"&gt;右浮动文字&lt;/span&gt;
+      &lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+<p>同一行有两个元素，右边的元素右浮动后，在IE6/7下会跑到下一行。像这样：<br><img src="images/ie_bug1.png" alt=""><br>解决方案：<br>  ①将右浮动元素写在前面，即<code>&lt;p&gt;&lt;span class="fr"&gt;右浮动文字&lt;/span&gt;左边文字&lt;/p&gt;</code>。<br>  ②将左边文字也用容器包裹起来，使之左浮动，然后父级<code>overflow:hidden</code>或者清除浮动即可。</p>
+</li>
+<li><p>IE6下a标签内元素hover的bug  </p>
+<pre><code>  &lt;!-- 测试代码 --&gt;
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;IE6下的hover引发的bug&lt;/title&gt;
+  &lt;style&gt;
+      a{color:#333;}
+      a:hover span{color: red;}
+  &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;a href="#"&gt;IE6下 &lt;span&gt;(hover时我应该变色)&lt;/span&gt; 。&lt;/a&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+<p>在IE6下，鼠标移上去，发现文字没有变色。这是由于hover时我们改变的是链接内部元素的样式，而链接的样式没有改变，IE6根本不触发hover效果。<br>解决方法：<br>  ①让链接的样式也改变，加上一些无关紧要的样式即可，比如<code>a:hover{padding:0px;}</code>。<br>  ②用js模拟span元素的hover效果。</p>
+</li>
+<li><p>IE6/7下overflow溢出的bug<br>当父级元素设置了高宽以及overflow（hidden或scroll或auto），子元素使用<code>position:relative</code>相对定位的时候，在IE6/7下会发生溢出，overflow无效。</p>
+<pre><code>  &lt;!-- 测试代码 --&gt;
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;title&gt;ie6/7 overflow溢出bug&lt;/title&gt; 
+      &lt;style&gt;
+          * { margin:0px; padding:0px; }
+          div { margin:20px; border:1px solid #333; width:100px; height:100px; overflow:auto; }
+          p { position:relative; }
+  &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div&gt;
+      &lt;p&gt;1&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;
+      &lt;p&gt;1&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+<p>如图，IE6/7下溢出了<br><img src="images/ie_bug2.png" alt=""><br>解决方案：<br>  将父级（例中div）也给一个<code>position:relative;</code></p>
+</li>
+</ul>
+<p>IE6下还有许多其它的bug，就不深究了。
+
+</p>
+<p><a name="跨域，为什么js会对跨域做出限制，如何解决跨域问题"></a>
+</p>
+<h4>跨域，为什么JS会对跨域做出限制，如何解决跨域问题?</h4>
+<h6>跨域</h6>
+<p>跨域指的是浏览器不能执行其它网站的脚本。它是由浏览器的<strong>同源策略</strong>造成的，是浏览器对javaScript施加的安全限制。
+</p>
+<h6>为什么JS会对跨域做出限制</h6>
+<p>安全问题，防止信息泄漏，如果不做限制，那么我的网站可以利用iframe内嵌银行页面，当你登录的时候，就可以读取到你的用户名跟密码。
+</p>
+<h6>如何解决跨域</h6>
+<ol>
+<li>动态创建script<br>script标签不受同源策略的限制  </li>
+<li>Jsonp</li>
+<li>代理<br>例如www.123.com/index.html需要调用www.456.com/server.php，可以写一个接口www.123.com/server.php，由这个接口在后端去调用www.456.com/server.php并拿到返回值，然后再返回给index.html，这就是一个代理的模式。相当于绕过了浏览器端，自然就不存在跨域问题。</li>
+<li><p>PHP修改Header(XHR2方式)<br>在php接口脚本中加入以下两句即可：</p>
+<pre><code> header('Access-Control-Allow-Origin:*'); // 允许所有来源访问
+ header('Access-Control-Allow-Method:POST,GET'); // 允许访问的方式</code></pre>
+</li>
+<li><p>document.domain + iframe (只有主域名相同的时候才能使用该方法)  </p>
+</li>
+<li>location.hash + iframe</li>
+<li>window.name + iframe</li>
+<li>postMessage</li>
+<li>CORS </li>
+<li>Web Sockets</li>
+</ol>
+<p><a name="bom--dom"></a>
+</p>
+<h4>BOM &amp;&amp; DOM</h4>
+<p>BOM 是浏览器对象模型，用来获取或设置浏览器的属性、行为，例如：新建窗口、获取屏幕分辨率、浏览器版本号等。是各个浏览器厂商根据 DOM
+在各自浏览器上的实现（表现为不同浏览器定义有差别，实现方式不同）<br>BOM 主要处理浏览器窗口和框架，不过通常浏览器特定的 JavaScript扩展都被看做 BOM 的一部分。这些扩展包括：
+</p>
+<blockquote>
+<p>弹出新的浏览器窗口<br>移动、关闭浏览器窗口以及调整窗口大小<br>提供 Web 浏览器详细信息的定位对象<br>提供用户屏幕分辨率详细信息的屏幕对象<br>对 <code>cookie</code> 的支持<br>IE 扩展了 BOM，加入了 <code>ActiveXObject</code> 类，可以通过 JavaScript 实例化 <code>ActiveX</code> 对象 
+
+</p>
+</blockquote>
+<p>javacsript是通过访问BOM对象来访问、控制、修改客户端(浏览器)，由于BOM的<code>window</code>包含了<code>document</code>，<code>window</code>对象的属性和方法是直接可以使用而且被感知的，因此可以直接使用<code>window</code>对象的<code>document</code>属性，通过<code>document</code>属性就可以访问、检索、修改XHTML文档内容与结构。因为<code>document</code>对象又是DOM模型的根节点。可以说，BOM包含了DOM(对象)，浏览器提供出来给予访问的是BOM对象，从BOM对象再访问到DOM对象，从而js可以操作浏览器以及浏览器读取到的文档。 其中
+
+</p>
+<p>DOM包含：<code>window</code>
+</p>
+<blockquote>
+<pre><code>Window对象包含属性：document、location、navigator、screen、history、frames
+Document根节点包含子节点：forms、location、anchors、images、links</code></pre>
+</blockquote>
+<p>从<code>window.document</code>已然可以看出，DOM的最根本的对象是BOM的window对象的子对象
+
+</p>
+<p>区别
+</p>
+<blockquote>
+<pre><code>DOM 是为了操作文档出现的 API，document 是其的一个对象； 
+BOM 是为了操作浏览器出现的 API，window 是其的一个对象。</code></pre>
+</blockquote>
+<p><a name="浏览器window的对象有哪些"></a>
+</p>
+<h4>浏览器(window)的对象有哪些</h4>
+<p><code>histroy</code>、<code>loaction</code>、<code>navigator</code>、<code>screen</code>、<code>frames</code>、<code>document</code>
+
+</p>
+<p><a name="浏览器同一时间能够从一个域名下载多少资源"></a>
+</p>
+<h4>浏览器同一时间能够从一个域名下载多少资源</h4>
+<p><strong>浏览器并发请求数</strong>，意即，同一时间针对同一域名下的请求有一定数量限制搜索。<br>超过限制数目的请求会被阻止，一般是4到6个，在10个以内
+
+</p>
+<p><a name="dns"></a>
+</p>
+<h4>DNS</h4>
+<h6>DNS解析原理</h6>
+<p>DNS服务根据用户输入域名解析与之相关的其它信息，如IP地址。
+</p>
+<h6>DNS查找过程</h6>
+<p>浏览器缓存 -&gt; 系统缓存 -&gt; 路由器缓存 -&gt; ISP DNS 缓存 -&gt; 递归搜索
+
+</p>
+<p><a name="浏览器渲染过程"></a>
+</p>
+<h4>浏览器渲染过程</h4>
+<ol>
+<li>用户输入地址，浏览器发起DNS查询请求</li>
+<li>建立TCP连接<br>浏览器通过DNS获取到的IP地址后，向web服务器发起tcp连接请求，通过TCP三次握手（之后会具体说明）建立好链接后，浏览器就可以将HTTP请求数据发送给服务器了。</li>
+<li>浏览器向web服务器发送一个Http请求</li>
+<li>web服务器发送响应数据给客户端</li>
+<li>浏览器解析http response<ul>
+<li>html文档解析（DOM Tree）<br>在浏览器没有完整接受全部HTML文档时，它就已经开始显示这个页面了。生成解析树即dom树，是由dom元素及属性节点组成，树的根是document对象。</li>
+<li>浏览器发送获取嵌入在html中的对象请求<br>加载过程中，遇到外部css文件/图片，浏览器另外发出一个请求，来获取该资源。这是异步请求，并不影响HTML文档进行加载。<br>但是当文档加载过程中遇到js文件，html文档会挂起渲染的线程，不仅要等待文档中js文件加载完毕，还要等待解析执行完毕，才可以恢复html的渲染线程。</li>
+<li>CSS解析（parser Render Tree）<br>浏览器下载css文件，将css文件解析为样式表对象，并用来渲染dom tree。该对象包含css规则，该规则包含选择器和声明对象。css元素遍历的顺序，是从树的低端向上遍历。</li>
+<li>js解析<br>浏览器UI线程：单线程，大多数浏览器（比如chrome）让一个单线程共用于执行javascrip和更新用户界面。<br>js阻塞页面：浏览器里的http请求被阻塞一般都是由js所引起，具体原因是js文件在下载完毕之后会立即执行，而js执行时候会阻塞浏览器的其他行为，有一段时间是没有网络请求被处理的，这段时间过后http请求才会接着执行，这段空闲时间就是所谓的http请求被阻塞。<br>js阻塞原因：之所以会阻塞UI线程的执行，是因为js能控制UI的展示，而页面加载的规则是要顺序执行，所以在碰到js代码时候UI线程会首先执行它。</li>
+</ul>
+</li>
+</ol>
+<p><a name="script脚本阻塞有什么解决方法？defer和async的区别？"></a>
+</p>
+<h4>script脚本阻塞有什么解决方法？defer和async的区别？</h4>
+<p>在Yahoo的Yslow23条规则当中，其中一条是将JS放在底部。
+</p>
+<h6>script脚本阻塞有什么解决方法？</h6>
+<ol>
+<li>直接写在页面script标签中（适用：代码量较少或首页）</li>
+<li>ajax请求载入（适用：遵循同源策略）</li>
+<li>iframe（遵循同源策略）</li>
+<li>使用javascript动态地创建script DOM元素并设置其src属性。（按需加载）</li>
+<li>defer与async<h6>defer与async的区别？</h6>
+<code>async</code>和<code>defer</code>的最主要的区别就是<code>async</code>是异步下载并立即执行，然后文档继续解析，<code>defer</code>是异步加载后解析文档，然后再执行脚本<br>它们的核心功能就是异步，那么两种属性怎么去区分使用，主要的参考是如果脚本不依赖于任何脚本，并不被任何脚本依赖，那么则使用 <code>defer</code>，如果脚本是模块化的，不依赖于任何脚本，那么则使用<code>async</code></li>
+</ol>
+<p><a name="拆解url的各部分"></a>
+</p>
+<h4>拆解url的各部分</h4>
+<blockquote>
+<p>url: location.href<br>通信协议: location.protocol<br>主机: loction.host<br>端口号: location.port<br>路径: location.path<br>参数: location.search<br>锚点: location.hash
+
+</p>
+</blockquote>
+<p><a name="浏览器的内容及兼容"></a>
+</p>
+<h4>浏览器的内容及兼容</h4>
+<p>| 内核                 | 代表浏览器     | 兼容前缀     |
+| -------------------- |:--------------:| --------:    |
+| Trident内核（IE内核）| IE             |   <code>-ms</code>      |
+| Gecko内核            | FireFox        |   <code>-moz</code>     |
+| Webkit内核           | chrome、safira |   <code>-webkit</code>  |
+| Presto内核           | Opera          |   <code>-o</code>       |
+
+</p>
+<p><a name="http强缓存和协商缓存"></a>
+</p>
+<h4>HTTP强缓存和协商缓存</h4>
+<h6>浏览器缓存</h6>
+<p>浏览器缓存是浏览器在本地磁盘对用户最近请求过的文档进行存储，当访问者再次访问同一页面时，浏览器就可以直接从本地磁盘加载文档。  
+
+</p>
+<p>所以浏览器缓存有以下优点：
+
+</p>
+<ul>
+<li>减少冗余的数据传输</li>
+<li>减少服务器负担</li>
+<li>加快客户端加载网页的速度</li>
+</ul>
+<p>浏览器缓存是Web性能优化的重要方式。那么浏览器缓存的过程究竟是怎么样的呢？<br>在浏览器第一次发起请求时，本地无缓存，向web服务器发送请求，服务器起端响应请求，浏览器端缓存。过程如下：
+
+</p>
+<p><img src="images/cache_1.png" alt="">
+
+</p>
+<p>在第一次请求时，服务器会将页面最后修改时间通过<code>Last-Modified</code>标识由服务器发送给客户端，客户端记录修改时间；服务器还会生成一个<code>Etag</code>，并发送给客户端。  
+
+</p>
+<p>浏览器后续再次进行请求时：
+
+</p>
+<p><img src="images/cache_2.png" alt="">
+
+</p>
+<p>浏览器缓存主要分为<strong>强缓存</strong>（也称本地缓存）和<strong>协商缓存</strong>（也称弱缓存）。根据上图，浏览器在第一次请求发生后，再次发送请求时：  
+
+</p>
+<ul>
+<li>浏览器请求某一资源时，会先获取该资源缓存的<code>header</code>信息，然后根据<code>header</code>中的<code>Cache-Control</code>和<code>Expires</code>来判断是否过期。若没过期则直接从缓存中获取资源信息，包括缓存的<code>header</code>的信息，所以此次请求不会与服务器进行通信。这里<strong>判断是否过期，则是强缓存相关</strong>。后面会讲<code>Cache-Control</code>和<code>Expires</code>相关。</li>
+<li>如果显示已过期，浏览器会向服务器端发送请求，这个请求会携带第一次请求返回的有关缓存的<code>header</code>字段信息，比如客户端会通过<code>If-None-Match</code>头将先前服务器端发送过来的<code>Etag</code>发送给服务器，服务会对比这个客户端发过来的<code>Etag</code>是否与服务器的相同，若相同，就将<code>If-None-Match</code>的值设为<code>false</code>，返回状态304，客户端继续使用本地缓存，不解析服务器端发回来的数据，若不相同就将<code>If-None-Match</code>的值设为<code>true</code>，返回状态为200，客户端重新记录服务器端返回的数据；客户端还会通过<code>If-Modified-Since</code>头将先前服务器端发过来的最后修改时间戳发送给服务器，服务器端通过这个时间戳判断客户端的页面是否是最新的，如果不是最新的，则返回最新的内容，如果是最新的，则返回304，客户端继续使用本地缓存。</li>
+</ul>
+<h6>强缓存</h6>
+<p><strong><em>强缓存</em></strong> 是利用http中的<code>Expires</code>和<code>cache-control</code>两个字段来控制的，用来表示资源的缓存时间。强缓存中，普通刷新会忽略它，但不会清除它，需要强制刷新。浏览器强制刷新，请求会带上<code>Cache-Control:no-cache</code>和<code>Pragma:no-cache</code>  
+
+</p>
+<p><strong><em>Expires</em></strong> 是http1.0的规范，它的值是一个绝对时间的GMT格式的时间字符串，表示资源的失效时间。这种方式有个明显的缺点，由于失效时间是一个绝对时间，所以当服务端和客户端时间偏差较大的时候会导致缓存混乱。如果同时出现<code>Cache-Control:max-age</code>和<code>Expires</code>，那么<code>max-age</code>的优先级更高。  
+
+</p>
+<p><strong><em>Cache-Control</em></strong> 是http1.1中出现的，主要利用该字段的<code>max-age</code>值来判断，它是一个相对时间。例如<code>Cache-Control:max-age=31536000</code>表示资源的有效期为31536000秒，也就是365天内再次请求这条数据，都会直接获取缓存数据库中的数据直接使用。<code>cache-control</code>还有几个常用的设置值:
+
+</p>
+<ul>
+<li><code>no-cache</code>：不使用本地缓存，需要使用协商缓存。先与服务器确认返回的响应是否被更改，如果之前的响应中存在<code>Etag</code>，那么请求的时候会与服务端验证，若资源未被修改，则可以避免重新下载。</li>
+<li><code>no-store</code>：直接禁止浏览器缓存数据，每次都向服务器请求。</li>
+<li><code>public</code>：可以被所有用户缓存，包括终端用户和CDN等中间代理服务器。</li>
+<li><code>private</code>：只能被终端用户的浏览器缓存。</li>
+</ul>
+<p><code>Cache-Control</code>与<code>Expires</code>可以在服务端配置时同时启用，同时启用时<code>Cache-Control</code>优先级高。
+
+</p>
+<h6>协商缓存</h6>
+<p><strong><em>协商缓存</em></strong> 就是由服务器来确定缓存资源是否可用，所以客户端与服务器需要通过某种标识来进行通信，从而让服务器判断请求资源是否可以缓存访问。<br>这个主要涉及两组header字段：<code>Etag</code>和<code>If-None-Match</code>、<code>Last-Modified</code>和<code>If-Modified-Since</code>。  
+
+</p>
+<p><strong><em><code>Etag</code>和<code>If-None-Match</code></em></strong><br><code>Etag/If-None-Match</code>返回的是一个校验码。<code>Etag</code>可以保证每一个资源是唯一的，资源变化都会导致<code>Etag</code>改变。服务器根据浏览器发送的<code>If-None-Match</code>值来判断是否命中缓存。  
+
+</p>
+<p>与<code>Last-Modified</code>不一样的是，当服务器返回<code>304 Not Modified</code>的响应时，由于<code>Etag</code>重新生成过，<code>response header</code>中还会把这个<code>Etag</code>返回，即使这个<code>Etag</code>跟之前的没有变化。
+
+</p>
+<p><strong><em><code>Last-Modified</code>和<code>If-Modified-Since</code></em></strong><br>浏览器第一次请求一个资源的时候，服务器返回的<code>header</code>中会加上<code>Last-Modified</code>，<code>Last-Modified</code>是一个时间标识该资源的最后修改时间。
+
+</p>
+<p>当浏览器再次请求该资源的时候，<code>request</code>请求头中会包含<code>If-Modified-Since</code>，该值为缓存之前返回的<code>Last-Modified</code>。服务器收到<code>If-Modified-Since</code>以后，根据资源的最后修改时间判断是否命中缓存。
+
+</p>
+<p><strong><em>为什么要有Etag?</em></strong><br>根据<code>Last-Modified</code>最后修改时间足以让浏览器知道本地缓存文件是否足够新，为什么还需要<code>Etag</code>呢？HTTP1.1中<code>Etag</code>的出现主要是为了解决几个<code>Last-Modified</code>比较难解决的问题：
+
+</p>
+<ul>
+<li>一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新GET；</li>
+<li>某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，<code>If-Modified-Since</code>能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)；</li>
+<li>某些服务器不能精确的得到文件的最后修改时间。  </li>
+</ul>
+<p><code>Last-Modified</code>与<code>ETag</code>是可以一起使用的，服务器会优先验证<code>ETag</code>，一致的情况下，才会继续比对<code>Last-Modified</code>，最后才决定是否返回304。
+
+</p>
+<p><a name="http200和304的理解和区别"></a>
+</p>
+<h4>HTTP200和304的理解和区别</h4>
+<p>200 OK：正常请求返回，有服务器请求，返回数据<br>200（from cache）：强缓存，无服务器请求，数据从缓存取<br>304：协商缓存，有服务器请求，服务器告知缓存是否可用
+
+</p>
+<p><a name="什么是预加载、懒加载"></a>
+</p>
+<h4>什么是预加载、懒加载</h4>
+<p><strong><em>预加载</em></strong>：顾名思义，图片预加载就是在网页全部加载之前，提前加载图片。当用户需要查看时可直接从本地缓存中渲染，以提供给用户更好的体验，减少等待的时间。当然这种做法实际上牺牲了服务器的性能换取了更好的用户体验。<br><strong><em>懒加载</em></strong>：延迟加载图片或符合某些条件时才加载某些图片。这样做的好处是减少不必要的访问数据库或延迟访问数据库的次数，因为每次访问数据库都是比较耗时的即只有真正使用该对象的数据时才会创建。懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。
+
+</p>
+<p><a name="一个-xmlhttprequest-实例有多少种状态？"></a>
+</p>
+<h4>一个 XMLHttpRequest 实例有多少种状态？</h4>
+<h6>readyState有以下五种状态</h6>
+<p>| 状态         | 说明                                                         |
+| ------------ |:------------------------------------------------------------ |
+| 0(未初始化)  | (XMLHttpRequest)对象已经创建，但还没有调用open()方法         |
+| 1(载入)      | 已经调用open() 方法，但尚未发送请求                          |
+| 2 (载入完成) | 通过send()方法发送请求到服务端，但是还无响应                 |
+| 3 (交互)     | 已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收结束 |
+| 4 (完成)     | 已经接收到了全部数据，并且连接已经关闭                       |
+
+</p>
+<h6>status辅状态判断</h6>
+<p><code>status</code>是一种辅状态判断，只是<code>status</code>更多是服务器方的状态判断。它的状态有几十种，下面分类简单说明下：
+
+</p>
+<p>| 状态码 |    类别    | 说明                                       |   例子   |
+| ------ | :--------- | :----------------------------------------- | -------: |
+|  1xx   | 信息类     | 表示收到Web浏览器请求，正在进一步的处理中  | 100：客户必须继续发出请求<br>101：客户要求服务器根据请求转换HTTP协议版本 |
+|  2xx   | 成功       | 表示用户请求被正确接收，理解和处理         | 200：OK；<br>201：提示知道新文件的URL         |
+|  3xx   | 重定向     | 表示请求没有成功，客户必须采取进一步的动作 | 300：请求的资源可在多处得到；<br>301：删除请求数据         |
+|  4xx   | 客户端错误 | 表示客户端提交的请求有错误                 | 404：NOT Found，意味着请求中所引用的文档不存在         |
+|  5xx   | 服务器错误 | 表示服务器不能完成对请求的处理             | 500：服务器产生内部错误         |
+
+</p>
+<h6>浅析原理</h6>
+<p><code>XMLHTTPRequest</code>对象可以在不刷新整个页面的前提下，实现局部刷新网页，<code>jQuery</code>中的<code>Ajax</code>就是基于此原理而开发的。<br>首选先创建一个<code>Button</code>，里面有我们的响应事件
+</p>
+<pre><code>&lt;input type="button" value="异步调用" onclick="XMLRq();" /&gt;</code></pre>
+<p>这里响应事件函数是<code>XMLRq()</code>，那<code>XMLRq()</code>的函数代码片段如下
+</p>
+<pre><code>function XMLRq () {
+    var xmlHttpreq = null;
+    // 创建xmlHTTPRequest对象
+    if (window.ActiveXObject) { // IE6
+        xmlHttpreq = new ActiveXObject("Microsoft.XMLHTTP");
+    } else if (window.XMLHttpRequest) { // 除了IE5与IE6以外的浏览器
+        xmlHttpreq = new XMLHttpRequest();
+    }
+    // 建立连接，发送数据
+    if (xmlHttpreq != null) {
+        xmlHttpreq.open("GET", "Ajax_response1.aspx", true);
+        xmlHttpreq.onreadystatechange = setCallback;
+        xmlHttpreq.send(null);
+    }
+    // 回调函数
+    function setCallback () {
+        if (xmlHttpreq.readyState == 4) {
+            if (xmlHttpreq.status == 200) {
+                console.log(xmlHttpreq.responseText);
+            }
+        }
+    }
+}</code></pre>
+<p>即过程为<strong><em>创建<code>xmlHTTPRequest</code>对象</em></strong> -&gt; <code>调用open()建立连接</code> -&gt; <code>调用send()发送数据</code> -&gt; <code>监听readyState变化，设置回调函数</code>
+
+</p>
+<p><a name="cookies、localstorage、sessionstorage"></a>
+</p>
+<h4>cookies、localStorage、sessionStorage</h4>
+<h6>相同点</h6>
+<p>保存在客户端，且同源
+</p>
+<h6>区别</h6>
+<p>| 特性           |    cookie     |   localStorage   |  sessionStorage    |
+| -------------- |:------------- | :--------------- | :----------------- |
+| 数据的生命期   | 一般由服务器生成，可设置失效时间<br>如果在浏览器端生成Cookie，默认是关闭浏览器后失效 | 除非被清除，否则永久保存 | 仅在当前会话下有效，关闭页面或浏览器后被清除 |
+| 存放数据大小   | 4K左右 | 一般为5MB | 同localStorage |
+| 与服务器端通信 | 每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题 | 不参与和服务器的通信 | 同localStorage |
+| 易用性         | 需要封装，原生的Cookie接口不友好 | 原生接口可以接受，亦可再次封装来对Object和Array有更好的支持 | 同localStorage |
+
+</p>
+<h6>webStorage的好处</h6>
+<ul>
+<li>减少网络流量：一旦数据保存在本地之后，就可以避免再向服务器请求数据，因此减少不必要的数据请求，减少数据在浏览器和服务器间不必要的来回传递</li>
+<li>快速显示数据：性能好，从本地读数据比通过网络从服务器上获得数据快得多，本地数据可以及时获得，再加上网页本身也可以有缓存，因此整个页面和数据都在本地的话，可以立即显示</li>
+<li>临时存储：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据就可以丢弃了，这种情况使用sessionStorage非常方便</li>
+</ul>
+<p><a name="session"></a>
+</p>
+<h4>session</h4>
+<ul>
+<li><code>session</code>在服务器端，<code>cookie</code>在客户端  </li>
+<li><code>session</code>可以放在文件、内存、数据库中，默认存在服务器的一个文件中。</li>
+<li>用户验证这种场合一般用<code>session</code></li>
+<li><code>session</code>的运行依赖<code>session id</code>，而<code>session id</code>是存在<code>cookie</code>中的，也就是说，如果浏览器禁用了<code>cookie</code>，同时<code>session</code>也会失效（一般这种情况下，会使用一种叫做URL重写的技术来进行会话跟踪，即每次HTTP交互，URL后面都会被附加上一个诸如 sid=xxxxx 这样的参数，服务端据此来识别用户）  </li>
+</ul>
+<p>因此，维持一个会话的核心就是客户端的唯一标识，即<code>session id</code>
+
+</p>
+<p><a name="xss、csrf"></a>
+</p>
+<h4>XSS、CSRF</h4>
+<h6>XSS跨站脚本攻击</h6>
+<blockquote>
+<p>当应用程序收到含有不可信的数据，在没有进行适当的验证和转义的情况下，就将它发送给一个网页浏览器，这就会产生跨站脚本攻击（XSS）。XSS允许攻击者在受害者的浏览器上执行脚本，从而劫持用户会话、危害网站、或者将用户转向恶意网站。
+</p>
+<h6>CSRF跨站请求伪造</h6>
+<p>一个跨站请求伪造攻击迫使登录用户的浏览器将伪造的HTTP请求，包括该用户的会话cookie和其它认证信息，发送到一个存在漏洞的web应用程序。这就允许了攻击者迫使用户浏览器向存在漏洞的应用程序发送请求，而这些请求会被应用程序认为是用户的合法请求。
+
+
+
+
+</p>
+</blockquote>
+<p><a name="css"></a>
+</p>
+<h1>CSS</h1>
+<p><a name="请解释box-sizingborder-box的作用，并说明使用它的好处"></a>
+</p>
+<h4>请解释*{box-sizing:border-box;}的作用，并说明使用它的好处</h4>
+<p>CSS引入<code>box-sizing</code>属性，它有<code>border-box</code>跟<code>content-box</code>两个值。
+
+</p>
+<ul>
+<li>当我们设置<code>box-sizing:content-box;</code>时，浏览器对盒模型的解释遵从我们之前认识到的W3C标准，当它定义<code>width</code>和<code>height</code>时，它的宽度不包括<code>border</code>和<code>padding</code></li>
+<li>当我们设置<code>box-sizing:border-box;</code>时，相当于以怪异模式解析，浏览器对盒模型的解释与IE6之前的版本相同，当它定义<code>width</code>和<code>height</code>时，<code>border</code>和<code>padding</code>则是被包含在宽高之内的。</li>
+</ul>
+<p><a name="link和import引入css的区别"></a>
+</p>
+<h4>link和@import引入css的区别</h4>
+<ul>
+<li>加载页面时，<code>link</code>标签引入的 CSS 被同时加载；<br><code>@import url()</code>引入的 CSS 将在页面加载完毕后被加载</li>
+<li><code>@import</code>是 CSS 提供的语法规则，只有导入样式表的作用；<br><code>link</code>是 HTML 提供的标签，不仅可以加载 CSS 文件，还可以定义 <code>RSS</code>、<code>rel</code> 连接属性等</li>
+<li><code>@import</code>是css2.1里面的，所以古老的ie5不支持</li>
+<li>可以通过 JS 操作 <code>DOM</code> ，插入<code>link</code>标签来改变样式；由于 <code>DOM</code>方法是基于文档的，无法使用<code>@import</code>的方式插入样式。</li>
+</ul>
+<p><a name="块级元素、内联元素"></a>
+</p>
+<h4>块级元素、内联元素</h4>
+<h6>块级元素的特点</h6>
+<ul>
+<li>总是在新行上开始，占据一整行</li>
+<li>高度，行高以及内外边距都可控制</li>
+<li>宽度始终保持与浏览器宽度一致，与内容无关</li>
+<li>可以容纳其它行级、块级元素  <h6>内联元素的特点</h6>
+</li>
+<li>和其它元素保持在同一行</li>
+<li>高，行高以及内外边距部分可改变（例如<code>img</code>、<code>input</code>）</li>
+<li>宽度只与内容有关</li>
+<li>行内元素只能容纳文本或者其它行内元素。<h6>可变元素</h6>
+可变元素根据上下文语境决定该元素是块元素还是内联元素。<br><code>button</code>、<code>iframe</code>、<code>map</code>、<code>script</code>、<code>del</code>、<code>ins</code>、<code>object</code>、<code>applet</code></li>
+</ul>
+<p><a name="清除浮动的原理和方法"></a>
+</p>
+<h4>清除浮动的原理和方法</h4>
+<h6>原因</h6>
+<p>在CSS规范中，浮动定位不属于正常的页面流（page flow），是独立定位的。所以，只含有浮动元素的父容器，在显示时不考虑子元素的位置，就当它们不存在一样。这就造成了显示出来，父容器好像空容器一样。
+</p>
+<h6>方法</h6>
+<ol>
+<li><p>添加空标签<br> 原理：在浮动元素下方添加一个非浮动元素</p>
+<pre><code> &lt;div&gt;
+     &lt;div style="float:left;width:45%;"&gt;&lt;/div&gt;
+     &lt;div style="float:right;width:45%;"&gt;&lt;/div&gt;
+     &lt;div style="clear:both;"&gt;&lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<p> 缺点：要在页面中增加冗余标签，违背了语义化的原则</p>
+</li>
+<li><p>浮动父容器<br> 原理：将父容器也改成浮动定位，这样它就可以带着子元素一起浮动</p>
+<pre><code> &lt;div style="float:left;"&gt;
+     &lt;div style="float:left;width:45%;"&gt;&lt;/div&gt;
+     &lt;div style="float:right;width:45%;"&gt;&lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<p> 缺点：在于父容器变成浮动以后，会影响到后面元素的定位  </p>
+</li>
+<li><p>浮动元素的自动clearing<br> 原理：让父容器变得可以自动"清理"（clearing）子元素的浮动，从而能够识别出浮动子元素的位置，不会出现显示上的差错。</p>
+<pre><code> &lt;div style="overflow: hidden;"&gt;
+     &lt;div style="float:left;width:45%;"&gt;&lt;/div&gt;
+     &lt;div style="float:right;width:45%;"&gt;&lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<p> 缺点：IE 6不支持。另外一旦子元素的大小超过父容器的大小，就会出显示问题</p>
+</li>
+<li><p>伪元素实现<br> 原理：利用<code>:after</code>，在父容器的尾部自动创建一个子元素  </p>
+<pre><code> .clearfix:after {
+     content: "\0020";
+     display: block;
+     height: 0;
+     clear: both;
+ }
+ .clearfix {
+     zoom: 1;
+ }</code></pre>
+<p> <code>content:"020";</code>是在父容器的结尾处放一个空白字符，<code>height: 0;</code>是让这个这个空白字符不显示出来，<code>display: block; clear: both;</code>是确保这个空白字符是非浮动的独立区块。但是，<code>:after</code>IE 6不支持，于是添加<code>zoom:1;</code>就行了，这条命令的作用是激活父元素的<code>hasLayout属性</code>，让父元素拥有自己的布局。</p>
+</li>
+</ol>
+<p><a name="浮动元素引起的问题和解决办法？"></a>
+</p>
+<h4>浮动元素引起的问题和解决办法？</h4>
+<h6>问题</h6>
+<ol>
+<li>由于浮动元素已脱离文档流，所以父元素无法被撑开，影响与父级元素同级的元素</li>
+<li>与浮动元素同级的非浮动元素（内联元素）会跟随其后，也是由于浮动元素脱离文档流，不占据文档流中额外位置</li>
+<li>若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构</li>
+</ol>
+<h6>解决方案</h6>
+<p>问题1、2、3都可以通过 <code>clear:both</code>清除父元素浮动<br>问题1还可以通过这两个方法解决：设置父元素<code>overflow:hidden/auto</code>、父元素设置<code>display:table</code>
+
+</p>
+<p><a name="设置绝对定位、相对定位元素浮动后的display值"></a>
+</p>
+<h4>设置绝对定位、相对定位元素浮动后的display值</h4>
+<blockquote>
+<p>设置<code>position</code>为<code>absolute</code>、<code>fixed</code>定位：隐式改变为<code>display:block</code><br> 设置浮动：隐式改变为<code>display:block</code><br> 设置<code>position</code>为<code>relative</code>：不改变<code>display</code>值，保持原来的状态
+
+</p>
+</blockquote>
+<p><a name="css3新特性"></a>
+</p>
+<h4>CSS3新特性</h4>
+<ul>
+<li>过渡 transition</li>
+<li>动画 animation  @keyframes</li>
+<li>转换 transform  rotate、scale</li>
+<li>选择器 :nth-child、元素选择器、::selection等</li>
+<li>shadow  文本、边框</li>
+<li>边框图片 border-image</li>
+<li>边框圆角</li>
+<li>背景图的属性　background-clip、background-origin、background-size</li>
+<li>文本溢出省略号 text-overflow:ellipsis; overflow:hidden; white-space:nowrap;</li>
+<li>颜色  rgba、渐变</li>
+<li>弹性布局 flex</li>
+<li>多列布局 column</li>
+<li>媒体查询 @media</li>
+</ul>
+<p><a name="css3伪类、伪元素"></a>
+</p>
+<h4>CSS3伪类、伪元素</h4>
+<h6>CSS伪类</h6>
+<p>| 伪类         | 作用                           |
+| ------------ |:------------------------------ |
+| :hover       | 将样式添加到鼠标悬浮的元素     |
+| :active      | 将样式添加到被激活的元素       |
+| :focus       | 将样式添加到获得焦点的元素     |
+| :link        | 将样式添加到未被访问过的链接   |
+| :visited     | 将样式添加到被访问过的链接     |
+| :first-child | 将样式添加到元素的第一个子元素 |
+| :lang        | 定义指定的元素中使用的语言     |
+
+</p>
+<h6>伪元素</h6>
+<p>| 伪元素         | 作用                           |
+| -------------- |:------------------------------ |
+| ::first-letter | 将样式添加到文本的首字母       |
+| ::first-line   | 将样式添加到文本的首行         |
+| ::before       | 在某元素之前插入某些内容       |
+| ::after        | 将样式添加到未被访问过的链接   |
+| ::selection    | 在某元素之后插入某些内容       |
+| ::placeholder  | 匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效 |
+
+</p>
+<h6>CSS3新增伪类</h6>
+<p>| 伪类                  | 作用                                            |
+| --------------------- |:----------------------------------------------- |
+| p:first-of-type       | 其父元素所有<code>&lt;p&gt;</code>元素的首个<code>&lt;p&gt;</code>元素的          |
+| p:last-of-type        | 其父元素所有<code>&lt;p&gt;</code>元素的最后<code>&lt;p&gt;</code>元素            |
+| p:only-of-type        | 其父元素仅有一个子元素为<code>&lt;p&gt;</code>元素的<code>&lt;p&gt;</code>元素    |
+| p:only-child          | 其父元素有且仅有一个子元素，且该元素为<code>&lt;p&gt;</code>元素 |
+| p:nth-child(n)        | 其父元素的第n个子元素的每个<code>&lt;p&gt;</code>元素            |
+| p:nth-last-child(n)   | 其父元素的倒数第n个子元素的每个<code>&lt;p&gt;</code>元素        |
+| p:nth-of-type(n)      | 其父元素所有<code>p</code>元素中的第n个<code>&lt;p&gt;</code>元素           |
+| p:nth-last-of-type(n) | 其父元素所有<code>p</code>元素中的倒数第n个<code>&lt;p&gt;</code>元素       |
+| p:last-child          | 其父元素的最后一个子元素的每个<code>&lt;p&gt;</code>元素         |
+| p:empty               | 选择没有子元素的每个<code>&lt;p&gt;</code>元素（包括文本节点）   |
+| p:target              | 选择当前活动的<code>&lt;p&gt;</code>元素                         |
+| p:not(p)              | 选择非<code>&lt;p&gt;</code>元素的每个元素                       |
+| p:enabled             | 控制表单控件的可用状态                          |
+| p:disabled            | 控制表单控件的禁用状态                          |
+| p:checked             | 单选框或复选框被选中                            |
+
+</p>
+<p><a name="before和after中的双冒号和单冒号的区别"></a>
+</p>
+<h4>"::before"和":after"中的双冒号和单冒号的区别</h4>
+<p>双冒号是在CSS3规范中引入的，用于区分伪类和伪元素。但是伪类兼容现存样式，浏览器需要同时支持旧的伪类，比如<code>:first-line</code>、<code>:first-letter</code>、<code>:before</code>、<code>:after</code>等。<br>对于CSS2之前已有的伪元素，比如<code>:before</code>，单冒号和双冒号的写法<code>::before</code>作用是一样的。如果不得不兼容IE浏览器，还是用CSS2的单冒号写法比较安全
+
+</p>
+<p><a name="flexbox，以及适用场景"></a>
+</p>
+<h4>Flexbox，以及适用场景</h4>
+<p>任何一个容器都可以指定为<code>flex</code>布局,行内元素也可以使用<code>flex</code>布局。注意，设为<code>flex</code>布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。<code>flexbox</code>弹性盒子布局，一般用来解决垂直居中、一侧固定另一侧自适应的布局。
+
+</p>
+<p><code>Flex</code>布局由父容器称为<code>flex容器（flex-container）</code>和它直接的子元素称为<code>flex 项目（flex-item）</code>构成，在下文中将它们简称为“容器”和“项目”
+
+</p>
+<p><img src="images/flex1.jpg" alt="">
+在上图中你可以看到用来描述Flex容器和它的子元素的属性和术语
+
+</p>
+<ul>
+<li>flex容器有两个参考的轴：水平的主轴（main axis）和交叉的轴（cross axis）</li>
+<li>主轴的开始位置main start，主轴结束位置main end</li>
+<li>交叉轴的开始位置叫做cross start，结束位置叫做cross end</li>
+<li>子元素“项目”沿主轴排列</li>
+<li>单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size</li>
+</ul>
+<h6>用法</h6>
+<pre><code>    div{
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;  // IE10
+        display: -webkit-flex; // chrome
+        display: flex;
+    }</code></pre>
+<h6>容器属性</h6>
+<ol>
+<li><strong><em>flex-direction: row（默认值）| row-reverse | column | column-reverse</em></strong><br>该属性指定了<code>flex-item</code>怎样在<code>flex-container</code>中排列，设置<code>flex容器</code>的主轴方向，它们(项目)两个主要的方向排列，就像一行一样水平排列或者像一列一样垂直排列</li>
+<li><strong><em>flex-wrap: nowrap（默认值）| wrap | wrap-reverse</em></strong><br><code>flexbox</code>的理念是所有的项目都排列在一条线上（轴线），<code>flex-wrap</code> 属性控制容器是否将它的项目排列在一行或者多行，并且控制新行堆叠的方向</li>
+<li><strong><em>flex-flow: <code>&lt;flex-direction&gt;</code> || <code>&lt;flex-wrap&gt;</code></em></strong><br>该属性是上面两个属性的简写方式，前一个参数设置<code>flex-direction</code>，后一个参数设置<code>flex-wrap</code></li>
+<li><strong><em>justify-content: flex-start（默认值） | flex-end | center | space-between | space-around</em></strong><br>定义了项目在<strong>容器主轴上的对齐方式</strong>，当容器中项目都是一行并且非弹性的时候或者项目是弹性的但是达到了它们的最小宽度的时候该属性可以定义容器中的剩余空间的分配 <ul>
+<li><code>flex-start</code>: 所有项目向容器的左边对齐</li>
+<li><code>flex-end</code>: 所有项目向容器的右边对齐</li>
+<li><code>center</code>: 所有项目在容器中居中对齐</li>
+<li><code>space-between</code>: 第一个项目和最后一个项目向容器的边界对齐，剩余的空间各个项目等分</li>
+<li><code>space-around</code>: 所有的项目等分剩余的容器空间</li>
+</ul>
+</li>
+<li><strong><em>align-items: flex-start | flex-end | center | baseline | stretch（默认值）</em></strong><br>定义项目在<strong>交叉轴上的对齐方式</strong>，交叉轴与当前的轴线有关系，与<code>justify-content</code>很相似，只不过是垂直方向的；这属性为所有的项目设置默认的交叉轴上的对齐方式，包括匿名的  <ul>
+<li><code>stretch</code>: 项目会填充容器的整个高或宽，从容器交叉轴的起点到交叉点的结束点</li>
+<li><code>flex-start</code>: 项目会堆放在交叉轴的起始位置</li>
+<li><code>flex-end</code>: 项目会堆放在交叉轴的结束位置</li>
+<li><code>center</code>: 项目会堆放在交叉轴的居中位置</li>
+<li><code>baseline</code>: 所有项目的基线会对齐</li>
+</ul>
+</li>
+<li><strong><em>align-content: flex-start | flex-end | center | space-between | space-around | stretch（默认值）</em></strong><br>当交叉轴上还有多余的空间时它定了<strong>多行的对齐方式</strong>，类似<code>justify-content</code>在主轴上对齐所有项目的方式一样  <ul>
+<li><code>stretch</code>: 每一行的项目后面等比分配了交叉轴上的多余空间</li>
+<li><code>flex-start</code>: 项目在容器的交叉轴起始点上堆放在一起</li>
+<li><code>flex-end</code>: 项目在容器的交叉轴结束点上堆放在一起</li>
+<li><code>center</code>: 项目的行被堆放在容器的交叉轴线中间</li>
+<li><code>space-between</code>: 与<code>justify-content</code>类似，项目的行距离在容器的交叉轴线上被等分，第一行和末尾的一行与容器的边缘对齐</li>
+<li><code>space-around</code>: 与<code>justify-content</code>类似，项目的行等分了容器的交叉线上的剩余空间<h6>项目属性</h6>
+</li>
+</ul>
+</li>
+<li><strong><em>order:<code>&lt;integer&gt;</code></em></strong><br><code>order</code>属性控制容器的直接子元素在容器中的顺序，默认在容器中这些项目是以该数字递增的方式排列的</li>
+<li><strong><em>flex-grow:<code>&lt;number&gt;</code></em></strong><br>设置或检索弹性盒的扩展比率，用数值来定义扩展比率。不允许负值<br>根据弹性盒子元素所设置的扩展因子作为比率来分配剩余空间  </li>
+<li><strong><em>flex-shrink:<code>&lt;number&gt;</code></em></strong><br>设置或检索弹性盒的收缩比率，用数值来定义收缩比率。不允许负值<br>根据弹性盒子元素所设置的收缩因子作为比率来收缩空间，默认情况下，所有的项目都会收缩，但是当我们设置该属性的值为0的时候，项目会保持原有的大小</li>
+<li><strong><em>flex-basis: auto | <code>&lt;width&gt;</code></em></strong><br>设置或检索弹性盒伸缩基准值<br>如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间</li>
+<li><strong><em>flex: none | auto | [<code>&lt;flex-grow&gt;``&lt;flex-shrink&gt;</code>||<code>&lt;flex-basis&gt;</code>]</em></strong><br>该属性是<code>flex-grow</code>，<code>flex-shrink</code>和<code>flex-basis</code>的缩写形式，具体说明如下：<ul>
+<li><code>flex: none</code>，等同于 <code>flex: 0 0 auto</code></li>
+<li><code>flex: auto</code>，等同于 <code>flex: 1 1 auto</code></li>
+<li><code>flex</code>为<strong>非负数字</strong>，则该数字为<code>flex-grow</code>值，<code>flex-shrink: 1</code>，<code>flex-basis: 0%</code></li>
+<li><code>flex</code>为<strong>长度或百分比</strong>，则视为<code>flex-basis</code>值，<code>flex-grow: 1</code>，<code>flex-shrink: 1</code></li>
+<li><code>flex</code>为<strong>两个非负数字</strong>，则分别为<code>flex-grow</code>和<code>flex-shrink</code>的值，<code>flex-basis: 0%</code></li>
+<li><code>flex</code>为<strong>一个非负数字和一个长度或百分比</strong>，则分别为<code>flex-grow</code>和<code>flex-basis</code>，<code>flex-shrink: 1</code></li>
+</ul>
+</li>
+<li><strong><em>align-self: auto | flex-start | flex-end | center | baseline | stretch</em></strong><br>该属性和容器的<code>align-items</code>属性有同样的作用，它是用在单一的项目上的，可以完全压倒容器中<code>align-items</code>定义的对齐方式<br>注意：<code>auto</code>表示项目会使用父元素（容器）的<code>align-items</code>的值，如果该项目没有父元素的话<code>align-self</code>的值是<code>stretch</code></li>
+</ol>
+<p><code>flex-item</code>值得注意的是：<code>float</code>、<code>clear</code>、<code>vertical-align</code>这些属性对于<code>项目(flex item)</code>会失效
+
+</p>
+<p><a name="盒模型，box-sizing"></a>
+</p>
+<h4>盒模型，box-sizing</h4>
+<p>盒模型分为<strong>标准盒子模型</strong>跟<strong>IE盒子模型</strong>  
+
+</p>
+<p>简单来说<br>标准盒子模型<code>box-sizing: content-box</code>宽高含<code>padding</code>以及<code>border</code><br>IE盒子模型<code>box-sizing: border-box</code>宽高不含<code>padding</code>以及<code>border</code>
+
+</p>
+<p><a name="inline和inline-block的区别"></a>
+</p>
+<h4>inline和inline-block的区别</h4>
+<h6>inline</h6>
+<p><code>inline</code>就是将元素设置为内联元素  
+
+</p>
+<ul>
+<li>多个相邻内联元素会排列在同一行</li>
+<li>设置高度宽度无效</li>
+<li><code>inline</code>元素的水平方向<code>margin</code>、<code>padding</code>有效果，竖直方向无效</li>
+</ul>
+<h6>inline-block</h6>
+<p>简单来说就是将对象呈现为<code>inline对象</code>，但是对象的内容作为<code>block对象</code>呈现。之后的内联对象会被排列在同一行内，比如我们可以给一个<code>link（a元素）``inline-block</code>属性值，使其既具有<code>block</code>的宽度高度特性又具有<code>inline</code>的同行特性
+
+</p>
+<p>IE（低版本IE）本来是不支持<code>inline-block</code>的，所以在IE中对内联元素使用<code>display:inline-block</code>，理论上IE是不识别的，但使用<code>display:inline-block</code>在IE下会触发<code>layout</code>，从而使内联元素拥有了<code>display:inline-block</code>属性的表象
+
+</p>
+<p><a name="如何实现水平居中和垂直居中"></a>
+</p>
+<h4>如何实现水平居中和垂直居中</h4>
+<h6>水平居中的几种方案</h6>
+<ol>
+<li><p>定宽块状元素 - 水平居中</p>
+<pre><code> width: 300px;
+ margin-left: auto;
+ margin-right: auto;</code></pre>
+</li>
+<li><p>内联元素 - 水平居中</p>
+<pre><code> text-align: center</code></pre>
+</li>
+<li><p>绝对定位，元素定宽 - 水平居中</p>
+<pre><code> position: absolute;
+ left: 50%;
+ width: 300px;
+ margin-left: -150px;</code></pre>
+</li>
+<li><p>绝对定位，元素不定宽，无子元素 - 水平居中</p>
+<pre><code> position: absolute;
+ left: 50%;
+ transform: translate(-50%, 0);</code></pre>
+</li>
+<li><p>绝对定位，元素不定宽，有子元素 - 水平居中</p>
+<pre><code> .parent{
+     position: absolute;
+     left: 50%;
+ }
+ .child{
+     float: left;
+     position: relative;
+     right: 50%;
+ }</code></pre>
+</li>
+<li><p>flex实现 - 水平居中</p>
+<pre><code> display: flex;
+ justify-content: center;</code></pre>
+</li>
+<li><p>fit-content实现 - 水平居中<br>CSS3<code>width</code>新加的属性，可实现水平居中，但兼容性不太好</p>
+<pre><code> width: fit-content</code></pre>
+</li>
+</ol>
+<h6>垂直居中的几种方案</h6>
+<ol>
+<li><p>相对定位<code>margin-top: -height/2</code> - 垂直居中</p>
+<pre><code> position: absolute;
+ left: 50%;
+ top: 50%;
+ width: 200px;
+ height: 200px;
+ margin-left: -100px;
+ margin-right: -100px;</code></pre>
+</li>
+<li><p>相对定位<code>margin: auto</code> - 垂直居中</p>
+<pre><code> position: absolute;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ width: 200px;
+ height: 200px;
+ margin: auto;</code></pre>
+</li>
+<li><p>相对定位<code>transform: translate(-50%, -50%)</code> - 垂直居中</p>
+<pre><code> position: absolute;
+ left: 50%;
+ top: 50%;
+ width: 200px;
+ height: 200px;
+ transform: translate(-50%,-50%);</code></pre>
+</li>
+<li><p>绝对定位<code>margin-top: -height/2</code> - 垂直居中</p>
+</li>
+<li>绝对定位<code>margin: auto</code> - 垂直居中</li>
+<li>绝对定位<code>transform: translate(-50%, -50%)</code> - 垂直居中</li>
+<li><p><code>display: table-cell</code> - 垂直居中</p>
+<pre><code> display: table-cell;
+ vertical-align: middle;
+ text-align: center;</code></pre>
+</li>
+<li><p>内联元素<code>line-height</code> - 垂直居中</p>
+<pre><code> width: 100px;
+ height: 100px;
+ line-height: 100px;
+ text-align: center;</code></pre>
+</li>
+<li><p>CSS3属性<code>display: -webkit-box</code> - 垂直居中</p>
+<pre><code> display: -webkit-box;
+ -webkit-box-pack: center;
+ -webkit-box-align: center;</code></pre>
+</li>
+<li><p><code>:before</code>高大上实现居中 - 垂直居中</p>
+<pre><code>&lt;div class="wrapper"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+.wrapper{
+    height: 100px;
+    width: 100px;
+    text-align: center; // 水平居中
+    border: 1px solid #ccc;
+}
+.wrapper:before{
+    display: inline-block;
+    content: "";
+    height: 100%;
+    vertical-align: middle;
+    visibility: hidden;
+}
+.box{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}  </code></pre>
+</li>
+</ol>
+<p><a name="attribute和property的区别"></a>
+</p>
+<h4>attribute和property的区别</h4>
+<p><strong><em>property是早已存在的不需要外界赋予的特质</em></strong>  
+
+</p>
+<ul>
+<li>DOM有其默认的基本属性，而这些属性就是所谓的<code>property</code>，无论如何，它们都会在初始化的时候再DOM对象上创建  </li>
+<li>如果对这些属性进行赋值，那么这些值就会作为初始值赋给DOM的同名<code>property</code></li>
+<li>原生用<code>.</code>操作。JQuery中用<code>prop()</code>方法来获取</li>
+</ul>
+<p><strong><em>attribute是我们赋予某个事物的特质或对象</em></strong>  
+
+</p>
+<ul>
+<li>HTML标签中定义的属性和值会保存该DOM对象的<code>attributes</code>属性里面  </li>
+<li>这些<code>attribute</code>属性的JavaScript中的类型是Attr，而不仅仅是保存属性名和值这么简单，它是一个Attr类型的对象，拥有<code>NodeType</code>、<code>NodeName</code>等属性</li>
+<li>原生用<code>getAttribute()</code>操作。JQuery中用<code>attr()</code>方法来获取</li>
+</ul>
+<p><code>attribute</code>和<code>property</code>之间的数据绑定是<strong>单向</strong>的，<code>attribute</code> -&gt; <code>property</code><br><code>property</code>能够从<code>attribute</code>中得到同步，<code>attribute</code>不会同步<code>property</code>上的值，更改<code>property</code>和<code>attribute</code>上的任意值，都会将更新反映到HTML页面中  
+
+</p>
+<pre><code>    &lt;input type="text" id="test" value="abc"&gt;
+
+    var _dom = document.getElementById("test");
+    _dom.getAttribute("value"); // output =&gt; abc
+    _dom.value; // output =&gt; abc
+    手动修改输入框的值为"21414"
+    _dom.value; // output =&gt; 21414
+    _dom.getAttribute("value"); // output =&gt; abc</code></pre>
+<p>JQuery中性能<code>prop()</code> &gt; <code>data()</code> &gt; <code>attr()</code>
+
+</p>
+<p><a name="css实现隐藏页面的方式"></a>
+</p>
+<h4>CSS实现隐藏页面的方式</h4>
+<ul>
+<li><code>opacity: 0</code></li>
+<li><code>visibility: hidden</code></li>
+<li><code>display: none</code></li>
+<li><code>position: absolute; left: -9999px; top: -9999px;</code></li>
+<li><code>clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px)</code><br><code>clip-path</code>属性可以通过定义裁剪区域来决定目标元素哪个区域可见，哪个区域不可见，也就是只有在闭合路径内的部分才显示，区域以外的部分就不显示。上面polygon里面传入的就是四个坐标点</li>
+</ul>
+<p><a name="外边距合并"></a>
+</p>
+<h4>外边距合并</h4>
+<h6>相邻兄弟元素的外边距合并</h6>
+<p>当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者<br>解决方案：<br>  消除边距合并的方式：形成<strong>BFC</strong>。但这里要注意的是，在形成BFC的方式中（<code>float</code>的值不为<code>none</code>，<code>display</code>的值为<code>inline-block</code>、<code>table-cell</code>、<code>table-caption</code>）这两个能直接起效果。但（<code>overflow</code>的值为<code>auto</code>或者<code>hidden</code>）这个必须外面还要包裹一层父元素
+</p>
+<h6>父子元素的外边距合并</h6>
+<p>当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并<br>解决方案:<br>  1、给父元素加边框<br>  2、给父元素加padding
+
+</p>
+<p>只有<strong>普通文档流中块框的垂直外边距才会发生外边距合并</strong>。行内框、浮动框或绝对定位之间的外边距不会合并
+
+</p>
+<p><a name="grid布局"></a>
+</p>
+<h4>grid布局</h4>
+<p>CSS3网格布局，又叫二维网格布局。最开始我们用table布局，然后用<code>float</code>、<code>position</code>、<code>inline-block</code>布局，但是这些方法本质上是hack，遗漏了很多功能，例如垂直居中。后来出了很强大的flex布局，但是flex是一维布局。  
+
+</p>
+<p>grid布局的兼容性不是很好。具体可以在<a href="https://caniuse.com/#search=grid">CANIUSE</a>上查询
+
+</p>
+<p><a href="http://blog.csdn.net/hj7jay/article/details/70670467">grid布局属性</a>
+
+</p>
+<p><a name="table布局"></a>
+</p>
+<h4>table布局</h4>
+<p>table一般用来做表格布局，它具有同行等高、宽度自适应的特性。
+</p>
+<h6>优点</h6>
+<ul>
+<li>兼容性好</li>
+<li>内容可以自适应</li>
+</ul>
+<h6>缺点</h6>
+<ul>
+<li>标签结构多，复杂</li>
+<li>不易维护</li>
+<li>table会阻挡浏览器渲染引擎的渲染顺序</li>
+<li>table一旦设计完成就变成死的，很难通过CSS让它展现新的面貌</li>
+<li>搜索引擎不友好</li>
+</ul>
+<p><a name="实现两栏布局有哪些方法？"></a>
+</p>
+<h4>实现两栏布局有哪些方法？</h4>
+<p>1、利用<code>calc(100% - 120px)</code>计算自适应宽度，有以下两种方案
+
+</p>
+<ul>
+<li>利用双<code>float</code>浮动实现布局</li>
+<li>利用双<code>inline-block</code>实现布局</li>
+</ul>
+<p>2、利用<code>block</code>元素宽度具有填满父容器，并随着父容器的宽度自适应的流动特性，有以下两种方案
+
+</p>
+<ul>
+<li>左侧<code>float:left</code>，右侧<code>margin-left:120px</code></li>
+<li>左侧<code>position:absolute</code>，右侧<code>margin-left:120px</code></li>
+</ul>
+<p>3、使用<code>float</code> + <code>BFC</code>方法  
+
+</p>
+<pre><code>    .left{
+        float: left;
+        margin-right: 20px;
+    }
+    .right{
+        margin-left: 0;
+        overflow: auto;
+    }</code></pre>
+<p>同样是利用了左侧浮动，但是右侧盒子通过<code>overflow:auto;</code>形成了<code>BFC</code>，因此右侧盒子不会与浮动的元素重叠  
+
+</p>
+<p>4、flex布局<br>5、grid布局
+
+</p>
+<p><a name="实现三栏布局"></a>
+</p>
+<h4>实现三栏布局</h4>
+<p>其实跟两栏布局没什么区别，就不过多说明了。  
+
+</p>
+<p>1、圣杯布局<br>2、双飞翼布局<br>3、flex布局<br>4、grid布局
+
+</p>
+<p><a name="流式布局如何实现，响应式布局如何实现"></a>
+</p>
+<h4>流式布局如何实现，响应式布局如何实现</h4>
+<h6>流式布局</h6>
+<p>流式布局的特点是页面元素的宽度按照屏幕分辨率进行适配调整，但整体布局不变。代表作栅栏系统（网格系统）。<br><strong>布局特点：</strong>屏幕分辨率变化时，页面里元素的大小会变化而但布局不变。（这就导致如果屏幕太大或者太小都会导致元素无法正常显示）<br><strong>实现：</strong>区域横向尺寸用百分比实现；移动端高度单位用rem实现。PC端高度大都是用px来固定住，可以根据可视区域和父元素的实时尺寸进行调整，尽可能的适应各种分辨率，往往配合<code>max-width/min-width</code>等属性控制尺寸流动范围以免过大或者过小影响阅读
+</p>
+<h6>响应式布局</h6>
+<p>响应式设计的目标是确保一个页面在所有终端上都能显示出令人满意的效果，对CSS编写者而言，在实现上不拘泥于具体手法，但通常是糅合了流式布局 + 弹性布局，再搭配媒体查询技术使用。分别为不同的屏幕分辨率定义布局，同时，在每个布局中，应用流式布局的理念，即页面元素宽度随着窗口调整而自动适配。即：创建多个流体式布局，分别对应一个屏幕分辨率范围。可以把响应式布局看作是流式布局和自适应布局设计理念的融合。<br><strong>布局特点：</strong>每个屏幕分辨率下面会有一个布局样式，即元素位置和大小都会变<br><strong>实现：</strong>媒体查询+流式布局。通常使用<code>@media</code>媒体查询和网格系统配合相对布局单位进行布局，实际上就是综合响应式、流动等上述技术通过CSS给单一网页不同设备返回不同样式的技术统称
+</p>
+<h6>总结</h6>
+<p>响应式与自适应的原理是相似的，都是检测设备，根据不同的设备采用不同的css，而且css都是采用的百分比的，而不是固定的宽度，不同点是响应式的模板在不同的设备上看上去是不一样的，会随着设备的改变而改变展示样式，而自适应不会，所有的设备看起来都是一套的模板，不过是长度或者图片变小了，不会根据设备采用不同的展示样式，流式就是采用了一些设置，当宽度大于多少时怎么展示，小于多少时怎么展示，而且展示的方式向水流一样，一部分一部分的加载，静态的就是采用固定宽度的了。
+
+</p>
+<p>流式布局是用于解决类似的设备不同分辨率之间的兼容(一般分辨率差异较少)；响应式是用于解决不用设备之间不用分辨率之间的兼容问题(一般是指PC，平板，手机等设备之间较大的分辨率差异)。
+
+</p>
+<p><a name="移动端布局方案"></a>
+</p>
+<h4>移动端布局方案</h4>
+<p>1、viewport(over-fit:cover)<br>2、zepto<br>3、@media响应式设计
+4、rem<br>5、1x图，2x图
+
+</p>
+<p><a name="css-dpi"></a>
+</p>
+<h4>CSS DPI</h4>
+<p><code>px</code>是像素。<br>像素有两种，一种是逻辑像素，一种是物理像素。当一个逻辑像素对应多个物理像素的时候，显示会更清晰。<br>一个逻辑像素对应多少个物理像素，这个叫做<code>DPR(像素设备比)</code>,<code>window.devicePixelRatio</code>即可获取。css通常使用逻辑像素，也称为设备独立像素  
+
+</p>
+<p>DPI：每英寸有多少个点<br>PPI：每英寸有多少像素  
+
+</p>
+<p>普通屏幕通常包含96dpi，一般将2倍于此的屏幕称之为高分屏
+
+</p>
+<pre><code>    &lt;style&gt;
+        @media screen and (min-resolution: 192dpi) {
+            .normal{display:none;}
+        }
+        @media screen and (min-resolution: 72dpi) and (max-resolution: 191dpi) {
+            .retina{display:none;}
+        }
+    &lt;/style&gt;
+
+    &lt;p class="retina"&gt;retina屏&lt;/p&gt;
+    &lt;p class="normal"&gt;普通屏&lt;/p&gt;</code></pre>
+<p><a name="css中的长度单位（pxptrememexvwvhvhvminvmax）"></a>
+</p>
+<h4>CSS中的长度单位（px,pt,rem,em,ex,vw,vh,vh,vmin,vmax）</h4>
+<p>px: 绝对单位，设备独立像素<br>em: 相对单位，基准点为父节点字体的大小，如果自身定义了<code>font-size</code>按自身为基准点<br>rem: 相对单位，基准点为根节点html的字体大小来计算<br>vw: <code>viewpoint width</code>，视窗宽度，1vw等于视窗宽度的1%<br>vh: <code>viewpoint height</code>，视窗高度，1vh等于视窗高度的1%<br>vmin: vw跟vh中较小的那个<br>vmax: vw跟vh中较大的那个<br>pt(point): 绝对单位，大约1/72寸
+
+</p>
+<p><a name="overflowhidden的缺点"></a>
+</p>
+<h4>overflow:hidden的缺点</h4>
+<ol>
+<li><p><code>overflow:hidden</code>并不隐藏所有溢出的元素。<br> 拥有<code>overflow:hidden</code>的块元素不具有<code>position:relative</code>和<code>position:absolute</code>样式；<br> 内部溢出的元素是通过<code>position:absolute</code>绝对定位<br> 例子：</p>
+<pre><code> &lt;div style="overflow:hidden;width:100px;height:100px;"&gt;
+     &lt;p style="width:200px;height:100%;background:red;"&gt;&lt;/p&gt;
+     &lt;p style="position:absolute; top:50px; left:50px;width:200px;height:50px;background: aqua;"&gt;&lt;/p&gt;
+ &lt;/div&gt;</code></pre>
+</li>
+</ol>
+<p><a name="padding百分比是相对于父级宽度还是自身的宽度"></a>
+</p>
+<h4>padding百分比是相对于父级宽度还是自身的宽度</h4>
+<p><code>padding</code>、<code>margin</code>设置为百分比的时候，那这个百分比是相对于其父元素的宽度而言。  <a href="http://blog.csdn.net/hau5yi/article/details/60469225">可参考此处</a>
+
+</p>
+<p><a name="css选择器的优先级"></a>
+</p>
+<h4>CSS选择器的优先级</h4>
+<p>①标签内的样式（假设级别为1000），<code>&lt;div style="color:Red;"&gt;&lt;/div&gt;</code><br>②ID选择器（假设级别为100）<br>③类选择器（假设级别为10）<br>④标签选择器（假设级别为1）<br>那么后代选择器<code>.test a</code>的优先级为<code>10 + 1 = 11</code><br>优先级：① &gt; ② &gt; ③ &gt; ④  
+
+</p>
+<p><a name="transition和animation的区别，加速度、重力的模拟实现"></a>
+</p>
+<h4>transition和animation的区别，加速度、重力的模拟实现</h4>
+<h6>transition &amp;&amp; animation</h6>
+<p><code>transition</code>作用是指定了某一个属性（如<code>width</code>、<code>left</code>、<code>transform</code>等）在两个值之间如何过渡，它包括<code>transition-property</code>、<code>transition-duration</code>、<code>transition-timing-function</code>、<code>transition-delay</code>等。<br>它是令一个或多个可以用数值表示的css属性值发生变化时产生过渡效果，关注的是CSS property的变化 
+
+</p>
+<p><code>animation</code>是属于关键帧动画的范畴，它本身被用来替代一些纯粹表现的javascript代码而实现动画。基于<code>animation</code>和<code>@keyframe</code>的动画一方面也是为了实现表现与行为的分离，它作用于元素本身而不是样式属性
+
+</p>
+<p><strong>区别</strong>  
+
+</p>
+<ul>
+<li><code>animation</code>也是通过指定某一个属性（如<code>width</code>、<code>left</code>、<code>transform</code>等）在两个值之间如何过渡来实现动画的，与<code>transition</code>不同的是，<code>animation</code>可以通过<code>keyframe</code>显式控制当前帧的属性值，而<code>transition</code>只能隐式来进行（不能指定每帧的属性值）。  </li>
+<li>另外一个区别是<code>animation</code>通过模拟属性值改变来实现动画，动画结束之后元素的属性没有变化；而<code>transition</code>确实改变了元素的属性值，动画结束之后元素的属性发生了变化；</li>
+</ul>
+<p>总结: 通过Transition和Animation指定如何改变不同的属性值，才实现了动画
+
+</p>
+<h6>加速度、重力的模拟实现</h6>
+<p><code>animation-timing-function</code> 和 <code>transition-timing-function</code>规定动画的速度曲线  
+
+</p>
+<p><code>cubic-bezier</code>贝塞尔曲线，自定义贝塞尔曲线函数，通过设置四个参数，可以控制动画的速度，平时使用的<code>ease</code>、<code>linear</code>、<code>ease-in</code>等，其实也是输入了四个参数后得到的结果
+
+</p>
+<p><a name="css-的加载是异步的吗？表现在什么地方？"></a>
+</p>
+<h4>CSS 的加载是异步的吗？表现在什么地方？</h4>
+<p>个人理解：是异步的，在页面加载的时候，跟DOM的加载是并行的。而JS不会，所以JS是阻塞模式（defer和async除外）。  
+
+</p>
+<p>也就是说，css在加载时Dom还在继续加载构建，而过程中遇到的css样式或者img，则会向服务器发送一个请求，<strong>待资源返回后</strong>，将其添加到dom中的相对应位置中。
+
+</p>
+<p><a name="媒体查询的原理是什么？"></a>
+</p>
+<h4>媒体查询的原理是什么？</h4>
+<p>作为CSS3规范的一部分，媒体查询扩展了media属性（控制您的样式应用方式），允许设计人员基于各种不同的设备属性（比如屏幕宽度、方向等）来确定目标样式。
+
+</p>
+<p><a name="雪碧图"></a>
+</p>
+<h4>雪碧图</h4>
+<p><strong>优点</strong><br>减少http请求次数<br>减少图片的字节，提升网页加载速度  
+
+</p>
+<p><strong>缺点</strong><br>提高了网页的开发和维护成本<br>图片的位置需要固定为某个绝对数值，缺乏灵活性<br>需要非单向的平铺背景和需要网页缩放的情况下
+
+</p>
+<p><a name="三角形的实现"></a>
+</p>
+<h4>三角形的实现</h4>
+<p>右三角形
+
+</p>
+<pre><code>    border-left: 10px solid red;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;</code></pre>
+<p>右上三角形
+
+</p>
+<pre><code>    border-top: 10px solid red;
+    border-left: 10px solid transparent;</code></pre>
+<p><a name="bfc"></a>
+</p>
+<h4>BFC</h4>
+<p>BFC（Block Formatting Contexts），块级格式化上下文。<br>BFC就是一个独立的盒子，并且与这个独立盒子里的布局不受外部影响，当然它也不会影响到外面的元素。例如margin折叠外边距合并问题可用BFC解决。
+</p>
+<h6>如何实现BFC</h6>
+<p>满足以下任一条件即可:
+
+</p>
+<ul>
+<li><code>overflow</code>不为<code>visibility</code></li>
+<li><code>float</code>不为<code>none</code></li>
+<li><code>position</code>不为<code>static</code>和<code>relative</code></li>
+<li><code>display</code>为<code>flex</code>、<code>inline-block</code>、<code>table-cell</code>、<code>table-caption</code></li>
+</ul>
+<h6>BFC的特性（作用）</h6>
+<ol>
+<li>在BFC中，内部的Box会在垂直方向一个接一个地放置</li>
+<li>Box垂直方向的距离由<code>margin</code>决定，同一个BFC下相邻两个Box的<code>margin</code>会发生重叠（意味着如果相邻兄弟元素不属于同一个BFC，就不会发生margin重叠了）</li>
+<li>在BFC中，每一个盒子的左外边缘<code>margin-left</code>会触碰到盒子的左边缘<code>border-left</code>（对于从右到左的格式来说，则触碰到右边缘），即使存在浮动也如此。<strong>即不会发生margin穿透</strong></li>
+<li>形成了BFC的区域不会与<code>float Box</code>重叠（可阻止因浮动元素引起的文字环绕现象）</li>
+<li>计算BFC高度时，浮动元素也参与计算（BFC会确切包含浮动的子元素，即闭合浮动）</li>
+</ol>
+<h6>BFC解决的问题（应用）</h6>
+<ul>
+<li>实现自适应两栏布局（特性4）</li>
+<li>解决父元素高度塌陷（特性5）</li>
+<li>解决垂直方向上兄弟元素的margin重叠（特性2）</li>
+</ul>
+<p><a name="javascript"></a>
+</p>
+<h1>JavaScript</h1>
+<p><a name="js的基本类型有哪些？引用类型有哪些？null和undefined的区别"></a>
+</p>
+<h4>js的基本类型有哪些？引用类型有哪些？null和undefined的区别</h4>
+<p><strong>基本类型</strong>：<code>Number</code>、<code>String</code>、<code>Boolean</code>、<code>null</code>、<code>undefined</code><br><strong>引用类型</strong>：<code>Object</code>、<code>Function</code>、<code>Array</code>、<code>Date</code>等  
+
+</p>
+<p>基本类型的数据是存放在栈内存中的，而引用类型的数据是存放在堆内存中的。<br>引用类型：当复制保存着对象的某个变量时，操作的是对象的引用，但在为对象添加属性时，操作的是实际的对象
+
+</p>
+<h6>null &amp;&amp; undefined</h6>
+<p><code>Number(null)  // output -&gt; 0</code><br><code>null</code>表示"没有对象"，即该处不应该有值，典型用法：
+
+</p>
+<ul>
+<li>作为函数的参数，表示该函数的参数不是对象</li>
+<li>作为对象原型链的终点</li>
+</ul>
+<p><code>Number(undefined)  // output -&gt; NaN</code><br><code>undefined</code>表示"缺少值"，就是此处应该有一个值，但是还没有定义。典型用法：
+
+</p>
+<ul>
+<li>变量被声明了，但没有赋值时，就等于undefined</li>
+<li>对象没有赋值的属性，该属性的值为undefined</li>
+<li>调用函数时，应该提供的参数没有提供，该参数等于undefined</li>
+<li>函数没有返回值时，默认返回undefined。</li>
+</ul>
+<p><a name="引用类型和基本类型有什么区别？"></a>
+</p>
+<h4>引用类型和基本类型有什么区别？</h4>
+<p>上面提到：基本类型的数据是存放在栈内存中的，而引用类型的数据是存放在堆内存中  
+
+</p>
+<ul>
+<li>引用类型值可添加属性和方法，而基本类型值则不可以</li>
+<li>在复制变量值时，基本类型会在变量对象上创建一个新值，再复制给新变量，两个变量的任何操作都不会影响到对方；<br>而引用类型是将存储在变量对象的值复制一份给新变量，但是两个变量的值都指向存储在堆中的一个对象，也就是说，其实他们引用了同一个对象，改变其中一个变量就会影响到另一个变量</li>
+<li>函数中传递参数：都是按值传递，将函数外部的值复制给函数内部的参数（一个局部变量），当对局部变量进行操作时，局部变量的变化会反应在函数外部，对于基本类型而言，这并不会影响函数外部的值。但是即便按值传递，引用类型也会按引用来访问同一个对象。<br>解决方案: Array类型，<code>var newArr = [].concat(pro)</code><br>    Object类型，<code>var newObj = Object.assign({},pro)</code></li>
+<li>基本类型检测用<code>typeof</code>，引用类型用<code>instanceof</code></li>
+</ul>
+<p><a name="object详解、array详解、string详解见单独文件"></a>
+</p>
+<h4>Object详解、Array详解、String详解见单独文件</h4>
+<p><a name="判断对象为空的实现"></a>
+</p>
+<h4>判断对象为空的实现</h4>
+<p>JQuery中可以直接用<code>$.isEmptyObject()</code>，那原生怎么判断呢
+</p>
+<pre><code>function (obj) {
+    for (var i in obj) {
+        return false;
+    }
+    return true
+}</code></pre>
+<p><a name="call、apply、bind-的区别跟联系"></a>
+</p>
+<h4>call()、apply()、bind() 的区别跟联系</h4>
+<p><code>Function.prototype.bind()</code>原理是用函数柯里化实现的，下面的调用方法就很好理解了。
+</p>
+<h6>相同点</h6>
+<ol>
+<li>都是用来改变函数的<code>this</code>对象的指向</li>
+<li>第一个参数都是<code>this</code>要指向的对象</li>
+<li>都可以继续传递参数</li>
+</ol>
+<h6>区别</h6>
+<ol>
+<li><p><code>call</code>跟<code>apply</code>都是对函数的直接调用；<code>bind</code>返回的是修改后的函数，需要执行</p>
+<pre><code> let xb = {
+     name: "xb",
+     say () {
+         alert(this.name);
+     }
+ }
+ let other = { name: "other" }
+
+ xb.say.call(other);
+ xb.say.apply(other);
+ xb.say.bind(other)();</code></pre>
+</li>
+<li><p>传参形式不一样</p>
+<pre><code> let xb = {
+     name: "xb",
+     say (done, sth) {
+         alert(`${this.name} ${done} ${sth}`);
+     }
+ }
+ let other = { name: "other" }
+
+ xb.say.call(other, "eat", "banana");
+ xb.say.apply(other, ["eat", "banana"]);
+ xb.say.bind(other, "drink", "water")();
+ xb.say.bind(other)("watch", "TV");</code></pre>
+</li>
+</ol>
+<p><a name="如何判断一个变量是array类型？如何判断一个变量是number类型？"></a>
+</p>
+<h4>如何判断一个变量是Array类型？如何判断一个变量是Number类型？</h4>
+<h6>判断Array类型</h6>
+<ol>
+<li><p>instanceof</p>
+<pre><code> let a = [];
+ a instanceof Array;</code></pre>
+</li>
+<li><p>对象的constructor属性</p>
+<pre><code> a.constructor === Array</code></pre>
+</li>
+<li><p>Object原型上的toString方法</p>
+<pre><code> Object.prototype.toString.call(a);    // [Object Array]</code></pre>
+</li>
+<li><p>Array.isArray()</p>
+<pre><code> Array.isArray(a)</code></pre>
+</li>
+</ol>
+<h6>判断Number类型</h6>
+<ol>
+<li>typeof</li>
+<li>isNaN</li>
+</ol>
+<p><a name="js常见的dom操作api"></a>
+</p>
+<h4>JS常见的dom操作api</h4>
+<h6>节点查找API</h6>
+<ul>
+<li>document.getElementById</li>
+<li>document.getElementsByClassName</li>
+<li>document.getElementsByTagName</li>
+<li>document.getElementsByName</li>
+<li>document.querySelector</li>
+<li>document.querySelectorAll</li>
+<li>document.forms</li>
+</ul>
+<h6>节点创建API</h6>
+<ul>
+<li>document.createElement</li>
+<li>document.createTextNode</li>
+<li>node.cloneNode</li>
+<li>document.createDocumentFragment</li>
+</ul>
+<h6>节点修改</h6>
+<ul>
+<li>parent.appendChild</li>
+<li>parentNode.insertBefore(newNode, refNode)</li>
+<li>parent.removeChild</li>
+<li>parent.replaceChild(newChild, oldChild)</li>
+</ul>
+<p>还有一些节点关系型API（兄弟节点、父子节点），操作元素属性的API（<code>setAttribute</code>、<code>getAttribute</code>），样式相关API等等
+
+</p>
+<p><a name="事件冒泡和事件捕获，如何阻止冒泡？如何阻止默认事件？"></a>
+</p>
+<h4>事件冒泡和事件捕获，如何阻止冒泡？如何阻止默认事件？</h4>
+<pre><code>&lt;div id="content"&gt;content
+    &lt;div id="btn"&gt;button&lt;/div&gt;
+&lt;/div&gt;
+
+var content = document.getElementById("content");
+var btn = document.getElementById('btn');
+btn.onclick = function(){
+    alert("btn");
+};
+content.onclick = function(){
+    alert("content");
+};
+document.onclick = function(){
+    alert("document");
+}</code></pre>
+<p>如果点击容器<code>#btn</code>，则弹出的顺序是：<code>btn</code> -&gt; <code>content</code> -&gt; <code>document</code>，由此可以看出JavaScript的事件流机制。
+
+</p>
+<p>IE提出的是冒泡流，而网景提出的是捕获流，后来在W3C组织的统一之下，JS支持了<strong>冒泡流</strong>和<strong>捕获流</strong>，但是目前低版本的IE浏览器还是只能支持冒泡流(IE6,IE7,IE8均只支持冒泡流)，所以为了能够兼容更多的浏览器，建议大家使用冒泡流
+<img src="images/event1.png" alt="">
+
+</p>
+<p><strong><code>addEventListener</code>的最后一个参数，<code>true</code>代表捕获流，<code>false</code>代表冒泡流，默认为<code>false</code></strong><br><strong><code>onclick</code>直接绑定的事件发生在冒泡阶段</strong>  
+
+</p>
+<blockquote>
+<p>  <code>e.stopPropagation()</code>、<code>e.stopImmediatePropagation()</code>阻止事件的传播、冒泡  
+
+</p>
+<p>  <code>e.preventDefault()</code>可以阻止事件的默认行为发生<br>    默认行为是指：点击a标签就转跳到其他页面、拖拽一个图片到浏览器会自动打开、点击表单的提交按钮会提交表单等等，因为有的时候我们并不希望发生这些事情，所以需要阻止默认行为
+
+</p>
+</blockquote>
+<p><a name="事件委托"></a>
+</p>
+<h4>事件委托</h4>
+<p>HTML元素含有嵌套关系，并且事件流含有冒泡阶段。子元素的触发事件会冒泡到父元素的相同事件上。<br>一般情况只需给子元素注册特定的事件处理程序即可，但当子元素过多或频繁的进行增减操作怎么办？
+
+</p>
+<p>比如一个ul包含了几十个li元素，对每个li元素进行单独的事件注册会影响性能。<strong>而现只要在父元素注册事件监听器，等待li事件触发后的冒泡阶段即可。</strong><br><strong>简单来说事件委托就是父元素监听子元素的冒泡事件。</strong>
+</p>
+<pre><code>&lt;div id="div"&gt;
+    &lt;ul id="ul" &gt;
+        &lt;li data-key="北京"&gt;北京&lt;/li&gt;
+        &lt;li data-key="上海"&gt;上海&lt;/li&gt;
+        &lt;li data-key="杭州"&gt;杭州&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+document.getElementById('div').addEventListener('click',function(e){
+    // 利用e.target操作当前点击对象
+    // 获取属性 e.target.attribute["data-key"].value
+    // 获取标签名 e.target.nodeName
+    // 获取class e.target.className
+    // 获取id e.target.id
+});</code></pre>
+<p><strong>JQuery中调用<code>delegate()</code>或者<code>on()</code>实现事件委托。</strong>1.7版本开始时，推荐<code>on()</code>代替<code>delegate()</code>方法  
+</p>
+<pre><code>$("li").on("click", function () {
+    console.log($(this).attr("data-key"));
+})
+
+// 以上代码无法监听新增加的`li`标签，所以应使用事件委托
+$("#ul").on("click", "li", function () {
+    console.log($(this).attr("data-key"));
+})</code></pre>
+<p><a name="this有哪些使用场景？如何改变this的值？"></a>
+</p>
+<h4>this有哪些使用场景？如何改变this的值？</h4>
+<h6>使用场景</h6>
+<ul>
+<li>函数由所属对象，<code>this</code>指向所属对象</li>
+<li>函数无所属对象，<code>this</code>指向全局对象</li>
+<li>使用构造器new一个对象时，<code>this</code>指向新对象。<code>new Function</code>中的<code>this</code>除外，它指向全局对象</li>
+<li><code>apply</code>、<code>call</code>、<code>bind</code>改变了<code>this</code>的指向</li>
+<li><p>ES6箭头函数中的this继承自父执行上下文，<code>apply</code>、<code>call</code>等方法也无法改变this指向<a href="http://blog.csdn.net/liwusen/article/details/70257837">详解</a></p>
+<pre><code>  // 以下例子都是ES6环境下的，与ES5`this`不一样，切莫混淆
+  var obj={
+      x:22,
+      say: () =&gt; {
+          // 简单对象（非函数）是没有执行上下文的，this指向全局对象
+          console.log(this);
+      }
+  }
+
+  function test2 () {
+      this.a = 22;
+      let b = () =&gt; { 
+          console.log(this.a)  // output =&gt; 22
+      }
+      b();
+  }
+  var x = new test2();</code></pre>
+</li>
+</ul>
+<p><a name="闭包"></a>
+</p>
+<h4>闭包</h4>
+<h6>什么是闭包</h6>
+<pre><code>function Outer(){
+    var x = 1;
+    function Inner (y) {
+        return x + y
+    }; 
+    return Inner;
+}</code></pre>
+<p>上面的<code>Inner</code>函数就是一个闭包，我的理解是: 闭包就是能够读取其他函数内部变量的函数，突破作用域链<br>在本质上，闭包是将函数内部和函数外部连接起来的桥梁
+</p>
+<h6>什么时候构成闭包</h6>
+<pre><code>var inner1 = Outer();</code></pre>
+<p>创建起来的<code>Inner</code>函数被<code>inner1</code>变量引用，<code>inner1</code>变量就对<code>Outer</code>函数体内的局部变量x有间接的引用。  
+
+</p>
+<p><strong>内部函数对外部函数的变量有了引用关系——闭包就是这时产生的。每次对外部函数的调用，都会产生一次闭包。</strong>
+</p>
+<h6>闭包的实现方法</h6>
+<pre><code>// 写法1
+function Test(r) {  
+      this.r = r;  
+}
+Test.prototype.area = function() {  
+  return this.r * this.r;  
+}  
+var c = new Test(1.0);     
+alert(c.area()); 
+
+// 写法2
+var Circle = function() {  
+   var obj = new Object();  
+   obj.PI = 3.14159;
+   obj.area = function( r ) {  
+       return this.PI * r * r;  
+   }  
+   return obj;  
+}  
+var c = new Circle();  
+c.area(1.0);   
+
+// 写法3
+var Circle={  
+    "PI":3.14159,  
+    "area":function(r){  
+        return this.PI * r * r;  
+    }  
+};  
+Circle.area(1.0); 
+
+// 写法4
+var Circle = new Function("this.PI = 3.14159;this.area = function( r ) {return r*r*this.PI;}");  
+(new Circle()).area(1.0);</code></pre>
+<h6>闭包的优缺点</h6>
+<p>优点
+
+</p>
+<ol>
+<li>逻辑连续，当闭包作为另一个函数调用的参数时，避免你脱离当前逻辑而单独编写额外逻辑。</li>
+<li>方便调用上下文的局部变量。</li>
+<li>加强封装性，第2点的延伸，可以达到对变量的保护作用</li>
+</ol>
+<p>缺点: 内存泄漏。乱用闭包而造成内存泄露，只能说是本末倒置了，实际上闭包概念就是为了避免内存泄露而存在的
+
+</p>
+<p>内存泄漏的解决方案：在JavaScript代码段运行完之时将形成循环引用的JavaScript对象手动设置为空，切断引用
+</p>
+<pre><code>// 例子1
+function example(){  
+    var element =document.getElementByID("div1"); //①  
+    element.onclick = function() {  
+        alert("This is a leak!"); //②  
+    };
+    element = null; // 释放内存  
+}  
+
+// 例子2
+function Cars(){  
+  this.name = "Benz";  
+  this.color = ["white","black"];  
+}  
+Cars.prototype.sayColor = function(){  
+  var outer = this;  
+  return function(){  
+    return outer.color  
+  };  
+};  
+// 修改为
+Cars.prototype.sayColor = function(){  
+  var outerColor = this.color;  
+  return function(){  
+    return outerColor;
+  };  
+  outColor = null; // 释放内存  
+};</code></pre>
+<h6>闭包的用途</h6>
+<ul>
+<li>匿名自执行函数</li>
+<li><p>结果缓存</p>
+<pre><code>  var CacheManager=(function(){
+      var cacheObj={};
+      return {
+          setItem:function(key,value){
+              cacheObj[key]=value;
+          },
+          getItem:function(key){
+              return cacheObj[key];
+          },
+          removeItem:function(key){
+              delete cacheObj[key];
+          },
+          //清空缓存
+          clear:function(){
+              cacheObj={};
+          }
+      }
+  })();
+  CacheManager.setItem("name","lisi");
+  alert(CacheManager.getItem("name"));</code></pre>
+</li>
+<li><p>封装</p>
+<pre><code>  var person = function(){    
+      //变量作用域为函数内部，外部无法访问    
+      var name = "default";       
+
+      return {    
+         getName : function(){    
+             return name;    
+         },    
+         setName : function(newName){    
+             name = newName;    
+         }    
+      }    
+  }();    </code></pre>
+</li>
+<li><p>实现类和继承</p>
+<pre><code>  function Person(){    
+      var name = "default";       
+
+      return {    
+         getName : function(){    
+             return name;    
+         },    
+         setName : function(newName){    
+             name = newName;    
+         }    
+      }    
+  };   
+
+  var p = new Person();
+  p.setName("Tom");
+  p.getName();            // output =&gt; Tom
+
+  var Jack = function(){};
+  // 继承自Person
+  Jack.prototype = new Person();
+  // 添加私有方法
+  Jack.prototype.Say = function(){
+      alert("my name is " + this.getName());
+  };
+  var j = new Jack();
+  j.Say();               // output =&gt; my name is default</code></pre>
+</li>
+</ul>
+<p><a name="typeof能够得到哪些值"></a>
+</p>
+<h4>typeof能够得到哪些值</h4>
+<p><code>number</code>、<code>string</code>、<code>boolean</code>、<code>undefined</code>、<code>object</code>、<code>function</code>
+
+</p>
+<p><a name="typeof-和-instanceof-区别，instanceof原理"></a>
+</p>
+<h4>typeof 和 instanceof 区别，instanceof原理</h4>
+<p><code>typeof</code>用来判断基本类型，<code>null</code>跟引用类型返回的都是<code>object</code><br><code>instanceof</code>用来判断引用类型<br><code>Object.prototype.toString.call(a)</code>可以判断所有类型  
+</p>
+<h6>instanceof 原理</h6>
+<p>A instanceof B: 只要B的原型对象出现在A的原型链中，就返回<code>true</code>
+</p>
+<pre><code>function Pig() {}
+var pig = new Pig(); 
+pig instanceof Pig            // =&gt; true 
+Pig.prototype = { eat:function () {} };
+// 当改变了prototype的时候，pig.__ptoto__ !== pig.prototype
+pig instanceof Pig           // =&gt; false
+
+function Bird() {} 
+var bird = new Bird(); 
+var o = {}; 
+bird.__proto__ = o; 
+bird instanceof Bird         // =&gt; false
+Bird.prototype = o;
+bird instanceof Bird         // =&gt; true</code></pre>
+<p><a name="use-strict的好处和坏处"></a>
+</p>
+<h4>"use strict"的好处和坏处</h4>
+<p>严格模式下语法跟行为会改变，例如
+
+</p>
+<ul>
+<li>禁止this指向全局对象</li>
+<li>禁止删除对象</li>
+<li>重名错误</li>
+<li>arguments对象的限制</li>
+<li>函数必须声明在顶层</li>
+<li>保留字</li>
+<li>...</li>
+</ul>
+<p>优点：
+
+</p>
+<ol>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫。</li>
+</ol>
+<p>注：经过测试 IE6,7,8,9 均不支持严格模式
+
+</p>
+<p>缺点:<br>现在网站的 JS 都会进行压缩，一些文件用了严格模式，而另一些没有。这时这些本来是严格模式的文件，被merge后，这个串就到了文件的中间，不仅没有指示严格模式，反而在压缩后浪费了字节。
+
+</p>
+<p><a name="函数的作用域是什么？js-的作用域有几种？"></a>
+</p>
+<h4>函数的作用域是什么？js 的作用域有几种？</h4>
+<p>函数作用域的含义是指，属于这个函数的全部变量都可以在整个函数的范围内使用及复用(事实上在嵌套的作用域中也可以使用)
+
+</p>
+<p>JS作用域有：  
+
+</p>
+<ul>
+<li>全局作用域（函数外部申明的全局变量）</li>
+<li>函数作用域/局部作用域（函数内部申明的局部变量）</li>
+<li>块级作用域（js中没有，可以用闭包实现）</li>
+</ul>
+<p>作用域链<br>作用域即变量对象，作用域链是一个由变量对象组成的带头结点的单向链表，其主要作用就是用来进行变量查找
+
+</p>
+<p><a name="web端cookie的设置和获取"></a>
+</p>
+<h4>web端cookie的设置和获取</h4>
+<blockquote>
+<p>document.cookie  
+
+</p>
+</blockquote>
+<h6>设置Cookie</h6>
+<p>最简单的做法就是 document.cookie = "name=test";<br>一般会对存入的Cookie值进行加密或者编码，加上<code>expire</code>、<code>path</code>、<code>domain</code>、<code>secure</code>等限制参数
+
+</p>
+<h6>获取Cookie</h6>
+<p>比如存入的Cookie格式为<code>name=jack;password=123</code><br>做法就是　document.cookie.split(";")["name"].split("=")[1];<br>一般需要先解密，然后按照设置的格式将存入的Cookie分割为数组，然后获取需要的Cookie
+
+</p>
+<p><a name="获取相对于视口、文档的坐标"></a>
+</p>
+<h4>获取相对于视口、文档的坐标</h4>
+<p>每个HTML元素都有下列属性
+
+</p>
+<ul>
+<li><code>clientHeight</code>、<code>clientWidth</code>描述元素内尺寸，指元素内容 + 内边距的大小</li>
+<li><code>offsetHeight</code>、<code>offsetWidth</code>描述元素外尺寸，指元素内容 + 内边距 + 边框的大小</li>
+<li><code>clientTop</code>、<code>clientLeft</code>返回内边距的边缘跟边框的外边缘的水平和垂直距离，指左、上边框的宽度</li>
+<li><code>offsetTop</code>、<code>offsetLeft</code>表示元素的左上角与<code>offsetParent</code>对象左上角的距离</li>
+<li><code>offsetParent</code>指元素最近的定位(<code>relative</code>、<code>absolute</code>)祖先元素，递归上溯，如果没有祖先元素是定位的话，则取<code>body</code>元素的引用</li>
+<li><code>scrollHeight</code>、<code>scrollWidth</code>指元素内容 + 内边距 + 溢出尺寸，如果无溢出内容，则与<code>clientHeight</code>、<code>clientWidth</code>相等</li>
+<li><code>scrollTop</code>、<code>scrollLeft</code>指元素滚动条位置</li>
+</ul>
+<h6>文档坐标</h6>
+<p><code>offsetTop</code>、<code>offsetLeft</code>返回的X、Y坐标，对于很多元素来说，就是文档坐标<br>对于定位元素的子元素来说，是相对父元素的坐标，这个时候要得到文档坐标，需要经过简单的计算。
+</p>
+<h6>视口坐标</h6>
+<p>可以通过调用元素的<code>getBoundingClientRect</code>方法。方法返回一个有<code>left</code>、<code>right</code>、<code>top</code>、<code>bottom</code>属性的对象，分别表示元素四个位置的相对于视口的坐标。<code>getBoundingClientRect</code>所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好
+
+</p>
+<p>此外，还可以通过文档坐标跟滚动条的位置去计算
+
+</p>
+<p><a name="getclientrects--getboundingclientrect"></a>
+</p>
+<h4>getClientRects &amp;&amp; getBoundingClientRect</h4>
+<p><code>getBoundingClientRect()</code>返回一个对象，该对象提供当前元素节点的大小、它相对于视口的位置等信息  
+
+</p>
+<p><code>getClientRects()</code>方法与<code>getBoundingClientRect()</code>不同，该方法是一个返回元素的数个矩形区域的类数组对象。每个类数组对象的参数与<code>getBoundingClientRect()</code>方法相同
+
+</p>
+<p><a name="手写实现ajax、jsonp"></a>
+</p>
+<h4>手写实现Ajax、JSONP</h4>
+<h5>Ajax</h5>
+<pre><code>if (window.XMLHttpRequest) {  // 非IE6
+    var xhr = new XMLHttpRequest();
+} else {   // IE6及以下
+    var xhr = new ActiveXObject("Microsoft.XMLHttp");
+}
+
+// xhr 具有一个 open 方法，这个方法的作用类似于初始化，并不会发起真正的请求
+// open 方法具有 5 个参数，但是常用的是前 3 个
+// method： 请求方式 —— get / post
+// url：请求的地址
+// async：是否异步请求，默认为 true（异步）
+xhr.open(method, url, async);
+// post 方式需要设置请求头
+xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded;charset=UTF-8')
+
+
+// send 方法发送请求，并接受一个可选参数
+// 当请求方式为 post 时，可以将请求体的参数传入
+// 当请求方式为 get 时，可以不传或传入 null
+// 不管是 get 还是 post，参数都需要通过 encodeURIComponent 编码后拼接
+xhr.send()
+
+// 获取返回数据
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        var status = xhr.status;
+        if (status &gt;= 200 &amp;&amp; status &lt; 300 || 
+            status == 304) {
+            console.log(xhr.responseText);
+        }
+    }
+}
+
+// 超时时间单位为毫秒
+xhr.timeout = 1000
+// 当请求超时时，会触发 ontimeout 方法
+xhr.ontimeout = () =&gt; console.log('请求超时')</code></pre>
+<h5>JSONP</h5>
+<p>主要原理是利用了<code>script</code>标签可以跨域请求的特点，由其<code>src</code>属性发送请求到服务器，服务器返回<code>js</code>代码，网页端接受响应，然后就直接执行了，这和通过<code>script</code>标签引用外部文件的原理是一样的
+</p>
+<pre><code>// 省略了拼接src跟动态创建script标签
+function jsonpCallback(result) {
+    alert(result.msg);
+}
+&lt;script type="text/javascript" src="http://crossdomain.com/jsonServerResponse?jsonp=jsonpCallback"&gt;&lt;/script&gt;</code></pre>
+<p><a name="举例说明一个匿名函数的典型用例"></a>
+</p>
+<h4>举例说明一个匿名函数的典型用例</h4>
+<p>自执行函数
+
+</p>
+<p><a name="javascript-的事件流模型都有什么"></a>
+</p>
+<h4>JavaScript 的事件流模型都有什么</h4>
+<p>捕获流跟冒泡流
+eventPhase：调用事件处理的阶段 1捕获 2目标 3冒泡
+
+</p>
+<p><a name="原生事件绑定（跨浏览器），dom0和dom2的区别？"></a>
+</p>
+<h4>原生事件绑定（跨浏览器），dom0和dom2的区别？</h4>
+<h6>原生事件绑定（跨浏览器）</h6>
+<ul>
+<li><p>jQuery封装好的事件方法</p>
+<pre><code>  $(".xxx").click(function () {
+      // ...
+  })</code></pre>
+</li>
+<li><p>jQuery封装好的事件绑定<code>on</code></p>
+<pre><code>  $(".xxx").on("click", function () {
+      // ...
+  })</code></pre>
+</li>
+<li><p>js原生<br>在标准浏览器下，使用<code>addEventListener()</code>来监听事件<br>在IE浏览器下，使用<code>attachEvent()</code>来监听</p>
+<pre><code>  var btn = document.getElementById('btn');
+  if (btn.addEventListener) {
+      btn.addEventListener('click',function(){
+          // ...
+      },false);
+  }
+  if (btn.attachEvent) {
+      btn.attachEvent("onclick", function () {
+          // ...
+      })
+  }</code></pre>
+</li>
+</ul>
+<h6>Dom0 &amp;&amp; Dom2</h6>
+<p>Dom0的事件处理  
+</p>
+<pre><code>// 添加事件，只能注册一个，多个会被覆盖
+var dom0 = document.getElementById('click')
+dom0.onclick = function(event){
+    alert(event.target);
+}
+
+// 删除
+dom0.onclick = null</code></pre>
+<p>Dom2的事件处理
+</p>
+<pre><code>// 添加事件
+addEventListener(eventName,func,useCapture);
+// 删除事件
+removeEventListener(eventName,func,useCapture);</code></pre>
+<p><a name="dom事件的绑定的几种方式"></a>
+</p>
+<h4>DOM事件的绑定的几种方式</h4>
+<ul>
+<li>html标签内onclick之类</li>
+<li>dom.onclick = function () {}</li>
+<li>dom.addEventListener("click", function () {})</li>
+</ul>
+<p>上面原生事件绑定（跨浏览器）已经提到了，这里就不做说明。
+
+</p>
+<p><a name="普通事件与绑定事件的区别"></a>
+</p>
+<h4>普通事件与绑定事件的区别</h4>
+<p>事件绑定相当于在一个元素上进行监听，监听事件是否触发。<br>普通事件就是直接触发事件。
+
+</p>
+<p>两者的区别就在于是否可重复使用。
+
+</p>
+<p>事件绑定<code>addEventListener</code>可以在一个元素上监听同一事件多次，而普通事件（例如<code>dom.onclick</code>）多次写会被覆盖。
+
+</p>
+<p><a name="编写一个通用的事件监听函数"></a>
+</p>
+<h4>编写一个通用的事件监听函数</h4>
+<pre><code>// 监听事件
+function addEvent (element, type, func) {
+    if (window.addEventListener) {
+        element.addEventListener(type, func, false)
+    } else if (window.attachEvent) {
+        element.attachEvent(`on${type}`, func)
+    } else {
+        element[`on${type}`] = func
+    }
+}
+
+// 移除事件
+function removeEvent (element, type, func) {
+    if (window.removeEventListener) {
+        element.removeEventListener(type, func, false)
+    } else if (window.detachEvent) {
+        element.detachEvent(`on${type}`, func)
+    } else {
+        element[`on${type}`] = null
+    }
+}
+
+// 阻止事件冒泡
+function stopPropagation (event) {
+    if (event.stopPropagation) {
+        event.stopPropagation();
+    } else {
+        event.cancelBubble = true;
+    }
+}
+
+// 阻止默认事件
+function preventDefault (event) {
+    if (event.preventDefault) {
+        event.preventDefault();
+    } else {
+        event.returnValue = false;
+    }
+}</code></pre>
+<p><a name="dom事件中target和currenttarget的区别"></a>
+</p>
+<h4>DOM事件中target和currentTarget的区别</h4>
+<p>在事件处理程序内部，对象<code>this</code>始终等于<code>currentTarget</code>的值(换个角度理解，DOM上的方法<code>this</code>指向都为该DOM-方法调用模式)，而<code>target</code>则只包含事件的实际目标。如果直接将事件处理程序指定给了目标元素，则<code>this</code>、<code>currentTarget</code>和<code>target</code>包含相同的值。<br>可参考事件委托理解
+
+</p>
+<p><a name="document-load和document-domcontentloaded两个事件的区别"></a>
+</p>
+<h4>document load和document DOMContentLoaded两个事件的区别</h4>
+<p>DOM文档的加载步骤为：
+
+</p>
+<ol>
+<li>解析HTML结构。</li>
+<li>加载外部脚本和样式表文件。</li>
+<li>解析并执行脚本代码。</li>
+<li>DOM树构建完成。// DOMContentLoaded</li>
+<li>加载图片等外部文件。</li>
+<li>页面加载完毕。// load</li>
+</ol>
+<p>在第4步，会触发<code>DOMContentLoaded</code>事件。在第6步，触发<code>load</code>事件。
+
+</p>
+<p>原生JS可以这么写：
+</p>
+<pre><code>document.addEventListener("DOMContentLoaded", function () {
+    // ...
+}, false)
+
+window.addEventListener("load", function () {
+    // ...
+}, false)</code></pre>
+<p>JQuery这么写：
+</p>
+<pre><code>$(document).ready(function () {})
+
+$(document).load(function () {})</code></pre>
+<p><a name="条件注释判断浏览器"></a>
+</p>
+<h4>条件注释判断浏览器</h4>
+<pre><code>&lt;!--[if !IE]&gt;&lt;!--&gt; 除IE外都可识别 &lt;!--&lt;![endif]--&gt;
+&lt;!--[if IE]&gt; 所有的IE可识别 &lt;![endif]--&gt;
+&lt;!--[if lte IE 5]&gt; IE6及IE6以下版本可识别 &lt;![endif]--&gt;
+&lt;!--[if lt IE 6]&gt; IE6以下版本可识别 &lt;![endif]--&gt;
+&lt;!--[if IE 6]&gt; 仅IE6可识别 &lt;![endif]--&gt;
+&lt;!--[if gt IE 5]&gt; IE6以上版本可识别 &lt;![endif]--&gt;
+&lt;!--[if gte IE 6]&gt; IE6以及IE6以上版本可识别 &lt;![endif]--&gt;</code></pre>
+<p><a name="创建对象的多种方式"></a>
+</p>
+<h4>创建对象的多种方式</h4>
+<ul>
+<li><p>Object.create()<br>  ES5定义了一个名为Object.create（）的方法，它创建一个新对象，其中第一个参数是这个对象的原型，第二个参数对对象的属性进行进一步描述。</p>
+</li>
+<li><p>通过Object构造函数或对象字面量创建单个对象<br>  它们都是用了同一个接口创建很多对象，会产生大量的重复代码，就是如果你有100个对象，那你要输入100次很多相同的代码。为了解决这个问题，出现了工厂模式</p>
+<pre><code>  var obj = new Object();
+
+  var obj2 = { name:"test" }</code></pre>
+</li>
+<li><p>工厂模式<br>  考虑在ES中无法创建类（ES6前），开发人员发明了一种函数，用函数来封装以特定接口创建对象的细节。（实现起来是在一个函数内创建好对象，然后把对象返回）</p>
+<pre><code>  function createPerson (name) {
+      var o = new Object();
+      o.name = name;
+      return o;
+  }
+  var p1 = createPerson("person1");
+  var p2 = createPerson("person2");</code></pre>
+<p>  工厂模式虽然解决了创建了多个相似对象的问题，但没有解决对象识别的问题，即怎么知道一个对象的类型。随着JS的发展，又一个模式出现了。</p>
+</li>
+<li><p>构造函数模式  </p>
+<pre><code>  function Person (name) {
+      this.name = name;
+      this.sayName = function () {
+          console.log(this.name);
+      }
+  }
+  var p1 = new Person("p1");
+  var p2 = new Person("p2");</code></pre>
+<p>  与工厂模式对比：没有显示创建对象、把属性跟方法复制给了<code>this</code>对象、没有<code>return</code>语句、创建新实例必须用new操作符（否则<code>this</code>指向全局对象）、可以用<code>instanceof</code>检测对象类型（<code>p1 instanceof Person</code>知道自己是从哪里来的）  </p>
+<p>  但是构造函数内部的方法会被重复创建，不同实例内的同名函数是不相等的。可通过将方法移到构造函数外部解决这一问题，但面临新问题：封装性不好。这些问题可通过原型模式解决。</p>
+</li>
+<li><p>原型模式<br>  我们创建的每个函数都有一个<code>prototype</code>属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。（<code>prototype</code>就是通过调用构造函数而创建的那个对象实例的原型对象）</p>
+<p>  使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。换句话说，不必在构造函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中。</p>
+<pre><code>  function Person () {
+  }
+  Person.prototype.name = "Nicholas";
+  Person.prototype.sayName = function () {
+  };
+
+  var person1 = new Person();</code></pre>
+<p>  更常见的做法是用一个包含所有属性和方法的对象字面量来重写整个原型对象，并重设<code>constructor</code>属性。</p>
+<pre><code>  function Person () {
+  }
+  Person.prototype = {
+      name:"...",
+      sayName:function(){
+      }
+  };
+
+  Object.defineProperty(Person.prototype,"constructor",{
+      enumerable:false,
+      value:Person
+  });</code></pre>
+<p>  原型对象的问题：<br>  他省略了为构造函数传递初始化参数这一环节，结果所有实例在默认情况下都将取得相同的属性值，虽然这会在一定程度带来一定的不便，但不是最大的问题，最大的问题是由其共享的本性所决定的。<br>  对于包含基本值的属性可以通过在实例上添加一个同名属性隐藏原型中的属性。然后，对于包含引用数据类型的值来说，会导致问题。 </p>
+<pre><code>  function Person () {}
+  Person.prototype = {
+      a: "default",
+      b: {c:21}
+  }
+
+  var p1 = new Person();
+  var p2 = new Person();
+  p1.a = 1; 
+  p1.a;       // output =&gt; 1
+  p2.a;       // output =&gt; default
+  p1.b.c = 22;
+  p2.b        // output =&gt; {c:22}</code></pre>
+<p>  这些问题导致很少单独使用原型模式。</p>
+</li>
+<li><p>组合使用构造函数模式和原型模式<br>  这是创建自定义类型的最常见的方式  </p>
+<p>  <strong>构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性</strong>。所以每个实例都会有自己的一份实例属性的副本，但同时共享着对方法的引用，最大限度的节省了内存。同时支持向构造函数传递参数</p>
+<pre><code>  function Person(name){
+      this.name=name;
+      this.friends=["S","C"];
+  }
+
+  Person.prototype={
+      constructor:Person,
+      sayName:function(){
+          alert(this.name);
+      }
+  };
+
+  var person1=new Person(...);</code></pre>
+</li>
+</ul>
+<p><a name="new-一个对象具体做了什么"></a>
+</p>
+<h4>new 一个对象具体做了什么</h4>
+<pre><code>function OBJ () {
+    this.name = "constructor";
+}
+OBJ.prototype.sayName = function () {
+    console.log(this.name);
+}
+
+var obj = new OBJ();</code></pre>
+<p>new操作符到底干了什么呢？其实很简单，就干了三件事
+</p>
+<pre><code>var obj = {};
+obj.__proto__ = OBJ.prototype;
+OBJ.call(obj);</code></pre>
+<p><a name="显示原型和隐式原型"></a>
+</p>
+<h4>显示原型和隐式原型</h4>
+<p>显示原型<code>prototype</code><br>只有函数才有<code>prototype</code>属性，这个属性值为一个<code>object</code>对象
+实例对象时没有这个属性的（自己添加的不算）。<br>函数的<code>prototype</code>属性：在定义函数时自动添加的，默认值是一个空的<code>Object</code>对象
+
+</p>
+<p>隐式原型<code>__proto__</code><br>创建对象是自动创建添加的,默认值为构造函数的<code>prototype</code>属性值
+
+</p>
+<pre><code>function FOO () {
+    this.name = "21";
+}
+var foo = new FOO();
+
+foo.prototype;                           // undefined
+foo.__proto__ === FOO.prototype;         // true
+FOO.__proto__ === Function.prototype;    // true
+FOO.prototype.constructor === FOO;       // true
+FOO.prototype.__proto__ === Object.prototype;  // true
+Object.__proto__ === Function.prototype; // true
+Object.prototype.__proto__ === null;     // true</code></pre>
+<p>foo是Foo的一个实例，不是一个函数，所以没有<code>prototype</code><br>Foo是Function的一个实例，而Function是一个函数，他的实例Foo也是一个函数，所以他们都有<code>prototype</code><br>构造函数的<code>prototype</code>，默认情况下就是一个空的<code>object</code>对象，还额外添加了一个<code>constructor</code>属性。
+
+</p>
+<p>在创建对象的时候会自动创建一个<code>__proto__</code>属性，指向它构造函数的<code>prototype</code>,当访问这个对象的属性的时候会顺带访问<code>__proto__</code>中对应的属性，也就是构造函数<code>prototype</code>，这样实现了继承
+
+</p>
+<p><a name="原型链--作用域链"></a>
+</p>
+<h4>原型链 &amp;&amp; 作用域链</h4>
+<h5>原型链</h5>
+<p>原型链是针对构造函数的，比如我先创建了一个函数<code>B</code>，然后<code>var b = new B()</code>，那么<code>b</code>就会继承<code>B</code>的属性，然后如果我访问<code>b</code>的某个属性，但是我并没有在<code>b</code>中定义这个变量，那么它就会往上（向创建出它的函数中）查找，这个查找的过程就叫做原型链。  
+
+</p>
+<p>原型链依赖<code>__proto__</code>而不是<code>prototype</code>，以上面构造函数<code>FOO</code>为例说明，当我们读取<code>foo.name</code>的时候，JS引擎会有以下操作
+
+</p>
+<ul>
+<li>看看<code>foo</code>对象本身有没有<code>name</code>属性，<code>foo.name</code>实际上就是这一步找到的，如果没有就走到下一步</li>
+<li>看看<code>foo.__proto__</code>对象有没有<code>name</code>属性，没有则继续走到下一步</li>
+<li>看看<code>foo.__proto__.__proto__</code>对象有没有<code>name</code>属性，如果还是没有，则会继续查看<code>foo.__proto__.__proto__.__proto__</code>，直到找到<code>name</code>或者<code>__proto__</code>为<code>null</code></li>
+</ul>
+<h5>作用域链</h5>
+<p>作用域是针对变量的。<br>作用域的特点就是，先在自己的变量范围中查找，如果找不到，就会沿着作用域往上找，这个查找的过程就叫作用域链
+
+</p>
+<h5>手绘原型链</h5>
+<p><img src="images/prototype.png" alt="">
+</p>
+<h5>原型链的作用，为什么要有原型链</h5>
+<p>在原型对象上定义方法和属性的目的是为了被子类继承和使用。可以根据原型链来查找子类的属性，以及实现继承。
+
+</p>
+<p><a name="宿主对象--原生对象"></a>
+</p>
+<h4>宿主对象 &amp;&amp; 原生对象</h4>
+<h5>原生对象</h5>
+<p>原生对象又叫本地对象、内部对象<br>是独立于宿主环境的ECMAScript实现提供的对象。与宿主无关，在javascript（远景浏览器）、nodejs（node平台）、jscript（ie浏览器）、typescript（微软平台）等等中均有这些对象  
+
+</p>
+<p><code>Object</code>、<code>Function</code>、<code>Array</code>、<code>String</code>、<code>Boolean</code>、<code>Number</code>、<code>Date</code>、<code>RegExp</code>、<code>Error</code>、<code>EvalError</code>、<code>RangeError</code>、<code>ReferenceError</code>、<code>SyntaxError</code>、<code>TypeError</code>、<code>URIError</code>、<code>Global</code>
+
+</p>
+<h5>内置对象</h5>
+<p>内置对象（不需要<code>new</code>）属于原生对象，由ECMAScript实现提供的、独立于宿主环境的所有对象，在ECMAScript程序开始执行时出现，即在引擎初始化阶段就被创建好的对象。这意味着开发者不必明确实例化内置对象，它已被实例化了  
+
+</p>
+<p>常见的内置对象有<code>全局对象</code>、<code>Object</code>、<code>Math</code>、<code>String</code>、<code>Array</code>、<code>Number</code>、<code>Function</code>、<code>Boolean</code>、<code>JSON</code>
+
+</p>
+<h5>内置函数</h5>
+<p>简单的说，内置函数分为常规函数跟内置对象的函数。
+
+</p>
+<p>常规函数包括以下9个函数：<code>isNaN</code>、<code>alert</code>、<code>conform</code>、<code>parseInt</code>、<code>parseFloat</code>、<code>escape</code>、<code>unescape</code>、<code>eval</code>、<code>prompt</code><br>内置对象的函数：例如<code>Array</code>对象的<code>join</code>、<code>reverse</code>、<code>sort</code>等函数
+
+</p>
+<h5>宿主对象</h5>
+<p>ECMAScript官方未定义的对象都属于宿主对象,所有非本地对象都是宿主对象
+
+</p>
+<p>一个是由宿主提供的对象，在浏览器中<code>window</code>对象以及其下边所有的子对象(如<code>bom</code>、<code>dom</code>等等)，在<code>node</code>中是<code>globla</code>及其子对象<br>一个是自定义的类对象。
+
+</p>
+<h5>为什么扩展JS内置对象不是好的做法？</h5>
+<p>因为扩展内置对象会影响整个程序中所使用到的该内置对象的原型属性
+
+</p>
+<p><a name="callee和caller"></a>
+</p>
+<h4>callee和caller</h4>
+<h5>callee</h5>
+<p><code>callee</code>是<code>arguments</code>对象的一个成员，表示对函数对象本身的引用，它有个length属性（代表形参的长度）  
+</p>
+<pre><code>function chen (x) {
+    var n = x &lt;= 1 ? 1 : chen( x - 1 );
+    return x * n;
+}</code></pre>
+<p>比如上面的阶乘函数中调用了函数本身，如果函数名发生改变，里面的函数名也要发生改变，我们可以用callee来避免。
+</p>
+<pre><code>function chen (x) {
+    var n = x &lt;= 1 ? 1 : arguments.callee(x - 1);
+    return x * n;
+}</code></pre>
+<h5>caller</h5>
+<p>caller是函数对象的一个属性，该属性保存着调用当前函数的函数的引用，并非被其他函数调用，则caller为<code>null</code> 
+</p>
+<pre><code>function a () {
+    b();
+}
+function b () {
+    console.log(b.caller);
+}
+
+a();    // output =&gt; function a () { b() }
+b();    // output =&gt; null</code></pre>
+<p>结合上面的callee，可以改写为
+</p>
+<pre><code>function a () { b() }
+function b () { console.log(arguments.callee.caller) }</code></pre>
+<p><a name="深拷贝、浅拷贝、赋值"></a>
+</p>
+<h4>深拷贝、浅拷贝、赋值</h4>
+<h5>赋值：针对基本类型</h5>
+<pre><code>var a = 3;
+var b = a;
+b = 4; 
+a     // output =&gt; 3</code></pre>
+<h5>浅拷贝 &amp;&amp; 深拷贝</h5>
+<p>引用类型对象是存在堆内存中的，该值在栈内存中存储的是引用地址。<br>浅拷贝跟深拷贝针对引用类型，浅拷贝是拷贝了对象的引用，深拷贝是将值放到新的堆内存。  
+</p>
+<pre><code>// 浅拷贝
+var obj = { name:"shallow copy" };
+var obj2 = obj;
+obj.name = "test";
+obj2  // output =&gt; { name:"test" }</code></pre>
+<p>浅拷贝的实现:<br>单层仅有基本类型值的时候，以下方案实现的是深拷贝
+
+</p>
+<ul>
+<li>简单的拷贝</li>
+<li>Object.assign()</li>
+</ul>
+<p>深拷贝的实现：
+
+</p>
+<ul>
+<li>递归拷贝，使用<code>for in</code>循环赋值，直到每一个元素都为基本类型为止</li>
+<li>对象只有一层的时候，<code>object.assign()</code>也为深拷贝</li>
+<li>将对象<code>JSON.stringify()</code>转成JSON字符串，赋值以后然后再<code>JSON.parse()</code>转回来</li>
+<li>使用Object.create()方法，直接使用<code>Object.create(oldObj)</code>，可以达到深拷贝的效果</li>
+<li>jquery 有提供一个<code>$.extend</code>可以实现深拷贝</li>
+</ul>
+<p><a name="js如何实现重载和多态"></a>
+</p>
+<h4>JS如何实现重载和多态</h4>
+<h5>重载</h5>
+<p>js中并没有重载机制，但是我们可以模仿重载，利用<code>arguments</code>这个数组。
+</p>
+<pre><code>function override () {
+    if (arguments.length === 1) {
+        return arguments[0];
+    } else if (arguments.length === 2) {
+        return arguments[0] + arguments[1];
+    }
+}
+
+override(1);
+override(1,2);</code></pre>
+<h5>多态</h5>
+<p>多态用途在于做面向对象开发时，需要有一个方法不变，但是它接收的参数类型是变化的，就可以使用多态  
+
+</p>
+<p>比如说你家里养了两只宠物，一只猫一只狗（参数不同），喂食的时候，它们都要吃饭（方法相同）：
+</p>
+<pre><code>function Animal (animal) {
+    animal.eat();
+}
+
+function Dog () { }
+Dog.prototype.eat = function () {
+    console.log("狗吃狗粮");
+}
+function Cat () { }
+Cat.prototype.eat = function () {
+    console.log("猫吃猫粮");
+}
+
+Animal(new Dog())
+Animal(new Cat())</code></pre>
+<p>可以简单的这么理解，重载是函数传入参数的不同，动态是改写父类的方法。
+
+</p>
+<p><a name="实现继承的多种方式和优缺点"></a>
+</p>
+<h4>实现继承的多种方式和优缺点</h4>
+<p>既然要实现继承，首先我们的有一个父类
+</p>
+<pre><code>function Person (name) {
+    this.name = name || "default";
+}
+Person.prototype.getName = function () {
+    console.log(this.name);
+}</code></pre>
+<ol>
+<li><p>原型链继承模式</p>
+<pre><code> function Man () { }
+ Man.prototype = new Person();
+
+ var man = new Man();
+ man.getName();     // output =&gt; default</code></pre>
+<p> 上面代码中直接<code>new</code>了一个父类的是实例，然后赋给子类的原型。这样也就相当于直接将父类原型中的方法属性以及挂在<code>this</code>上的各种方法属性全赋给了子类的原型，简单粗暴！我们再来看看<code>man</code>,它是<code>Man</code>的一个实例，因为<code>man</code>本身没有<code>getName</code>方法，那么就会去原型链上去找，找到的是<code>person</code>的<code>getName</code>。这种继承方式下，所有的子类实例会共享一个父类对象的实例，这种方案最大问题就是子类无法通过父类创建私有属性。比如每一个<code>Person</code>都有一个名字，我们在初始化每个<code>Man</code>的时候要指定一个不同名字，然后子类将这个名字传递给父类，对于每个<code>man</code>来说，保存在相应<code>person</code>中的<code>name</code>应该是不同的，但是这种方式根本做不到。所以，这种继承方式，实战中基本不用</p>
+</li>
+<li><p>构造函数实现继承</p>
+<pre><code> function Man (name) {
+     Person.apply(this, arguments);
+ }
+
+ var man1 = new Man("jack");
+ var man2 = new Man("ruby");
+ ma1.name;           // output =&gt; jack 
+ man2.name;          // output =&gt; ruby
+ man1.getName();     // output =&gt; man1.getName is not a function</code></pre>
+<p> 在子类的在构造函数里用子类实例的<code>this</code>去调用父类的构造函数，从而达到继承父类属性的效果。这样一来，每<code>new</code>一个子类的实例，构造函数执行完后，都会有自己的<code>name</code>。但是这种办法只能继承父类构造函数中声明的实例属性，并没有继承父类原型的属性和方法，所以就找不到<code>getName</code>方法。为了同时继承父类原型，从而诞生了组合继承的方式</p>
+</li>
+<li><p>组合继承</p>
+<pre><code> function Man (name) {
+     Person.apply(this,arguments)
+ }
+ //继承原型
+ Man.prototype = new Person();
+
+ var man = new Man("jack");
+ man.name;          // output =&gt; jack
+ man.getName();     // output =&gt; jack</code></pre>
+<p> 这样不仅会继承构造函数中的属性，也会复制父类原型链中的属性。<br> 但是，有个问题，<code>Man.prototype = new Person()</code> 这句执行后，<code>Man</code>的原型如下</p>
+<pre><code> &gt; Man.prototype
+ &gt; { name: "default" }</code></pre>
+<p> 也就是说<code>Man</code>的原型中已经有了一个<code>name</code>属性，而之后创建<code>man</code>时传给构造的函数的<code>name</code>则是通过<code>this</code>重新定义了一个<code>name</code>属性，相当于只是覆盖掉了原型的<code>name</code>属性（原型中的<code>name</code>依然还在），这样很不优雅</p>
+</li>
+<li><p>寄生组合继承<br> 综上所述，其实我们可以将继承分为两步：构造函数属性继承和建立子类和父类原型的链接。</p>
+<pre><code> function Man (name) {
+     Person.call(this, arguments);
+ }
+ Man.prototype = Object.create(Person.prototype);
+ // Man.prototype.constructor = Man;  // 下面会解释为什么加这句代码
+
+ var man = new Man("jack");
+ man.name;          // output =&gt; jack
+ man.getName();     // output =&gt; jack</code></pre>
+<p> 这里用到了<code>Object.creat(obj)</code>方法，该方法会对传入的<code>obj</code>对象进行拷贝。和上面组合继承的主要区别就是：将父类的原型复制给了子类原型</p>
+<p> 还有一个问题，就是constructor属性，我们来看一下:</p>
+<pre><code> &gt; Person.prototype.constructor
+ &gt; ƒ Person(name) {
+     this.name = name || "default";
+   }
+ &gt; Man.prototype.constructor
+ &gt; ƒ Person(name) {
+     this.name = name || "default";
+   }</code></pre>
+<p> constructor是类的构造函数，我们发现，Person和Man实例的constructor指向都是Person，当然，这并不会改变instanceof的结果，但是对于需要用到construcor的场景，就会有问题。所以一般我们会加上这么一句：</p>
+<pre><code> Man.prototype.constructor = Man</code></pre>
+<p> 综合来看，es5下，这种方式是首选，也是实际上最流行的</p>
+</li>
+<li><p>ES6中的继承</p>
+<pre><code> class Person {
+     constructor (name = "default") {
+         this.name = name;
+     }
+     getName () {
+         console.log(this.name);
+     }
+ }
+
+ class Man extends Person {
+     constructor (name) {
+         super(name);
+     }
+ }
+
+ var man = new Man("jack");
+ man.name;          // output =&gt; jack
+ man.getName();     // output =&gt; jack</code></pre>
+<p> ES6中的类和继承本质上是使用<code>prototype</code>实现的语法糖，构造函数中通过<code>super()</code>调用父类构造函数，如果有<code>super</code>方法，需要时构造函数中第一个执行的语句，<code>this</code>关键字在调用<code>super</code>之后才可用<br> 类中定义的方法相当于在<code>prototype</code>上定义方法<br> <code>constructor</code>方法中定义属性相当于构造函数模式<br> <code>super</code>方法相当于在子类中调用父类的构造函数</p>
+</li>
+</ol>
+<p><a name="settimeout和promise的执行顺序"></a>
+</p>
+<h4>setTimeout和promise的执行顺序</h4>
+<h5>micro-task &amp;&amp; macro-task</h5>
+<p><code>Event Loop</code>线程中包含任务队列（用来对不同优先级的异步事件进行排序），而任务队列又分为<code>macro-task</code>（宏任务）与<code>micro-task</code>（微任务），在最新标准中，它们被分别称为<code>task</code>与<code>jobs</code>。
+
+</p>
+<p><code>macro-task</code>大概包括：<code>script</code>(整体代码)、 <code>setTimeout</code>、<code>setInterval</code>、<code>setImmediate</code>、<code>I/O</code>、<code>UI rendering</code><br><code>micro-task</code>大概包括: <code>process.nextTick</code>、<code>Promise</code>、<code>MutationObserver</code>(html5新特性)  
+
+</p>
+<p><code>setTimeout</code> / <code>Promise</code>等我们称之为任务源。而进入任务队列的是他们指定的具体执行任务（回调函数）。
+来自不同的任务源的任务会进入到不同的任务队列中，而不同的任务队列执行过程如下：
+执行过程如下：
+
+</p>
+<ul>
+<li>JavaScript引擎首先从<code>macro-task</code>中取出第一个任务</li>
+<li>执行完毕后，将<code>micro-task</code>中的所有任务取出，按顺序全部执行</li>
+<li>然后再从<code>macro-task</code>中取下一个</li>
+<li>执行完毕后，再次将<code>micro-task</code>中的全部取出</li>
+<li>循环往复，直到两个队列中的任务都取完</li>
+</ul>
+<p>而<code>process.nextTick</code>优先级永远大于<code>promise.then</code>，原因其实很简单。<br>在Node中，<code>tickCallback</code>在每一次执行完<code>TaskQueue</code>中的一个任务后被调用，而这个<code>tickCallback</code>中实质上干了两件事：
+1. <code>nextTickQueue</code>中所有任务执行掉<br>2. 第一步执行完后执行_runMicrotasks函数，执行microtask中的部分(promise.then注册的回调)<br>所以很明显 process.nextTick &gt; promise.then
+
+</p>
+<h5>回到问题，举例说明</h5>
+<pre><code>(function () {
+    setTimeout(function() {console.log(4)}, 0);
+    new Promise(function executor(resolve) {
+        console.log(1);
+        for( var i=0 ; i&lt;10000 ; i++ ) {
+            i == 9999 &amp;&amp; resolve();
+        }
+        console.log(2);
+    }).then(function() {
+        console.log(5);
+    });
+    console.log(3);
+})()
+
+// 运行结果：1、2、3、5、4</code></pre>
+<p>以上代码运行过程是这样的：
+
+</p>
+<ul>
+<li>整体<code>script</code>代码作为一个宏任务进入主线程</li>
+<li>遇到<code>setTimeout</code>，交给浏览器去计时，达到<code>setTimeout</code>限制最短计时之后，将<code>callback</code>存入到macro-task queue中</li>
+<li>然后遇到<code>Promise</code>构造函数，构造函数参数执行，输出<code>1</code>，调用<code>resolve</code>改变<code>Promise</code>对象的状态，输出<code>2</code></li>
+<li><code>promise</code>对象调用<code>then</code>方法，将<code>callback</code>添加到micro-task queue中</li>
+<li>输出<code>3</code></li>
+<li><p>调用栈为空，读取任务队列，按照</p>
+<pre><code>  读取所有微观任务队列 -&gt; 执行 -&gt;
+  读取一个宏观任务队列 -&gt; 执行 -&gt;
+  读取所有微观任务队列 -&gt; 执行 -&gt;
+  再读取一个宏观任务队列…的顺序</code></pre>
+</li>
+<li><p>读取所有微观任务队列中的任务，执行这些任务指定的回调函数。执行<code>then</code>指定的回调函数，输出<code>5</code>（微观任务队列也具有优先级）</p>
+</li>
+<li>最后读取到setTimeout的任务，执行回调函数，输出<code>4</code></li>
+</ul>
+<p><code>new promise</code>是同步的，立即执行<br><code>Promise.then</code>回调是<code>micro-task</code>，会在当前事件循环末尾中执行<br><code>setTimeout</code>被推进到<code>macro-task</code> 队列，是在下一次事件循环执行
+
+</p>
+<p><a name="手写promise"></a>
+</p>
+<h4>手写Promise</h4>
+<p>简单实现见code/promise.js
+
+</p>
+<p><a name="事件发布／订阅"></a>
+</p>
+<h4>事件发布／订阅</h4>
+<p>观察者模式又叫发布订阅模式，它定义了一种一对多的关系，让多个观察者对象同时监听某一个主题对象，这个主题对象的状态发生变化时就会通知所有的观察者对象，使得它们能够自动更新自己。
+
+</p>
+<p>使用观察者模式的好处：  
+
+</p>
+<ul>
+<li>支持简单的广播通信，自动通知所有已经订阅过的对象。</li>
+<li>页面载入后目标对象很容易与观察者存在一种动态关联，增加了灵活性。</li>
+<li>目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。</li>
+</ul>
+<p>例子：
+</p>
+<pre><code>function PubSub () {
+    this.handlers = {}
+}
+PubSub.prototype = {
+    on (eventType, handler) {  // 订阅事件
+        if (!(eventType in this.handlers)) {
+           this.handlers[eventType] = [];
+        }
+        this.handlers[eventType].push(handler);
+    },
+    emit (eventType) {  // 触发事件(发布事件)
+       let handlerArgs = Array.prototype.slice.call(arguments, 1);
+       for(let i = 0; i &lt; this.handlers[eventType].length; i++) {
+         this.handlers[eventType][i].apply(self, handlerArgs);
+       }
+    },
+    off (eventType, handler) {  // 删除订阅事件
+        let currentEvent = this.handlers[eventType];
+        let len = 0;
+        if (currentEvent) {
+            len = currentEvent.length;
+            for (let i = len - 1; i &gt;= 0; i--){
+                if (currentEvent[i] === handler){
+                    currentEvent.splice(i, 1);
+                }
+            }
+        }
+    }
+}
+
+var pubsub = new PubSub();
+let callback = function (data) {
+    console.log(2, data);
+}
+// 订阅事件
+pubsub.on("A", function (data) {
+    console.log(1, data);
+})
+pubsub.on("A", callback);
+
+// 发布事件
+pubsub.emit("A","明天新车发布");
+
+// 取消订阅
+pubsub.off("A", callback);</code></pre>
+<p>可以参考此处 <a href="https://www.cnblogs.com/LuckyWinty/p/5796190.html">demo</a>
+
+</p>
+<p><a name="内存泄漏的原因和场景"></a>
+</p>
+<h4>内存泄漏的原因和场景</h4>
+<ol>
+<li><p>DOM被移除或替换时，事件未清除导致的内存泄漏</p>
+<pre><code> &lt;div id="myDiv"&gt;
+     &lt;input type="button" value="Click me" id="myBtn"&gt;
+ &lt;/div&gt;
+
+ var btn = document.getElementById("myBtn");
+ btn.onclick = function(){
+     // btn.onclick = null;
+     document.getElementById("myDiv").innerHTML = "Processing...";
+ }</code></pre>
+<p> 应该加上上面的<code>btn.onclick = null</code>释放缓存，或改成事件委托来绑定事件。</p>
+</li>
+<li><p>闭包引起的内存泄漏<br> 下面两个例子都会引起内存泄漏，都可以在最后加上<code>obj = null</code>手动GC</p>
+<pre><code> var leaks = (function(){  
+     var obj = 'xxxxxx';// 被闭包所引用，不会被回收
+     return function(){
+         console.log(obj);
+     }
+ })()
+
+ function bindEvent () { 
+     var obj = document.createElement("XXX"); 
+     obj.onclick = function () { } 
+ }</code></pre>
+</li>
+<li><p>全局变了引起的内存泄漏</p>
+<p> function leaks(){  </p>
+<pre><code> leak = 'xxxxxx';//leak 成为一个全局变量，不会被回收</code></pre>
+<p> }</p>
+</li>
+<li><p>被遗忘的定时器或者回调</p>
+<pre><code> var someResource = getData();
+ setInterval(function() {
+     var node = document.getElementById('Node');
+     if(node) {
+         node.innerHTML = JSON.stringify(someResource));
+     }
+ }, 1000);</code></pre>
+<p> 如果id为Node的元素从DOM中移除, 该定时器仍会存在, 同时, 因为回调函数中包含对someResource的引用, 定时器外面的someResource也不会被释放</p>
+</li>
+</ol>
+<p><a name="js的垃圾回收机制"></a>
+</p>
+<h4>js的垃圾回收机制</h4>
+<p>js具有自动垃圾回收机制，执行环境会负责管理代码执行过程中使用的内存。原理就是找出那些不再继续使用的变量，然后释放其占有内存。<br>通常用采用的垃圾回收有两种方法：标记清除、引用计数  
+
+</p>
+<ul>
+<li><p>标记清除<br>  这是javascript中最常用的垃圾回收方式。当变量进入执行环境是，就标记这个变量为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到他们。当变量离开环境时，则将其标记为“离开环境”。  </p>
+<p>  垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记。然后，它会去掉环境中的变量以及被环境中的变量引用的标记。而在此之后再被加上标记的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后。垃圾收集器完成内存清除工作，销毁那些带标记的值，并回收他们所占用的内存空间。</p>
+</li>
+<li><p>引用计数<br>  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型赋值给该变量时，则这个值的引用次数就是1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数就减1。当这个引用次数变成0时，则说明没有办法再访问这个值了，因而就可以将其所占的内存空间给收回来。这样，垃圾收集器下次再运行时，它就会释放那些引用次数为0的值所占的内存。</p>
+<p>  为什么这个方法不常用呢？看下面代码</p>
+<pre><code>  function problem() {
+      var objA = new Object();
+      var objB = new Object();
+
+      objA.someOtherObject = objB;
+      objB.anotherObject = objA;
+  }</code></pre>
+<p>  在这个例子中，<code>objA</code>和<code>objB</code>通过各自的属性相互引用；也就是说这两个对象的引用次数都是2。在采用引用计数的策略中，由于函数执行之后，这两个对象都离开了作用域，函数执行完成之后，<code>objA</code>和<code>objB</code>还将会继续存在，因为他们的引用次数永远不会是0。这样的相互引用如果说很大量的存在就会导致大量的内存泄露。</p>
+<p>  IE中有一部分对象并不是原生JavaScript对象。例如，其BOM和DOM中的对象就是使用C++以COM（Component Object Model组件对象）对象的形式实现的，而COM对象的垃圾回收器就是采用的引用计数的策略。因此，即使IE（IE8及以下）的Javascript引擎使用标记清除的策略来实现的，但JavaScript访问的COM对象依然是基于引用计数的策略的。说白了，只要IE中涉及COM对象，就会存在循环引用的问题。</p>
+</li>
+</ul>
+<p><a href="https://www.cnblogs.com/zhwl/p/4664604.html">减少JavaScript中的垃圾回收</a>
+
+</p>
+<p><a name="js处理异常"></a>
+</p>
+<h4>js处理异常</h4>
+<ul>
+<li>捕获异常机制<br>  <code>try catch finally</code></li>
+<li>抛出异常<br>  <code>throw new Error()</code>  </li>
+</ul>
+<p>js中异常有六类
+</p>
+<blockquote>
+<p>EvalError: raised when an error occurs executing code in eval()<br>RangeError: raised when a numeric variable or parameter is outside of its valid range<br>ReferenceError: raised when de-referencing an invalid reference<br>SyntaxError: raised when a syntax error occurs while parsing code in eval()<br>TypeError: raised when a variable or parameter is not a valid type<br>URIError: raised when encodeURI() or decodeURI() are passed invalid parameters
+
+</p>
+</blockquote>
+<p><a name="websocket的工作原理和机制"></a>
+</p>
+<h4>websocket的工作原理和机制</h4>
+<p>websocket是HTML5出的东西（协议），也就是说HTTP协议没有变化，或者说没关系，但HTTP是不支持持久连接的，而websocket是一个持久化的协议。  
+
+</p>
+<p>websocket约定了一个通信的规范，通过一个握手的机制，客户端和服务器之间能建立一个类似tcp的连接，从而方便它们之间的通信。在websocket出现之前，web交互一般是基于http协议的短连接或者长连接。  
+
+</p>
+<p>websocket是一种全新的协议，不属于http无状态协议，协议名为"ws"，这意味着一个websocket连接地址会是这样的写法：<code>ws://**</code>。websocket协议本质上是一个基于tcp的协议
+
+</p>
+<h5>websocket的调用</h5>
+<pre><code>var websocket = null;  
+// 判断当前浏览器是否支持WebSocket  
+if ('WebSocket' in window) {  
+    websocket = new WebSocket("ws://localhost:8028/ThesisManage/websocket");  
+} else {  
+    alert('当前浏览器 Not support websocket')  
+}  
+
+// 连接发生错误的回调方法  
+websocket.onerror = function () {  
+    setMessageInnerHTML("WebSocket连接发生错误");  
+};  
+
+// 连接成功建立的回调方法  
+websocket.onopen = function () {  
+    setMessageInnerHTML("WebSocket连接成功");  
+}  
+
+// 接收到消息的回调方法  
+websocket.onmessage = function (event) {  
+    setMessageInnerHTML(event.data);  
+}  
+
+// 连接关闭的回调方法  
+websocket.onclose = function () {  
+    setMessageInnerHTML("WebSocket连接关闭");  
+}  
+
+// 监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。  
+window.onbeforeunload = function () {  
+   closeWebSocket();  
+}  
+
+// 显示消息
+function setMessageInnerHTML(innerHTML) {  
+    console.log(innerHTML);  
+}  
+
+//关闭WebSocket连接  
+function closeWebSocket() {  
+    websocket.close();  
+}  
+
+//发送消息  
+websocket.send("this is a message");</code></pre>
+<p><a name="函数柯里化"></a>
+</p>
+<h4>函数柯里化</h4>
+<h5>什么是函数柯里化</h5>
+<p>函数柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。<br>用一句话总结函数柯里化，js柯里化是逐步传参，逐步缩小函数的适用范围，逐步求解的过程
+
+</p>
+<p>举个例子，我们写一个函数，将函数的几个参数相加，返回结果：
+</p>
+<pre><code>var concat3Words = function (a, b, c) {
+    return a + b + c;
+};
+concat3Words("foo ","bar ","baza")</code></pre>
+<p>函数柯里化呢？是分部求解，先传一个a参数，再传一个b参数，再传一个c参数，最后将这三个参数相加
+</p>
+<pre><code>var concat3WordsCurrying = function(a) {
+    return function (b) {
+        return function (c) {
+            return a + b + c;
+        };
+    };
+};
+concat3WordsCurrying("foo")("bar")("baza")</code></pre>
+<p>如果要求可传递的参数不止3个，可以传任意多个参数，当不传参数时输出结果？
+</p>
+<pre><code>var adder = function () {
+    var _args = [];
+    return function () {
+        if (arguments.length === 0) {
+            return _args.reduce(function (a, b) {
+                return a + b;
+            });
+        }
+        [].push.apply(_args, [].slice.call(arguments));
+        return arguments.callee;
+    }
+};    
+var sum = adder();
+sum(100);
+sum(200)();   // output =&gt; 300</code></pre>
+<h5>特性一：延迟计算</h5>
+<p>通用的柯里化函数：
+</p>
+<pre><code>var currying = function (fn) {
+    var _args = [];
+    return function () {
+        if (arguments.length === 0) {
+            return fn.apply(this, _args);
+        }
+        Array.prototype.push.apply(_args, [].slice.call(arguments));
+        return arguments.callee;
+    }
+};</code></pre>
+<p>例如：
+</p>
+<pre><code>var multi = function () {
+    var total = 0;
+    for (var i = 0, c; c = arguments[i++];) {
+        total += c;
+    }
+    return total;
+};
+
+var sum = currying(multi); 
+sum(1,2);
+sum(3);
+sum();     // output =&gt; 6</code></pre>
+<h5>特性二：参数复用，增加适用性，降低使用范围</h5>
+<p>通用写法:
+</p>
+<pre><code>var currying = function (fn) {
+    // 需要复用的参数
+    var _args = Array.prototype.slice.call(arguments, 1);
+    return function () {
+        // 自身参数
+        var __inargs = Array.prototype.slice.call(arguments);
+        // 回调函数传入 合并自身参数和复用参数之后的参数
+        return fn.apply(null, _args.concat(__inargs));
+    }
+}</code></pre>
+<p>例如：
+</p>
+<pre><code>// 例1
+var add = function(){
+   var args = Array.prototype.slice.call(arguments);
+   var sum = ;
+   for(var i = 0; i &lt; args.length; i++){
+      sum += args[i];
+   }
+   return sum;
+}
+
+var curryAdd = currying(add,1,2,3);
+curryAdd(4)     // output =&gt; 10
+
+// 例2
+function square(i) {
+    return i * i;
+}
+function map(handeler, list) {
+    return list.map(handeler);
+}
+var mapSQ = currying(map, square);
+
+mapSQ([1, 2]);      // output =&gt; [1,4]
+mapSQ([6, 7]);      // output =&gt; [36,49]
+mapSQ([10, 20]);    // output =&gt; [100,400]</code></pre>
+<h5>JS的API有哪些应用到了函数柯里化的实现</h5>
+<p><code>Function.prototype.bind</code>方法就是典型的函数柯里化应用，<code>bind</code>方法将第一个参数设置为函数的执行上下文，其他参数依次传递给调用方法（函数主体本身不执行），并动态返回一个新的函数。
+</p>
+<pre><code>Function.prototype.bind = function(context) {
+    var _this = this;
+    var _args = Array.prototype.slice.call(arguments, 1);
+    return function() {
+        return _this.apply(context, _args.concat(Array.prototype.slice.call(arguments)))
+    }
+}
+
+var foo = {x: 888};
+var bar = function () {
+    console.log(this.x);
+}.bind(foo);
+bar         // output =&gt; f
+bar()       // output =&gt; 888</code></pre>
+<p><a name="es6规范、commonjs、amd、cmd"></a>
+</p>
+<h4>ES6规范、CommonJS、AMD、CMD</h4>
+<h5>ES6规范</h5>
+<p>引入模块 <code>import './A.js'</code>、<code>import a from './B'</code>
+
+</p>
+<p>抛出模块 <code>export / export default</code>
+
+</p>
+<h5>CommonJS</h5>
+<p>主要作用于服务端，浏览器不兼容CommonJS的根本原因，在于缺少四个<code>NodeJS</code>环境的变量:<code>require</code>、<code>module</code>、<code>exports</code>、<code>global</code>  
+
+</p>
+<p>引入模块 <code>var foo = require('./foo.js')</code>
+
+</p>
+<p>抛出模块 <code>module.exports = function () {}</code>
+</p>
+<h5>AMD</h5>
+<p>AMD规范是提前执行，推崇依赖前置，是<code>require.js</code>在推广过程中对模块定义的规范化产出
+
+</p>
+<p>引入模块 <code>require([module], callback)</code>
+
+</p>
+<p>定义模块，这里分两种情况（当前模块是否有依赖）<br><code>define(function () {})</code>、<code>define([module], function () {})</code>  
+</p>
+<h5>CMD</h5>
+<p>CMD规范是延迟执行，推崇依赖就近，是<code>SeaJS</code>在推广过程中对模块定义的规范化产出
+
+</p>
+<p>定义模块 <code>define(id?, deps?, factory)</code>  
+
+</p>
+<p>抛出接口:
+
+</p>
+<ul>
+<li><code>exports</code>是一个对象，用来向外提供模块接口; </li>
+<li><code>module.exports</code>当前模块对外提供的接口; </li>
+</ul>
+<p>引入模块 <code>require(id)</code>、<code>require.async(id, callback?)</code>
+
+</p>
+<p><a name="拖拽实现"></a>
+</p>
+<h4>拖拽实现</h4>
+<p>基于原生JS实现，以下列出两种思路：基于鼠标事件、基于拖拽拖放事件
+</p>
+<h5>基于鼠标事件</h5>
+<p>onmousedown、onmousemove、onmouseup  
+
+</p>
+<p>当鼠标按下时，我们得记录当前元素的位置newSite。同时设置一个标记，用于表示此时鼠标时按下的状态，方便鼠标移动事件的执行。
+当鼠标松开时，我们要将标记改变，说明此时鼠标松开了，当鼠标移动时就不能再移动元素了。
+当鼠标按下并且移动时，我们就要记录鼠标每次移动的位置currentSite，currentSite和newSite的差值就是鼠标移动的距离，同时也是元素应该移动的距离，然后设置元素的位置就OK了。
+
+</p>
+<p>具体实现代码见<code>code/鼠标拖拽.html</code>
+
+</p>
+<h5>基于拖拽拖放事件</h5>
+<p>被拖拽元素：<code>ondragstart</code>、<code>ondrag</code>、<code>ondragend</code><br>目标元素：<code>ondragenter</code>、<code>ondragover</code>、<code>ondragleave</code>、<code>ondrop</code>
+
+</p>
+<p>一个完整的drag and drop流程通常包含以下几个步骤:
+
+</p>
+<ul>
+<li>设置可拖拽目标.设置属性<code>draggable="true"</code>实现元素的可拖拽</li>
+<li>监听<code>dragstart</code>设置拖拽数据</li>
+<li>为拖拽操作设置反馈图标(可选)</li>
+<li>设置允许的拖放效果，如<code>copy</code>、<code>move</code>、<code>link</code></li>
+<li>设置拖放目标，默认情况下浏览器阻止所有的拖放操作，所以需要监听<code>dragenter</code>或者<code>dragover</code>取消浏览器默认行为使元素可拖放</li>
+<li>监听<code>drop</code>事件执行所需操作</li>
+</ul>
+<p>具体实现代码见<code>code/拖拽拖放.html</code>
+
+</p>
+<p><a name="repaint、reflow"></a>
+</p>
+<h4>repaint、reflow</h4>
+<p><code>reflow</code>：例如某个子元素样式发生改变，直接影响到了其父元素以及往上追溯很多祖先元素（包括兄弟元素），这个时候浏览器要重新去渲染这个子元素相关联的所有元素的过程称为回流。<br><code>repaint</code>：如果只是改变某个元素的背景色、文 字颜色、边框颜色等等不影响它周围或内部布局的属性，将只会引起浏览器重绘。<code>repaint</code>的速度明显快于<code>reflow</code>  
+
+</p>
+<p><code>reflow</code>几乎是无法避免的。现在界面上流行的一些效果，比如树状目录的折叠、展开（实质上是元素的显 示与隐藏）等，都将引起浏览器的<code>reflow</code>。鼠标滑过、点击……只要这些行为引起了页面上某些元素的占位面积、定位方式、边距等属性的变化，都会引起它内部、周围甚至整个页面的重新渲 染。通常我们都无法预估浏览器到底会<code>reflow</code>哪一部分的代码，它们都彼此相互影响着。
+
+</p>
+<p>回流必将引起重绘，而重绘不一定会引起回流
+
+</p>
+<h5>引起reflow的情况</h5>
+<ul>
+<li>改变窗口大小</li>
+<li>改变文字大小</li>
+<li>内容的改变，如用户在输入框中敲字</li>
+<li>激活伪类，如:hover</li>
+<li>计算offsetWidth和offsetHeight</li>
+<li>设置style属性  </li>
+</ul>
+<p> 注：<code>display:none</code>会触发<code>reflow</code>，而<code>visibility:hidden</code>只会触发<code>repaint</code>，因为没有发现位置变化
+</p>
+<h5>如何减少reflow</h5>
+<ul>
+<li>不要一条一条地修改<code>DOM</code>的样式。与其这样，还不如预先定义好<code>css</code>的<code>class</code>，然后修改<code>DOM</code>的<code>className</code>，即将多次改变样式属性的操作合并成一次操作</li>
+<li>不要通过父级来改变子元素样式，最好直接改变子元素样式，改变子元素样式尽可能不要影响父元素和兄弟元素的大小和尺寸</li>
+<li>将需要多次重排的元素，<code>position</code>属性设为<code>absolute</code>或<code>fixed</code>，这样此元素就脱离了文档流，它的变化不会影响到其他元素为动画的<code>HTML</code>元素，例如动画，那么修改他们的<code>CSS</code>是会大大减小<code>reflow</code>。因为,它们不影响其他元素的布局，所它他们只会导致重新绘制，而不是一个完整回流。这样消耗会更低</li>
+<li><code>css</code>里不要有表达式expression</li>
+<li>避免不必要的复杂的CSS选择器，尤其是后代选择器，因为为了匹配选择器将耗费更多的CPU</li>
+<li>尽量不要过多的频繁的去增加，修改，删除元素，因为这可能会频繁的导致页面<code>reflow</code>，可以先把该dom节点抽离到内存中进行复杂的操作然后再display到页面上</li>
+</ul>
+<h4>js动画和css3动画</h4>
+<h5>css3动画</h5>
+<p>浏览器使用与<code>requestAnimationFrame</code>类似的机制，<code>requestAnimationFrame</code>比起<code>setTimeout</code>，<code>setInterval</code>设置动画的优势主要是:
+
+</p>
+<ul>
+<li><code>requestAnimationFrame</code>会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成,并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率,一般来说,这个频率为每秒60帧</li>
+<li>强制使用硬件加速 （通过 GPU 来提高动画性能）</li>
+<li>代码相对简单,性能调优方向固定</li>
+<li>对于帧速表现不好的低版本浏览器，CSS3可以做到自然降级，而JS则需要撰写额外代码</li>
+</ul>
+<p>缺点:
+
+</p>
+<ul>
+<li>运行过程控制较弱,无法附加事件绑定回调函数</li>
+<li>代码冗长。想用 CSS 实现稍微复杂一点动画,最后CSS代码都会变得非常笨重</li>
+</ul>
+<h5>JS动画</h5>
+<ul>
+<li>CSS3有兼容性问题，而JS大多时候没有兼容性问题</li>
+<li>动画效果比css3动画丰富,有些动画效果，比如曲线运动,冲击闪烁,视差滚动效果</li>
+<li>JavaScript动画控制能力很强, 可以在动画播放过程中对动画进行控制：开始、暂停、回放、终止、取消都是可以做到的</li>
+</ul>
+<p>缺点:
+
+</p>
+<ul>
+<li>JavaScript在浏览器的主线程中运行，而主线程中还有其它需要运行的JavaScript脚本、样式计算、布局、绘制任务等,对其干扰导致线程可能出现阻塞，从而造成丢帧的情况。</li>
+<li>代码的复杂度高于CSS动画</li>
+</ul>
+<p>JS的Canvas动画，因为他没有回流，所以自然性能比有回流的CSS动画性能要好了
+
+</p>
+<h4>21</h4>
+<p><a name="性能优化"></a>
+</p>
+<h1>性能优化</h1>
+<p><a name="从用户输入网址到客户端展现，一步一优化"></a>
+</p>
+<h4>从用户输入网址到客户端展现，一步一优化</h4>
+<h6>1. 输入网址 ==&gt; 告诉浏览器你要去哪里</h6>
+<h6>2. 浏览器查找DNS ==&gt; 网络世界是IP地址的世界，DNS就是ip地址的别名。从本地DNS到最顶级DNS一步一步的网上爬，直到命中需要访问的IP地址</h6>
+<blockquote>
+<p>a. DNS预解析-&gt; 使用CDN缓存，加快解析CDN寻找到目标地址（dns-prefetch）
+</p>
+<h6>3. 客户端和服务器建立连接 ==&gt;建立TCP的安全通道，3次握手</h6>
+<p>a. CDN加速-&gt; 使用内容分发网络，让用户更快的获取到所要内容<br>b. 启用压缩-&gt; 在http协议中，使用类似Gzip压缩的方案（对服务器资源不足的时候进行权衡）<br>c. 使用HTTP/2协议-&gt; http2.0针对1.0优化了很多东西，包括异步连接复用，头压缩等等，使传输更快
+</p>
+<h6>4. 浏览器发送http请求 =&gt; 默认长连接（复用一个tcp通道，短连接：每次连接完就销毁）</h6>
+<p>a. 减少http请求-&gt; 每个请求从创建到销毁都会消耗很多资源和时间，减少请求就可以相对来说更快展示内容<br>  1) 压缩合并js文件以及css文件<br>  2) 针对图片，可将图片进行合并然后下载，通过css Sprites切割展示（控制大小，太大的话反而适得其反）<br>b. 使用http缓存-&gt; 缓存原则：越多越好，越久越好。让客户端发送更少请求，直接从本地获取，加快性能。<br>c. 减少cookie请求-&gt; 针对非必要数据（静态资源）请求，进行跨域隔离，减少传输内容大小。<br>d. 预加载请求-&gt; 针对一些业务中场景可预加载的内容，提前加载，在之后的用户操作中更少的请求，更快的响应<br>e. 选择get和post-&gt; 在http定义的时候，get本质上就是获取数据，post是发送数据的。get可以在一个TCP报文完成请求，但是post先发header，再发送数据。so，考虑好请求选型。<br>f. 缓存方案选型-&gt; 递进式缓存更新（防止一次性丢失大量缓存，导致负载骤多）
+</p>
+<h6>5. 服务器响应请求 ==&gt; tomcat、IIS等服务器通过本地映射文件关系找到地址或者通过数据库查找到数据，处理完成返回给浏览器</h6>
+<p>a. 后端框架选型    \<br>            ==&gt;  更快的响应，前端更快的操作。<br>b. 数据库选型和优化  /
+</p>
+<h6>6. 浏览器接受响应 ==&gt; 浏览器根据报文头里面的数据进行不同的响应处理</h6>
+<p>a. 解耦第三方依赖-&gt; 越多的第三方的不确定因素，会导致web的不稳定性和不确定性<br>b. 避免404资源-&gt; 请求资源不到浪费了从请求到接受的所有资源
+</p>
+<h6>7. 浏览器渲染顺序 ==&gt;</h6>
+<ol>
+<li>HTML解析开始构建dom树  </li>
+<li>外部脚本和样式表加载完毕<br>① 尽快加载css，首先将CSSOM对象渲染出来，然后进行页面渲染，否则导致页面闪屏，用户体验差<br>② css选择器是从右往左解析的，so类似<code>#test a {color: #444}</code>，css解析器会查找所有a标签的祖先节点，所以效率不是那么高<br>③ 在css的媒介查询中，最好不要直接和任何css规则直接相关。最好写到link标签中，告诉浏览器，只有在这个媒介下，加载指定这个css  </li>
+<li>脚本在文档内解析并执行<br>① 按需加载脚本，例如现在的webpack就可以打包和按需加载js脚本<br>② 将脚本标记为异步，不阻塞页面渲染，获得最佳启动，保证无关主要的脚本不会阻塞页面<br>③ 慎重选型框架和类库，避免只是用类库和框架的一个功能或者函数，而引用整个文件。</li>
+<li>HTML DOM完全构造起来<br>① DOM 的多个读操作（或多个写操作），应该放在一起。原则：统一读、统一写。</li>
+<li>图片和外部内容加载<br>① 对多媒体内容进行适当优化，包括恰当使用文件格式，文件处理、渐进式渲染等<br>② 避免空的src，空的src仍然会发送请求到服务器<br>③ 避免在html内容中缩放图片，如果你需要使用小图，则直接使用小图</li>
+<li>网页完成加载<br>① 服务端渲染，特别针对首屏加载很重要的网站，可以考虑这个方案。后端渲染结束，前端接管展示。  </li>
+</ol>
+</blockquote>
+<p> <strong>针对首屏展示优化</strong>  
+</p>
+<blockquote>
+<p><strong>图片懒加载</strong><br>针对展示只加载第一屏，等用户进行滚动的时候再进行加载。如果用户对下面内容不感兴趣，那么节省的请求。
+<strong>浏览器本地缓存模块</strong><br>可以通过按模块去划分，将页面的模块缓存到localStory中，每次请求核对模块版本号，丢失或者版本不一致重新请求，否则直接从本地拿（参考京东）
+
+</p>
+</blockquote>
+<p> <strong>javascript优化</strong>  
+</p>
+<blockquote>
+<p>减少对dom节点的查询，因为每次都会重新去索引这个集合或者元素。或者查询一次缓存起来，以待接下来使用<br>考虑清楚页面的重绘和重排，因为进行js操作DOM的时候，这些操作相对来说十分损耗性能的。<br>避免使用eval和Function构造，因为解析器会将这些内容先转换成可执行代码，然后再进行接下去的操作。<br>减少作用域链的查找，如果一个闭包函数使用到全局作用域的数据，那么每次局部作用域都会一层一层爬到最高作用域取得数据。<br>数据访问，数据访问，对非引用类型数据访问和局部变量的访问是最快的。所以如果对引用类型的成员（对象的属性或者数组的成员）访问超过一次，则缓存<br>算法优化，将前端可能会使用的一些算法函数写的更优化，在时间和空间复杂度上寻找到一个最优方案。<br>去除重复加载同一模块脚本<br>智能事件处理，比如在一个div下有10个按钮，可以在冒泡过程中捕获这个事件源，然后注册
+
+</p>
+</blockquote>
+<p> <strong>css优化</strong>
+</p>
+<blockquote>
+<p>删除无用规则<br>内联关键CSS<br>避免@imports和Base64<br>启用高性价比属性(如opacity over rgba())<br>避免重复性工作<br>不要一条条地改变样式，而要通过改变class，或者csstext属性，一次性地改变样式。<br>可将元素设为display: none（需要1次重排和重绘），然后N次操作，最后恢复显示<br>position属性为absolute或fixed的元素，重排的开销会比较小，因为不用考虑它对其他元素的影响。  
+
+</p>
+</blockquote>
+<p> <strong>图片优化（网络请求中80%都是静态资源的请求）</strong>
+</p>
+<blockquote>
+<p>图片正确格式的选择<br>图片尺寸的选择，在低分辨率等状况下考虑降级处理（考虑响应式图片）<br>使用正确的工具进行优化（有损压缩、无损压缩）<br>能用css处理和代理的，优先考虑css实现（阴影，滤镜等）<br>正确使用data url，比如说多地使用的地方，不建议data url，可考虑缓存<br>考虑图片的懒加载和元素可见加载方案<br>图片的预加载，在正确的合理的设计节点进行图片的预加载
+Edit By <a href="http://mahua.jser.me">MaHua</a></p>
+</blockquote>
+</body>
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+var flag = false;
+$("#test").on("click", function () {
+  if (flag) {
+
+    $("#testBlock").animate({"width":"0"});
+    $("#test").animate({"right":"0"});
+    flag = false;
+  } else {
+    $("#testBlock").animate({"width":"60%"});
+    $("#test").animate({"right":"60%"});
+    flag = true;
+  }
+  
+})
+</script>
+</html>
