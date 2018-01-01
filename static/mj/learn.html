@@ -3156,23 +3156,23 @@ Edit By <a href="http://mahua.jser.me">MaHua</a></p>
 </blockquote>
 </body>
 <script
-  src="http://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+  src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-var flag = false;
-$("#test").on("click", function () {
-  if (flag) {
+window.onload = function () {
+  var flag = false;
+  $("#test").on("click", function () {
+    if (flag) {
 
-    $("#testBlock").animate({"width":"0"});
-    $("#test").animate({"right":"0"});
-    flag = false;
-  } else {
-    $("#testBlock").animate({"width":"60%"});
-    $("#test").animate({"right":"60%"});
-    flag = true;
-  }
-  
-})
+      $("#testBlock").animate({"width":"0"});
+      $("#test").animate({"right":"0"});
+      flag = false;
+    } else {
+      $("#testBlock").animate({"width":"60%"});
+      $("#test").animate({"right":"60%"});
+      flag = true;
+    }
+    
+  })
+}
 </script>
 </html>
