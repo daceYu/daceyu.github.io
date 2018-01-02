@@ -4,7 +4,23 @@
                                  maximum-scale=1.0, user-scalable=no">
     <title></title>
 <style id="system" type="text/css">*{margin:0;padding:0;}body {	font:13.34px helvetica,arial,freesans,clean,sans-serif;	color:black;	line-height:1.4em;	background-color: #F8F8F8;	padding: 0.7em;}p {	margin:1em 0;	line-height:1.5em;}table {	font-size:inherit;	font:100%;	margin:1em;}table th{border-bottom:1px solid #bbb;padding:.2em 1em;}table td{border-bottom:1px solid #ddd;padding:.2em 1em;}input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}select,option{padding:0 .25em;}optgroup{margin-top:.5em;}pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}pre {	margin:1em 0;	font-size:12px;	background-color:#eee;	border:1px solid #ddd;	padding:5px;	line-height:1.5em;	color:#444;	overflow:auto;	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;	-webkit-border-radius:3px;	-moz-border-radius:3px;border-radius:3px;white-space: pre-wrap;word-wrap:break-word;}pre code {	padding:0;	font-size:12px;	background-color:#eee;	border:none;}code {	font-size:12px;	background-color:#f8f8ff;	color:#444;	padding:0 .2em;	border:1px solid #dedede;}img{border:0;max-width:100%;}abbr{border-bottom:none;}a{color:#4183c4;text-decoration:none;}a:hover{text-decoration:underline;}a code,a:link code,a:visited code{color:#4183c4;}h2,h3{margin:1em 0;}h1,h2,h3,h4,h5,h6{border:0;}h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}h3{margin-top:1em;}hr{border:1px solid #ddd;}ul{margin:1em 0 1em 2em;}ol{margin:1em 0 1em 2em;}ul li,ol li{margin-top:.5em;margin-bottom:.5em;}ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}dt{font-weight:bold;margin-left:1em;}dd{margin-left:2em;margin-bottom:1em;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
-<body marginheight="0"><h1>原生JS：String对象</h1>
+<body marginheight="0"><!-- MarkdownTOC -->
+
+<ul>
+<li><a href="#原生js：string对象">原生JS：String对象</a><ul>
+<li><a href="#string构造器的成员">String()构造器的成员</a></li>
+<li><a href="#stringprototype的成员">String.prototype的成员</a></li>
+<li><a href="#es5的补充">ES5的补充</a></li>
+<li><a href="#es6中新增的方法">ES6中新增的方法</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+
+
+<p><a name="原生js：string对象"></a>
+</p>
+<h1>原生JS：String对象</h1>
 <p>String()是一个用于创建字符串对象的构造器  
 
 </p>
@@ -17,11 +33,15 @@ typeof s_prim;      // output =&gt; string
 
 s_obj === s_prim;   // output =&gt; false
 s_obj == s_prim;    // output =&gt; true</code></pre>
+<p><a name="string构造器的成员"></a>
+</p>
 <h4>String()构造器的成员</h4>
 <h5>String.fromCharCode(code1, code2, code3,...)</h5>
 <p>该方法会根据用户输入的字符编码来创建字符串，并将其返回
 </p>
 <pre><code>String.fromCharCode(115, 99, 114, 105, 112, 116);   // 'script'</code></pre>
+<p><a name="stringprototype的成员"></a>
+</p>
 <h4>String.prototype的成员</h4>
 <h5>length</h5>
 <p>该属性返回字符串的字符数量
@@ -69,5 +89,98 @@ str.replace(/2/g, '$1$1');   // "R22-D22"</code></pre>
 </p>
 <pre><code>"C-3PO".search(/[0-9]/)     // 2</code></pre>
 <h5>slice(start, end)</h5>
+<p>该方法会返回字符串中<code>start</code>到<code>end</code>之间的部分。如果<code>start</code>的
+值是个负数，那么开始位置实际上等于<code>length + start</code>，同样的，
+如果<code>end</code>的值是负数，其结束位置等于<code>length + end</code>
+</p>
+<pre><code>let str = "hello, I am daceyu";
+str.slice(2,8);     // output =&gt; "llo, I"
+str.slice(2,-2);    // output =&gt; "llo, I am dace"</code></pre>
+<h5>substring(start, end)</h5>
+<p>该方法与<code>slice()</code>基本相同，如果<code>start</code>或<code>end</code>为负值、无效值时，会被视为<code>0</code>处理
+，如果它们的值大于<code>length</code>，则会被视为<code>length</code>，如果<code>start</code>的值大于<code>end</code>，则它们会自动交换彼此的值。
+</p>
+<pre><code>let str = "hello, I am daceyu";
+str.substring(2,8);     // output =&gt; "llo, I"
+str.substring(8,2);     // output =&gt; "llo, I"</code></pre>
+<h5>split(separator, limit)</h5>
+<p>该方法可以将字符串转成一个数组。它的第二个参数<code>limit</code>是可选的，<code>separator</code>参数可以是一个正则表达式，也可以是字符串。
+</p>
+<pre><code>let str = "1,2,3,4";
+str.split(/,/);     // output =&gt; ["1", "2", "3", "4"]
+str.split(",", 3);  // output =&gt; ["1", "2", "3"]</code></pre>
+<h5>toLowerCase() &amp;&amp; toLocaleLowerCase()</h5>
+<p>这两种方法都是将字符串转为小写
+</p>
+<pre><code>"JAVA".toLowerCase();    // output =&gt; "java"</code></pre>
+<h5>toUpperCase() &amp;&amp; toLocaleUpperCase()</h5>
+<p>这两种方法都是将字符串转为大写
+</p>
+<pre><code>"javaScript".toUpperCase();     // output =&gt; "JAVASCRIPT"</code></pre>
+<p><a name="es5的补充"></a>
+</p>
+<h4>ES5的补充</h4>
+<h5>String.prototype.trim()</h5>
+<p>该方法用来去除字符串首尾两端的空字符。
+</p>
+<pre><code>var str = " fskafa ";
+str.trim();    // output =&gt; "fskafa"</code></pre>
+<p>ES3中可以这么实现：
+</p>
+<pre><code>str.replace(/(^\s*)|(\s*$)/g, "");</code></pre>
+<p><a name="es6中新增的方法"></a>
+</p>
+<h4>ES6中新增的方法</h4>
+<h5>includes(str, position)</h5>
+<p>这个方法用来查找字符串中是否存在某一个值，如果存在返回<code>true</code>，如果不存在返回<code>false</code>。参数<code>str</code>为需要查询字符(串)，参数<code>position</code>为查询的起始位置
+</p>
+<pre><code>let str="wbiokr";
+str.includes('wb');     // output =&gt; true
+str.includes('wbiokr'); // output =&gt; true
+str.includes('w',1);    // output =&gt; false
+str.includes('b',1);    // output =&gt; true</code></pre>
+<h5>startsWith(str, position) &amp;&amp; endsWith(str, position)</h5>
+<p>参数<code>str</code>为需要查询字符(串)，参数<code>position</code>为查询的起始位置，返回布尔值。  
+
+</p>
+<p><code>startsWith()</code>表示是否位于字符的头部位置。<br><code>endsWith()</code>表示是否位于字符的尾部位置。
+
+</p>
+<pre><code>let str="wbiokr";
+str.startsWith('wb');   // output =&gt; true
+str.startsWith('w');    // output =&gt; true
+str.startsWith('w',1);  // output =&gt; false
+str.startsWith('b',1);  // output =&gt; true
+
+str.endsWith('kr');     // output =&gt; true
+str.endsWith('r');      // output =&gt; true
+str.endsWith('i',6);    // output =&gt; false
+str.endsWith('i',3);    // output =&gt; true
+str.endsWith('kr',6);   // output =&gt; true</code></pre>
+<h5>repeat(num)</h5>
+<p><code>string.repeat(num)</code>方法,参数<code>num</code>为重复字符串的次数，各种情况下的返回值见代码
+</p>
+<pre><code>let str='hi';
+str.repeat(3);        // output =&gt; 'hihihi' str被重复了3次返回，str不改变
+str.repeat(2.6);      // output =&gt; 'hihi'   浮点类型参数，会取整重复
+str.repeat(0);        // output =&gt; ''       0的时候返回空字符串
+str.repeat(undefined);// output =&gt; ''       undefined转化为0
+str.repeat(null);     // output =&gt; ''       null转化为0
+str.repeat(NaN);      // output =&gt; ''       NaN转化为0
+str.repeat(-3);       // Uncaught RangeError:Invalid count value</code></pre>
+<h5>for...of</h5>
+<p>字符串相关遍历方法
+</p>
+<pre><code>let str = "wbiokr";
+for (let i of str) {
+    console.log(i);
+    if (i === "w") return;
+}</code></pre>
+<h5>`${}`</h5>
+<p>过去我们都是通过字符串拼接进行添加变量。`${}`可以直接拼接。
+</p>
+<pre><code>let str = "wbiokr";
+$('#box').html(`there is a word ${str},i know it`);
+// there is a word wbiokr,i know it</code></pre>
 <p>Edit By <a href="http://mahua.jser.me">MaHua</a></p>
 </body></html>
