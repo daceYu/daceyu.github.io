@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/photos">相册</a></li>
 	        
-				<li><a href="https://betahouse.us">β-house</a></li>
+				<li><a href="http://betahouse.us">β-house</a></li>
 	        
 			</ul>
 		</nav>
@@ -170,7 +170,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="https://betahouse.us">β-house</a></li>
+					<li style="width: 33.333333333333336%"><a href="http://betahouse.us">β-house</a></li>
 		        
 				</ul>
 			</nav>
