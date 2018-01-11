@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://daceyu.com">
-  <title>Archives | Non-who can not°</title>
+  <title>前端模块及依赖管理 | Non-who can not°</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杭电13级，就职于同花顺。">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Non-who can not°">
-<meta property="og:url" content="http://daceyu.com/archives/page/2/index.html">
+  <meta name="description" content="文章根据以下三点整理，不讨论技术细节  为什么需要前端模块化和依赖管理 有哪些实现规范和方法 前端模块及依赖管理的历史     模块化是一种处理复杂系统分解成为更好的可管理模块的方式，它可以把系统代码划分为一系列职责单一，高度解耦且可替换的模块，系统中某一部分的变化将如何影响其它部分就会变得显而易见，系统的可维护性更加">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端模块及依赖管理">
+<meta property="og:url" content="http://daceyu.com/2016/12/02/前端模块及依赖管理/index.html">
 <meta property="og:site_name" content="Non-who can not°">
-<meta property="og:description" content="杭电13级，就职于同花顺。">
+<meta property="og:description" content="文章根据以下三点整理，不讨论技术细节  为什么需要前端模块化和依赖管理 有哪些实现规范和方法 前端模块及依赖管理的历史     模块化是一种处理复杂系统分解成为更好的可管理模块的方式，它可以把系统代码划分为一系列职责单一，高度解耦且可替换的模块，系统中某一部分的变化将如何影响其它部分就会变得显而易见，系统的可维护性更加简单易得  好了，以上是段废话，模块化的重点就是分而治之。什么可复用性只是顺便的">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/74311666jw1exc2m9k6qgj20cu0m0q5s.jpg">
+<meta property="og:image" content="https://github.com/fouber/blog/raw/master/201508/assets/libs.png">
+<meta property="og:image" content="https://github.com/fouber/blog/raw/master/201508/assets/tools.png">
+<meta property="og:image" content="https://github.com/fouber/blog/raw/master/201508/assets/libs-2.png">
+<meta property="og:image" content="https://github.com/fouber/blog/raw/master/201508/assets/components.png">
+<meta property="og:updated_time" content="2018-01-11T13:52:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Non-who can not°">
-<meta name="twitter:description" content="杭电13级，就职于同花顺。">
+<meta name="twitter:title" content="前端模块及依赖管理">
+<meta name="twitter:description" content="文章根据以下三点整理，不讨论技术细节  为什么需要前端模块化和依赖管理 有哪些实现规范和方法 前端模块及依赖管理的历史     模块化是一种处理复杂系统分解成为更好的可管理模块的方式，它可以把系统代码划分为一系列职责单一，高度解耦且可替换的模块，系统中某一部分的变化将如何影响其它部分就会变得显而易见，系统的可维护性更加简单易得  好了，以上是段废话，模块化的重点就是分而治之。什么可复用性只是顺便的">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/74311666jw1exc2m9k6qgj20cu0m0q5s.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Non-who can not°" type="application/atom+xml">
   
@@ -184,36 +191,129 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-前端模块及依赖管理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/regular-expression/" class="archive-article-date">
-  	<time datetime="2016-06-02T09:11:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/regular-expression/">有关一些正则表达式</a>
+    <h1 class="article-title" itemprop="name">
+      前端模块及依赖管理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/12/02/前端模块及依赖管理/" class="archive-article-date">
+  	<time datetime="2016-12-02T10:20:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文章根据以下三点整理，不讨论技术细节</p>
+<ul>
+<li>为什么需要前端模块化和依赖管理</li>
+<li>有哪些实现规范和方法</li>
+<li>前端模块及依赖管理的历史</li>
+</ul>
+<blockquote>
+<p>  模块化是一种处理复杂系统分解成为更好的可管理模块的方式，它可以把系统代码划分为一系列职责单一，高度解耦且可替换的模块，系统中某一部分的变化将如何影响其它部分就会变得显而易见，系统的可维护性更加简单易得</p>
+</blockquote>
+<p>好了，以上是段废话，模块化的重点就是<strong>分而治之</strong>。什么可复用性只是顺便的。<br><a id="more"></a></p>
+<h3 id="JS_u6A21_u5757_u5316"><a href="#JS_u6A21_u5757_u5316" class="headerlink" title="JS模块化"></a>JS模块化</h3><p>曾经，我一度以为js模块化就是前端模块化，直到我认识了less(css模块化)，而如今在这个遍地谈论ui component的年代，理清前端模块化概念是非常重要的基础。我会尽量用简单的方式介绍清楚每一个概念，有什么不清楚的我再改。</p>
+<p>Javascript不是一种模块化编程语言，它不支持”类”（class），本身也没有”模块”（module）这个说法。（ES6支持”类”和”模块”。<a href="http://huangxuan.me/2015/09/22/js-version/" target="_blank" rel="noopener">ES5, ES6, ES2016, ES.Next: JavaScript 的版本是怎么回事？「译」</a>）</p>
+<p>我们要讨论模块化就来看看它最初的样子</p>
+<h4 id="u4E00_u3001_u539F_u59CB_u5199_u6CD5"><a href="#u4E00_u3001_u539F_u59CB_u5199_u6CD5" class="headerlink" title="一、原始写法"></a>一、原始写法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">m1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="comment">//...</span></div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">m2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="comment">//...</span></div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>上面的函数<code>m1()</code>和<code>m2()</code>，组成一个模块。使用的时候，直接调用就行了。</p>
+<p>但，<em>“污染”了全局变量，无法保证不与其他模块发生变量名冲突</em>，而且模块成员之间看不出直接<em>关系</em>。</p>
+<h4 id="u4E8C_u3001_u5BF9_u8C61_u5199_u6CD5"><a href="#u4E8C_u3001_u5BF9_u8C61_u5199_u6CD5" class="headerlink" title="二、对象写法"></a>二、对象写法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> module1 = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</div><div class="line">　　　　<span class="attr">_count</span> : <span class="number">0</span>,</div><div class="line">　　　　<span class="attr">m1</span> : <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;,</div><div class="line">　　　　<span class="attr">m2</span> : <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
+<p>上面的函数<code>m1()</code>和<code>m2()</code>，都封装在<code>module1</code>对象里。使用的时候，就是调用这个对象的属性。</p>
+<p>但，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。</p>
+<h4 id="u4E09_u3001_u7ACB_u5373_u6267_u884C_u51FD_u6570_u5199_u6CD5"><a href="#u4E09_u3001_u7ACB_u5373_u6267_u884C_u51FD_u6570_u5199_u6CD5" class="headerlink" title="三、立即执行函数写法"></a>三、立即执行函数写法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> module1 = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> _count = <span class="number">0</span>;</div><div class="line">　　　　<span class="keyword">var</span> m1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;;</div><div class="line">　　　　<span class="keyword">var</span> m2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;;</div><div class="line">　　　　<span class="keyword">return</span> &#123;</div><div class="line">　　　　　　<span class="attr">m1</span> : m1,</div><div class="line">　　　　　　<span class="attr">m2</span> : m2</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;)();</div></pre></td></tr></table></figure>
+<p>可以达到不暴露私有成员的目的。</p>
+<p>但，外部代码无法读取内部的<code>_count</code>变量。</p>
+<h4 id="u56DB_u3001_u653E_u5927_u6A21_u5F0F__28_u770B_u5230_u4E86_u5417_uFF01_u6A21_u5757_u4F9D_u8D56_29"><a href="#u56DB_u3001_u653E_u5927_u6A21_u5F0F__28_u770B_u5230_u4E86_u5417_uFF01_u6A21_u5757_u4F9D_u8D56_29" class="headerlink" title="四、放大模式 (看到了吗！模块依赖)"></a>四、放大模式 (看到了吗！模块依赖)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> module1 = (<span class="function"><span class="keyword">function</span> (<span class="params">mod</span>)</span>&#123;</div><div class="line">　　　　mod.m3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;;</div><div class="line">　　　　<span class="keyword">return</span> mod;</div><div class="line">　　&#125;)(module1);</div></pre></td></tr></table></figure>
+<p>上面的代码为<code>module1</code>模块添加了一个新方法<code>m3()</code>，然后返回新的<code>module1</code>模块。 （紧耦合）</p>
+<h4 id="u4E94_u3001_u5BBD_u653E_u5927_u6A21_u5F0F_uFF08Loose_augmentation_uFF09"><a href="#u4E94_u3001_u5BBD_u653E_u5927_u6A21_u5F0F_uFF08Loose_augmentation_uFF09" class="headerlink" title="五、宽放大模式（Loose augmentation）"></a>五、宽放大模式（Loose augmentation）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> module1 = ( <span class="function"><span class="keyword">function</span> (<span class="params">mod</span>)</span>&#123;</div><div class="line">　　　　<span class="comment">//...</span></div><div class="line">　　　　</div><div class="line">　　　　<span class="keyword">return</span> mod;</div><div class="line">　　&#125;)(<span class="built_in">window</span>.module1 || &#123;&#125;);</div></pre></td></tr></table></figure>
+<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上一节的写法，第一个执行的部分有可能加载一个不存在空对象，就会报错，这时就要采用”宽放大模式”，参数可以可以先是空对象。（松耦合）</p>
+<h3 id="CommonJS_OR_AMD_OR_CMD"><a href="#CommonJS_OR_AMD_OR_CMD" class="headerlink" title="CommonJS OR AMD OR CMD"></a>CommonJS OR AMD OR CMD</h3><p>理解第四、第五点，我们来看一下js模块化的规范。</p>
+<p>NodeJs推广的CommonJs，用于后端，同步的（就是说它是紧耦合的，参照四）</p>
+<p>requireJS推广的AMD和seaJS推广的CMD，用于前端，异步的（松耦合，靠回调函数）</p>
+<p><a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="noopener">CMD</a> 推崇依赖就近，<a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="noopener">AMD</a> 推崇依赖前置 。（文档里有示例）</p>
+<p>通过建立在这些那些标准上的框架，我们可以非常方便的对js模块做依赖。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// AMD</span></div><div class="line">　　<span class="built_in">require</span>([<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">math</span>) </span>&#123;</div><div class="line">　　　　math.add(<span class="number">2</span>, <span class="number">3</span>);</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
+<p>当然我们有<a href="http://www.cnblogs.com/Wayou/p/es6_new_features.html" target="_blank" rel="noopener">ES6</a>了！ </p>
+<hr>
+<h2 id="css_u6A21_u5757_u5316"><a href="#css_u6A21_u5757_u5316" class="headerlink" title="css模块化"></a>css模块化</h2><p>理解了js的模块化，你也可以同样理解css模块化。<br>举一个例子，form样式是一个模块，card模块是一个依赖form的二级模块，把问题<strong>分治</strong>就是模块化的重点！</p>
+<p>感受一下bootstrap的less目录</p>
+<p><img src="http://ww2.sinaimg.cn/large/74311666jw1exc2m9k6qgj20cu0m0q5s.jpg" alt="img"></p>
+<p>目前主流的css模块化工具有less和sass。</p>
+<hr>
+<h2 id="u6784_u5EFA_u4F18_u5316"><a href="#u6784_u5EFA_u4F18_u5316" class="headerlink" title="构建优化"></a>构建优化</h2><p>在了解了模块化和依赖的概念之后，就可以开始动手了</p>
+<h3 id="u7B2C_u4E00_u9636_u6BB5_uFF1A_u5E93/_u6846_u67B6_u9009_u578B"><a href="#u7B2C_u4E00_u9636_u6BB5_uFF1A_u5E93/_u6846_u67B6_u9009_u578B" class="headerlink" title="第一阶段：库/框架选型"></a>第一阶段：库/框架选型</h3><p><img src="https://github.com/fouber/blog/raw/master/201508/assets/libs.png" alt="img"></p>
+<p>这个根据项目选各种炫酷的、实用的框架和工具就随你了</p>
+<h3 id="u7B2C_u4E8C_u9636_u6BB5_uFF1A_u7B80_u5355_u6784_u5EFA_u4F18_u5316"><a href="#u7B2C_u4E8C_u9636_u6BB5_uFF1A_u7B80_u5355_u6784_u5EFA_u4F18_u5316" class="headerlink" title="第二阶段：简单构建优化"></a>第二阶段：简单构建优化</h3><p><img src="https://github.com/fouber/blog/raw/master/201508/assets/tools.png" alt="img"></p>
+<p>grunt和gulp都是非常方便的自动化构建工具，可以实现对代码的压缩合并、图片压缩之列、sass编译之类等等的功能。<br>gulp是后期之星，已经可以完全替代grunt，并且代码设计(<em>管道的故事</em>)上更合理。</p>
+<p><a href="http://www.techug.com/gulp" target="_blank" rel="noopener">了解一个gulp程序在干嘛</a></p>
+<h3 id="u7B2C_u4E09_u9636_u6BB5_uFF1AJS/CSS_u6A21_u5757_u5316_u5F00_u53D1"><a href="#u7B2C_u4E09_u9636_u6BB5_uFF1AJS/CSS_u6A21_u5757_u5316_u5F00_u53D1" class="headerlink" title="第三阶段：JS/CSS模块化开发"></a>第三阶段：JS/CSS模块化开发</h3><p><img src="https://github.com/fouber/blog/raw/master/201508/assets/libs-2.png" alt="img"></p>
+<p>JS模块化方案很多，AMD/CommonJS/UMD/ES6 Module等，对应的框架和工具也一大堆；CSS模块化开发基本都是在less、sass、stylus等预处理器的import/mixin特性支持下实现的。</p>
+<p><a href="http://segmentfault.com/a/1190000002551952" target="_blank" rel="noopener">webpack入门指迷</a></p>
+<p><a href="http://segmentfault.com/a/1190000002941361#articleHeader4" target="_blank" rel="noopener">前端模块及依赖管理的新选择：Browserify</a></p>
+<h3 id="u7B2C_u56DB_u9636_u6BB5"><a href="#u7B2C_u56DB_u9636_u6BB5" class="headerlink" title="第四阶段"></a>第四阶段</h3><blockquote>
+<p>  前端是一种技术问题较少、工程问题较多的软件开发领域。</p>
+</blockquote>
+<ul>
+<li>大体量：多功能、多页面、多状态、多系统；</li>
+<li>大规模：多人甚至多团队合作开发；</li>
+<li>高性能：CDN部署、缓存控制、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。</li>
+</ul>
+<p>这方面的实践问题暂不探讨。</p>
+<hr>
+<h2 id="u7EC4_u4EF6_u5316_u5F00_u53D1"><a href="#u7EC4_u4EF6_u5316_u5F00_u53D1" class="headerlink" title="组件化开发"></a>组件化开发</h2><p>随着前端js／css的组件化程度，ui组件分治的需求也变得迫切，所以我们有了react ！</p>
+<p><img src="https://github.com/fouber/blog/raw/master/201508/assets/components.png" alt="img"></p>
+<p>解读：</p>
+<ol>
+<li>页面上的每个 独立的 可视/可交互区域视为一个组件；</li>
+<li>每个组件对应一个工程目录，组件所需的各种资源都在这个目录下就近维护；</li>
+<li>由于组件具有独立性，因此组件与组件之间可以 自由组合；</li>
+<li>页面只不过是组件的容器，负责组合组件形成功能完整的界面；</li>
+<li>当不需要某个组件，或者想要替换组件时，可以整个目录删除/替换。</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/config/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -225,184 +325,127 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/16/input用户体验/" class="archive-article-date">
-  	<time datetime="2016-04-16T00:10:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/16/input用户体验/">谈谈input</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">用户体验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/02/brower-sync/" class="archive-article-date">
-  	<time datetime="2015-12-02T08:10:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/02/brower-sync/">Brower-sync多平台调试利器</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://daceyu.com/2016/12/02/前端模块及依赖管理/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/22/ps/" class="archive-article-date">
-  	<time datetime="2015-10-22T03:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-22</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/01/09/node_builder/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          基于node创建新项目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/01/iscroll.js回弹bug/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/22/ps/">PS切图插件cutterman</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">PS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS_u6A21_u5757_u5316"><span class="toc-number">1.</span> <span class="toc-text">JS模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4E00_u3001_u539F_u59CB_u5199_u6CD5"><span class="toc-number">1.1.</span> <span class="toc-text">一、原始写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4E8C_u3001_u5BF9_u8C61_u5199_u6CD5"><span class="toc-number">1.2.</span> <span class="toc-text">二、对象写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4E09_u3001_u7ACB_u5373_u6267_u884C_u51FD_u6570_u5199_u6CD5"><span class="toc-number">1.3.</span> <span class="toc-text">三、立即执行函数写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u56DB_u3001_u653E_u5927_u6A21_u5F0F__28_u770B_u5230_u4E86_u5417_uFF01_u6A21_u5757_u4F9D_u8D56_29"><span class="toc-number">1.4.</span> <span class="toc-text">四、放大模式 (看到了吗！模块依赖)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u4E94_u3001_u5BBD_u653E_u5927_u6A21_u5F0F_uFF08Loose_augmentation_uFF09"><span class="toc-number">1.5.</span> <span class="toc-text">五、宽放大模式（Loose augmentation）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CommonJS_OR_AMD_OR_CMD"><span class="toc-number">2.</span> <span class="toc-text">CommonJS OR AMD OR CMD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css_u6A21_u5757_u5316"><span class="toc-number"></span> <span class="toc-text">css模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6784_u5EFA_u4F18_u5316"><span class="toc-number"></span> <span class="toc-text">构建优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u7B2C_u4E00_u9636_u6BB5_uFF1A_u5E93/_u6846_u67B6_u9009_u578B"><span class="toc-number">1.</span> <span class="toc-text">第一阶段：库/框架选型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7B2C_u4E8C_u9636_u6BB5_uFF1A_u7B80_u5355_u6784_u5EFA_u4F18_u5316"><span class="toc-number">2.</span> <span class="toc-text">第二阶段：简单构建优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7B2C_u4E09_u9636_u6BB5_uFF1AJS/CSS_u6A21_u5757_u5316_u5F00_u53D1"><span class="toc-number">3.</span> <span class="toc-text">第三阶段：JS/CSS模块化开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7B2C_u56DB_u9636_u6BB5"><span class="toc-number">4.</span> <span class="toc-text">第四阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EC4_u4EF6_u5316_u5F00_u53D1"><span class="toc-number"></span> <span class="toc-text">组件化开发</span></a>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/08/同步请求异步请求/" class="archive-article-date">
-  	<time datetime="2015-10-08T04:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/08/同步请求异步请求/">认识同步与异步</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -426,8 +469,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
