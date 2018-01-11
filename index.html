@@ -191,7 +191,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="u6D45_u8C08_u56FE_u7247_u52A0_u8F7D_uFF08_u4E00_uFF09"><a href="#u6D45_u8C08_u56FE_u7247_u52A0_u8F7D_uFF08_u4E00_uFF09" class="headerlink" title="浅谈图片加载（一）"></a>浅谈图片加载（一）</h1><h2 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h2><p>图片加载，网上很多文章将这个，那我为什么也要写一篇讲图片加载呢？</p>
+        <p>title: 浅谈图片加载（一）<br>date: 2018-01-11 21:15:50<br>tags:</p>
+<ul>
+<li>前端</li>
+</ul>
+<h2 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h2><p>图片加载，网上很多文章将这个，那我为什么也要写一篇讲图片加载呢？</p>
 <p>其实不然，我这里介绍的不仅仅是图片加载，而是由图片加载引发的一系列思考，由简单的一个小方法的实现，到最后引起开发模式改变。我想讲的就是这么一个思想。</p>
 <h2 id="u5173_u4E8Eimage_u7684_u4F18_u5316"><a href="#u5173_u4E8Eimage_u7684_u4F18_u5316" class="headerlink" title="关于image的优化"></a>关于image的优化</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"a.png"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><code>img</code> 标签引入图片，在所有的设备上都是加载<code>a.png</code>，这无疑会造成资源的浪费。</p>
