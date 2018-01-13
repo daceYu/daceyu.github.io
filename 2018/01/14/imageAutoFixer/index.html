@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://daceyu.com/2018/01/14/imageAutoFixer/index.html">
 <meta property="og:site_name" content="Non-who can not°">
 <meta property="og:description" content="上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是模糊图（base64格式）、1x图、2x图、webp格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。 功能我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据UI的原始尺寸切好，作为2x图。然后，我们需要根据这张图生成模糊图（base64）">
-<meta property="og:updated_time" content="2018-01-13T15:57:47.000Z">
+<meta property="og:updated_time" content="2018-01-13T16:00:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈图片处理（二）之自动化图片处理">
 <meta name="twitter:description" content="上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是模糊图（base64格式）、1x图、2x图、webp格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。 功能我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据UI的原始尺寸切好，作为2x图。然后，我们需要根据这张图生成模糊图（base64）">
@@ -222,7 +222,7 @@ var _hmt = _hmt || [];
 <li><p>需要操作的图片对象命名格式为<code>*_2x.png</code>或者<code>*_2x.jpg</code>等等</p>
 </li>
 <li><p>如果需要自动将<code>html</code>中的图片替换为<code>base64</code>，那么引入图片需要如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"images/*_min.png"</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/*_min.png"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>当然，会自动生成一份<code>json</code>文件，你也可以选择手动替换。</p>
 </li>
 </ol>
