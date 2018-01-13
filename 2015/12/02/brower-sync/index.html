@@ -524,7 +524,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
         <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+        <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            加载失败，请刷新后查看
+            </p>
+          <!-- <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
@@ -547,7 +550,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       categories: false
       tags: true
 </pre>
-          </p>
+          </p> -->
           <li class="search-li" q-repeat="items" q-show="isShow">
             <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
             <p class="search-time">
@@ -567,9 +570,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
+  	  	<!-- 
   	  		<div class="aboutme-wrap" id="js-aboutme">daceyu&lt;br&gt;daceyu@aliyun.com&lt;br&gt;&lt;br&gt;毕业于杭电，就职于同花顺&lt;br&gt;&lt;br&gt;热爱大海与酷辣，&lt;br&gt;目前是一枚前端&lt;br&gt;&lt;br&gt;以梦为马，不负韶华，&lt;br&gt;以风为缰，肆意张扬。</div>
-  	  	
+  	  	 -->
+        <div class="aboutme-wrap" id="js-aboutme">
+          daceyu<br>
+          daceyu@aliyun.com<br><br>
+          毕业于杭电，就职于同花顺<br><br>
+          热爱大海与酷辣，<br>
+          目前是一枚前端<br><br>
+          以梦为马，不负韶华，<br>
+          以风为缰，肆意张扬。
+        </div>
     	</section>
     
   </div>
