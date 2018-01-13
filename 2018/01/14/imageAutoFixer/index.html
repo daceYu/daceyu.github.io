@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://daceyu.com">
-  <title>Tag: 前端 | Non-who can not°</title>
+  <title>浅谈图片处理（二）之自动化图片处理 | Non-who can not°</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="杭电13级，就职于同花顺。">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Non-who can not°">
-<meta property="og:url" content="http://daceyu.com/tags/前端/index.html">
+  <meta name="description" content="上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是模糊图（base64格式）、1x图、2x图、webp格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。 功能我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据U">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈图片处理（二）之自动化图片处理">
+<meta property="og:url" content="http://daceyu.com/2018/01/14/imageAutoFixer/index.html">
 <meta property="og:site_name" content="Non-who can not°">
-<meta property="og:description" content="杭电13级，就职于同花顺。">
+<meta property="og:description" content="上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是模糊图（base64格式）、1x图、2x图、webp格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。 功能我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据UI的原始尺寸切好，作为2x图。然后，我们需要根据这张图生成模糊图（base64）">
+<meta property="og:updated_time" content="2018-01-13T15:57:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Non-who can not°">
-<meta name="twitter:description" content="杭电13级，就职于同花顺。">
+<meta name="twitter:title" content="浅谈图片处理（二）之自动化图片处理">
+<meta name="twitter:description" content="上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是模糊图（base64格式）、1x图、2x图、webp格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。 功能我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据UI的原始尺寸切好，作为2x图。然后，我们需要根据这张图生成模糊图（base64）">
   
     <link rel="alternative" href="/atom.xml" title="Non-who can not°" type="application/atom+xml">
   
@@ -184,36 +185,93 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-imageAutoFixer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      浅谈图片处理（二）之自动化图片处理
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/14/imageAutoFixer/" class="archive-article-date">
+
+        
+        <a href="/2018/01/14/imageAutoFixer/" class="archive-article-date">
   	<time datetime="2018-01-13T16:20:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/14/imageAutoFixer/">浅谈图片处理（二）之自动化图片处理</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是<code>模糊图（base64格式）</code>、<code>1x</code>图、<code>2x</code>图、<code>webp</code>格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。</p>
+<h2 id="u529F_u80FD"><a href="#u529F_u80FD" class="headerlink" title="功能"></a>功能</h2><p>我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据UI的原始尺寸切好，作为<code>2x图</code>。然后，我们需要根据这张图生成<code>模糊图（base64）</code>、<code>1x图</code>、<code>webp</code>格式的图片，最好是自动将<code>base64</code>字符串放到我们需要的地方。<br><a id="more"></a></p>
+<h2 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h2><p><a href="http://www.imagemagick.org/script/index.php" target="_blank" rel="noopener">imageMagick</a>或<a href="http://www.graphicsmagick.org/" target="_blank" rel="noopener">GraphicsMagick</a>，这里我用的是imageMagick，然后结合<code>gm</code>去处理图片，<code>gm</code>的相关<code>api</code>这里就不介绍了，需要了解的可以自行查看<a href="http://aheckmann.github.io/gm/docs.html#imagemagick" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>首先下载安装imageMagick</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo port <span class="keyword">install</span> ImageMagick</div></pre></td></tr></table></figure>
+<p>然后选择一个目录解压</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="variable">$HOME</span></div><div class="line">tar xvzf ImageMagick-x86_64-apple-darwin17.<span class="number">2.0</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></div></pre></td></tr></table></figure>
+<p>另外需要做一些配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> MAGICK_HOME=<span class="string">"<span class="variable">$HOME</span>/ImageMagick-7.0.7"</span></div><div class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$MAGICK_HOME</span>/bin:<span class="variable">$PATH</span>"</span></div><div class="line"><span class="built_in">export</span> DYLD_LIBRARY_PATH=<span class="string">"<span class="variable">$MAGICK_HOME</span>/lib/"</span></div></pre></td></tr></table></figure>
+<p>按照以上步骤操作完以后呢，我们可以验证一下imageMagick是否能够正常工作：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">magick</span> <span class="selector-tag">logo</span>: <span class="selector-tag">logo</span><span class="selector-class">.gif</span></div><div class="line"><span class="selector-tag">identify</span> <span class="selector-tag">logo</span><span class="selector-class">.gif</span></div><div class="line"><span class="selector-tag">display</span> <span class="selector-tag">logo</span><span class="selector-class">.gif</span></div></pre></td></tr></table></figure>
+<h2 id="u7EA6_u5B9A"><a href="#u7EA6_u5B9A" class="headerlink" title="约定"></a>约定</h2><ol>
+<li><p>项目下需要有一个<code>images</code>文件夹</p>
+</li>
+<li><p>需要操作的图片对象命名格式为<code>*_2x.png</code>或者<code>*_2x.jpg</code>等等</p>
+</li>
+<li><p>如果需要自动将<code>html</code>中的图片替换为<code>base64</code>，那么引入图片需要如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"images/*_min.png"</span>&gt;</div></pre></td></tr></table></figure>
+<p>当然，会自动生成一份<code>json</code>文件，你也可以选择手动替换。</p>
+</li>
+</ol>
+<h2 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h2><p>跟之前<strong><em>基于node创建新项目</em></strong>实现类似，例如<code>处理输入的命令</code>，<code>读取数据</code>相关的一些处理就不多提了，需要了解的朋友可以查看<a href="https://github.com/daceYu/imageAutoprefixer" target="_blank" rel="noopener">源码</a>或者看下之前的那篇<a href="http://daceyu.com/2018/01/09/node_builder/">博文</a>，这里我们只介绍以上提到的<code>模糊图（base64格式）</code>、<code>1x</code>图、<code>2x</code>图、<code>webp</code>格式图处理。</p>
+<h4 id="2x_u8F6Cwebp"><a href="#2x_u8F6Cwebp" class="headerlink" title="2x转webp"></a>2x转webp</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Processing pictures</div><div class="line"> * param &#123;String&#125; folderPath: target path</div><div class="line"> * param &#123;String&#125; fileName: picture name</div><div class="line"> */</div><div class="line"><span class="keyword">let</span> writeImg = <span class="function">(<span class="params">folderPath, fileName</span>) =&gt;</span> &#123;</div><div class="line">	<span class="keyword">let</span> obj = <span class="string">`<span class="subst">$&#123;folderPath&#125;</span><span class="subst">$&#123;fileName&#125;</span>`</span>;</div><div class="line"></div><div class="line">	<span class="comment">// create `.webp`</span></div><div class="line">	<span class="keyword">let</span> _webpPath = obj.replace(<span class="string">"_2x"</span>, <span class="string">""</span>).split(<span class="string">"."</span>)[<span class="number">0</span>] + <span class="string">".webp"</span>;</div><div class="line">	gm(obj).setFormat(<span class="string">'webp'</span>).write(_webpPath, (err) =&gt; &#123;</div><div class="line">		<span class="keyword">if</span> (err) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(err);</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;_webpPath&#125;</span>生成成功`</span>);</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2x_u8F6C1x"><a href="#2x_u8F6C1x" class="headerlink" title="2x转1x"></a>2x转1x</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">gm(obj).size( <span class="function"><span class="keyword">function</span> (<span class="params">err, size</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> _width = <span class="number">0.64</span> * size.width;</div><div class="line">    <span class="keyword">this</span>.resize(_width);</div><div class="line"></div><div class="line">    <span class="comment">// create `_1x.`</span></div><div class="line">    <span class="keyword">let</span> _1xfilename = fileName.replace(<span class="string">"_2x"</span>, <span class="string">"_1x"</span>);</div><div class="line">    <span class="keyword">let</span> _1xpath = <span class="string">`<span class="subst">$&#123;folderPath&#125;</span><span class="subst">$&#123;_1xfilename&#125;</span>`</span>;</div><div class="line">    <span class="keyword">this</span>.write(_1xpath, (err) =&gt; &#123;</div><div class="line">    	<span class="keyword">if</span> (err) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(err);</div><div class="line">    	<span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;_1xpath&#125;</span>生成成功`</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2x_u8F6Cjpg_u7136_u540E_u8F6C_u6210base64"><a href="#2x_u8F6Cjpg_u7136_u540E_u8F6C_u6210base64" class="headerlink" title="2x转jpg然后转成base64"></a>2x转jpg然后转成base64</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">gm(obj).size( <span class="function"><span class="keyword">function</span> (<span class="params">err, size</span>) </span>&#123;</div><div class="line"> 	<span class="comment">// create `base64`</span></div><div class="line">    <span class="keyword">let</span> _minW = <span class="number">0.2</span> * size.width,</div><div class="line">   		_minfilename = fileName.replace(<span class="string">"_2x"</span>, <span class="string">"_min"</span>),</div><div class="line">    	_minpath = <span class="string">`<span class="subst">$&#123;folderPath&#125;</span><span class="subst">$&#123;_minfilename&#125;</span>`</span>;</div><div class="line">  	<span class="comment">// tobuffer jpg</span></div><div class="line">    <span class="keyword">this</span>.resize(_minW).colors(<span class="number">8</span>).blur(<span class="number">7</span>,<span class="number">3</span>).toBuffer(<span class="string">"jpg"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, buffer</span>) </span>&#123;</div><div class="line">    	<span class="keyword">if</span> (err) &#123;</div><div class="line">    		<span class="built_in">console</span>.log(err);</div><div class="line">    		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    	&#125;</div><div class="line"></div><div class="line">		<span class="keyword">let</span> base = <span class="string">'"images/'</span> + _minfilename + <span class="string">'":"data:image/png;base64,'</span> + </div><div class="line">            buffer.toString(<span class="string">"base64"</span>) + <span class="string">'"'</span>;</div><div class="line">		baseArr.push(base);</div><div class="line">      	 <span class="comment">// </span></div><div class="line">		<span class="keyword">if</span> (baseArr.length == imgArr.length) &#123;</div><div class="line">			<span class="keyword">let</span> _obj = <span class="string">`var baseObj = &#123; <span class="subst">$&#123;baseArr.join(<span class="string">",\r\n"</span>)&#125;</span> &#125;`</span>;</div><div class="line">			<span class="keyword">let</span> _basePath = folderPath.replace(<span class="string">"images/"</span>, <span class="string">"base64.json"</span>);</div><div class="line">			fs.appendFile(_basePath, _obj, (err) =&gt; &#123;</div><div class="line">				<span class="keyword">if</span> (err) &#123;</div><div class="line">					<span class="built_in">console</span>.log(err);</div><div class="line">					<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"生成base64.json文件"</span>)</div><div class="line">			&#125;)</div><div class="line">		&#125;</div><div class="line">	&#125;) </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>生成<code>base64</code>的<code>json</code>文件之后，自动将<code>base64</code>字符串放到<code>html</code>我们中需要的地方：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * img replace to base64</div><div class="line"> * if exist html file, Replace the pictures of _min in the IMG label in the HTML file into Base64</div><div class="line"> * param &#123;String&#125; path: file path</div><div class="line"> * param &#123;String&#125;</div><div class="line"> */</div><div class="line"><span class="keyword">let</span> renderBase64 = <span class="function">(<span class="params">path, baseObj</span>) =&gt;</span> &#123;</div><div class="line">	fs.readFile(path, &#123;</div><div class="line">		<span class="attr">encoding</span>: <span class="string">"utf-8"</span></div><div class="line">	&#125;, (err, data) =&gt; &#123;</div><div class="line">		<span class="keyword">if</span> (err) &#123;</div><div class="line">			<span class="built_in">console</span>.log(colors.get(<span class="string">"FgRed"</span>), err)</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">let</span> str = data.replace(<span class="regexp">/src=[\'\"]?([^\'\"]*)[\'\"]?/gi</span>, (data, match) =&gt; &#123;</div><div class="line">			<span class="keyword">return</span> match.indexOf(<span class="string">"_min.png"</span>) &gt; <span class="number">-1</span> ? <span class="string">`src="<span class="subst">$&#123;baseObj[match]&#125;</span>"`</span> : <span class="string">`src="<span class="subst">$&#123;match&#125;</span>"`</span></div><div class="line">		&#125;);</div><div class="line">		fs.writeFile(path, str, (err) =&gt; &#123;</div><div class="line">			<span class="keyword">if</span> (err) &#123;</div><div class="line">				<span class="built_in">console</span>.log(colors.get(<span class="string">"FgRed"</span>), err)</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="built_in">console</span>.log(colors.get(<span class="string">"FgCyan"</span>), <span class="string">`<span class="subst">$&#123;path&#125;</span> 已替换图片`</span>);</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><p>config.js中你可以更改配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = &#123;</div><div class="line">    pathroot: <span class="string">'./dist/'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在此处，<code>pathroot</code>配置的是项目相对<code>imageAutoFixed.js</code>的相对路径，例如项目<code>b</code>就是<code>./dist/b</code></p>
+<h2 id="u7ED3_u8BED"><a href="#u7ED3_u8BED" class="headerlink" title="结语"></a>结语</h2><p>实现其实很简单，并没有什么复杂点，只不过是相关api的调用加一些逻辑判断，之前我也提到了：根据<code>img</code>标签引入图片，引发优化图片资源的思考，从而上升到图片的加载模式，需求资源变多，人工操作复杂我们再去想办法优化，这种思路我觉得才是真正值得学习的。学无止境，希望能多培养自己的这种思想。</p>
+<p><a href="https://github.com/daceYu/imageAutoprefixer" target="_blank" rel="noopener">点击查看源码</a>，如有错误或者你有什么好的思路，可以邮件我(daceyu@aliyun.com)一起探讨。</p>
+<p><strong>转载请注明出处</strong>，另外感谢你的阅读，谢谢！</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/config/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -225,229 +283,119 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://daceyu.com/2018/01/14/imageAutoFixer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/11/imageHandle/" class="archive-article-date">
-  	<time datetime="2018-01-11T13:15:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/11/imageHandle/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈图片加载（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/11/imageHandle/">浅谈图片加载（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u529F_u80FD"><span class="toc-number">1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4F9D_u8D56"><span class="toc-number">2.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EA6_u5B9A"><span class="toc-number">4.</span> <span class="toc-text">约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B9E_u73B0"><span class="toc-number">5.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2x_u8F6Cwebp"><span class="toc-number">5.0.1.</span> <span class="toc-text">2x转webp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2x_u8F6C1x"><span class="toc-number">5.0.2.</span> <span class="toc-text">2x转1x</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2x_u8F6Cjpg_u7136_u540E_u8F6C_u6210base64"><span class="toc-number">5.0.3.</span> <span class="toc-text">2x转jpg然后转成base64</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u4ED6"><span class="toc-number">6.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7ED3_u8BED"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/02/前端模块及依赖管理/" class="archive-article-date">
-  	<time datetime="2016-12-02T10:20:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/02/前端模块及依赖管理/">前端模块及依赖管理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/01/iscroll.js回弹bug/" class="archive-article-date">
-  	<time datetime="2016-09-01T02:24:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/01/iscroll.js回弹bug/">解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/regular-expression/" class="archive-article-date">
-  	<time datetime="2016-06-02T09:11:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/regular-expression/">有关一些正则表达式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/08/同步请求异步请求/" class="archive-article-date">
-  	<time datetime="2015-10-08T04:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/08/同步请求异步请求/">认识同步与异步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -470,9 +418,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

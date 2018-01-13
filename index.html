@@ -186,6 +186,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-imageAutoFixer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/14/imageAutoFixer/">浅谈图片处理（二）之自动化图片处理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/14/imageAutoFixer/" class="archive-article-date">
+  	<time datetime="2018-01-13T16:20:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一篇讲了图片加载的一些处理。但是开发的时候需要准备四套资源，分别是<code>模糊图（base64格式）</code>、<code>1x</code>图、<code>2x</code>图、<code>webp</code>格式图，这个准备工作非常机械、重复，这里我们谈谈图片的自动化处理，减少工作量。</p>
+<h2 id="u529F_u80FD"><a href="#u529F_u80FD" class="headerlink" title="功能"></a>功能</h2><p>我们需要有哪些功能呢？首先，根据自己的UI，我们肯定需要手动切出一张图（自己切的图自己用最舒畅不过了），这张图根据UI的原始尺寸切好，作为<code>2x图</code>。然后，我们需要根据这张图生成<code>模糊图（base64）</code>、<code>1x图</code>、<code>webp</code>格式的图片，最好是自动将<code>base64</code>字符串放到我们需要的地方。<br>
+        
+          <a class="article-more-a" href="/2018/01/14/imageAutoFixer/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/14/imageAutoFixer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-imageHandle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -701,85 +778,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/11/node+express/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mongoDB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/10/mongoDB/">MongoDB学习笔记之Mongoose的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2016/06/10/mongoDB/" class="archive-article-date">
-  	<time datetime="2016-06-10T08:52:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="MongoDB_u7684_u4ECB_u7ECD"><a href="#MongoDB_u7684_u4ECB_u7ECD" class="headerlink" title="MongoDB的介绍"></a>MongoDB的介绍</h3><p>在说MongoDB数据插入操作之前，我们先来简单了解下它的数据逻辑结构。<br>MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database)这三部分组成的。</p>
-<ul>
-<li>文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系数据库中的一行记录。</li>
-<li>集合（Collection）：多个文档组成一个集合（collection），相当于关系数据库的表。
-        
-          <a class="article-more-a" href="/2016/06/10/mongoDB/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/10/mongoDB/">展开全文 >></a>
         </p>
       
 
