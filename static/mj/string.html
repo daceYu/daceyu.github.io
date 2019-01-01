@@ -93,14 +93,14 @@ str.replace(/2/g, '$1$1');   // "R22-D22"</code></pre>
 值是个负数，那么开始位置实际上等于<code>length + start</code>，同样的，
 如果<code>end</code>的值是负数，其结束位置等于<code>length + end</code>
 </p>
-<pre><code>let str = "hello, I am daceyu";
+<pre><code>let str = "hello, I am xingzhiFun";
 str.slice(2,8);     // output =&gt; "llo, I"
 str.slice(2,-2);    // output =&gt; "llo, I am dace"</code></pre>
 <h5>substring(start, end)</h5>
 <p>该方法与<code>slice()</code>基本相同，如果<code>start</code>或<code>end</code>为负值、无效值时，会被视为<code>0</code>处理
 ，如果它们的值大于<code>length</code>，则会被视为<code>length</code>，如果<code>start</code>的值大于<code>end</code>，则它们会自动交换彼此的值。
 </p>
-<pre><code>let str = "hello, I am daceyu";
+<pre><code>let str = "hello, I am xingzhiFun";
 str.substring(2,8);     // output =&gt; "llo, I"
 str.substring(8,2);     // output =&gt; "llo, I"</code></pre>
 <h5>split(separator, limit)</h5>

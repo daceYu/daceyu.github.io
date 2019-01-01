@@ -1,6 +1,6 @@
 /*
- * Author: daceyu
- * link: http://daceyu.com
+ * Author: xingzhiFun
+ * link: http://xingzhiFun.com
  * @FUNCTION: 加载更多
  * 可以传的参数默认有：size,scroll 可以自定义
  * */
